@@ -93,9 +93,7 @@ authRouter.get("/all_users", [requireUser, requireAdmin], async (req, res, next)
         delete users.password;
         res.send(users);
     } catch (error) {
-        next (error){
-            next(error);
-        }
+        next (error)
     }
 })
 module.exports = authRouter;
