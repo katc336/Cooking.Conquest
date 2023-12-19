@@ -58,11 +58,27 @@ authRouter.post("/login", async (req, res, next) => {
             return res.status(401).send("Incorrect password");
         }
         const token = jwt.sign({ id: user.id}, process.env.JWT_SECRET);
+        delete user.password
+        delete user.hashedPassword
         res.send({ token });
         console.log("Successful login!")
     } catch (error) {
         next(error)
     }
 });
-
+//<--------------------------------GET USER ACCOUNT-------------------------------->
+//GET /auth/my_account
+authRouter.get("/my_account", requireUser, async (req, res, next) => {
+    try{
+        const user = await prisma.user.findUnique({
+            where: {
+                id: req.user.id
+            }
+        });
+        delete user.password
+        res.send(user);
+    } catch (error){
+        next(error)
+    }
+})
 module.exports = authRouter;
