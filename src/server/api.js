@@ -18,7 +18,19 @@ apiRouter.get("/recipes", async (req, res, next) => {
     }
 })
 //<-----------------GET SINGLE RECIPE----------------->
-
+//GET /api/recipe/:id
+apiRouter.get("/recipe/:id", async (req, res, next) => {
+try{
+    const recipe = await prisma.recipe.findUnique({
+        where: {
+            id: Number(req.params.id)
+        }
+    });
+    res.send(recipe);
+} catch (error){
+    next(error);
+}
+})
 //<-----------------GET ALL LEVELS----------------->
 
 //<-----------------GET SINGLE LEVELS----------------->
