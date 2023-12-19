@@ -35,6 +35,34 @@ authRouter.post("/register", async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-})
+});
+
+//<--------------------------------LOGIN USERS-------------------------------->
+//POST /auth/login
+authRouter.post("/login", async (req, res, next) => {
+    try {
+        const { username, password } = req.body
+        const user = await prisma.user.findUnique({
+            where: {
+                username: username
+            },
+        });
+        const correctPassword = await bcrypt.compare(
+            password,
+            user?.password ?? ""
+        );
+        //Check user and password 
+        if(!user) {
+            return res.status(401).send("There is no user with that username")
+        } else if (!correctPassword){
+            return res.status(401).send("Incorrect password");
+        }
+        const token = jwt.sign({ id: user.id}, process.env.JWT_SECRET);
+        res.send({ token });
+        console.log("Successful login!")
+    } catch (error) {
+        next(error)
+    }
+});
 
 module.exports = authRouter;
