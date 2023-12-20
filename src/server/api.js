@@ -56,7 +56,21 @@ apiRouter.get("/level/:id", async (req, res, next) => {
     }
 })
 //<-----------------GET RECIPES BY LEVEL----------------->
-
+//GET /api/recipes/level/:id
+apiRouter.get("/recipes/:levelId", async (req, res, next) => {
+    try {
+    
+        const recipes = await prisma.recipe.findMany({
+            where: {
+                levelId: Number(req.params.levelId)
+            },
+            include: { level: true }
+        });
+        res.send(recipes);
+    } catch (error) {
+        next(error);
+    }
+})
 //<-----------------ADD RECIPE TO USER ACCOUNT----------------->
 
 //<-----------------GET ALL USER'S RECIPES----------------->
