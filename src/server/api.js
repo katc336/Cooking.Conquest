@@ -56,10 +56,50 @@ apiRouter.get("/level/:id", async (req, res, next) => {
     }
 })
 //<-----------------GET RECIPES BY LEVEL----------------->
+//GET /api/recipes/level/:id
+apiRouter.get("/recipes/:levelId", async (req, res, next) => {
+    try {
 
+        const recipes = await prisma.recipe.findMany({
+            where: {
+                levelId: Number(req.params.levelId)
+            },
+            include: { level: true }
+        });
+        res.send(recipes);
+    } catch (error) {
+        next(error);
+    }
+})
 //<-----------------ADD RECIPE TO USER ACCOUNT----------------->
+apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
+    const recipeId = req.body.recipeId
+    try {
+        const newRecipe = await prisma.recipeBookItem.create({
+            data: {
+                user: { connect: { id: req.user.id } },
+                recipe: { connect: { id: recipeId } }
+            }
+        });
+        res.status(200).json({ newRecipe, message: 'Recipe added!' });
 
+    } catch (error) {
+        next(error)
+    }
+});
 //<-----------------GET ALL USER'S RECIPES----------------->
+apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
+    try {
+        const recipes = await prisma.recipeBookItem.findMany({
+            where: { userId: req.user.id },
+            include: { user: true }
+        })
+        //TO DO: SECURITY ISSUE SENDING PASSWORD TO FRONTEND
+        res.send(recipes)
+    } catch (error) {
+        next(error);
+    }
+});
 
 //<-----------------GET SINGLE USER'S RECIPE----------------->
 
