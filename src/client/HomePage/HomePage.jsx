@@ -20,11 +20,11 @@ const HomePage = () => {
                 <div>
                     <Grid container>
                         <Grid item xs={6}>
-                            <Box>
+                            <Box sx={{ mt: 5 }}>
                                 <img
                                     src={characterImg}
                                     alt="Cooking Conquest Chef"
-                                    width="700px" />
+                                    width="900px" />
                             </Box>
                         </Grid>
                         <Grid item xs={6}>

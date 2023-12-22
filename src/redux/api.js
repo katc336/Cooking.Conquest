@@ -47,7 +47,23 @@ const api = createApi({
             }),
             providesTags: ["Users"]
         }),
-     
+      //<------------RECIPES------------>
+        //GET ALL RECIPES
+        getAllRecipes: builder.query({
+            query: () => ({
+                url: `/api/recipes`,
+                method: 'GET',
+            }),
+            providesTags: ["Recipes"]
+        }),
+          //GET SINGLE RECIPE
+          getSingleRecipe: builder.query({
+            query: (id) => ({
+                url: `/api//recipe/${id}`,
+                method: 'GET',
+            }),
+            providesTags: ["Recipes"]
+        }),
       
        
     }),
@@ -58,7 +74,9 @@ export const {
     //AUTHORIZATION
     useRegisterMutation,
     useLoginMutation,
-    useLogoutMutation,
     //GET USER'S INFO
     useGetUserQuery,
+    //GET RECIPE INFOR
+    useGetAllRecipesQuery,
+    useGetSingleRecipeQuery
 } = api
