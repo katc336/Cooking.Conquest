@@ -59,7 +59,7 @@ apiRouter.get("/level/:id", async (req, res, next) => {
 //GET /api/recipes/level/:id
 apiRouter.get("/recipes/:levelId", async (req, res, next) => {
     try {
-    
+
         const recipes = await prisma.recipe.findMany({
             where: {
                 levelId: Number(req.params.levelId)
@@ -72,7 +72,21 @@ apiRouter.get("/recipes/:levelId", async (req, res, next) => {
     }
 })
 //<-----------------ADD RECIPE TO USER ACCOUNT----------------->
+apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
+    const recipeId = req.body.recipeId
+    try {
+        const newRecipe = await prisma.recipeBookItem.create({
+            data: {
+                user: { connect: { id: req.user.id } },
+                recipe: { connect: { id: recipeId } }
+            }
+        });
+        res.status(200).json({ newRecipe, message: 'Recipe added!' });
 
+    } catch (error) {
+        next(error)
+    }
+});
 //<-----------------GET ALL USER'S RECIPES----------------->
 
 //<-----------------GET SINGLE USER'S RECIPE----------------->
