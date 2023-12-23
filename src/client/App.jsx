@@ -8,6 +8,7 @@ import LoginForm from "./AuthForms/LoginForm";
 import RegisterForm from "./AuthForms/RegisterForm";
 import MapAllRecipes from "./SeeRecipes/MapAllRecipes";
 import SingleRecipe from "./SeeRecipes/SingleRecipe";
+import UserDashboard from "./Dashboards/UserDashboard";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginForm/>} />
           <Route path="/register" element={<RegisterForm/>} />
-          <Route path="/account" element={<HomePage/>} />
+          <Route path="/account" element={<UserDashboard/>} />
           <Route path="/recipes" element={<MapAllRecipes/>} />
           <Route path="/recipe/:id" element={<SingleRecipe/>} />
         </Routes>
