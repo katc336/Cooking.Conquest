@@ -24,19 +24,19 @@ const HomePage = () => {
                                 <img
                                     src={characterImg}
                                     alt="Cooking Conquest Chef"
-                                    width="900px" />
+                                    width="950px" />
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
                             <Box sx={{ mt: 40, mx: 10 }}>
                                 <Typography
-                                    variant="h5"
-                                    sx={{ fontFamily: "Tahoma" }}>
+                                    variant="h3"
+                                    sx={{ color: "#445D48", fontFamily: "Tahoma", mb: 2 }}>
                                     The free, fun way to level up your cooking skills!
                                 </Typography>
                                 <Typography
-                                    variant="h6"
-                                    sx={{ fontFamily: "Tahoma" }}>
+                                    variant="h5"
+                                    sx={{ color: "#445D48", fontFamily: "Tahoma", mb: 2  }}>
                                     Put on your apron, and get ready to conquer cooking!
                                 </Typography>
                                 <Stack direction="column">

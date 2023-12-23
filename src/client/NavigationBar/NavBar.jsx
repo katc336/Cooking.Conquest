@@ -24,7 +24,7 @@ const NavBar = () => {
                 ://if NOT mobile...
                 <Stack direction="row">
                     IMG
-                    <Typography variant="h3" sx={{ fontFamily: "Tahoma", flexGrow: 1 }}>
+                    <Typography variant="h3" sx={{ color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
                         Cooking Conquest
                     </Typography>
                     <Stack direction="row">
