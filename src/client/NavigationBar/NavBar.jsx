@@ -12,10 +12,18 @@ import { motion } from 'framer-motion';
 import MobileNavBar from './MobileNavBar';
 import MenuIcon from './MenuIcon';
 
+import { useGetUserQuery } from "../../redux/api";
+
 const NavBar = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+    const { data, error, isLoading } = useGetUserQuery();
+    if (data) {
+        console.log(data)
+    }
+    if (error) {
+        console.log(error)
+    }
     return (
         <>
             {isMobile
@@ -24,7 +32,7 @@ const NavBar = () => {
                 ://if NOT mobile...
                 <Stack direction="row">
                     IMG
-                    <Typography variant="h3" sx={{ color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
+                    <Typography variant="h1" sx={{ fontSize: "30px", color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
                         Cooking Conquest
                     </Typography>
                     <Stack direction="row">
@@ -37,7 +45,7 @@ const NavBar = () => {
                                         fontFamily: "Tahoma",
                                         textTransform: "none"
                                     }}>
-                                    <HomeIcon/>
+                                    <HomeIcon />
                                     Home
                                 </Button>
                             </motion.div>
@@ -55,7 +63,31 @@ const NavBar = () => {
                                 </Button>
                             </motion.div>
                         </Link>
-                        <MenuIcon />
+                        {data
+                            ?
+                            <div>
+                                <MenuIcon />
+                            </div> :
+                            <div>
+                                <Link to="/register">
+                                    <motion.div whileHover={{ scale: 1.2 }}>
+                                        <Button
+                                            sx={{
+                                                mr: 3,
+                                                color: "#C07F00",
+                                                borderRadius: "10px",
+                                                backgroundColor: "#FFF47D",
+                                                border: 2,
+                                                borderBottom: 5,
+                                                borderColor: "#FED049",
+                                                textTransform: "none"
+                                            }}>
+                                            Get Started!
+                                        </Button>
+                                    </motion.div>
+                                </Link>
+                            </div>
+                        }
                     </Stack>
                 </Stack>
             }

@@ -10,13 +10,13 @@ const MapAllRecipes = () => {
         console.log("Loading...")
     }
     if (data) {
-        console.log("Data")
+        console.log(data)
     }
     return (
         <>
             <Typography
-                variant="h3"
-                sx={{ textAlign: "center" }}>
+                variant="h2"
+                sx={{ color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", textAlign: "center", my: 3 }}>
                 All Recipes
             </Typography>
             <div>
@@ -47,9 +47,6 @@ const MapAllRecipes = () => {
                                             {recipes.description}
                                         </Typography>
                                     </Box>
-                                    <Typography sx={{ color: "#445D48" }}>
-                                        {recipes.level}
-                                    </Typography>
                                     <Typography sx={{ textAlign: "center" }}>
                                         <Link to={`/recipe/${recipes.id}`}>
                                             <Button

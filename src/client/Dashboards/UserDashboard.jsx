@@ -15,16 +15,18 @@ const UserDashboard = () => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+    if (data) {
+        console.log(data);
+    }
     if (error) {
         return <>{error}</>
     }
-    console.log(data)
+
     return (
         <>
-           <Typography>
-            Hello {data.username}
-           </Typography>
+            <Typography>
+                {/* Hello {data.name} */}
+            </Typography>
         </>
     )
 }

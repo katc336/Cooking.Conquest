@@ -42,7 +42,7 @@ const api = createApi({
         //GET USER
         getUser: builder.query({
             query: () => ({
-                url: `/auth/my_account`,
+                url: `/auth/account`,
                 method: 'GET',
             }),
             providesTags: ["Users"]
