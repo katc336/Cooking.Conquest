@@ -4,6 +4,7 @@ import { useGetAllRecipesQuery } from "../../redux/api"
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const MapAllRecipes = () => {
     const { data, error, isLoading } = useGetAllRecipesQuery();
     if (isLoading) {

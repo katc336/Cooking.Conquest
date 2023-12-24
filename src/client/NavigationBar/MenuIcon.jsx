@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { useGetUserQuery } from '../../redux/api';
+import MenuChefIcon from "./MyAccount.png"
 
 const MenuIcon = () => {
 
@@ -35,7 +36,9 @@ const MenuIcon = () => {
                         aria-expanded={open ? 'true' : undefined}
                         onClick={handleClick}
                         sx={{ color: "#445D48" }}>
-                        <AccountCircleIcon sx={{ minWidth: 70, minHeight: 35 }} />
+                        <img
+                            src={MenuChefIcon}
+                            width="40px" />
                     </Button>
                     <Menu
                         id="account-menu"
@@ -47,16 +50,16 @@ const MenuIcon = () => {
                                 to="/account"
                                 style={{ textDecoration: "none" }}>
                                 <MenuItem>
-                                    <Button sx={{ textTransform: "none", color: "#445D48"}}>
+                                    <Button sx={{ textTransform: "none", color: "#445D48" }}>
                                         My Account
                                     </Button>
                                 </MenuItem>
                             </Link>
                             <MenuItem>
-                                    <Button sx={{ textTransform: "none", color: "#445D48"}}>
-                                        Logout
-                                    </Button>
-                                </MenuItem>
+                                <Button sx={{ textTransform: "none", color: "#445D48" }}>
+                                    Logout
+                                </Button>
+                            </MenuItem>
                         </motion.div>
                     </Menu>
                 </div>
@@ -81,7 +84,7 @@ const MenuIcon = () => {
                                 to="/login"
                                 style={{ textDecoration: "none" }}>
                                 <MenuItem>
-                                    <Button sx={{ textTransform: "none",  color: "#445D48"}}>
+                                    <Button sx={{ textTransform: "none", color: "#445D48" }}>
                                         Login
                                     </Button>
                                 </MenuItem>
@@ -92,7 +95,7 @@ const MenuIcon = () => {
                                 to="/register"
                                 style={{ textDecoration: "none" }}>
                                 <MenuItem>
-                                    <Button sx={{ textTransform: "none",  color: "#445D48"}}>
+                                    <Button sx={{ textTransform: "none", color: "#445D48" }}>
                                         Sign Up
                                     </Button>
                                 </MenuItem>

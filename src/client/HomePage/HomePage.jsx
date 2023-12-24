@@ -4,6 +4,8 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import characterImg from "./homePageCharacter.png"
+import NavBar from "../NavigationBar/NavBar";
+import Description from "./Description";
 const HomePage = () => {
 
     const theme = useTheme();
@@ -24,20 +26,15 @@ const HomePage = () => {
                                 <img
                                     src={characterImg}
                                     alt="Cooking Conquest Chef"
-                                    width="950px" />
+                                    width="850px" />
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
                             <Box sx={{ mt: 40, mx: 10 }}>
                                 <Typography
-                                    variant="h3"
+                                    variant="h4"
                                     sx={{ color: "#445D48", fontFamily: "Tahoma", mb: 2 }}>
-                                    The free, fun way to level up your cooking skills!
-                                </Typography>
-                                <Typography
-                                    variant="h5"
-                                    sx={{ color: "#445D48", fontFamily: "Tahoma", mb: 2  }}>
-                                    Put on your apron, and get ready to conquer cooking!
+                                    The free, fun way to level up and conquer your vegetarian kitchen!
                                 </Typography>
                                 <Stack direction="column">
                                     <Link to="/register">
@@ -81,8 +78,8 @@ const HomePage = () => {
                                 </Stack>
                             </Box>
                         </Grid>
-
                     </Grid>
+                   <Description/>
                 </div>}
         </div>
     )

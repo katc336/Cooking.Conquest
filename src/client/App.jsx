@@ -10,18 +10,26 @@ import MapAllRecipes from "./SeeRecipes/MapAllRecipes";
 import SingleRecipe from "./SeeRecipes/SingleRecipe";
 import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 
+import { useSelector } from "react-redux";
+import UserNavBar from "./NavigationBar/UserNavBar";
+
 function App() {
+  const token = useSelector((state) => state.auth.token);
+
+  if (token) {
+    console.log(token)
+  }
   return (
     <div>
       <BrowserRouter>
-        <NavBar />
+        {!token ? <NavBar /> : <UserNavBar/>}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginForm/>} />
-          <Route path="/register" element={<RegisterForm/>} />
-          <Route path="/account" element={<UserDashboard/>} />
-          <Route path="/recipes" element={<MapAllRecipes/>} />
-          <Route path="/recipe/:id" element={<SingleRecipe/>} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/account" element={<UserDashboard />} />
+          <Route path="/recipes" element={<MapAllRecipes />} />
+          <Route path="/recipe/:id" element={<SingleRecipe />} />
         </Routes>
       </BrowserRouter>
     </div>

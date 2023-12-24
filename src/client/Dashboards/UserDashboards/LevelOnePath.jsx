@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
-const MyPath = () => {
+const LevelOnePath = () => {
     return (
         <div>
             <Grid container sx={{ mt: 5 }}>
@@ -53,13 +53,9 @@ const MyPath = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={4}></Grid>
-
-
-
-
             </Grid>
 
         </div>
     )
 }
-export default MyPath
+export default  LevelOnePath
