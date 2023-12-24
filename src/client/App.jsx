@@ -8,7 +8,7 @@ import LoginForm from "./AuthForms/LoginForm";
 import RegisterForm from "./AuthForms/RegisterForm";
 import MapAllRecipes from "./SeeRecipes/MapAllRecipes";
 import SingleRecipe from "./SeeRecipes/SingleRecipe";
-import UserDashboard from "./Dashboards/UserDashboard";
+import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 
 function App() {
   return (

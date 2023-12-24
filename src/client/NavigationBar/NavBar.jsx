@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -11,6 +12,7 @@ import { motion } from 'framer-motion';
 
 import MobileNavBar from './MobileNavBar';
 import MenuIcon from './MenuIcon';
+import logo from "./logo.png"
 
 import { useGetUserQuery } from "../../redux/api";
 
@@ -31,7 +33,12 @@ const NavBar = () => {
                 <MobileNavBar />
                 ://if NOT mobile...
                 <Stack direction="row">
-                    IMG
+                    <Box sx={{ mx: 2}}>
+                        <img
+                            src={logo}
+                            alt="Logo"
+                            width="40px" />
+                    </Box>
                     <Typography variant="h1" sx={{ fontSize: "30px", color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
                         Cooking Conquest
                     </Typography>

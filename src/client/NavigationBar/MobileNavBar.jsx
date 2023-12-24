@@ -10,6 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 import { Link } from "react-router-dom";
 
+import logo from "./logo.png"
 import MenuIcon from "./MenuIcon";
 
 const MobileNavBar = () => {
@@ -19,10 +20,10 @@ const MobileNavBar = () => {
                 <AccordionSummary>
                     <MoreVertIcon />
                     <Stack direction="row">
-                        IMG
-                        <Typography variant="h6" sx={{ fontFamily: "Tahoma", flexGrow: 1 }}>
-                            Cooking Conquest
-                        </Typography>
+                        <img
+                            src={logo}
+                            alt="Logo"
+                            width="40px" />
                     </Stack>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -56,7 +57,6 @@ const MobileNavBar = () => {
                     </Link>
                 </AccordionDetails>
             </Accordion>
-            <MenuIcon />
             <Grid container>
                 <Grid item xs={10}>
                 </Grid>
