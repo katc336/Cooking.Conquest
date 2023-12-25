@@ -1,3 +1,4 @@
+import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography";
@@ -33,62 +34,64 @@ const NavBar = () => {
                 ? //if mobile...
                 <MobileNavBar />
                 ://if NOT mobile...
-                <Stack direction="row">
-                    <Box sx={{ mx: 2 }}>
-                        <Link to="/">
-                            <Tooltip title="Retun to Homepage">
-                                <img
-                                    src={logo}
-                                    alt="Logo"
-                                    width="40px" />
-                            </Tooltip>
-                        </Link>
-                    </Box>
-                    <Typography variant="h1" sx={{ fontSize: "30px", color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
-                        Cooking Conquest
-                    </Typography>
-
+                <AppBar sx={{ pt: 1, backgroundColor: "#F4F9F4" }}>
                     <Stack direction="row">
-
-                        <Link to="/recipes">
-                            <motion.div whileHover={{ scale: 1.2 }}>
-                                <Tooltip title="Find new recipe quests" arrow>
-                                    <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
-                                        <Typography sx={{ mr: 1 }}>
-                                            Find Vegetarian Recipes
-                                        </Typography>
-                                        <img src={SearchIcon} width="30px" />
-                                    </Button>
+                        <Box sx={{ mx: 2 }}>
+                            <Link to="/">
+                                <Tooltip title="Retun to Homepage">
+                                    <img
+                                        src={logo}
+                                        alt="Logo"
+                                        width="40px" />
                                 </Tooltip>
-                            </motion.div>
-                        </Link>
-                        {data
-                            ? //is NOT mobile...
-                            <div>
-                                <MenuIcon />
-                            </div> :
-                            <div>
-                                <Link to="/register">
-                                    <motion.div whileHover={{ scale: 1.2 }}>
-                                        <Button
-                                            sx={{
-                                                mx: 5,
-                                                color: "#C07F00",
-                                                borderRadius: "10px",
-                                                backgroundColor: "#FFF47D",
-                                                border: 2,
-                                                borderBottom: 5,
-                                                borderColor: "#FED049",
-                                                textTransform: "none"
-                                            }}>
-                                            Get Started!
+                            </Link>
+                        </Box>
+                        <Typography variant="h1" sx={{ fontSize: "30px", color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
+                            Cooking Conquest
+                        </Typography>
+
+                        <Stack direction="row">
+
+                            <Link to="/recipes">
+                                <motion.div whileHover={{ scale: 1.2 }}>
+                                    <Tooltip title="Find new recipe quests" arrow>
+                                        <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
+                                            <Typography sx={{ mr: 1 }}>
+                                                Find Vegetarian Recipes
+                                            </Typography>
+                                            <img src={SearchIcon} width="30px" />
                                         </Button>
-                                    </motion.div>
-                                </Link>
-                            </div>
-                        }
+                                    </Tooltip>
+                                </motion.div>
+                            </Link>
+                            {data
+                                ? //is NOT mobile...
+                                <div>
+                                    <MenuIcon />
+                                </div> :
+                                <div>
+                                    <Link to="/register">
+                                        <motion.div whileHover={{ scale: 1.2 }}>
+                                            <Button
+                                                sx={{
+                                                    mx: 5,
+                                                    color: "#C07F00",
+                                                    borderRadius: "10px",
+                                                    backgroundColor: "#FFF47D",
+                                                    border: 2,
+                                                    borderBottom: 5,
+                                                    borderColor: "#FED049",
+                                                    textTransform: "none"
+                                                }}>
+                                                Get Started!
+                                            </Button>
+                                        </motion.div>
+                                    </Link>
+                                </div>
+                            }
+                        </Stack>
                     </Stack>
-                </Stack>
+                </AppBar>
             }
         </>
     )

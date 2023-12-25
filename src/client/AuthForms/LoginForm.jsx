@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import Alert from "@mui/material/Alert"
 import Button from "@mui/material/Button"
-import Box from "@mui/material/Box"
+import { Box}  from "@mui/material/"
 import Grid from "@mui/material/Grid"
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";

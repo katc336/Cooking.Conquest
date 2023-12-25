@@ -1,4 +1,5 @@
-import Box from "@mui/material/Box";
+import AppBar from '@mui/material/AppBar';
+import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack"
 import Tooltip from "@mui/material/Tooltip"
@@ -12,28 +13,30 @@ import MyAccount from "./MyAccount.png"
 const UserNavBar = () => {
     return (
         <div>
-            <Box sx={{ ml: "70%", borderRight: 3, borderColor: "#F2F4D1" }}>
-                <Stack direction="row">
-                    <Link to="/recipes">
-                        <Tooltip title="Find new recipe quests" arrow>
-                            <Button sx={{ m: 3, textTransform: "none", color: "green" }}>
-                                <img src={SearchIcon} width="50px" />
+            <Box>
+                <AppBar dir="rtl" sx={{ backgroundColor: "#F4F9F4" }}>
+                    <Stack direction="row">
+                        <Link to="/account">
+                            <Tooltip title="My Account" arrow>
+                                <Button sx={{ mr: 5 }}>
+                                    <img src={MyAccount} width="45px" />
+                                </Button>
+                            </Tooltip>
+                        </Link>
+                        <Tooltip title="My Recipes" arrow>
+                            <Button sx={{ mr: 5 }}>
+                                <img src={MyRecipes} width="40px" />
                             </Button>
                         </Tooltip>
-                    </Link>
-                    <Tooltip title="My Recipes" arrow>
-                        <Button sx={{ m: 3, textTransform: "none", color: "green", }}>
-                            <img src={MyRecipes} width="40px" />
-                        </Button>
-                    </Tooltip>
-                    <Link to="/account">
-                        <Tooltip title="My Account" arrow>
-                            <Button sx={{ m: 3, textTransform: "none", color: "green" }}>
-                                <img src={MyAccount} width="40px" />
-                            </Button>
-                        </Tooltip>
-                    </Link>
-                </Stack>
+                        <Link to="/recipes">
+                            <Tooltip title="Find new recipe quests" arrow>
+                                <Button sx={{ mr: 5 }}>
+                                    <img src={SearchIcon} width="50px" />
+                                </Button>
+                            </Tooltip>
+                        </Link>
+                    </Stack>
+                </AppBar>
             </Box>
         </div>
     )
