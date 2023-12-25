@@ -46,7 +46,7 @@ const NavBar = () => {
                                 </Tooltip>
                             </Link>
                         </Box>
-                        <Typography variant="h1" sx={{ fontSize: "30px", color: "#445D48", fontStretch: "expanded", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
+                        <Typography variant="h1" sx={{ fontSize: "30px", color: "#445D48", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
                             Cooking Conquest
                         </Typography>
 

@@ -6,7 +6,7 @@ import HomePage from "./HomePage/HomePage";
 import NavBar from "./NavigationBar/NavBar";
 import LoginForm from "./AuthForms/LoginForm";
 import RegisterForm from "./AuthForms/RegisterForm";
-import MapAllRecipes from "./SeeRecipes/MapAllRecipes";
+import RecipesPage from "./SeeRecipes/RecipesPage";
 import SingleRecipe from "./SeeRecipes/SingleRecipe";
 import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 
@@ -28,7 +28,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/account" element={<UserDashboard />} />
-          <Route path="/recipes" element={<MapAllRecipes />} />
+          <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/recipe/:id" element={<SingleRecipe />} />
         </Routes>
       </BrowserRouter>

@@ -64,7 +64,30 @@ const api = createApi({
             }),
             providesTags: ["Recipes"]
         }),
-      
+        //GET LEVEL ONE RECIPES
+        getLevelOneRecipes: builder.query({
+            query: () => ({
+                url: `/api/recipes-level-one`,
+                method: 'GET',
+            }),
+            providesTags: ["Recipes"]
+        }),
+        //GET LEVEL TWO RECIPES
+        getLevelTwoRecipes: builder.query({
+            query: () => ({
+                url: `/api/recipes-level-two`,
+                method: 'GET',
+            }),
+            providesTags: ["Recipes"]
+        }),
+        //GET LEVEL THREE RECIPES
+        getLevelThreeRecipes: builder.query({
+            query: () => ({
+                url: `/api"/recipes-level-three"`,
+                method: 'GET',
+            }),
+            providesTags: ["Recipes"]
+        }),
        
     }),
 })
@@ -76,7 +99,10 @@ export const {
     useLoginMutation,
     //GET USER'S INFO
     useGetUserQuery,
-    //GET RECIPE INFOR
+    //GET RECIPE INFO
     useGetAllRecipesQuery,
-    useGetSingleRecipeQuery
+    useGetSingleRecipeQuery,
+    useGetLevelOneRecipesQuery,
+    useGetLevelTwoRecipesQuery,
+    useGetLevelThreeRecipesQuery
 } = api
