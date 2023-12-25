@@ -2,10 +2,10 @@ import { Box, Card, Typography, Stack, Tooltip } from "@mui/material"
 
 import { Link } from "react-router-dom"
 
-import { useGetLevelOneRecipesQuery } from "../../redux/api"
+import { useGetLevelTwoRecipesQuery } from "../../redux/api";
 
-const LevelOneRecipes = () => {
-    const { data, error, isLoading } = useGetLevelOneRecipesQuery();
+const LevelTwoRecipes = () => {
+    const { data, error, isLoading } = useGetLevelTwoRecipesQuery();
     if (data) {
         console.log(data)
     }
@@ -16,7 +16,7 @@ const LevelOneRecipes = () => {
         <div>
             <Box sx={{ mx: "10%" }}>
                 <Typography variant="h4" sx={{ color: "#445D48", fontFamily: "Marker Felt, fantasy", textAlign: "center", my: 3 }}>
-                    Level One Recipes
+                    Level Two Recipes
                 </Typography>
                 <Stack direction="row">
                     {data && data.map((recipes) => (
@@ -51,4 +51,4 @@ const LevelOneRecipes = () => {
         </div>
     )
 }
-export default LevelOneRecipes
+export default LevelTwoRecipes

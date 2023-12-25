@@ -20,7 +20,7 @@ const HomePage = () => {
                 </div>
                 :
                 <div>
-                    <Grid container>
+                    <Grid container sx={{ mt: 10 }}>
                         <Grid item xs={6}>
                             <Box sx={{ mt: 5 }}>
                                 <img
