@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import { useGetUserQuery } from "../../redux/api";
 
-import LevelScroll from "./LevelScroll.png"
 import LevelOneRecipes from "./LevelOneRecipes";
 import LevelTwoRecipes from "./LevelTwoRecipes";
 import LevelThreeRecipes from "./LevelThreeRecipes";
@@ -19,15 +18,15 @@ const RecipesPage = () => {
     }
     return (
         <div>
-            <Box
+            {/* <Box
                 sx={{ minHeight: "900px", pt: "12%", mt: 15 }}
                 style={{
-                    backgroundImage: `url(${LevelScroll})`,
+                    backgroundImage: `url(${ })`,
                     width: "100vw",
                     height: "100vh",
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
-                }}>
+                }}> */}
                 {!data
                     ? //if no user...
                     <div> 
@@ -61,7 +60,7 @@ const RecipesPage = () => {
                         <LevelTwoRecipes />
                         <LevelThreeRecipes />
                     </div>}
-            </Box>
+            {/* </Box> */}
         </div>
     )
 }

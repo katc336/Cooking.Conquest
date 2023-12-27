@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 
 import { useGetLevelTwoRecipesQuery } from "../../redux/api";
 
+import LockedRecipe from "./LockedRecipe"
+
 const LevelTwoRecipes = () => {
     const { data, error, isLoading } = useGetLevelTwoRecipesQuery();
     if (data) {
@@ -14,40 +16,7 @@ const LevelTwoRecipes = () => {
     }
     return (
         <div>
-            <Box sx={{ mx: "10%" }}>
-                <Typography variant="h4" sx={{ color: "#445D48", fontFamily: "Marker Felt, fantasy", textAlign: "center", my: 3 }}>
-                    Level Two Recipes
-                </Typography>
-                <Stack direction="row">
-                    {data && data.map((recipes) => (
-                        <Link to={`/recipe/${recipes.id}`} style={{ textDecoration: 'none' }}>
-                            <Tooltip title="Click to see full recipe">
-                                <Card
-                                    key={recipes.id}
-                                    sx={{
-                                        width: "180px",
-                                        height: "40px",
-                                        m: 1, p: 2,
-                                        backgroundColor: "#FFF47D", 
-                                        border: 1, 
-                                        borderBottom: 10, 
-                                        borderRadius: "100%", 
-                                        borderColor: "#FED049"
-                                    }}>
-                                    <Stack direction="column">
-                                        <Typography sx={{ textAlign: "center", color: "#445D48" }}>
-                                            {recipes.name}
-                                        </Typography>
-                                        <Typography sx={{ textAlign: "center" }}>
-                                        </Typography>
-                                    </Stack>
-                                </Card>
-                            </Tooltip>
-                        </Link>
-                    ))
-                    }
-                </Stack>
-            </Box>
+        <LockedRecipe/>
         </div>
     )
 }
