@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useGetLevelOneRecipesQuery } from "../../redux/api"
 
 import Coin from "./Coin.png"
-
+import LevelOneCard from "./LevelOneCard.png"
 const LevelOneRecipes = () => {
     const { data, error, isLoading } = useGetLevelOneRecipesQuery();
     if (data) {
@@ -16,26 +16,31 @@ const LevelOneRecipes = () => {
     }
     return (
         <div>
-            <Box sx={{ mt: 10, p: 3, border: 5, backgroundColor: "#FBF6EE", borderColor: "#AFC8AD", borderRadius: "10px", mx: "5%" }}>
-                <Typography variant="h4" sx={{ color: "#445D48", textAlign: "center", my: 3 }}>
+            <Box
+                sx={{ mx: "6%", mt: 10, p: 5 }}
+                style={{
+                    backgroundImage: `url(${LevelOneCard})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                }}>
+                <Typography variant="h3" sx={{ color: "#445D48", textAlign: "center", mb: 5 }}>
                     Level One Recipes
                 </Typography>
                 <Stack direction="row">
                     {data && data.map((recipes) => (
                         <Link to={`/recipe/${recipes.id}`} style={{ textDecoration: 'none' }}>
                             <Tooltip title="Click to see full recipe">
-
                                 <Box
-                                    sx={{ ml: 1 }}
+                                    sx={{ ml: "10%", mb: 15 }}
                                     style={{
-                                        backgroundImage: `url(${Coin})`, 
-                                        width: "200px",
-                                        height: "200px",
+                                        backgroundImage: `url(${Coin})`,
+                                        width: "160px",
+                                        height: "160px",
                                         backgroundSize: "contain",
                                         backgroundRepeat: "no-repeat",
                                     }}>
                                     <Stack direction="column">
-                                        <Typography sx={{ mt: "40%", mx: "20%", fontWeight: "bold", textAlign: "center", color: "#935900" }}>
+                                        <Typography sx={{ mt: "30%", mx: "20%", fontWeight: "bold", textAlign: "center", color: "#935900" }}>
                                             {recipes.name}
                                         </Typography>
                                         <Typography sx={{ textAlign: "center" }}>
