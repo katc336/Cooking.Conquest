@@ -33,7 +33,7 @@ const HomePage = () => {
                             <Box sx={{ mt: 40, mx: 10 }}>
                                 <Typography
                                     variant="h4"
-                                    sx={{ color: "#445D48", fontFamily: "Tahoma", mb: 2 }}>
+                                    sx={{ color: "#445D48", mb: 2 }}>
                                     The free, fun way to level up and conquer your vegetarian kitchen!
                                 </Typography>
                                 <Stack direction="column">

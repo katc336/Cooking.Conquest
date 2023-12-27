@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useGetLevelOneRecipesQuery } from "../../redux/api"
 
 import Coin from "./Coin.png"
-import LevelOneCard from "./LevelOneCard.png"
+import LevelCard from "./LevelCard.png"
 const LevelOneRecipes = () => {
     const { data, error, isLoading } = useGetLevelOneRecipesQuery();
     if (data) {
@@ -16,22 +16,18 @@ const LevelOneRecipes = () => {
     }
     return (
         <div>
-            <Box
-                sx={{ mx: "6%", mt: 10, p: 5 }}
-                style={{
-                    backgroundImage: `url(${LevelOneCard})`,
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                }}>
-                <Typography variant="h3" sx={{ color: "#445D48", textAlign: "center", mb: 5 }}>
-                    Level One Recipes
+            <Box sx={{ ml: 3, border: 5, borderRight: 7,  borderBottom: 7, backgroundColor: "transparent", borderColor: "#CBB279", borderRadius: "10px" }}>
+                <Typography
+                    variant="h5"
+                    sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                    Level One:
                 </Typography>
-                <Stack direction="row">
+                <Stack direction="row" useFlexGap flexWrap="wrap">
                     {data && data.map((recipes) => (
                         <Link to={`/recipe/${recipes.id}`} style={{ textDecoration: 'none' }}>
                             <Tooltip title="Click to see full recipe">
                                 <Box
-                                    sx={{ ml: "10%", mb: 15 }}
+                                sx={{ m: 1 }}
                                     style={{
                                         backgroundImage: `url(${Coin})`,
                                         width: "160px",
