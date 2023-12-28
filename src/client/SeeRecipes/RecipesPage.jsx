@@ -10,7 +10,6 @@ import LevelThreeRecipes from "./LevelThreeRecipes";
 
 import LevelCard from "./LevelCard.png"
 import Scroll from "./Scroll.png"
-import LockedRecipeIcon from "./LockedRecipeIcon.png"
 import NoUserRecipeView from "./NoUserRecipeView";
 
 const RecipesPage = () => {
@@ -50,10 +49,10 @@ const RecipesPage = () => {
                         </div>}
                 </Box>
                 <Box
-                    sx={{ mt: 10 }}
+                    sx={{ mt: 10, ml: 15 }}
                     style={{
                         backgroundImage: `url(${LevelCard})`,
-                        width: "60%",
+                        width: "35%",
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                     }}>

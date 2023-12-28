@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 
 import { useGetLevelOneRecipesQuery } from "../../redux/api"
 
-import Coin from "./Coin.png"
-import LevelCard from "./LevelCard.png"
+import RecipeCircle from "./RecipeCircle.png"
+
 const LevelOneRecipes = () => {
     const { data, error, isLoading } = useGetLevelOneRecipesQuery();
     if (data) {
@@ -25,11 +25,11 @@ const LevelOneRecipes = () => {
                 <Stack direction="row" useFlexGap flexWrap="wrap">
                     {data && data.map((recipes) => (
                         <Link to={`/recipe/${recipes.id}`} style={{ textDecoration: 'none' }}>
-                            <Tooltip title="Click to see full recipe">
+                            <Tooltip title="Click to see recipe details">
                                 <Box
                                 sx={{ m: 1 }}
                                     style={{
-                                        backgroundImage: `url(${Coin})`,
+                                        backgroundImage: `url(${RecipeCircle})`,
                                         width: "160px",
                                         height: "160px",
                                         backgroundSize: "contain",
