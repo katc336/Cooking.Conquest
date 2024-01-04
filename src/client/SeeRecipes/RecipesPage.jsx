@@ -1,19 +1,28 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { useState } from "react";
+import { Box, Button, Grid, Stack, Tooltip, Typography } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
-import { useGetUserQuery } from "../../redux/api";
+import { useGetUserQuery, useGetAllRecipesQuery } from "../../redux/api";
 
+import LevelCard from "./LevelCard.png"
+import Scroll from "./Scroll.png"
+import RecipeCard from "./RecipeCardBackground.png"
+import RecipeCircle from "./RecipeCircle.png"
+import NoUserRecipeView from "./NoUserRecipeView";
 import LevelOneRecipes from "./LevelOneRecipes";
 import LevelTwoRecipes from "./LevelTwoRecipes";
 import LevelThreeRecipes from "./LevelThreeRecipes";
 
-import LevelCard from "./LevelCard.png"
-import Scroll from "./Scroll.png"
-import NoUserRecipeView from "./NoUserRecipeView";
-
 const RecipesPage = () => {
+    const [viewRecipe, setViewRecipe] = useState(null);
     const { data, error, isLoading } = useGetUserQuery();
+    const { data: recipeData, error: recipeError, isLoading: recipeIsLoading } = useGetAllRecipesQuery();
+
+    const handleRecipeClick = (id) => {
+        setSelectedRecipeId(id);
+    };
+
     if (data) {
         console.log(data)
     }
@@ -25,43 +34,65 @@ const RecipesPage = () => {
 
             <Stack direction="row">
                 <Box
-                    sx={{ mt: 10, p: 5, pb: 100 }}
+                    sx={{ mx: 5, mt: 7, pt: 2, pb: 50 }}
                     style={{
-                        width: "40%",
-                        backgroundImage: `url(${Scroll})`,
+                        backgroundImage: `url(${RecipeCard})`,
                         backgroundSize: "contain",
+                        width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
                     <Typography
-                        variant="h3"
-                        sx={{ pt: 8, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                        variant="h2"
+                        sx={{ textAlign: "center", color: "rgba(223, 233, 228, 1)", fontWeight: "bold" }}>
                         Recipe Quests:
                     </Typography>
-                    <LevelOneRecipes />
-                    {!data
+                    <Box sx={{ pt: "10%", px: 10 }}>
+                        <Stack direction="row">
+                            <Box
+                                sx={{ my: 7 }}
+                                style={{
+                                    width: "33%",
+                                    backgroundImage: `url(${Scroll})`,
+                                    backgroundSize: "cover",
+                                    backgroundRepeat: "no-repeat",
+                                    pb: 25
+                                }}>
+                                <LevelOneRecipes />
+                            </Box>
+                            <Box
+                                sx={{ my: 7 }}
+                                style={{
+                                    width: "33%",
+                                    backgroundImage: `url(${Scroll})`,
+                                    backgroundSize: "cover",
+                                    backgroundRepeat: "no-repeat",
+                                }}>
+                                <LevelTwoRecipes />
+                            </Box>
+                            <Box
+                                sx={{ my: 7 }}
+                                style={{
+                                    width: "33%",
+                                    backgroundImage: `url(${Scroll})`,
+                                    backgroundSize: "cover",
+                                    backgroundRepeat: "no-repeat",
+                                }}>
+                                <LevelThreeRecipes />
+                            </Box>
+                        </Stack>
+                    </Box>
+                    {/* {!data
                         ? //if no user...
                         <div>
-                            <NoUserRecipeView/>
+                            <NoUserRecipeView />
                         </div>
                         : //if user...
                         <div>
 
-                        </div>}
-                </Box>
-                <Box
-                    sx={{ mt: 10, ml: 15 }}
-                    style={{
-                        backgroundImage: `url(${LevelCard})`,
-                        width: "35%",
-                        backgroundSize: "contain",
-                        backgroundRepeat: "no-repeat",
-                    }}>
-                    Placeholder
+                        </div>} */}
                 </Box>
             </Stack>
-
         </div >
-
     )
 }
 export default RecipesPage

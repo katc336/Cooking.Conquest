@@ -1,11 +1,14 @@
 import { Box, Button, Stack, Typography } from "@mui/material"
 
+import { Link } from "react-router-dom"
+
 import LockedRecipeIcon from "./LockedRecipeIcon.png"
 
 const NoUserRecipeView = () => {
     return (
         <div>
             <Box sx={{ mx: "15%", my: 1 }}>
+                <Link to="/register">
                 <Button sx={{ textTransform: "none", backgroundColor: "transparent" }}>
                     <Stack direction="column">
                         <Typography
@@ -18,6 +21,7 @@ const NoUserRecipeView = () => {
                         </Box>
                     </Stack>
                 </Button>
+                </Link>
             </Box>
         </div>
     )

@@ -36,55 +36,55 @@ const seed = async () => {
         //LEVEL 1
         const recipe1 = await prisma.recipe.create({
             data: {
-                name: "Quest for the Quinoa Salad",
+                name: "Veggie Burger",
                 image: "",
-                description: "Embark on a new culinary adventure with this simple and nourishing quinoa salad, perfect for beginners on their quest for vegetarian cooking",
-                ingredients: "- 1 cup quinoa  - 2 cups vegetable broth - 1 cucumber, diced - 1 bell pepper, diced - 1/4 cup of  pitted Kalamata olives - 1/4 cup chopped fresh parsley - 2 tbsp olive oil - 2 tbsp lemon juice -4 ounces of goat cheese",
-                instructions: "- Rinse the quinoa, then cook it in vegetable broth according to package instructions. - Fluff the cooked quinoa with a fork, and let it cool. - In a large bowl, mix the cooked quinoa with the diced cucumber, bell pepper, olives, crumbled goat cheese, and fresh parsley. - Drizzle with olive oil and lemon juice, season with salt and pepper, and gently toss to combine. - Serve this refreshing quinoa salad as a delightful addition to your culinary repertoire.",
+                description: "This hearty veggie burger is packed with protein and flavor, perfect for fueling up to conquer all the days challenges",
+                ingredients: "Black beans, Onion, Garlic, One chchopped bell pepper, Canned chipotles and adobo sauce, Balsamic vinegar and tamari, Panko bread crumbs, An egg  ",
+                instructions: "",
                 level: { connect: { id: level1.id } },
                 exp: 70
             }
         })
         const recipe2 = await prisma.recipe.create({
             data: {
-                name: "Persuit of the Stuffed Peppers",
+                name: "Tofu Stirfry",
                 image: "",
-                description: "Embark on the quest to perfect these fragrant and aromatic stuffed bell peppers, testing the skills of a beginner vegetarian cook.",
-                ingredients: " 4 large bell peppers - 1 cup cooked couscous or quinoa - 1 can chickpeas, drained and rinsed - 1/2 cup diced dried apricots - 1/4 cup chopped fresh mint - 1/4 cup chopped fresh cilantro - 1 tsp ground cumin - 1 tsp ground coriander - 1/2 tsp cinnamon - Salt and pepper, to taste - Whole milk yogurt sauce for serving (optional)",
-                instructions: " - Preheat the oven to 375°F (190°C).  - Cut the tops off the bell peppers and remove the seeds and membranes. - In a bowl, mix the cooked couscous, chickpeas, diced dried apricots, chopped fresh mint, chopped fresh cilantro, ground cumin, ground coriander, cinnamon, salt, and pepper. - Stuff the bell peppers with the couscous mixture and place them in a baking dish. - Bake the stuffed bell peppers for 25-30 minutes, or until the peppers are tender and the filling is heated through. - Serve with a drizzle of mint yogurt sauce for a taste of Morocco's culinary marvels.",
+                description: "This quick and colorful stir-fry is a great way to showcase a variety of vibrant vegetables and savory flavors.",
+                ingredients: "1 container of firm tofu, 1 tablespoon of soy sauce, 2 tablespoons of cornstarch, 4 cloves of garlic (minced), 1/2 inch piece of ginger (minced), 2 tablespoons of sesame oil, 1 bell pepper (sliced), 1 small bunch of broccoli (chopped), Mushrooms (sliced)  ",
+                instructions: "",
                 level: { connect: { id: level1.id } },
                 exp: 110
             }
         })
         const recipe3 = await prisma.recipe.create({
             data: {
-                name: "Tortellini Treasures",
+                name: "Lentil Stew",
                 image: "",
-                description: "A comforting tortellini dish that saves one of the most valuable treasures of all; time! Perfect fot beginner vegetarian cooks.",
-                ingredients: "- 1 package of tortellini - 2 tbsp olive oil  - 3 cloves garlic, mince - 1 cup cherry tomatoes, halved - 1/4 cup chopped fresh basil - 1/4 cup grated Parmesan cheese (use vegan Parmesan for vegan option) - Salt and pepper, to taste",
-                instructions: " - Cook the fresh tortellini according to the package instructions, then drain and set aside. - In a large skillet, sauté the minced garlic in olive oil until fragrant. - Add the halved cherry tomatoes to the skillet and cook for a few minutes, until they start to soften.  - Stir in the cooked tortellini and chopped fresh basil, and toss to coat. - Season with salt and pepper, sprinkle with grated Parmesan cheese",
+                description: "This hearty and aromatic stew is filled with warming spices and nourishing lentils, perfect for replenishing energy after a long journey.",
+                ingredients: "One onion (chopped), 1 teaspong of ground corriander, 1 teaspoon of ground cumin, 1/2 teaspoon of ground tumeric, 1 inch peice of giner, peeled nd minced, 3 cloves of garlic, 1 large chopped sweet potatoe, 1/2 cup of lentils, Vegtable stock, 1 can of coconut milk, Spinach (chopped or frozen), Chopped cilantro" ,
+                instructions: "",
                 level: { connect: { id: level1.id } },
                 exp: 70
             }
         })
         const recipe4 = await prisma.recipe.create({
             data: {
-                name: "Dorayaki - Dora-Yum-Ki Quest",
+                name: "Black Bean Chili",
                 image: "",
-                description: "Embark on the ancient quest of crafting the legendary Dorayaki, a sweet treat that promises a delightful adventure for your taste buds.",
-                ingredients: "2 eggs, 1/2 cup sugar, 1 teaspoon honey, 1 cup all-purpose flour, 1 teaspoon baking powder, Red bean paste or Nutella",
-                instructions: "1. Whisk the eggs, sugar, and honey together until they fuse into a formidable concoction.  2. Combine the flour and the baking powder into your egg mixture, stirring them into a batter of unmatched brewing potential.  3. Equip your pan and deploy small quantities of your batter onto the battlefield to forge your pancakes.  4. Once your pancakes are done, unleash your Red Bean Paste or Nutella as the perfect shield for your pancakes, creating your Dorayaki masterpieces.  5. Relish in your Dorayaki conquest and enjoy the spoils of your victory! ",
+                description: "This rich and satisfying chili is filled with smoky spices and hearty black beans, perfect for refueling after a long quest.",
+                ingredients: "1 tablespoon olive oil, 1 onion (diced), 1 medium carrot (chopped), 1 jalapeno (minced), 5 cloves garlic (minced), 1 tablespoon of chili powder, 1 tablespoon of cumin, 1 can of fire roasted tomatoes, 2 teaspoons diced chipotles in adobo, 1 can of blacks beans, 2 cups of vegtable broth, 1 lime (juiced), Chopped cilantro and an avocado sliced (to top)  ",
+                instructions: "",
                 level: { connect: { id: level1.id } },
                 exp: 100
             }
         })
         const recipe5 = await prisma.recipe.create({
             data: {
-                name: "Valliant Veggie Quesadilla Quest",
+                name: "Cheese Tortellini",
                 image: "",
-                description: "Gather your ingredients and embrace the challenge as you prepare to conquer and create the ultimate Veggie Quesadillas. Customize your toppings and be the master of your quesadilla quest.",
-                ingredients: "Flour tortillas, Shredded cheddar cheese, Sliced bell peppers, Sliced tomatoes, Sliced mushrooms, Sliced onions, Olive oil",
-                instructions: "1. Warm up your pan like you're about to enter an epic culinary battle.  2. Spread your flour tortillas on your quest board (baking sheets) and start building your cheesy empire.  3. Sprinkle the shredded cheddar cheese on half of your tortilla canvas, preparing for a cheesy conquest.  4. Fortify your cheesy stronghold with sliced bell peppers, tomatoes, mushrooms, and onions – a sign of a true hero.  5. Cloak your masterpiece with another tortilla and press it down firmly, getting ready for the grand battle of flavors!  6. Cook your quesadilla for 2-3 minutes on each side until your cheese is melted and the quest is won.  7. Let your Veggie Quesadilla cool off and enjoy your savory victory!",
+                description: "",
+                ingredients: "1 package of cheese tortellini, 28 ounce can crushed fire roasted tomatoes, 2 tablespoons olive oil, 3 garlic cloves (minced), 1 teaspoon of dried Italian herb mix, 3 cups baby spinach leaves, tightly packed (or chopped spinach), 8 fresh basil leaves, 4 ounces of goat",
+                instructions: "",
                 level: { connect: { id: level1.id } },
                 exp: 90
             }
@@ -112,6 +112,7 @@ const seed = async () => {
                 exp: 250
             }
         })
+        
         // const recipe8 = await prisma.recipe.create({
         //     data: {
         //         name: "",
@@ -148,7 +149,7 @@ const seed = async () => {
         //LEVEL 3
         const recipe11 = await prisma.recipe.create({
             data: {
-                name: "Mystical Mushroom Risotto",
+                name: "Mushroom Risotto",
                 image: "",
                 description: "Delve into the enchanting world of vegetarian risotto with this more complex and flavorful dish that will awaken culinary creativity.",
                 ingredients: "  - 6 cups vegetable broth - 2 tbsp olive oil- 1 onion, finely chopped - 2 cups arborio rice - 1/2 cup dry white wine - 1 lb assorted mushrooms, sliced  - 1/2 cup grated Parmesan cheese (optional for vegan option)   - Salt and pepper, to taste  - Fresh parsley, for garnish",
@@ -159,7 +160,7 @@ const seed = async () => {
         })
         const recipe12 = await prisma.recipe.create({
             data: {
-                name: "Enchanting Eggplant Parmesan",
+                name: "Eggplant Parmesan",
                 image: "",
                 description: "Enchanct others with your culinary prowess with this healthier baked eggplant parmesan, perfect for cooks seeking a new challenge!",
                 ingredients: "- 2 eggplants, sliced into rounds - 2 cups seasoned breadcrumbs  - 2 eggs, beaten (or flaxseed eggs for vegan option)  - 2 cups marinara sauce - 1 cup shredded mozzarella cheese (use vegan cheese for vegan option) - 1/2 cup grated Parmesan cheese (use vegan Parmesan for vegan option)  - Fresh basil leaves, for garnish",

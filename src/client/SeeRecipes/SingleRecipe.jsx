@@ -16,7 +16,23 @@ const SingleRecipe = () =>{
     return(
         <div>
             <Typography>
-                {data.title}
+            <Box
+                    sx={{ mt: 10, ml: 15 }}
+                    style={{
+                        backgroundImage: `url(${LevelCard})`,
+                        width: "45%",
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                    }}>
+                    <div>
+                        <Box>
+                        {data.title}
+                            <Button color="success" sx={{ textTransform: "none", mt: "30%", ml: "10%" }}>
+                                Add Recipe
+                            </Button>
+                        </Box>
+                    </div>
+                </Box>
             </Typography>
 
         </div>

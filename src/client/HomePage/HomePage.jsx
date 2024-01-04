@@ -30,7 +30,7 @@ const HomePage = () => {
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
-                            <Box sx={{ mt: 40, mx: 10 }}>
+                            <Box sx={{ backgroundColor: "rgba(223, 233, 228, 1)", p: 3,  border: 2, borderColor:"#445D48", borderBottom: 5, borderRadius: "20px", mt: 40, ml: 15, mr: 5 }}>
                                 <Typography
                                     variant="h4"
                                     sx={{ color: "#445D48", mb: 2 }}>
@@ -69,7 +69,7 @@ const HomePage = () => {
                                                 backgroundColor: "transparent",
                                                 border: 2,
                                                 borderBottom: 5,
-                                                borderColor: "#E4E9BE",
+                                                borderColor: "rgba(80, 125, 106, 1)",
                                                 textTransform: "none"
                                             }}>
                                             I already have an account
