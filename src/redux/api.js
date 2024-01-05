@@ -83,7 +83,7 @@ const api = createApi({
         //GET LEVEL THREE RECIPES
         getLevelThreeRecipes: builder.query({
             query: () => ({
-                url: `/api"/recipes-level-three"`,
+                url: `/api/recipes-level-three`,
                 method: 'GET',
             }),
             providesTags: ["Recipes"]

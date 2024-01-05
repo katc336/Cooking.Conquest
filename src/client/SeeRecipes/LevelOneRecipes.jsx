@@ -16,17 +16,17 @@ const LevelOneRecipes = () => {
     }
     return (
         <div>
-            <Box sx={{ ml: 3, backgroundColor: "transparent" }}>
+            <Box sx={{ ml: 3, px: "10%", backgroundColor: "transparent" }}>
                 <Typography
                     variant="h5"
                     sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                     Level One:
                 </Typography>
-                <Stack direction="column" useFlexGap flexWrap="wrap">
+                <Stack direction="row" useFlexGap flexWrap="wrap">
                     {data && data.map((recipes) => (
                         <Tooltip title="Click to see recipe details">
                             <Box
-                                sx={{ m: 1 }}
+                                sx={{ my: 5 }}
                                 style={{
                                     backgroundImage: `url(${RecipeCircle})`,
                                     width: "150px",

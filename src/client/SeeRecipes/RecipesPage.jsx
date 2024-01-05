@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 import { useGetUserQuery, useGetAllRecipesQuery } from "../../redux/api";
 
-import LevelCard from "./LevelCard.png"
 import Scroll from "./Scroll.png"
 import RecipeCard from "./RecipeCardBackground.png"
 import RecipeCircle from "./RecipeCircle.png"
@@ -37,7 +36,7 @@ const RecipesPage = () => {
                     sx={{ mx: 5, mt: 7, pt: 2, pb: 50 }}
                     style={{
                         backgroundImage: `url(${RecipeCard})`,
-                        backgroundSize: "contain",
+                        backgroundSize: "cover",
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
@@ -46,35 +45,34 @@ const RecipesPage = () => {
                         sx={{ textAlign: "center", color: "rgba(223, 233, 228, 1)", fontWeight: "bold" }}>
                         Recipe Quests:
                     </Typography>
-                    <Box sx={{ pt: "10%", px: 10 }}>
-                        <Stack direction="row">
+                    <Box sx={{ pt: "20%", px: 10 }}>
+                        <Stack direction="column">
                             <Box
-                                sx={{ my: 7 }}
+                                sx={{ pb: 20 }}
                                 style={{
-                                    width: "33%",
+                                    width: "100%",
                                     backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "cover",
+                                    backgroundSize: "contain",
                                     backgroundRepeat: "no-repeat",
-                                    pb: 25
                                 }}>
                                 <LevelOneRecipes />
                             </Box>
                             <Box
-                                sx={{ my: 7 }}
+                                sx={{ pb: 20 }}
                                 style={{
-                                    width: "33%",
+                                    width: "100%",
                                     backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "cover",
+                                    backgroundSize: "contain",
                                     backgroundRepeat: "no-repeat",
                                 }}>
                                 <LevelTwoRecipes />
                             </Box>
                             <Box
-                                sx={{ my: 7 }}
+                                sx={{ pb: 20 }}
                                 style={{
-                                    width: "33%",
+                                    width: "100%",
                                     backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "cover",
+                                    backgroundSize: "contain",
                                     backgroundRepeat: "no-repeat",
                                 }}>
                                 <LevelThreeRecipes />
