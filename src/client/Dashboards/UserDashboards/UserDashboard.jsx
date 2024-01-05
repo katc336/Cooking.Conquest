@@ -17,6 +17,12 @@ const UserDashboard = () => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+    if(isLoading){
+        console.log("Loading...")
+        //TO DO
+        return null
+    }
     if (data) {
         console.log(data);
     }
@@ -48,7 +54,7 @@ const UserDashboard = () => {
                                 <Typography
                                     variant="h3"
                                     sx={{ pt: 5, pl: 10, color: "#445D48" }}>
-                                    Hello {data.name}!
+                                    Hello {data.name}
                                 </Typography>
                                 {/* <Box sx={{ my: 3, p: 5 }}>
                                     <Card sx={{ p: 3, backgroundColor: "#65B741" }}>

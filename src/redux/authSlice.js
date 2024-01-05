@@ -3,6 +3,7 @@ import api from './api';
 import store from './store';
 
 function storeToken(state, { payload }) {
+    //check token 
     state.token = payload.token;
     window.sessionStorage.setItem("token", payload.token);
     if(payload.isAdmin){

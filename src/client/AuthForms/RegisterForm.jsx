@@ -49,8 +49,9 @@ const RegisterForm = () => {
                 return
             }
             event.preventDefault();
-            await register({ username, name, email, password, secondPassword }),
+            const result =  await register({ username, name, email, password, secondPassword });
                 console.log("Success!")
+                console.log(result)
             navigate("/account")
         } catch (error) {
             console.error(error)
