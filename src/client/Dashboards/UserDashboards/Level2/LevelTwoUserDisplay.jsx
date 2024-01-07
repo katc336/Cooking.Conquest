@@ -6,6 +6,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 
 import { useGetUserQuery } from "../../../../redux/api";
 import LevelTwoUserCard from "./LevelTwoUserCard.png"
+import LevelTwoHands from "./LevelTwoHands.png"
 
 const LevelTwoUserDisplay = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -26,26 +27,45 @@ const LevelTwoUserDisplay = () => {
     }
     return (
         <div>
-            <div>
-                <Box sx={{ mt: 10, ml: 5, pb: 80, mb: 20 }}
-                    style={{
-                        backgroundImage: `url(${LevelTwoUserCard})`,
-                        backgroundSize: "contain",
-                        backgroundRepeat: "no-repeat",
+        <div>
+            <Box sx={{ mt: 10, ml: 5, mb: 20 }}
+                style={{
+                    backgroundImage: `url(${LevelTwoUserCard})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                }}>
+                <Typography
+                    variant="h4"
+                    sx={{ color: "rgba(223, 233, 228, 1)", pt: "100%", textAlign: "center" }}>
+                    Level One:
+                </Typography>
+                <Typography sx={{ textAlign: "center", m: 2 }}>
+                    <img src={LevelTwoHands} width="150px" />
+                </Typography>
+                <Typography
+                    variant="h6"
+                    sx={{ color: "rgba(223, 233, 228, 1)", textAlign: "center" }}>
+                    To level up, get cooking!
+                </Typography>
+                <Button
+                    sx={{
+                        m: 5,
+                        px: "10%",
+                        color: "#445D48",
+                        borderRadius: "10px",
+                        backgroundColor: "rgba(223, 233, 228, 1)",
+                        border: 2,
+                        borderBottom: 5,
+                        borderColor: "rgba(80, 125, 106, 1)",
+                        textTransform: "none"
                     }}>
-                    <Typography sx={{ pt: "100%", px: "10%" }}>
-                        Level One:
-                    </Typography>
-                    <Typography sx={{ px: "10%" }}>
-                        To level up, get cooking!
-                    </Typography>
-                    <Button sx={{ px: "10%" }}>
-                        Explore new recipe quests
-                    </Button>
-                </Box>
-            </div>
-            : <div />
+                    Find New Recipes!
+                </Button>
+            </Box>
         </div>
+        : <div />
+    </div>
+         
     )
 }
 export default LevelTwoUserDisplay

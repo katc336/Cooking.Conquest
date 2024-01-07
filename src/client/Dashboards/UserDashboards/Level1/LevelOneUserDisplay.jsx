@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography"
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import { useGetUserQuery } from "../../../../redux/api";
+import LevelOneHand from "./LevelOneHand.png"
 import LevelOneUserCard from "./LevelOneUserCard.png"
 
 
@@ -28,20 +29,38 @@ const LevelOneUserDisplay = () => {
     return (
         <div>
             <div>
-                <Box sx={{ mt: 10, ml: 5, pb: 80, mb: 20 }}
+                <Box sx={{ mt: 10, ml: 5, mb: 20 }}
                     style={{
                         backgroundImage: `url(${LevelOneUserCard})`,
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    <Typography sx={{ pt: "100%", px: "10%" }}>
+                    <Typography
+                        variant="h4"
+                        sx={{ color: "rgba(223, 233, 228, 1)", pt: "100%", textAlign: "center" }}>
                         Level One:
                     </Typography>
-                    <Typography sx={{ px: "10%" }}>
+                    <Typography sx={{ textAlign: "center", m: 2 }}>
+                        <img src={LevelOneHand} width="150px" />
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        sx={{ color: "rgba(223, 233, 228, 1)", textAlign: "center" }}>
                         To level up, get cooking!
                     </Typography>
-                    <Button sx={{ px: "10%" }}>
-                        Explore new recipe quests
+                    <Button
+                        sx={{
+                            m: 5,
+                            px: "10%",
+                            color: "#445D48",
+                            borderRadius: "10px",
+                            backgroundColor: "rgba(223, 233, 228, 1)",
+                            border: 2,
+                            borderBottom: 5,
+                            borderColor: "rgba(80, 125, 106, 1)",
+                            textTransform: "none"
+                        }}>
+                        Find New Recipes!
                     </Button>
                 </Box>
             </div>

@@ -12,6 +12,7 @@ import LevelOneUserCard from "./Level1/LevelOneUserCard.png"
 import LevelTwoUserCard from "./Level2/LevelTwoUserCard.png"
 import RecipeSpellBook from "./RecipeSpellBook.png"
 import LevelOneUserDisplay from "./Level1/LevelOneUserDisplay";
+import LevelTwoUserDisplay from "./Level2/LevelTwoUserDisplay";
 
 const WebUserDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -47,13 +48,7 @@ const WebUserDashboard = () => {
                         {data.level === 2
                             ? //if level one return level one image...
                             <div>
-                                <Box sx={{ mt: 10, ml: 5, pb: 80, mb: 20 }}
-                                    style={{
-                                        backgroundImage: `url(${LevelTwoUserCard})`,
-                                        backgroundSize: "contain",
-                                        backgroundRepeat: "no-repeat",
-                                    }}>
-                                </Box>
+                               <LevelTwoUserDisplay/>
                             </div>
                             : //if not level 1, return empty <div>
                             <div />}
