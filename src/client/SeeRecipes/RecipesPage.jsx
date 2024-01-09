@@ -3,9 +3,9 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import { useGetUserQuery } from "../../redux/api";
 
-import Scroll from "./Scroll.png"
-import ElvinChef from "./ElvinChef.png"
-import SingleRecipeBorder from "./SingleRecipeBorder.png"
+import Scroll from "./images/Scroll.png"
+import ElvinChef from "./images/ElvinChef.png"
+import SingleRecipeBorder from "./images/SingleRecipeBorder.png"
 import LevelOneRecipes from "./LevelOneRecipes";
 import LevelTwoRecipes from "./LevelTwoRecipes";
 import LevelThreeRecipes from "./LevelThreeRecipes";
@@ -46,7 +46,7 @@ const RecipesPage = () => {
                     <Box sx={{ pt: "12%", px: 15 }}>
                         <Stack direction="column">
                             <Box
-                                sx={{ pb: 25 }}
+                                sx={{ pb: 5 }}
                                 style={{
                                     width: "100%",
                                     backgroundImage: `url(${Scroll})`,
@@ -56,7 +56,7 @@ const RecipesPage = () => {
                                 <LevelOneRecipes />
                             </Box>
                             <Box
-                                sx={{ pb: 20 }}
+                                sx={{ pb: 5 }}
                                 style={{
                                     width: "100%",
                                     backgroundImage: `url(${Scroll})`,
@@ -66,7 +66,7 @@ const RecipesPage = () => {
                                 <LevelTwoRecipes />
                             </Box>
                             <Box
-                                sx={{ pb: 20 }}
+                                sx={{ pb: 5 }}
                                 style={{
                                     width: "100%",
                                     backgroundImage: `url(${Scroll})`,

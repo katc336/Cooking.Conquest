@@ -2,7 +2,7 @@ import { Box, Button, Stack, Typography } from "@mui/material"
 
 import { Link } from "react-router-dom"
 
-import LockedRecipeIcon from "./LockedRecipeIcon.png"
+import LockedRecipeIcon from "./images/LockedRecipeIcon.png"
 
 const NoUserRecipeView = () => {
     return (
@@ -11,7 +11,7 @@ const NoUserRecipeView = () => {
                 <Box>
                     <img src={LockedRecipeIcon}
                         alt="Locked Icon"
-                        width="200px" />
+                        width="250px" />
                 </Box>
             </Typography>
         </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 import { useGetLevelOneRecipesQuery } from "../../redux/api"
 
-import RecipeBorder from "./RecipeBorder.png"
+import RecipeBorder from "./images/RecipeBorder.png"
 
 const LevelOneRecipes = () => {
     const { data, error, isLoading } = useGetLevelOneRecipesQuery();

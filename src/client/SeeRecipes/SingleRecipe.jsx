@@ -9,9 +9,9 @@ import { useParams } from 'react-router';
 
 import { useGetSingleRecipeQuery } from "../../redux/api"
 
-import SingleRecipeBorder from "./SingleRecipeBorder.png"
-import IngredientCard from "./IngredientCard.png"
-import Scroll from "./Scroll.png"
+import SingleRecipeBorder from "./images/SingleRecipeBorder.png"
+import IngredientCard from "./images/IngredientCard.png"
+import Scroll from "./images/Scroll.png"
 
 const SingleRecipe = () => {
     const { id } = useParams();
@@ -76,8 +76,10 @@ const SingleRecipe = () => {
                                         backgroundSize: "cover",
                                         backgroundRepeat: "no-repeat",
                                     }}>
-                                    <Typography sx={{ pt: "30%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                                        Step 1: Gather Your Ingredients
+                                    <Typography 
+                                    variant="h5"
+                                    sx={{ pt: "30%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                        Gather Your Ingredients
                                     </Typography>
                                     <Typography sx={{ pt: 1 }}>
                                         {data.ingredients}

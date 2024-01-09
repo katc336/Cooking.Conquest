@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useGetUserQuery, useGetLevelTwoRecipesQuery } from "../../redux/api"
 
 import NoUserRecipeView from "./NoUserRecipeView"
-import RecipeCircle from "./RecipeCircle.png"
+import RecipeCircle from "./images/RecipeCircle.png"
 
 const LevelTwoRecipes = () => {
     const { data, error, isLoading } = useGetLevelTwoRecipesQuery();
