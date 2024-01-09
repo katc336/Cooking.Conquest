@@ -4,7 +4,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useParams } from 'react-router';
 
 import { useGetSingleRecipeQuery} from "../../../redux/api";

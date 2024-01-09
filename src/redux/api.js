@@ -16,7 +16,7 @@ const api = createApi({
             return headers
         },
     }),
-    tagTypes: ["Users"],
+    tagTypes: ["Users", "Recipes", "RecipeBook"],
 
     endpoints: (builder) => ({
         //<-----------AUTHORIZATION----------->
@@ -88,6 +88,15 @@ const api = createApi({
             }),
             providesTags: ["Recipes"]
         }),
+        //ADD RECIPE TO USER
+        postRecipeToUser: builder.mutation({
+            query: (recipeBookItem) => ({
+                url: `/api/myRecipes`,
+                method: 'POST',
+                body: recipeBookItem,
+            }),
+            invalidatesTags: ["RecipeBook"]
+        }),
        
     }),
 })
@@ -104,5 +113,6 @@ export const {
     useGetSingleRecipeQuery,
     useGetLevelOneRecipesQuery,
     useGetLevelTwoRecipesQuery,
-    useGetLevelThreeRecipesQuery
+    useGetLevelThreeRecipesQuery,
+    usePostRecipeToUserMutation,
 } = api
