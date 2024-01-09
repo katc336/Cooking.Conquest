@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {!token ? <NavBar /> : <UserNavBar/>}
+        {/* {!token ? <NavBar /> : <UserNavBar/>} */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginForm />} />

@@ -66,14 +66,6 @@ const WebUserDashboard = () => {
                                 sx={{ pt: 5, pl: 50, color: "#445D48" }}>
                                 Hello {data.name}
                             </Typography>
-                            {/* <Box sx={{ my: 3, p: 5 }}>
-                                    <Card sx={{ p: 3, backgroundColor: "#65B741" }}>
-                                        {data.level === 1 ? <Typography variant="h4" sx={{ textAlign: "center", color: "white" }}>Level 1</Typography> : <div> </div>}
-                                        {data.level === 2 ? <Typography variant="h4" sx={{ textAlign: "center", color: "white" }}>Level 2</Typography> : <div> </div>}
-                                        {data.level === 3 ? <Typography variant="h4" sx={{ textAlign: "center", color: "white" }}>Level 3</Typography> : <div> </div>}
-                                    </Card>
-                                    <LevelOnePath />
-                                </Box> */}
                         </Box>
                     </Grid>
                 </Grid>

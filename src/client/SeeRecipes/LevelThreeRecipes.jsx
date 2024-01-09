@@ -25,7 +25,7 @@ const LevelThreeRecipes = () => {
                         <Typography
                             variant="h5"
                             sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                            Level three quests are Locked!
+                            Level three quests are locked!
                         </Typography>
                         <Typography
                             variant="h6"

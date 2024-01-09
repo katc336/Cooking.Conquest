@@ -59,7 +59,7 @@ const api = createApi({
           //GET SINGLE RECIPE
           getSingleRecipe: builder.query({
             query: (id) => ({
-                url: `/api//recipe/${id}`,
+                url: `/api/recipe/${id}`,
                 method: 'GET',
             }),
             providesTags: ["Recipes"]

@@ -35,10 +35,6 @@ const NavBar = () => {
                             <Link to="/">
                                 <Tooltip title="Retun to Homepage">
                                     LOGO
-                                    {/* <img
-                                        src={logo}
-                                        alt="Logo"
-                                        width="40px" /> */}
                                 </Tooltip>
                             </Link>
                         </Box>
