@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography"
 import { useGetUserQuery } from "../../../redux/api"
 
 import MyRecipesPage from "./MyRecipesPage.png"
+import UsersRecipes from "./UsersRecipes"
 
 const MyRecipes = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -37,7 +38,7 @@ const MyRecipes = () => {
                             backgroundSize: "cover",
                             backgroundRepeat: "no-repeat",
                         }}>
-                            TEST
+                            <UsersRecipes/>
                     </Box>
                 </Grid>
             </Grid>

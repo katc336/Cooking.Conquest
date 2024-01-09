@@ -13,6 +13,7 @@ import LevelTwoUserCard from "./Level2/LevelTwoUserCard.png"
 import RecipeSpellBook from "./RecipeSpellBook.png"
 import LevelOneUserDisplay from "./Level1/LevelOneUserDisplay";
 import LevelTwoUserDisplay from "./Level2/LevelTwoUserDisplay";
+import UsersRecipes from "./UsersRecipes";
 
 const WebUserDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -40,7 +41,7 @@ const WebUserDashboard = () => {
                         {data.level === 1
                             ? //if level one return level one image...
                             <div>
-                              <LevelOneUserDisplay/>
+                                <LevelOneUserDisplay />
                             </div>
                             : //if not level 1, return empty <div>
                             <div />}
@@ -48,7 +49,7 @@ const WebUserDashboard = () => {
                         {data.level === 2
                             ? //if level one return level one image...
                             <div>
-                               <LevelTwoUserDisplay/>
+                                <LevelTwoUserDisplay />
                             </div>
                             : //if not level 1, return empty <div>
                             <div />}
@@ -58,7 +59,7 @@ const WebUserDashboard = () => {
                             sx={{ mt: 10, pb: 70, mb: 20 }}
                             style={{
                                 backgroundImage: `url(${RecipeSpellBook})`,
-                                backgroundSize: "cover",
+                                backgroundSize: "contain",
                                 backgroundRepeat: "no-repeat",
                             }}>
                             <Typography
@@ -66,6 +67,7 @@ const WebUserDashboard = () => {
                                 sx={{ pt: 5, pl: 50, color: "#445D48" }}>
                                 Hello {data.name}
                             </Typography>
+                            <UsersRecipes />
                         </Box>
                     </Grid>
                 </Grid>
