@@ -10,7 +10,6 @@ import HomeIcon from '@mui/icons-material/Home';
 
 import { Link } from "react-router-dom";
 
-import logo from "./logo.png"
 import MenuIcon from "./MenuIcon";
 
 const MobileNavBar = () => {

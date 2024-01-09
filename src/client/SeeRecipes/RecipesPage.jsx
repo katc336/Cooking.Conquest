@@ -4,6 +4,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useGetUserQuery } from "../../redux/api";
 
 import Scroll from "./Scroll.png"
+import ElvinChef from "./ElvinChef.png"
 import SingleRecipeBorder from "./SingleRecipeBorder.png"
 import LevelOneRecipes from "./LevelOneRecipes";
 import LevelTwoRecipes from "./LevelTwoRecipes";
@@ -31,12 +32,18 @@ const RecipesPage = () => {
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
+                    <Box sx={{ ml: "43%", mt: 5,}}>
+                        <img
+                            src={ElvinChef}
+                            style={{ position: "absolute", zIndex: -1 }}
+                            width="600px" />
+                    </Box>
                     <Typography
                         variant="h2"
-                        sx={{ mt: 15, textAlign: "center", color: "#445D48", fontWeight: "bold" }}>
+                        sx={{ mt: 15, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                         Recipe Quests:
                     </Typography>
-                    <Box sx={{ pt: "5%", px: 15 }}>
+                    <Box sx={{ pt: "12%", px: 15 }}>
                         <Stack direction="column">
                             <Box
                                 sx={{ pb: 25 }}
