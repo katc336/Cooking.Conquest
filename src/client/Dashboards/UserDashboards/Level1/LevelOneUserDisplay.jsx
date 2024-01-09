@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography"
+import { Link } from "react-router-dom";
 
 import { useMediaQuery, useTheme } from "@mui/material";
 
@@ -48,21 +49,23 @@ const LevelOneUserDisplay = () => {
                         sx={{ color: "rgba(223, 233, 228, 1)", textAlign: "center" }}>
                         To level up, get cooking!
                     </Typography>
-                    <Button
-                        sx={{
-                            m: 5,
-                            px: "10%",
-                            color: "#445D48",
-                            fontSize: "20px",
-                            borderRadius: "10px",
-                            backgroundColor: "rgba(223, 233, 228, 1)",
-                            border: 2,
-                            borderBottom: 5,
-                            borderColor: "rgba(80, 125, 106, 1)",
-                            textTransform: "none"
-                        }}>
-                        Find New Recipes
-                    </Button>
+                    <Link to="/recipes">
+                        <Button
+                            sx={{
+                                m: 5,
+                                px: "10%",
+                                color: "#445D48",
+                                fontSize: "20px",
+                                borderRadius: "10px",
+                                backgroundColor: "rgba(223, 233, 228, 1)",
+                                border: 2,
+                                borderBottom: 5,
+                                borderColor: "rgba(80, 125, 106, 1)",
+                                textTransform: "none"
+                            }}>
+                            Find New Recipes
+                        </Button>
+                    </Link>
                 </Box>
             </div>
             : <div />

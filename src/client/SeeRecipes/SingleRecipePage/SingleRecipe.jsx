@@ -7,11 +7,12 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useParams } from 'react-router';
 
-import { useGetSingleRecipeQuery } from "../../redux/api"
+import { useGetSingleRecipeQuery} from "../../../redux/api";
 
-import SingleRecipeBorder from "./images/SingleRecipeBorder.png"
-import IngredientCard from "./images/IngredientCard.png"
-import Scroll from "./images/Scroll.png"
+import SingleRecipeBorder from "../images/SingleRecipeBorder.png"
+import IngredientCard from "../images/IngredientCard.png"
+import Scroll from "../images/Scroll.png"
+import AddRecipeButton from "./AddRecipeButton";
 
 const SingleRecipe = () => {
     const { id } = useParams();
@@ -33,7 +34,6 @@ const SingleRecipe = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeIn" }}>
-            {data &&
                 <Stack direction="row">
                     <Box
                         sx={{ pt: 2, pb: 250 }}
@@ -56,13 +56,14 @@ const SingleRecipe = () => {
                                     <Typography
                                         variant="h2"
                                         sx={{ pt: 5, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                                        {data.name}
+                                        {data && data.name}
                                     </Typography>
                                     <Typography
                                         variant="h5"
                                         sx={{ pt: 1, pb: 5, px: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                                        {data.description}
+                                        {data && data.description}
                                     </Typography>
+                                    <AddRecipeButton/>
                                 </Box>
                             </Stack>
                         </Box>
@@ -93,7 +94,6 @@ const SingleRecipe = () => {
 
                     </Box>
                 </Stack>
-            }
         </motion.div>
     )
 }

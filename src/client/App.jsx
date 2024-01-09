@@ -7,7 +7,7 @@ import NavBar from "./NavigationBar/NavBar";
 import LoginForm from "./AuthForms/LoginForm";
 import RegisterForm from "./AuthForms/RegisterForm";
 import RecipesPage from "./SeeRecipes/RecipesPage";
-import SingleRecipe from "./SeeRecipes/SingleRecipe";
+import SingleRecipe from "./SeeRecipes/SingleRecipePage/SingleRecipe";
 import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 
 import { useSelector } from "react-redux";
