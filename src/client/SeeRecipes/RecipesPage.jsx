@@ -32,7 +32,7 @@ const RecipesPage = () => {
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    <Box sx={{ ml: "43%", mt: 5,}}>
+                    <Box sx={{ ml: "43%", mt: 7,}}>
                         <img
                             src={ElvinChef}
                             style={{ position: "absolute", zIndex: -1 }}
