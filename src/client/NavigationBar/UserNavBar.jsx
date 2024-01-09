@@ -23,11 +23,13 @@ const UserNavBar = () => {
                                 </Button>
                             </Tooltip>
                         </Link>
-                        <Tooltip title="My Recipes" arrow>
-                            <Button sx={{ mr: 5 }}>
-                                <img src={MyRecipes} width="40px" />
-                            </Button>
-                        </Tooltip>
+                        <Link to="/my_recipes">
+                            <Tooltip title="My Recipes" arrow>
+                                <Button sx={{ mr: 5 }}>
+                                    <img src={MyRecipes} width="40px" />
+                                </Button>
+                            </Tooltip>
+                        </Link>
                         <Link to="/recipes">
                             <Tooltip title="Find new recipe quests" arrow>
                                 <Button sx={{ mr: 5 }}>

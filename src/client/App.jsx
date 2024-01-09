@@ -12,6 +12,7 @@ import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 
 import { useSelector } from "react-redux";
 import UserNavBar from "./NavigationBar/UserNavBar";
+import MyRecipes from "./Dashboards/UserDashboards/MyRecipes";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -30,6 +31,7 @@ function App() {
           <Route path="/account" element={<UserDashboard />} />
           <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/recipe/:id" element={<SingleRecipe />} />
+          <Route path="/my_recipes" element={<MyRecipes />} />
         </Routes>
       </BrowserRouter>
     </div>

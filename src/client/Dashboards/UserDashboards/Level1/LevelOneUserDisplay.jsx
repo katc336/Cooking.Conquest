@@ -53,6 +53,7 @@ const LevelOneUserDisplay = () => {
                             m: 5,
                             px: "10%",
                             color: "#445D48",
+                            fontSize: "20px",
                             borderRadius: "10px",
                             backgroundColor: "rgba(223, 233, 228, 1)",
                             border: 2,
@@ -60,7 +61,7 @@ const LevelOneUserDisplay = () => {
                             borderColor: "rgba(80, 125, 106, 1)",
                             textTransform: "none"
                         }}>
-                        Find New Recipes!
+                        Find New Recipes
                     </Button>
                 </Box>
             </div>
