@@ -16,10 +16,7 @@ const MobileNavBar = () => {
                 <AccordionSummary>
                     <MoreVertIcon />
                     <Stack direction="row">
-                        <img
-                            src={logo}
-                            alt="Logo"
-                            width="40px" />
+                        LOGO
                     </Stack>
                 </AccordionSummary>
                 <AccordionDetails>
