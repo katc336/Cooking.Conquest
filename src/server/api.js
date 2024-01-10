@@ -170,6 +170,7 @@ apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
             },
             include: { guild: true },
         });
+        delete updatedGuild.password
         res.send(updatedGuild);
     } catch (error) {
         next(error);
@@ -184,6 +185,7 @@ apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
             where: { userId: req.user.id },
             include: { user: true }
         });
+         //TO DO: SECURITY ISSUE SENDING PASSWORD TO FRONTEND
         res.send(recipes);
     } catch (error) {
         next(error);
@@ -196,6 +198,7 @@ apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
             where: { userId: req.user.id },
             include: { user: true }
         })
+        delete recipes.user.password
         //TO DO: SECURITY ISSUE SENDING PASSWORD TO FRONTEND
         res.send(recipes)
     } catch (error) {
