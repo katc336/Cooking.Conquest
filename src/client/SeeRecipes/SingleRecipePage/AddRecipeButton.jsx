@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import Typography  from "@mui/material/Typography";
+import Typography from "@mui/material/Typography";
 
 import { useParams } from 'react-router';
 import { useNavigate } from "react-router-dom";
@@ -10,20 +10,24 @@ const AddRecipeButton = () => {
     const { id } = useParams();
     const { data: recipeData, error: recipeError, isLoading: recipeIsLoading } = useGetSingleRecipeQuery(id);
     const [postRecipe, { data: mutationData, isError: isMutationError, isLoading: isMutationLoading, }] = usePostRecipeToUserMutation();
-    if (data) {
-        console.log(data)
+    const navigate = useNavigate();
+
+    if (isLoading) {
+        console.log("Loading...")
+        return null
     }
-    if (!data) {
-        console.log("No logged in user")
+    if (data) {
+        console.log(data);
+    }
+    if (recipeData) {
+        console.log(recipeData);
     }
     if (error) {
-        console.log({ error })
+        return <>{error}</>
     }
-    if (!recipeData) {
-        console.log("No recipe data")
+    if (recipeError) {
+        return <>{error}</>
     }
-
-    const navigate = useNavigate ();
     const handlePost = async (event) => {
         try {
             event.preventDefault();
@@ -42,19 +46,19 @@ const AddRecipeButton = () => {
                 ? //if there's a user...
                 <div>
                     <Typography sx={{ textAlign: "center" }}>
-                        <Button 
-                        onClick={() => handlePost(event) }
-                        sx={{
-                             m: 1,
-                             fontSize: "20px",
-                             color: "white",
-                             borderRadius: "10px",
-                             backgroundColor: "#65B741",
-                             border: 2,
-                             borderBottom: 5,
-                             borderColor: "#445D48",
-                             textTransform: "none"
-                        }}>
+                        <Button
+                            onClick={() => handlePost(event)}
+                            sx={{
+                                m: 1,
+                                fontSize: "20px",
+                                color: "white",
+                                borderRadius: "10px",
+                                backgroundColor: "#65B741",
+                                border: 2,
+                                borderBottom: 5,
+                                borderColor: "#445D48",
+                                textTransform: "none"
+                            }}>
                             Add Recipe to My Recipe Book
                         </Button>
                     </Typography>

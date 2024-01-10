@@ -90,10 +90,10 @@ const api = createApi({
         }),
         //ADD RECIPE TO USER
         postRecipeToUser: builder.mutation({
-            query: (recipeBookItem) => ({
-                url: `/api/myRecipes`,
+            query: (recipeId) => ({
+                url: `/api/myRecipe`,
                 method: 'POST',
-                body: recipeBookItem,
+                body: recipeId,
             }),
             invalidatesTags: ["RecipeBook"]
         }),

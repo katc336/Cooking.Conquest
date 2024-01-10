@@ -143,7 +143,7 @@ apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
                 recipe: { connect: { id: recipeId } }
             }
         });
-        res.status(200).json({ newRecipe, message: 'Recipe added!' });
+        res.send({ newRecipe, message: 'Recipe added!' });
 
     } catch (error) {
         next(error)
