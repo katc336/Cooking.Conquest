@@ -4,7 +4,7 @@ const apiRouter = express.Router();
 const { requireAdmin, requireUser } = require("./utils")
 
 const { PrismaClient } = require("@prisma/client");
-const { recipeBookItem, recipeBook, level } = require('./client');
+const { recipeBookItem, recipeBook, level, userPostedRecipe } = require('./client');
 const prisma = new PrismaClient();
 
 //<-----------------GET ALL RECIPES----------------->
@@ -233,11 +233,36 @@ apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
         next(error);
     }
 })
+//<-----------------GET ALL USER'S RECIPE----------------->
+apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
+    try {
+        const recipes = await prisma.userPostedRecipe.findMany({
+            where: {userId: req.user.id},
+            include: {user: true}
+        });
+        res.send(recipes);
+    } catch (error) {
+        next(error);
+    }
+});
 //<-----------------RATE USER'S RECIPE----------------->
 //POST /api/comment
 apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {
     try {
-       
+        const { rating, writtenReview, userPostedRecipeId } = req.body
+        const addRating = await prisma.rating.create({
+            data: {
+                user: { connect: { id: req.user.id } },
+                rating,
+                writtenReview,
+                userPostedRecipe: { connect: { id: userPostedRecipeId } },
+            },
+            include: {
+                user: true,
+                userPostedRecipe: true
+            }
+        });
+        res.status(201).send({ addRating, message: "Rating added!"});
     } catch (error) {
         next(error);
     }
