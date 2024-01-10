@@ -22,9 +22,6 @@ const AddRecipeButton = () => {
     if (recipeData) {
         console.log(recipeData);
     }
-    if (error) {
-        return <>{error}</>
-    }
     if (recipeError) {
         return <>{error}</>
     }
@@ -39,7 +36,6 @@ const AddRecipeButton = () => {
             console.error(error)
         }
     }
-
     return (
         <div>
             {data
@@ -65,7 +61,8 @@ const AddRecipeButton = () => {
                 </div>
                 : //if not a user, return an empty div
                 <div>
-                </div>}
+                </div>
+                }
         </div>
     )
 }
