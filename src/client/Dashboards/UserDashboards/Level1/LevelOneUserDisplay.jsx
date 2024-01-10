@@ -30,7 +30,7 @@ const LevelOneUserDisplay = () => {
     return (
         <div>
             <div>
-                <Box sx={{ mt: 10, ml: 5, mb: 20 }}
+                <Box sx={{ mt: 10, pb: 30 }}
                     style={{
                         backgroundImage: `url(${LevelOneUserCard})`,
                         backgroundSize: "contain",
@@ -41,7 +41,7 @@ const LevelOneUserDisplay = () => {
                         sx={{ color: "rgba(223, 233, 228, 1)", pt: "100%", textAlign: "center" }}>
                         Level One:
                     </Typography>
-                    <Typography sx={{ textAlign: "center", m: 2 }}>
+                    <Typography sx={{ textAlign: "center" }}>
                         <img src={LevelOneHand} width="150px" />
                     </Typography>
                     <Typography
@@ -49,23 +49,29 @@ const LevelOneUserDisplay = () => {
                         sx={{ color: "rgba(223, 233, 228, 1)", textAlign: "center" }}>
                         To level up, get cooking!
                     </Typography>
-                    <Link to="/recipes">
-                        <Button
-                            sx={{
-                                m: 5,
-                                px: "10%",
-                                color: "#445D48",
-                                fontSize: "20px",
-                                borderRadius: "10px",
-                                backgroundColor: "rgba(223, 233, 228, 1)",
-                                border: 2,
-                                borderBottom: 5,
-                                borderColor: "rgba(80, 125, 106, 1)",
-                                textTransform: "none"
-                            }}>
-                            Find New Recipes
-                        </Button>
-                    </Link>
+                    {data && data.recipeBookItemId !== null
+                        ? //if there is not recipe book item...
+                        <div>
+                            <Link to="/recipes">
+                                <Button
+                                    sx={{
+                                        m: 5,
+                                        px: "10%",
+                                        color: "#445D48",
+                                        fontSize: "20px",
+                                        borderRadius: "10px",
+                                        backgroundColor: "rgba(223, 233, 228, 1)",
+                                        border: 2,
+                                        borderBottom: 5,
+                                        borderColor: "rgba(80, 125, 106, 1)",
+                                        textTransform: "none"
+                                    }}>
+                                    Find New Recipes
+                                </Button>
+                            </Link>
+                        </div>
+                        : //there are recipes...
+                        <div />}
                 </Box>
             </div>
             : <div />

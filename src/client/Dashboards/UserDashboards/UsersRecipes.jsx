@@ -20,7 +20,7 @@ const UsersRecipes = () => {
     }
     return (
         <div>
-            {data
+            {data && data.recipeBookItemId === null 
                 ? //if there is not recipe book item...
                 <div>
                     <Box sx={{ mt: "20%", mx: "10%", p: 3, backgroundColor: "rgba(223, 233, 228, 1)", border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
