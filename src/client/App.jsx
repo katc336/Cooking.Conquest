@@ -1,32 +1,39 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { Typography } from "@mui/material";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import HomePage from "./HomePage/HomePage";
+import NavBar from "./NavigationBar/NavBar";
+import LoginForm from "./AuthForms/LoginForm";
+import RegisterForm from "./AuthForms/RegisterForm";
+import RecipesPage from "./SeeRecipes/AllRecipesPage/RecipesPage";
+import SingleRecipe from "./SeeRecipes/SingleRecipePage/SingleRecipe";
+import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
+
+import { useSelector } from "react-redux";
+import UserNavBar from "./NavigationBar/UserNavBar";
+import MyRecipes from "./Dashboards/UserDashboards/MyRecipes";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const token = useSelector((state) => state.auth.token);
 
+  if (token) {
+    console.log(token)
+  }
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR!
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      <BrowserRouter>
+        {!token ? <NavBar /> : <UserNavBar/>}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/account" element={<UserDashboard />} />
+          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/recipe/:id" element={<SingleRecipe />} />
+          <Route path="/my_recipes" element={<MyRecipes />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

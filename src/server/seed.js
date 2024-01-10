@@ -33,83 +33,175 @@ const seed = async () => {
         })
         //TO DO: UPDATE RECIPES (Placeholder recipes)
         //<-------------------RECIPES------------------->
+        //LEVEL 1
         const recipe1 = await prisma.recipe.create({
             data: {
-                name: "Peanut Butter and Jelly Sandwich Quest",
+                name: "Veggie Burger",
                 image: "",
-                description: "Get ready to master the art of assembling the ultimate Peanut Butter and Jelly Sandwich! This easy yet legendary recipe is a must for all aspiring cooking champions.",
-                ingredients: "2 slices of bread, Peanut Butter, Jelly",
-                instructions: "1. Grab your selected bread and lay it flat on your battlefield (kitchen counter).  2. Arm your bread with a generous spread of peanut butter on one side, and a heroic slather of jelly on the other side.  3. Merge the two slices of bread together to form a legendary sandwich.  4. If you're feeling bold, take your cutting sword and slice the sandwich heroically in half, diagonally or not; it's your choice!  5. Consume your masterfully crafted Peanut Butter and Jelly Sandwich with triumph!",
-                level: { connect: { id: level1.id } },
-                exp: 50
-            }
-        })
-        const recipe2 = await prisma.recipe.create({
-            data: {
-                name: "Che Thai (Vietnamese Fruit Cocktail)",
-                image: "",
-                description: "Embark on an exotic quest to create the ultimate Thai Fruit Salad! This delightful concoction will bring a burst of fruity joy to your taste bud.",
-                ingredients: "1 mango, diced, 1 cup pineapple chunks, 1 cup strawberries, sliced, 1/2 cup of thai basil leaves torn, 1/4 cup lime juice, 2 tablespoons honey, 1/4 cup of coconut creme",
-                instructions: "1. Gather your fresh mango, pineapple, and strawberries, and toss them into your treasure chest (mixing bowl). 2. Add in the torn basil leaves as an uncommon twist in your fruit salad adventure. 3. Whisk together the lime juice and honey to create a magical elixir to pour over your fruits. 4. Let your fruit salad chill in the fridge like a good adventure being prepared for battle. 5. Consume your delicious Thai Fruit Salad and revel in the unique flavors!",
+                description: "This hearty veggie burger is packed with protein and flavor, perfect for fueling up to conquer all the days challenges",
+                ingredients: "Black beans, Onion, Garlic, One chchopped bell pepper, Canned chipotles and adobo sauce, Balsamic vinegar and tamari, Panko bread crumbs, An egg  ",
+                instructions: "",
                 level: { connect: { id: level1.id } },
                 exp: 70
             }
         })
+        const recipe2 = await prisma.recipe.create({
+            data: {
+                name: "Tofu Stirfry",
+                image: "",
+                description: "This quick and colorful stir-fry is a great way to showcase a variety of vibrant vegetables and savory flavors.",
+                ingredients: "1 container of firm tofu, 1 tablespoon of soy sauce, 2 tablespoons of cornstarch, 4 cloves of garlic (minced), 1/2 inch piece of ginger (minced), 2 tablespoons of sesame oil, 1 bell pepper (sliced), 1 small bunch of broccoli (chopped), Mushrooms (sliced)  ",
+                instructions: "",
+                level: { connect: { id: level1.id } },
+                exp: 110
+            }
+        })
         const recipe3 = await prisma.recipe.create({
             data: {
-                name: "Mini Pizzas Pursuit",
+                name: "Lentil Stew",
                 image: "",
-                description: "Prepare for the ultimate Mini Pizza quest where you will create your very own mini pizza masterpiece! Customize your toppings and become a pizza hero.",
-                ingredients: "English muffins, Pizza sauce, Shredded mozzarella cheese, Toppings of your choice (pepperoni, bell peppers, mushrooms, etc.)",
-                instructions: "1. Preheat your oven to 400°F and prepare your pizza battleground (baking sheet).  2. Split your English muffins in half and lay them out on the baking sheet.  3. Spread pizza sauce all over the English muffin – like an artist creating their canvas.  4. Sprinkle the shredded mozzarella cheese over the sauce to form a cheesy fortress.  5. Add your favorite toppings to the mini pizzas and prepare them for the grand oven battle!  6. Bake your mini pizzas for 10-12 minutes until the cheese is melted and bubbly like a victorious storm of flavor.  7. Let your mini pizzas cool and then savor your hard-earned mini pizzas of power.",
+                description: "This hearty and aromatic stew is filled with warming spices and nourishing lentils, perfect for replenishing energy after a long journey.",
+                ingredients: "One onion (chopped), 1 teaspong of ground corriander, 1 teaspoon of ground cumin, 1/2 teaspoon of ground tumeric, 1 inch peice of giner, peeled nd minced, 3 cloves of garlic, 1 large chopped sweet potatoe, 1/2 cup of lentils, Vegtable stock, 1 can of coconut milk, Spinach (chopped or frozen), Chopped cilantro" ,
+                instructions: "",
                 level: { connect: { id: level1.id } },
-                exp: 90
+                exp: 70
             }
         })
         const recipe4 = await prisma.recipe.create({
             data: {
-                name: "Dorayaki - Dora-Yum-Ki Quest",
+                name: "Black Bean Chili",
                 image: "",
-                description: "Embark on the ancient quest of crafting the legendary Dorayaki, a Japanese sweet treat that promises a delightful adventure for your taste buds.",
-                ingredients: "2 eggs, 1/2 cup sugar, 1 teaspoon honey, 1 cup all-purpose flour, 1 teaspoon baking powder, Red bean paste or Nutella",
-                instructions: "1. Whisk the eggs, sugar, and honey together until they fuse into a formidable concoction.  2. Combine the flour and the baking powder into your egg mixture, stirring them into a batter of unmatched brewing potential.  3. Equip your pan and deploy small quantities of your batter onto the battlefield to forge your pancakes.  4. Once your pancakes are done, unleash your Red Bean Paste or Nutella as the perfect shield for your pancakes, creating your Dorayaki masterpieces.  5. Relish in your Dorayaki conquest and enjoy the spoils of your victory! ",
+                description: "This rich and satisfying chili is filled with smoky spices and hearty black beans, perfect for refueling after a long quest.",
+                ingredients: "1 tablespoon olive oil, 1 onion (diced), 1 medium carrot (chopped), 1 jalapeno (minced), 5 cloves garlic (minced), 1 tablespoon of chili powder, 1 tablespoon of cumin, 1 can of fire roasted tomatoes, 2 teaspoons diced chipotles in adobo, 1 can of blacks beans, 2 cups of vegtable broth, 1 lime (juiced), Chopped cilantro and an avocado sliced (to top)  ",
+                instructions: "",
                 level: { connect: { id: level1.id } },
                 exp: 100
             }
         })
         const recipe5 = await prisma.recipe.create({
             data: {
-                name: "Valliant Veggie Quesadilla Quest",
+                name: "Cheese Tortellini",
                 image: "",
-                description: "Gather your ingredients and embrace the challenge as you prepare to conquer and create the ultimate Veggie Quesadillas. Customize your toppings and be the master of your quesadilla quest.",
-                ingredients: "Flour tortillas, Shredded cheddar cheese, Sliced bell peppers, Sliced tomatoes, Sliced mushrooms, Sliced onions, Olive oil",
-                instructions: "1. Warm up your pan like you're about to enter an epic culinary battle.  2. Spread your flour tortillas on your quest board (baking sheets) and start building your cheesy empire.  3. Sprinkle the shredded cheddar cheese on half of your tortilla canvas, preparing for a cheesy conquest.  4. Fortify your cheesy stronghold with sliced bell peppers, tomatoes, mushrooms, and onions – a sign of a true hero.  5. Cloak your masterpiece with another tortilla and press it down firmly, getting ready for the grand battle of flavors!  6. Cook your quesadilla for 2-3 minutes on each side until your cheese is melted and the quest is won.  7. Let your Veggie Quesadilla cool off and enjoy your savory victory!",
+                description: "",
+                ingredients: "1 package of cheese tortellini, 28 ounce can crushed fire roasted tomatoes, 2 tablespoons olive oil, 3 garlic cloves (minced), 1 teaspoon of dried Italian herb mix, 3 cups baby spinach leaves, tightly packed (or chopped spinach), 8 fresh basil leaves, 4 ounces of goat",
+                instructions: "",
                 level: { connect: { id: level1.id } },
-                exp: 100
+                exp: 90
             }
         })
+        //LEVEL 2
         const recipe6 = await prisma.recipe.create({
             data: {
-                name: "Chicken and Vegetable Stir-Fry",
+                name: "Cauliflower Steak Saga",
                 image: "",
-                description: "Get ready to conquer the culinary realm with your Chicken and Vegetable Stir-Fry prowess! Assemble your ingredients and unleash your wok-wielding skills in this sizzling stir-fry showdown.",
-                ingredients: "1 pound chicken breast, cut into strips, Assorted veggies (bell peppers, broccoli, carrots, snap peas), 2 tablespoons soy sauce, 1 tablespoon hoisin sauce, 1 teaspoon cornstarch, Rice on the side",
-                instructions: "1. Arm yourself with your trusty wok or skillet and heat it to medium-high, like a true kitchen warrior. 2. Toss in your chicken strips and cook them until they are cooked through and golden-brown, ensuring your protein is battle-ready. 3. Add in your assortment of veggies and let them join in the stir-fry showdown, like a captivating dance of flavors. 4. In a bowl, mix the soy sauce, hoisin sauce, and cornstarch to create a powerful stir-fry sauce, ready to add a burst of umami to your ingredients. 5. Pour the sauce over your sizzling stir-fry and give it a good toss until everything is coated in your flavorful victory elixir.  6. Serve your Chicken and Vegetable Stir-Fry atop a throne of rice or noodles and revel in your scrumptious conquest!",
+                description: "Embark on a spicy and flavorful voyage with this innovative harissa-spiced cauliflower steak, introducing novice cooks to the art of vegetarian grilling.",
+                ingredients: "- 1 large head of cauliflower - 3 tbsp harissa paste - 2 tbsp olive oil - 1 tbsp lemon juice - Salt and pepper, to taste - Fresh mint leaves, for garnish",
+                instructions: "- Preheat the grill to medium-high heat. - Trim the leaves and stem from the cauliflower, then slice it into 1-inch thick slices. - In a bowl, mix the harissa paste, olive oil, lemon juice, salt, and pepper. - Brush the harissa mixture on both sides of the cauliflower steaks. - Grill the cauliflower steaks for 5-7 minutes on each side, or until charred and tender. - Garnish with fresh mint leaves and serve this spicy harissa cauliflower steak as a bold addition to your vegetarian cooking repertoire.",
                 level: { connect: { id: level2.id } },
-                exp: 140
+                exp: 200
             }
         })
         const recipe7 = await prisma.recipe.create({
             data: {
-                name: "Spaghetti and Meatballs",
+                name: "Sorcerer's Shakshuka",
                 image: "",
-                description: "Embark on a legendary quest to create the ultimate Spaghetti and Meatballs feast! Prepare for a taste of victory as you roll your way to culinary glory.",
-                ingredients: " Spaghetti pasta, Ground beef and ground pork, Breadcrumbs, Egg, Garlic, minced,  Tomato sauce, Parmesan cheese",
-                instructions: "1. Gather your ground beef or chicken, breadcrumbs, egg, and minced garlic to shape your meatballs, like a true culinary knight.  2. Roll your meatball troops into bite-sized-balls to prepare for the meaty conquest.  3. Cook your spaghetti pasta to al dente perfection, like a true spaghetti master.  4. In a separate skillet, brown your meatballs in a mighty display of culinary prowess.  5. Pour your tomato sauce over your meatballs and let them simmer together to concoct a sauce of heavenly flavors.  6. Nestle your victorious meatballs and sauce atop your al dente spaghetti and garnish with shredded Parmesan cheese, savoring the sweet taste of triumph!",
+                description: "Embark on a flavorfull quest filled with bold spices with this aromatic shakshuka. For intermediate chefs reading to poach the perfect egg.",
+                ingredients: "-Olive oil (about 1 tablespoon) - 1 onion (diced) -1 bell pepper(diced), -3 cloves of garlic (or to taste) -1 teaspoon of cumin - 2 teaspoons of paprika, 1 tablespoon of harissa -28oz of peeled tomatoes (fresh or canned) -6 large eggs -fresh cilantro (chopped), -Crumbled feta (optional) -Salt and pepper to taste ",
+                instructions: "- In a large, oven-safe skillet, heat the olive oil over medium heat and sauté the chopped onion and diced bell pepper until softened. - Add the minced garlic, ground cumin, paprika, and harissa, and cook for a minute until fragrant. - Pour in the diced tomatoes and simmer the mixture for 10-15 minutes, until it thickens slightly. - Create small wells in the tomato mixture and crack the eggs into them, then season the eggs with salt and pepper.- Cover the skillet and cook for 5-7 minutes, or until the egg whites are set but the yolks are still runny. - Garnish with fresh parsley or cilantro and crumbled feta.",
                 level: { connect: { id: level2.id } },
-                exp: 130
+                exp: 250
             }
         })
+        
+        // const recipe8 = await prisma.recipe.create({
+        //     data: {
+        //         name: "",
+        //         image: "",
+        //         description: "",
+        //         ingredients: "",
+        //         instructions: "",
+        //         level: { connect: { id: level2.id } },
+        //         exp: 130
+        //     }
+        // })
+        // const recipe9 = await prisma.recipe.create({
+        //     data: {
+        //         name: "Sorcerer's Shakshuka",
+        //         image: "",
+        //         description: "",
+        //         ingredients: "",
+        //         instructions: "",
+        //         level: { connect: { id: level2.id } },
+        //         exp: 130
+        //     }
+        // })
+        // const recipe10 = await prisma.recipe.create({
+        //     data: {
+        //         name: "",
+        //         image: "",
+        //         description: "",
+        //         ingredients: "",
+        //         instructions: "",
+        //         level: { connect: { id: level2.id } },
+        //         exp: 130
+        //     }
+        // })
+        //LEVEL 3
+        const recipe11 = await prisma.recipe.create({
+            data: {
+                name: "Mushroom Risotto",
+                image: "",
+                description: "Delve into the enchanting world of vegetarian risotto with this more complex and flavorful dish that will awaken culinary creativity.",
+                ingredients: "  - 6 cups vegetable broth - 2 tbsp olive oil- 1 onion, finely chopped - 2 cups arborio rice - 1/2 cup dry white wine - 1 lb assorted mushrooms, sliced  - 1/2 cup grated Parmesan cheese (optional for vegan option)   - Salt and pepper, to taste  - Fresh parsley, for garnish",
+                instructions: "- In a large pot, heat the vegetable broth until warm and keep it on low heat.  - In a separate pot, sauté the chopped onion in olive oil until translucent.  - Add the arborio rice to the pot and cook for 1-2 minutes, stirring constantly.  - Pour in the white wine and cook until it is absorbed.  - Gradually add the warm vegetable broth, one ladle at a time, stirring constantly, until the rice is cooked and the risotto is creamy.  - In a separate pan, sauté the sliced mushrooms until golden brown.  - Stir the sautéed mushrooms into the risotto and add grated Parmesan cheese if desired. - Season with salt and pepper, garnish with fresh parsley, and savor this delightful mushroom magic risotto.",
+                level: { connect: { id: level3.id } },
+                exp: 330
+            }
+        })
+        const recipe12 = await prisma.recipe.create({
+            data: {
+                name: "Eggplant Parmesan",
+                image: "",
+                description: "Enchanct others with your culinary prowess with this healthier baked eggplant parmesan, perfect for cooks seeking a new challenge!",
+                ingredients: "- 2 eggplants, sliced into rounds - 2 cups seasoned breadcrumbs  - 2 eggs, beaten (or flaxseed eggs for vegan option)  - 2 cups marinara sauce - 1 cup shredded mozzarella cheese (use vegan cheese for vegan option) - 1/2 cup grated Parmesan cheese (use vegan Parmesan for vegan option)  - Fresh basil leaves, for garnish",
+                instructions: "- Preheat the oven to 375°F (190°C). - Dip the sliced eggplant rounds into the beaten eggs, then coat them in seasoned breadcrumbs. - Place the breaded eggplant rounds on a baking sheet and bake for 15-20 minutes, or until golden brown and tender. - In a baking dish, spoon a layer of marinara sauce, then arrange a layer of baked eggplant rounds on top. - Sprinkle with mozzarella cheese and grated Parmesan cheese, then repeat the layers.- Bake the assembled eggplant parmesan for 25-30 minutes, until bubbly and golden brown. - Let it rest for a few minutes, garnish with fresh basil leaves, and savor this exquisite eggplant parmesan.",
+                level: { connect: { id: level3.id } },
+                exp: 330
+            }
+        })
+        // const recipe13 = await prisma.recipe.create({
+        //     data: {
+        //         name: "",
+        //         image: "",
+        //         description: "",
+        //         ingredients: "",
+        //         instructions: "",
+        //         level: { connect: { id: level3.id } },
+        //         exp: 130
+        //     }
+        // })
+        // const recipe14 = await prisma.recipe.create({
+        //     data: {
+        //         name: "",
+        //         image: "",
+        //         description: "",
+        //         ingredients: "",
+        //         instructions: "",
+        //         level: { connect: { id: level3.id } },
+        //         exp: 130
+        //     }
+        // })
+        // const recipe15 = await prisma.recipe.create({
+        //     data: {
+        //         name: "Sorcerer's Shakshuka",
+        //         image: "",
+        //         description: "",
+        //         ingredients: "",
+        //         instructions: "",
+        //         level: { connect: { id: level3.id } },
+        //         exp: 130
+        //     }
+        // })
 
         //TO DO: ADD MORE RECIPES
 
