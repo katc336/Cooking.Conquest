@@ -41,6 +41,16 @@ apiRouter.get("/levels", async (req, res, next) => {
         next(error);
     }
 })
+//<-----------------GET ALL GUILDS----------------->
+//GET /api/levels
+apiRouter.get("/guilds", async (req, res, next) => {
+    try {
+        const guilds = await prisma.guild.findMany();
+        res.send(guilds);
+    } catch (error) {
+        next(error);
+    }
+})
 //<-----------------GET SINGLE LEVELS----------------->
 //GET /api/level/:id
 apiRouter.get("/level/:id", async (req, res, next) => {
