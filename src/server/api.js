@@ -159,14 +159,30 @@ apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
         next(error)
     }
 });
+//<-----------------ADD GUILD TO USER ACCOUNT----------------->
+apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
+    try {
+        const { guildId } = req.body;
+        const updatedGuild = await prisma.user.update({
+            where: { id: Number(req.params.id) },
+            data: {
+                guild: guildId ? { connect: { id: guildId } } : undefined,
+            },
+            include: { guild: true },
+        });
+        res.send(updatedGuild);
+    } catch (error) {
+        next(error);
+    }
+})
 //<-----------------GET RECIPEBOOKITEM BY USER----------------->
 
 //GET /api/:user/comments 
 apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.recipeBookItem.findMany({
-            where: {userId: req.user.id},
-            include: {user: true}
+            where: { userId: req.user.id },
+            include: { user: true }
         });
         res.send(recipes);
     } catch (error) {
