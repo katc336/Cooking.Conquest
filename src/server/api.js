@@ -149,6 +149,20 @@ apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
         next(error)
     }
 });
+//<-----------------GET RECIPEBOOKITEM BY USER----------------->
+
+//GET /api/:user/comments 
+apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
+    try {
+        const recipes = await prisma.recipeBookItem.findMany({
+            where: {userId: req.user.id},
+            include: {user: true}
+        });
+        res.send(recipes);
+    } catch (error) {
+        next(error);
+    }
+});
 //<-----------------GET ALL USER'S RECIPES----------------->
 apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
     try {
