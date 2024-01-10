@@ -6,7 +6,7 @@ import HomePage from "./HomePage/HomePage";
 import NavBar from "./NavigationBar/NavBar";
 import LoginForm from "./AuthForms/LoginForm";
 import RegisterForm from "./AuthForms/RegisterForm";
-import RecipesPage from "./SeeRecipes/RecipesPage";
+import RecipesPage from "./SeeRecipes/AllRecipesPage/RecipesPage";
 import SingleRecipe from "./SeeRecipes/SingleRecipePage/SingleRecipe";
 import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 

@@ -6,9 +6,9 @@ import Tooltip from "@mui/material/Tooltip"
 
 import { Link } from "react-router-dom";
 
-import SearchIcon from "./SearchIcon.png"
-import MyRecipes from "./MyRecipes.png"
-import MyAccount from "./MyAccount.png"
+import SearchIcon from "./images/SearchIcon.png"
+import MyRecipes from "./images/MyRecipes.png"
+import MyAccount from "./images/MyAccount.png"
 
 const UserNavBar = () => {
     return (

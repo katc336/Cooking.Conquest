@@ -1,16 +1,11 @@
 import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import { useGetUserQuery } from "../../../redux/api";
-import LevelOneUserCard from "./Level1/LevelOneUserCard.png"
-import LevelTwoUserCard from "./Level2/LevelTwoUserCard.png"
-import RecipeSpellBook from "./RecipeSpellBook.png"
+import RecipeSpellBook from "./images/RecipeSpellBook.png"
 import LevelOneUserDisplay from "./Level1/LevelOneUserDisplay";
 import LevelTwoUserDisplay from "./Level2/LevelTwoUserDisplay";
 import UsersRecipes from "./UsersRecipes";

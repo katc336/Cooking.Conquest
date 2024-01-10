@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography"
 
 import { useGetUserQuery } from "../../../redux/api"
 
-import MyRecipesPage from "./MyRecipesPage.png"
+import MyRecipesPage from "./images/MyRecipesPage.png"
 import UsersRecipes from "./UsersRecipes"
 
 const MyRecipes = () => {

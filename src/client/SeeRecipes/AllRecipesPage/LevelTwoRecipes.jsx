@@ -2,13 +2,13 @@ import { Box, Card, Typography, Stack, Tooltip } from "@mui/material"
 
 import { Link } from "react-router-dom"
 
-import { useGetUserQuery, useGetLevelThreeRecipesQuery } from "../../redux/api"
+import { useGetUserQuery, useGetLevelTwoRecipesQuery } from "../../../redux/api"
 
 import NoUserRecipeView from "./NoUserRecipeView"
-import RecipeCircle from "./images/RecipeCircle.png"
+import RecipeCircle from "../images/RecipeCircle.png"
 
-const LevelThreeRecipes = () => {
-    const { data, error, isLoading } = useGetLevelThreeRecipesQuery();
+const LevelTwoRecipes = () => {
+    const { data, error, isLoading } = useGetLevelTwoRecipesQuery();
     const { data: userData, error: userError, isLoading: userIsLoading } = useGetUserQuery();
     if (data) {
         console.log(data)
@@ -18,19 +18,19 @@ const LevelThreeRecipes = () => {
     }
     return (
         <div>
-            {!userData || userData.level !== 3
+            {!userData || userData.level !== 2 || userData.level !== 3
                 ? //if no user or not a high enough level...
                 <div>
                     <Stack direction="column">
                         <Typography
                             variant="h5"
                             sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                            Level three quests are locked!
+                            Level two quests are locked!
                         </Typography>
                         <Typography
                             variant="h6"
                             sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                            Sign up or level up to unlock level three recipes!
+                            Sign up or level up to unlock level two recipes!
                         </Typography>
                     </Stack>
                     <NoUserRecipeView />
@@ -41,7 +41,7 @@ const LevelThreeRecipes = () => {
                         <Typography
                             variant="h5"
                             sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                            Level Three:
+                            Level Two:
                         </Typography>
                         <Stack direction="row" useFlexGap flexWrap="wrap">
                             {data && data.map((recipes) => (
@@ -72,4 +72,4 @@ const LevelThreeRecipes = () => {
         </div >
     )
 }
-export default LevelThreeRecipes
+export default LevelTwoRecipes

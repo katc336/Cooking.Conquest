@@ -1,6 +1,6 @@
 import { Box, Typography, Stack, Tooltip } from "@mui/material"
 
-import LockedRecipeIcon from "./images/LockedRecipeIcon.png"
+import LockedRecipeIcon from "../images/LockedRecipeIcon.png"
 
 const LockedRecipe = () => {
     return (

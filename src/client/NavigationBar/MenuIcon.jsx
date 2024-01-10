@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { useGetUserQuery } from '../../redux/api';
-import MenuChefIcon from "./MyAccount.png"
+import MenuChefIcon from "./images/MyAccount.png"
 
 const MenuIcon = () => {
 

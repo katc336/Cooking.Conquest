@@ -4,7 +4,6 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Tooltip from '@mui/material/Tooltip';
-import RateReviewIcon from '@mui/icons-material/RateReview';
 import { useMediaQuery, useTheme } from '@mui/material';
 
 import { Link } from 'react-router-dom';
@@ -12,10 +11,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import MobileNavBar from './MobileNavBar';
-import MenuIcon from './MenuIcon';
 
-import { useGetUserQuery } from "../../redux/api";
-import SearchIcon from "./SearchIcon.png"
+import SearchIcon from "./images/SearchIcon.png"
 
 const NavBar = () => {
 
