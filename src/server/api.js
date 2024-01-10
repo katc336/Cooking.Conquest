@@ -189,8 +189,9 @@ apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
     }
 });
 
-//
+
 //<---------------------------------AFTER LEVEL 3-------------------------------------->
+
 //<-----------------ADD GUILD TO USER ACCOUNT----------------->
 apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
     try {
@@ -203,12 +204,35 @@ apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
             include: { guild: true },
         });
         delete updatedGuild.password
-        res.send(updatedGuild);
+        res.send({updatedGuild, message: "Welcome to the guild!"});
     } catch (error) {
         next(error);
     }
 })
-
+//<-----------------POST USER RECIPE----------------->
+apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
+    try {
+        const { name, image, description, ingredients, instructions, guildId } = req.body
+        const newRecipe = await prisma.userPostedRecipe.create({
+            data: {
+                user: { connect: { id: req.user.id } },
+                name,
+                image,
+                description,
+                ingredients, 
+                instructions,
+                guild: { connect: { id: req.user.guildId } },
+            },
+            include: {
+                user: true,
+                guild: true
+            }
+        });
+        res.status(201).send({newRecipe, message: "Recipe added!"});
+    } catch (error) {
+        next(error);
+    }
+})
 //<-----------------RATE USER'S RECIPE----------------->
 //POST /api/comment
 apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {

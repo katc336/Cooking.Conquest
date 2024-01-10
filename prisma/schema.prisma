@@ -62,15 +62,18 @@ model UserPostedRecipe {
   instructions String
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       Int
-  Rating       Rating[]
+  guild        Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  guildId      Int
+  rating       Rating[]
 }
 
 model Guild {
-  id          Int    @id @default(autoincrement())
-  name        String
-  description String
-  score       Int
-  users       User[]
+  id                Int                @id @default(autoincrement())
+  name              String
+  description       String
+  score             Int
+  users             User[]
+  userPostedRecipes UserPostedRecipe[]
 }
 
 model Rating {
