@@ -91,7 +91,7 @@ const api = createApi({
         //ADD RECIPE TO USER
         postRecipeToUser: builder.mutation({
             query: (recipeId) => ({
-                url: `/api/myRecipe`,
+                url: `/api/myRecipeBook`,
                 method: 'POST',
                 body: recipeId,
             }),

@@ -144,7 +144,7 @@ apiRouter.get("/recipes-level-three", async (req, res, next) => {
     }
 });
 //<-----------------ADD RECIPE TO USER ACCOUNT----------------->
-apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
+apiRouter.post("/myRecipeBook", requireUser, async (req, res, next) => {
     const recipeId = req.body.recipeId
     try {
         const newRecipe = await prisma.recipeBookItem.create({
@@ -160,7 +160,6 @@ apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
     }
 });
 //<-----------------GET RECIPEBOOKITEM BY USER----------------->
-
 //GET /api/:user/comments 
 apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
     try {
@@ -174,20 +173,20 @@ apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
         next(error);
     }
 });
-//<-----------------GET USER'S RECIPE BOOK----------------->
-apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
+//<-----------------PATCH RECIPEBOOKITEM TO COMPLETED----------------->
+apiRouter.patch("/myRecipeBook_complete/:id", requireUser, async (req, res, next) => {
     try {
-        const recipes = await prisma.recipeBookItem.findMany({
-            where: { userId: req.user.id },
-            include: { user: true }
-        })
-        delete recipes.user.password
-        //TO DO: SECURITY ISSUE SENDING PASSWORD TO FRONTEND
-        res.send(recipes)
+        const recipeCompleted = await prisma.recipeBookItem.update({
+            where: {id: Number(req.params.id)},
+            data: {completed: true}
+        });
+        res.send({recipeCompleted, message: "Quest complete!"});
     } catch (error) {
         next(error);
     }
-});
+ })
+ 
+//<-----------------DELETE USER'S RECIPESBOOK ITEM----------------->
 
 //<-----------------GET ALL RATINGS FOR A RECIPE----------------->
 apiRouter.get("/recipeRatings/:userPostedRecipeId", async (req, res, next) => {
@@ -201,8 +200,6 @@ apiRouter.get("/recipeRatings/:userPostedRecipeId", async (req, res, next) => {
         next(error);
     }
 });
-//<-----------------DELETE USER'S RECIPESBOOK----------------->
-
 //<---------------------------------AFTER LEVEL 3-------------------------------------->
 
 //<-----------------ADD GUILD TO USER ACCOUNT----------------->
