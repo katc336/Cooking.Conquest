@@ -159,23 +159,6 @@ apiRouter.post("/myRecipe", requireUser, async (req, res, next) => {
         next(error)
     }
 });
-//<-----------------ADD GUILD TO USER ACCOUNT----------------->
-apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
-    try {
-        const { guildId } = req.body;
-        const updatedGuild = await prisma.user.update({
-            where: { id: Number(req.params.id) },
-            data: {
-                guild: guildId ? { connect: { id: guildId } } : undefined,
-            },
-            include: { guild: true },
-        });
-        delete updatedGuild.password
-        res.send(updatedGuild);
-    } catch (error) {
-        next(error);
-    }
-})
 //<-----------------GET RECIPEBOOKITEM BY USER----------------->
 
 //GET /api/:user/comments 
@@ -206,7 +189,35 @@ apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
     }
 });
 
-//<-----------------GET SINGLE USER'S RECIPE----------------->
+//
+//<---------------------------------AFTER LEVEL 3-------------------------------------->
+//<-----------------ADD GUILD TO USER ACCOUNT----------------->
+apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
+    try {
+        const { guildId } = req.body;
+        const updatedGuild = await prisma.user.update({
+            where: { id: Number(req.params.id) },
+            data: {
+                guild: guildId ? { connect: { id: guildId } } : undefined,
+            },
+            include: { guild: true },
+        });
+        delete updatedGuild.password
+        res.send(updatedGuild);
+    } catch (error) {
+        next(error);
+    }
+})
+
+//<-----------------RATE USER'S RECIPE----------------->
+//POST /api/comment
+apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {
+    try {
+       
+    } catch (error) {
+        next(error);
+    }
+})
 
 //<-----------------DELETE USER'S RECIPES----------------->
 
