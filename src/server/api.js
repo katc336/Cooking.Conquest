@@ -174,7 +174,7 @@ apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
         next(error);
     }
 });
-//<-----------------GET ALL USER'S RECIPES----------------->
+//<-----------------GET USER'S RECIPE BOOK----------------->
 apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.recipeBookItem.findMany({
@@ -189,6 +189,19 @@ apiRouter.get("/myRecipes", requireUser, async (req, res, next) => {
     }
 });
 
+//<-----------------GET ALL RATINGS FOR A RECIPE----------------->
+apiRouter.get("/recipeRatings/:userPostedRecipeId", async (req, res, next) => {
+    try {
+            const ratings = await prisma.rating.findMany({
+                where: {userPostedRecipeId: Number(req.params.userPostedRecipeId)},
+                include: {userPostedRecipe: true}
+            });
+            res.send(ratings);
+    } catch (error) {
+        next(error);
+    }
+});
+//<-----------------DELETE USER'S RECIPESBOOK----------------->
 
 //<---------------------------------AFTER LEVEL 3-------------------------------------->
 
@@ -267,8 +280,6 @@ apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {
         next(error);
     }
 })
-
-//<-----------------DELETE USER'S RECIPES----------------->
 
 //<-----------------PATCH RECIPES----------------->
 //NOTE: ADMIN ONLY
