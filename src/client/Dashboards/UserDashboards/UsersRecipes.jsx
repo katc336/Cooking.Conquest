@@ -11,7 +11,7 @@ import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../.
 const UsersRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();
     const { id } = useParams();
-    const [patchRecipe, { isLoading: isMutationLoading, isError: isMutationError, data: mutationData }] = usePatchCompletedRecipeMutation(id);
+    const [patchRecipe] = usePatchCompletedRecipeMutation(id);
     if (isLoading) {
         console.log("Loading...")
         //TO DO
@@ -23,16 +23,15 @@ const UsersRecipes = () => {
     if (error) {
         return <>{error}</>
     }
-    const handlePatch = async (event) => {
+    const handlePatch = async (recipeId) => {
         try {
-            event.preventDefault();
-            const result = await patchRecipe({ completed: true })
-            console.log("Success!")
-            console.log("Patch result" + result)
+            const result = await patchRecipe({ id: recipeId, completed: true });
+            console.log("Patch result:", result);
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
-    }
+    };
+
     return (
         <div>
             {data && data.length > 0
@@ -65,8 +64,9 @@ const UsersRecipes = () => {
                                                             View Recipe
                                                         </Button>
                                                     </Link>
+
                                                     <Button
-                                                        onClick={() => handlePatch(event)}
+                                                        onClick={() => handlePatch(recipeBookItem.id)}
                                                         sx={{
                                                             m: 1,
                                                             color: "white",
@@ -77,13 +77,14 @@ const UsersRecipes = () => {
                                                             borderColor: "#445D48",
                                                             textTransform: "none"
                                                         }}>
-                                                        Click to here completed the quest
+                                                        Mark as Completed
                                                     </Button>
                                                 </Stack>
                                             </Box>
                                         </div>
                                         : //If the recipe is completed return an empty div
-                                        <div />}
+                                        <div />
+                                    }
                                 </div>
                             ))}
                         </Box>
