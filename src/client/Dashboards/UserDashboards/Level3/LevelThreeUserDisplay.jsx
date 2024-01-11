@@ -8,6 +8,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useGetUserQuery } from "../../../../redux/api";
 import LevelThreeHands from "./LevelThreeHands.png"
 import LevelThreeCard from "./LevelThreeCard.png"
+import ExpBar from "../ExpBar/ExpBar";
 
 
 const LevelThreeUserDisplay = () => {
@@ -44,11 +45,7 @@ const LevelThreeUserDisplay = () => {
                     <Typography sx={{ textAlign: "center" }}>
                         <img src={LevelThreeHands} width="150px" />
                     </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{ color: "rgba(223, 233, 228, 1)", textAlign: "center" }}>
-                        To level up, get cooking!
-                    </Typography>
+                    <ExpBar />
                     {data && data.recipeBookItemId !== null
                         ? //if there is not recipe book item...
                         <div>
