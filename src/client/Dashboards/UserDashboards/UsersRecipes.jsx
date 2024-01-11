@@ -30,34 +30,36 @@ const UsersRecipes = () => {
                                 <div key={recipeBookItem.id}>
                                     <Box sx={{ backgroundColor: "#F1E4C3", px: 2, py: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                                         <Stack direction="row">
-                                        <Typography
-                                            variant="h4"
-                                            sx={{ pt: 1, mx: 2}}>
-                                            {recipeBookItem.recipe.name}
-                                        </Typography>
-                                        <Button sx={{
-                                            m: 1,
-                                            color: "#445D48",
-                                            borderRadius: "10px",
-                                            border: 2,
-                                            borderBottom: 5,
-                                            borderColor: "#445D48",
-                                            textTransform: "none"
-                                        }}>
-                                            View Recipe
-                                        </Button>
-                                        <Button sx={{
-                                             m: 1,
-                                             color: "white",
-                                             borderRadius: "10px",
-                                             backgroundColor: "#65B741",
-                                             border: 2,
-                                             borderBottom: 5,
-                                             borderColor: "#445D48",
-                                             textTransform: "none"
-                                        }}>
-                                            Click to here completed the quest
-                                        </Button>
+                                            <Typography
+                                                variant="h4"
+                                                sx={{ color: "#362706", pt: 1, mx: 2 }}>
+                                                {recipeBookItem.recipe.name}
+                                            </Typography>
+                                            <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
+                                                <Button sx={{
+                                                    m: 1,
+                                                    color: "#445D48",
+                                                    borderRadius: "10px",
+                                                    border: 2,
+                                                    borderBottom: 5,
+                                                    borderColor: "#445D48",
+                                                    textTransform: "none"
+                                                }}>
+                                                    View Recipe
+                                                </Button>
+                                            </Link>
+                                            <Button sx={{
+                                                m: 1,
+                                                color: "white",
+                                                borderRadius: "10px",
+                                                backgroundColor: "#65B741",
+                                                border: 2,
+                                                borderBottom: 5,
+                                                borderColor: "#445D48",
+                                                textTransform: "none"
+                                            }}>
+                                                Click to here completed the quest
+                                            </Button>
                                         </Stack>
                                     </Box>
                                 </div>
