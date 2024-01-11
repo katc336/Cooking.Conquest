@@ -64,7 +64,6 @@ const UsersRecipes = () => {
                                                             View Recipe
                                                         </Button>
                                                     </Link>
-
                                                     <Button
                                                         onClick={() => handlePatch(recipeBookItem.id)}
                                                         sx={{

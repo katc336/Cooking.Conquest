@@ -2,7 +2,7 @@ import { Box, Card, Typography, Stack, Tooltip } from "@mui/material"
 
 import { Link } from "react-router-dom"
 
-import { useGetLevelOneRecipesQuery } from "../../../redux/api"
+import { useGetLevelOneRecipesQuery } from "../../../../redux/api"
 
 import RecipeBorder from "../images/RecipeBorder.png"
 
