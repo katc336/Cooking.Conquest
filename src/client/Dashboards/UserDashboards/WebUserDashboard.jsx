@@ -9,6 +9,8 @@ import RecipeSpellBook from "./images/RecipeSpellBook.png"
 import LevelOneUserDisplay from "./Level1/LevelOneUserDisplay";
 import LevelTwoUserDisplay from "./Level2/LevelTwoUserDisplay";
 import UsersRecipes from "./UsersRecipes";
+import LevelThreeUserDisplay from "./Level3/LevelThreeUserDisplay";
+import MaxLevelUserDisplay from "./MaxLevel/MaxLevelUserDisplay";
 
 const WebUserDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -34,20 +36,35 @@ const WebUserDashboard = () => {
                 <Grid container>
                     <Grid item xs={3}>
                         {data.level === 1
-                            ? //if level one return level one image...
+                            ? //if level 1 return level 1 image...
                             <div>
                                 <LevelOneUserDisplay />
                             </div>
                             : //if not level 1, return empty <div>
                             <div />}
-
                         {data.level === 2
-                            ? //if level one return level one image...
+                            ? //if level 2 return level 2 image...
                             <div>
                                 <LevelTwoUserDisplay />
                             </div>
+                            : //if not level 2, return empty <div>
+                            <div />}
+                        {data.level === 3
+                            ? //if level 3 return level 3 image...
+                            <div>
+                                <LevelThreeUserDisplay />
+                            </div>
                             : //if not level 1, return empty <div>
                             <div />}
+                            {data.level === 4
+                            ? //if max level return max level image...
+                            <div>
+                                <MaxLevelUserDisplay />
+                            </div>
+                            : //if not level 1, return empty <div>
+                            <div />}
+                            
+
                     </Grid>
                     <Grid item xs={9}>
                         <Box

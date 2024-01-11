@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import { useGetUserQuery } from "../../../../redux/api";
-import LevelTwoHands from "./LevelTwoHands.png"
-import LevelTwoUserCard from "./LevelTwoUserCard.png"
+import LevelThreeHands from "./LevelThreeHands.png"
+import LevelThreeCard from "./LevelThreeCard.png"
 
 
-const LevelTwoUserDisplay = () => {
+const LevelThreeUserDisplay = () => {
     const { data, error, isLoading } = useGetUserQuery();
 
     const theme = useTheme();
@@ -32,17 +32,17 @@ const LevelTwoUserDisplay = () => {
             <div>
                 <Box sx={{ mt: 10, pb: 30 }}
                     style={{
-                        backgroundImage: `url(${LevelTwoUserCard})`,
+                        backgroundImage: `url(${LevelThreeCard})`,
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                     }}>
                     <Typography
                         variant="h4"
                         sx={{ color: "rgba(223, 233, 228, 1)", pt: "100%", textAlign: "center" }}>
-                        Level Two:
+                        Level Three:
                     </Typography>
                     <Typography sx={{ textAlign: "center" }}>
-                        <img src={LevelTwoHands} width="150px" />
+                        <img src={LevelThreeHands} width="150px" />
                     </Typography>
                     <Typography
                         variant="h6"
@@ -78,4 +78,4 @@ const LevelTwoUserDisplay = () => {
         </div>
     )
 }
-export default LevelTwoUserDisplay
+export default LevelThreeUserDisplay
