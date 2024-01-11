@@ -42,42 +42,48 @@ const UsersRecipes = () => {
                         <Box sx={{ mt: "18%", mx: "20%" }}>
                             {data.map((recipeBookItem) => (
                                 <div key={recipeBookItem.id}>
-                                    <Box sx={{ backgroundColor: "#F1E4C3", px: 2, py: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
-                                        <Stack direction="row">
-                                            <Typography
-                                                variant="h6"
-                                                sx={{ color: "#362706", pt: 2, mx: 2 }}>
-                                                {recipeBookItem.recipe.name}
-                                            </Typography>
-                                            <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
-                                                <Button sx={{
-                                                    m: 1,
-                                                    color: "#445D48",
-                                                    borderRadius: "10px",
-                                                    border: 2,
-                                                    borderBottom: 5,
-                                                    borderColor: "#445D48",
-                                                    textTransform: "none"
-                                                }}>
-                                                    View Recipe
-                                                </Button>
-                                            </Link>
-                                            <Button
-                                                onClick={() => handlePatch(event)}
-                                                sx={{
-                                                    m: 1,
-                                                    color: "white",
-                                                    borderRadius: "10px",
-                                                    backgroundColor: "#65B741",
-                                                    border: 2,
-                                                    borderBottom: 5,
-                                                    borderColor: "#445D48",
-                                                    textTransform: "none"
-                                                }}>
-                                                Click to here completed the quest
-                                            </Button>
-                                        </Stack>
-                                    </Box>
+                                    {recipeBookItem.completed === false
+                                        ? //If the recipe is incomplete...
+                                        <div>
+                                            <Box sx={{ backgroundColor: "#F1E4C3", px: 2, py: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                                                <Stack direction="row">
+                                                    <Typography
+                                                        variant="h6"
+                                                        sx={{ color: "#362706", pt: 2, mx: 2 }}>
+                                                        {recipeBookItem.recipe.name}
+                                                    </Typography>
+                                                    <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
+                                                        <Button sx={{
+                                                            m: 1,
+                                                            color: "#445D48",
+                                                            borderRadius: "10px",
+                                                            border: 2,
+                                                            borderBottom: 5,
+                                                            borderColor: "#445D48",
+                                                            textTransform: "none"
+                                                        }}>
+                                                            View Recipe
+                                                        </Button>
+                                                    </Link>
+                                                    <Button
+                                                        onClick={() => handlePatch(event)}
+                                                        sx={{
+                                                            m: 1,
+                                                            color: "white",
+                                                            borderRadius: "10px",
+                                                            backgroundColor: "#65B741",
+                                                            border: 2,
+                                                            borderBottom: 5,
+                                                            borderColor: "#445D48",
+                                                            textTransform: "none"
+                                                        }}>
+                                                        Click to here completed the quest
+                                                    </Button>
+                                                </Stack>
+                                            </Box>
+                                        </div>
+                                        : //If the recipe is completed return an empty div
+                                        <div />}
                                 </div>
                             ))}
                         </Box>
