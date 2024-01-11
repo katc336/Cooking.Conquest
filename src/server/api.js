@@ -165,10 +165,15 @@ apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.recipeBookItem.findMany({
             where: { userId: req.user.id },
-            include: { user: true }
+            include: {
+                recipe: {
+                    include: {
+                        level: true // Include level data if needed
+                    }
+                }
+            }
         });
-         //TO DO: SECURITY ISSUE SENDING PASSWORD TO FRONTEND
-        res.send(recipes);
+        res.send(recipes)
     } catch (error) {
         next(error);
     }
@@ -177,25 +182,25 @@ apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
 apiRouter.patch("/myRecipeBook_complete/:id", requireUser, async (req, res, next) => {
     try {
         const recipeCompleted = await prisma.recipeBookItem.update({
-            where: {id: Number(req.params.id)},
-            data: {completed: true}
+            where: { id: Number(req.params.id) },
+            data: { completed: true }
         });
-        res.send({recipeCompleted, message: "Quest complete!"});
+        res.send({ recipeCompleted, message: "Quest complete!" });
     } catch (error) {
         next(error);
     }
- })
- 
+})
+
 //<-----------------DELETE USER'S RECIPESBOOK ITEM----------------->
 
 //<-----------------GET ALL RATINGS FOR A RECIPE----------------->
 apiRouter.get("/recipeRatings/:userPostedRecipeId", async (req, res, next) => {
     try {
-            const ratings = await prisma.rating.findMany({
-                where: {userPostedRecipeId: Number(req.params.userPostedRecipeId)},
-                include: {userPostedRecipe: true}
-            });
-            res.send(ratings);
+        const ratings = await prisma.rating.findMany({
+            where: { userPostedRecipeId: Number(req.params.userPostedRecipeId) },
+            include: { userPostedRecipe: true }
+        });
+        res.send(ratings);
     } catch (error) {
         next(error);
     }
@@ -214,7 +219,7 @@ apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
             include: { guild: true },
         });
         delete updatedGuild.password
-        res.send({updatedGuild, message: "Welcome to the guild!"});
+        res.send({ updatedGuild, message: "Welcome to the guild!" });
     } catch (error) {
         next(error);
     }
@@ -229,7 +234,7 @@ apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
                 name,
                 image,
                 description,
-                ingredients, 
+                ingredients,
                 instructions,
                 guild: { connect: { id: req.user.guildId } },
             },
@@ -238,7 +243,7 @@ apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
                 guild: true
             }
         });
-        res.status(201).send({newRecipe, message: "Recipe added!"});
+        res.status(201).send({ newRecipe, message: "Recipe added!" });
     } catch (error) {
         next(error);
     }
@@ -247,8 +252,8 @@ apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
 apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.userPostedRecipe.findMany({
-            where: {userId: req.user.id},
-            include: {user: true}
+            where: { userId: req.user.id },
+            include: { user: true }
         });
         res.send(recipes);
     } catch (error) {
@@ -272,7 +277,7 @@ apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {
                 userPostedRecipe: true
             }
         });
-        res.status(201).send({ addRating, message: "Rating added!"});
+        res.status(201).send({ addRating, message: "Rating added!" });
     } catch (error) {
         next(error);
     }
