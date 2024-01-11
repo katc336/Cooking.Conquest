@@ -147,6 +147,21 @@ apiRouter.get("/recipes-level-three", async (req, res, next) => {
 apiRouter.post("/myRecipeBook", requireUser, async (req, res, next) => {
     const recipeId = req.body.recipeId
     try {
+        const userRecipeCount = await prisma.recipeBookItem.count({
+            where: { userId: req.user.id },
+        });
+
+        if (userRecipeCount >= 4) {
+            return res.status(400).send("You have the maximum recipes of 4 that you can have at one time")
+        };
+        const existingRecipe = await prisma.recipeBookItem.findFirst({
+            where: { userId: req.user.id, recipeId: recipeId },
+        });
+
+        if (existingRecipe) {
+            return res.status(400).send("You cannot add the same recipes to your recipe book twice");
+        }
+
         const newRecipe = await prisma.recipeBookItem.create({
             data: {
                 user: { connect: { id: req.user.id } },
