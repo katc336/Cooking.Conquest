@@ -4,26 +4,30 @@ import Button from "@mui/material/Button"
 
 import { Link } from "react-router-dom"
 
-import { useGetUserQuery } from "../../../redux/api"
+import { useGetRecipeBookItemQuery } from "../../../redux/api"
 
 const UsersRecipes = () => {
-    const { data, error, isLoading } = useGetUserQuery();
+    const { data, error, isLoading } = useGetRecipeBookItemQuery();
     if (isLoading) {
         console.log("Loading...")
         return null
     }
     if (data) {
-        console.log("UsersRecipes data");
+        console.log(data);
     }
     if (error) {
         return <>{error}</>
     }
     return (
         <div>
-            {data && data.recipeBookItemId === null 
-                ? //if there is not recipe book item...
+            {data
+                ? //if there is a recipe book item...
                 <div>
-                    <Box sx={{ mt: "20%", mx: "10%", p: 3, backgroundColor: "rgba(223, 233, 228, 1)", border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+               
+                </div>
+                : //there are no recipes...
+                <div>
+                         <Box sx={{ mt: "20%", mx: "10%", p: 3, backgroundColor: "rgba(223, 233, 228, 1)", border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                         <Typography
                             variant="h4"
                             sx={{ fontWeight: "bold", textAlign: "center", color: "#362706" }}>
@@ -48,10 +52,6 @@ const UsersRecipes = () => {
                             </Link>
                         </Typography>
                     </Box>
-                </div>
-                : //there are recipes...
-                <div>
-                    TEST
                 </div>
             }
         </div>

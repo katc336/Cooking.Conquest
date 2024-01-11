@@ -47,7 +47,15 @@ const api = createApi({
             }),
             providesTags: ["Users"]
         }),
-      //<------------RECIPES------------>
+        //GET User's recipe book item
+        getRecipeBookItem: builder.query({
+            query: () => ({
+                url: `/api/myRecipeBook`,
+                method: 'GET'
+            }),
+            providesTags: ["RecipeBook"]
+        }),
+        //<------------RECIPES------------>
         //GET ALL RECIPES
         getAllRecipes: builder.query({
             query: () => ({
@@ -56,8 +64,8 @@ const api = createApi({
             }),
             providesTags: ["Recipes"]
         }),
-          //GET SINGLE RECIPE
-          getSingleRecipe: builder.query({
+        //GET SINGLE RECIPE
+        getSingleRecipe: builder.query({
             query: (id) => ({
                 url: `/api/recipe/${id}`,
                 method: 'GET',
@@ -97,7 +105,7 @@ const api = createApi({
             }),
             invalidatesTags: ["RecipeBook"]
         }),
-       
+
     }),
 })
 export default api;
@@ -108,6 +116,7 @@ export const {
     useLoginMutation,
     //GET USER'S INFO
     useGetUserQuery,
+    useGetRecipeBookItemQuery,
     //GET RECIPE INFO
     useGetAllRecipesQuery,
     useGetSingleRecipeQuery,
