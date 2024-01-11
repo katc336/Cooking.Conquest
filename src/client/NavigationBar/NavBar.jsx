@@ -39,6 +39,13 @@ const NavBar = () => {
                             Cooking Conquest
                         </Typography>
                         <Stack direction="row">
+                            <Link to="/lore">
+                                <Tooltip title="Read About the World's Lore" arrow>
+                                    <Button sx={{ mr: 5 }}>
+                                        World Lore
+                                    </Button>
+                                </Tooltip>
+                            </Link>
                             <Link to="/recipes">
                                 <motion.div whileHover={{ scale: 1.2 }}>
                                     <Tooltip title="Find new recipe quests" arrow>

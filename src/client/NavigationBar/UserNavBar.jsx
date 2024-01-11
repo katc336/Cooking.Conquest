@@ -37,6 +37,13 @@ const UserNavBar = () => {
                                 </Button>
                             </Tooltip>
                         </Link>
+                        <Link to="/lore">
+                            <Tooltip title="Read About the World's Lore" arrow>
+                                <Button sx={{ mr: 5 }}>
+                                    World Lore
+                                </Button>
+                            </Tooltip>
+                        </Link>
                     </Stack>
                 </AppBar>
             </Box>

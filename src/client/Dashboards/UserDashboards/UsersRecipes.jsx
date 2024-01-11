@@ -2,12 +2,16 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { Link } from "react-router-dom";
-import { useGetRecipeBookItemQuery } from "../../../redux/api";
 
-import CloudBox from "./images/CloudBox.png"
+import { Link } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
+import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../../redux/api";
+
 const UsersRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();
+    const { id } = useParams();
+    const [patchRecipe, { isLoading: isMutationLoading, isError: isMutationError, data: mutationData }] = usePatchCompletedRecipeMutation(id);
     if (isLoading) {
         console.log("Loading...")
         //TO DO
@@ -18,6 +22,16 @@ const UsersRecipes = () => {
     }
     if (error) {
         return <>{error}</>
+    }
+    const handlePatch = async (event) => {
+        try {
+            event.preventDefault();
+            const result = await patchRecipe({ completed: true })
+            console.log("Success!")
+            console.log("Patch result" + result)
+        } catch (error) {
+            console.error(error)
+        }
     }
     return (
         <div>
@@ -31,8 +45,8 @@ const UsersRecipes = () => {
                                     <Box sx={{ backgroundColor: "#F1E4C3", px: 2, py: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                                         <Stack direction="row">
                                             <Typography
-                                                variant="h4"
-                                                sx={{ color: "#362706", pt: 1, mx: 2 }}>
+                                                variant="h6"
+                                                sx={{ color: "#362706", pt: 2, mx: 2 }}>
                                                 {recipeBookItem.recipe.name}
                                             </Typography>
                                             <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
@@ -48,16 +62,18 @@ const UsersRecipes = () => {
                                                     View Recipe
                                                 </Button>
                                             </Link>
-                                            <Button sx={{
-                                                m: 1,
-                                                color: "white",
-                                                borderRadius: "10px",
-                                                backgroundColor: "#65B741",
-                                                border: 2,
-                                                borderBottom: 5,
-                                                borderColor: "#445D48",
-                                                textTransform: "none"
-                                            }}>
+                                            <Button
+                                                onClick={() => handlePatch(event)}
+                                                sx={{
+                                                    m: 1,
+                                                    color: "white",
+                                                    borderRadius: "10px",
+                                                    backgroundColor: "#65B741",
+                                                    border: 2,
+                                                    borderBottom: 5,
+                                                    borderColor: "#445D48",
+                                                    textTransform: "none"
+                                                }}>
                                                 Click to here completed the quest
                                             </Button>
                                         </Stack>

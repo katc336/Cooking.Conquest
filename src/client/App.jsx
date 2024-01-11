@@ -13,6 +13,7 @@ import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 import { useSelector } from "react-redux";
 import UserNavBar from "./NavigationBar/UserNavBar";
 import MyRecipes from "./Dashboards/UserDashboards/MyRecipes";
+import WorldLore from "./WorldLore/WorldLore";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/recipe/:id" element={<SingleRecipe />} />
           <Route path="/my_recipes" element={<MyRecipes />} />
+          <Route path="/lore" element={<WorldLore/>} />
         </Routes>
       </BrowserRouter>
     </div>
