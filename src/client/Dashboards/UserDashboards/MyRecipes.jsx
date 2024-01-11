@@ -9,6 +9,10 @@ import UsersRecipes from "./UsersRecipes"
 
 const MyRecipes = () => {
     const { data, error, isLoading } = useGetUserQuery();
+    if (isLoading){
+        console.log("Loading...")
+        return null
+    }
     if (data) {
         console.log(data)
     }

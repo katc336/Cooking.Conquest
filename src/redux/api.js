@@ -62,7 +62,7 @@ const api = createApi({
                 method: 'PATCH',
                 body: { completed },
             }),
-            invalidatesTags: ["RecipeBook"]
+            invalidatesTags: ["RecipeBook", "Users"]
         }),
         //<------------RECIPES------------>
         //GET ALL RECIPES
