@@ -42,7 +42,7 @@ const LevelTwoUserQuests = () => {
                                                 sx={{ m: 1, p: 3, pb: 30 }}
                                                 style={{
                                                     backgroundImage: `url(${RecipeBorder})`,
-                                                    width: "150px",
+                                                    width: "100px",
                                                     backgroundSize: "contain",
                                                     backgroundRepeat: "no-repeat",
                                                 }}>
@@ -64,18 +64,6 @@ const LevelTwoUserQuests = () => {
                 </div>
                 : //if no user or lower level...
                 <div>
-                    <Stack direction="column">
-                        <Typography
-                            variant="h5"
-                            sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                            Level two quests are locked!
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                            Sign up or level up to unlock level two recipes!
-                        </Typography>
-                    </Stack>
                     <NoUserRecipeView />
                 </div>}
         </div >

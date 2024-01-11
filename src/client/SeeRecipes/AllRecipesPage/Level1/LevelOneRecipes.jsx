@@ -33,7 +33,7 @@ const LevelOneRecipes = () => {
                                         sx={{ m: 1, p: 3, pb: 30 }}
                                         style={{
                                             backgroundImage: `url(${RecipeBorder})`,
-                                            width: "150px",
+                                            width: "100px",
                                             backgroundSize: "contain",
                                             backgroundRepeat: "no-repeat",
                                         }}>
