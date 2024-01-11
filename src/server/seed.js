@@ -11,6 +11,7 @@ hashedAdmin();
 const seed = async () => {
     console.log("Seeding the database.");
     await prisma.recipeBookItem.deleteMany();
+    await prisma.rating.deleteMany();
     await prisma.user.deleteMany();
     await prisma.recipe.deleteMany();
     await prisma.guild.deleteMany();
@@ -31,6 +32,11 @@ const seed = async () => {
         const level3 = await prisma.level.create({
             data: {
                 level: "three"
+            }
+        })
+        const maxLevel = await prisma.level.create({
+            data: {
+                level: "four"
             }
         })
          //<-------------------GUILDS------------------->

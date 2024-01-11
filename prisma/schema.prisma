@@ -14,9 +14,7 @@ model User {
   email             String             @unique
   password          String
   level             Int                @default(1)
-  levelOneExp       Int                @default(0)
-  levelTwoExp       Int                @default(0)
-  levelThreeExp     Int                @default(0)
+  totalExp          Int                @default(0)
   isAdmin           Boolean            @default(false)
   recipeBookItemId  Int?               @unique
   recipeBookItems   RecipeBookItem[]

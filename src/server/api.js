@@ -147,21 +147,23 @@ apiRouter.get("/recipes-level-three", async (req, res, next) => {
 apiRouter.post("/myRecipeBook", requireUser, async (req, res, next) => {
     const recipeId = req.body.recipeId
     try {
-        const userRecipeCount = await prisma.recipeBookItem.count({
-            where: { userId: req.user.id },
+        //Count the total number of incomplete recipeBookitems...
+        const userRecipeCountIncomplete = await prisma.recipeBookItem.count({
+            where: { userId: req.user.id, completed: false },
         });
-
-        if (userRecipeCount >= 4) {
-            return res.status(400).send("You have the maximum recipes of 4 that you can have at one time")
+        //If there are 4 incomplete recipes added, don't allow another recipe to be added
+        if (userRecipeCountIncomplete >= 4) {
+            return res.status(400).send("You have the maximum incomplete recipes of 4 that you can have at one time")
         };
+        //Check to see if the recipe already exists in the user's recipe book...
         const existingRecipe = await prisma.recipeBookItem.findFirst({
             where: { userId: req.user.id, recipeId: recipeId },
         });
-
+        //If it already exists, dont allow it to be added twice...
         if (existingRecipe) {
             return res.status(400).send("You cannot add the same recipes to your recipe book twice");
         }
-
+        //Add recipe if previous conditions don't exist
         const newRecipe = await prisma.recipeBookItem.create({
             data: {
                 user: { connect: { id: req.user.id } },
@@ -196,11 +198,47 @@ apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
 //<-----------------PATCH RECIPEBOOKITEM TO COMPLETED----------------->
 apiRouter.patch("/myRecipeBook_complete/:id", requireUser, async (req, res, next) => {
     try {
+        //Update recipe to completed
         const recipeCompleted = await prisma.recipeBookItem.update({
             where: { id: Number(req.params.id) },
             data: { completed: true }
         });
-        res.send({ recipeCompleted, message: "Quest complete!" });
+        // Find user with recipe
+        const user = await prisma.user.findUnique({
+            where: { id: recipeCompleted.userId }
+        });
+        // Update the user's totalExp by 1 when completed
+        const updatedUser = await prisma.user.update({
+            where: { id: user.id },
+            data: {
+                totalExp: { increment: 1 }
+            }
+        });
+        // Check if the updated user has reached level 2
+        if (updatedUser.totalExp >= 4) {
+            // Update the user's level to 2
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { level: 2 }
+            });
+        }
+        // Check if the updated user has reached level 3
+        if (updatedUser.totalExp >= 8) {
+            // Update the user's level to 3
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { level: 3 }
+            });
+        }
+        // Check if the updated user has reached level 4
+        if (updatedUser.totalExp >= 12) {
+            // Update the user's level to 4
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { level: 4 }
+            });
+        }
+        res.send({ message: "Quest complete!" });
     } catch (error) {
         next(error);
     }

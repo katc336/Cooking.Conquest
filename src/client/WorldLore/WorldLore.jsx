@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography"
 
 import LoreScroll from "./LoreScroll.png"
 import SignUpButton from "./SignUpButton"
-import MainLoreText from "./MainLoreTest"
+import MainLoreText from "./MainLoreText"
 import GuildInformation from "./GuildInformation"
 
 const WorldLore = () => {
