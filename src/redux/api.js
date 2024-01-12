@@ -123,6 +123,15 @@ const api = createApi({
             }),
             providesTags: ["Guilds"]
         }),
+          //PATCH User's account to join a guild
+          patchJoinGuild: builder.mutation({
+            query: ({ id, guildId }) => ({
+                url: `api/myGuild/${id}`,
+                method: 'PATCH',
+                body: { guildId  },
+            }),
+            invalidatesTags: ["RecipeBook", "Users"]
+        }),
     }),
 })
 export default api;
@@ -144,4 +153,5 @@ export const {
     usePostRecipeToUserMutation,
     //GUILD INFO
     useGetAllGuildsQuery,
+    usePatchJoinGuildMutation,
 } = api

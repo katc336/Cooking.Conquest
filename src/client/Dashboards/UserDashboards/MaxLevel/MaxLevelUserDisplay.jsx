@@ -7,6 +7,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 
 import { useGetUserQuery } from "../../../../redux/api";
 import MaxLevelCard from "./MaxLevelCard.png"
+import JoinGuildButton from "./JoinGuildButton";
 
 
 const MaxLevelUserDisplay = () => {
@@ -36,10 +37,11 @@ const MaxLevelUserDisplay = () => {
                         backgroundRepeat: "no-repeat",
                     }}>
                     <Typography
-                        variant="h4"
-                        sx={{ color: "rgba(223, 233, 228, 1)", pt: "100%", textAlign: "center" }}>
+                        variant="h6"
+                        sx={{ mx: "20%", color: "rgba(223, 233, 228, 1)", pt: "100%", textAlign: "center" }}>
                         You've completed your training!
                     </Typography>
+                    <JoinGuildButton />
                 </Box>
             </div>
         </div>

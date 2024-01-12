@@ -263,20 +263,21 @@ apiRouter.get("/recipeRatings/:userPostedRecipeId", async (req, res, next) => {
 //<-----------------ADD GUILD TO USER ACCOUNT----------------->
 apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
     try {
-        const { guildId } = req.body;
+        const { guildId } = req.body;  // Extract 'guildId' from req.body
         const updatedGuild = await prisma.user.update({
-            where: { id: Number(req.params.id) },
+            where: { id: Number(req.user.id) },
             data: {
                 guild: guildId ? { connect: { id: guildId } } : undefined,
             },
             include: { guild: true },
         });
-        delete updatedGuild.password
+        delete updatedGuild.password;
         res.send({ updatedGuild, message: "Welcome to the guild!" });
     } catch (error) {
         next(error);
     }
-})
+});
+ 
 //<-----------------POST USER RECIPE----------------->
 apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
     try {
