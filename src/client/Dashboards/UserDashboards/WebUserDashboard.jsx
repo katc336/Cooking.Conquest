@@ -79,7 +79,7 @@ const WebUserDashboard = () => {
                                 sx={{ pt: 5, pl: 50, color: "#445D48" }}>
                                 Hello {data.name}
                             </Typography>
-                            <UsersRecipes />
+                            <UsersRecipes/>
                         </Box>
                     </Grid>
                 </Grid>

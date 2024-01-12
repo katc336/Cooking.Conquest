@@ -16,7 +16,7 @@ const api = createApi({
             return headers
         },
     }),
-    tagTypes: ["Users", "Recipes", "RecipeBook", "Guilds"],
+    tagTypes: ["Users", "Recipes", "RecipeBook", "Guilds", "UserRecipe"],
 
     endpoints: (builder) => ({
         //<-----------AUTHORIZATION----------->
@@ -63,6 +63,14 @@ const api = createApi({
                 body: { completed },
             }),
             invalidatesTags: ["RecipeBook", "Users"]
+        }),
+        //GET USER'S GUILD
+        getUsersGuild: builder.query({
+            query: () => ({
+                url: `/api/myGuild`,
+                method: 'GET'
+            }),
+            invalidatesTags: ["Users"]
         }),
         //<------------RECIPES------------>
         //GET ALL RECIPES
@@ -114,8 +122,17 @@ const api = createApi({
             }),
             invalidatesTags: ["RecipeBook"]
         }),
+        //POST USER'S RECIPE
+        postUserRecipe: builder.mutation({
+            query: (recipe) => ({
+                url: `/api/guildRecipe`,
+                method: 'POST',
+                body: recipe,
+            }),
+            invalidatesTags: ["UserRecipe"]
+        }),
         //<------------GUILDS------------>
-        //GET ALL GUILD
+        //GET ALL GUILDS
         getAllGuilds: builder.query({
             query: () => ({
                 url: `/api/guilds`,
@@ -123,14 +140,21 @@ const api = createApi({
             }),
             providesTags: ["Guilds"]
         }),
-          //PATCH User's account to join a guild
-          patchJoinGuild: builder.mutation({
+        //PATCH User's account to join a guild
+        patchJoinGuild: builder.mutation({
             query: ({ id, guildId }) => ({
                 url: `api/myGuild/${id}`,
                 method: 'PATCH',
-                body: { guildId  },
+                body: { guildId },
             }),
             invalidatesTags: ["RecipeBook", "Users"]
+        }),
+         //GET ALL GUILD POSTED RECIPES
+         getAllGuildRecipes: builder.mutation({
+            query: () => ({
+                url: `api/guildRecipe`,
+                method: 'GET'
+            })
         }),
     }),
 })
@@ -144,6 +168,7 @@ export const {
     useGetUserQuery,
     useGetRecipeBookItemQuery,
     usePatchCompletedRecipeMutation,
+    useGetUsersGuildQuery,
     //RECIPE INFO
     useGetAllRecipesQuery,
     useGetSingleRecipeQuery,
@@ -151,7 +176,9 @@ export const {
     useGetLevelTwoRecipesQuery,
     useGetLevelThreeRecipesQuery,
     usePostRecipeToUserMutation,
+    usePostUserRecipeMutation,
     //GUILD INFO
     useGetAllGuildsQuery,
     usePatchJoinGuildMutation,
+    useGetAllGuildRecipesMutation,
 } = api

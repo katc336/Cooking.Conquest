@@ -177,7 +177,6 @@ apiRouter.post("/myRecipeBook", requireUser, async (req, res, next) => {
     }
 });
 //<-----------------GET RECIPEBOOKITEM BY USER----------------->
-//GET /api/:user/comments 
 apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.recipeBookItem.findMany({
@@ -185,7 +184,7 @@ apiRouter.get("/myRecipeBook", requireUser, async (req, res, next) => {
             include: {
                 recipe: {
                     include: {
-                        level: true // Include level data if needed
+                        level: true
                     }
                 }
             }
@@ -277,7 +276,34 @@ apiRouter.patch("/myGuild/:id", requireUser, async (req, res, next) => {
         next(error);
     }
 });
- 
+
+//<-----------------GET GUILD BY USER----------------->
+apiRouter.get("/myGuild", requireUser, async (req, res, next) => {
+    try {
+        const guildUser = await prisma.user.findFirst({
+            where: { id: req.user.id },
+            include: { guild: true }
+        });
+        if (guildUser) {
+            res.send(guildUser.guild);
+        } else {
+            res.status(404).send({ message: "You are not part of any guild." });
+        }
+    } catch (error) {
+        next(error);
+    }
+});
+
+
+//<-----------------GET ALL GUILD RECIPES----------------->
+apiRouter.get("/guildRecipe", async (req, res, next) => {
+    try {
+        const recipes = await prisma.userPostedRecipe.findMany();
+        res.send(recipes);
+    } catch (error) {
+        next(error);
+    }
+})
 //<-----------------POST USER RECIPE----------------->
 apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
     try {
