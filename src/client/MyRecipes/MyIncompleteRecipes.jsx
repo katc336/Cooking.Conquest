@@ -6,10 +6,10 @@ import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
-import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../../redux/api";
-import AddRecipe from "./MaxLevel/AddRecipes";
+import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../redux/api";
+import AddRecipe from "../Dashboards/UserDashboards/MaxLevel/AddRecipes";
 
-const UsersRecipes = () => {
+const MyIncompleteRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();
     const { id } = useParams();
     const [patchRecipe] = usePatchCompletedRecipeMutation(id);
@@ -39,7 +39,7 @@ const UsersRecipes = () => {
                 ? // If there are recipe book items...
                 <div>
                     <Stack direction="column">
-                        <Box sx={{ mt: "10%", mx: "20%" }}>
+                        <Box sx={{ mt: "20%", mx: "20%" }}>
                             {data.map((recipeBookItem) => (
                                 <div key={recipeBookItem.id}>
                                     {recipeBookItem.completed === false
@@ -121,4 +121,4 @@ const UsersRecipes = () => {
     );
 };
 
-export default UsersRecipes;
+export default MyIncompleteRecipes;

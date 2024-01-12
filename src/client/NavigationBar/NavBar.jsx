@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import MobileNavBar from './MobileNavBar';
 
 import SearchIcon from "./images/SearchIcon.png"
+import WorldLoreIcon from "./images/WorldLoreIcon.png"
 
 const NavBar = () => {
 
@@ -41,9 +42,12 @@ const NavBar = () => {
                         <Stack direction="row">
                             <Link to="/lore">
                                 <Tooltip title="Read About the World's Lore" arrow>
-                                    <Button sx={{ mr: 5 }}>
-                                        World Lore
-                                    </Button>
+                                <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
+                                            <Typography sx={{ mr: 1 }}>
+                                                World Lore
+                                            </Typography>
+                                            <img src={WorldLoreIcon} width="50px" />
+                                        </Button>
                                 </Tooltip>
                             </Link>
                             <Link to="/recipes">
@@ -53,7 +57,7 @@ const NavBar = () => {
                                             <Typography sx={{ mr: 1 }}>
                                                 Find Vegetarian Recipes
                                             </Typography>
-                                            <img src={SearchIcon} width="30px" />
+                                            <img src={SearchIcon} width="70px" />
                                         </Button>
                                     </Tooltip>
                                 </motion.div>
