@@ -12,7 +12,7 @@ import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 
 import { useSelector } from "react-redux";
 import UserNavBar from "./NavigationBar/UserNavBar";
-import MyRecipes from "./Dashboards/UserDashboards/MyRecipes";
+import MyRecipes from "./MyRecipes/MyRecipes";
 import WorldLore from "./WorldLore/WorldLore";
 import JoinGuildPage from "./GuildPage/JoinGuildPage";
 

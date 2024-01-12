@@ -40,6 +40,11 @@ const UsersRecipes = () => {
                 <div>
                     <Stack direction="column">
                         <Box sx={{ mt: "18%", mx: "20%" }}>
+                            <Typography
+                                variant="h5"
+                                sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
+                                My Current Recipes
+                            </Typography>
                             {data.map((recipeBookItem) => (
                                 <div key={recipeBookItem.id}>
                                     {recipeBookItem.completed === false

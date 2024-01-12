@@ -45,7 +45,7 @@ const LevelThreeUserDisplay = () => {
                     <Typography sx={{ textAlign: "center" }}>
                         <img src={LevelThreeHands} width="150px" />
                     </Typography>
-                    <ExpBar />
+                   <ExpBar />
                     {data && data.recipeBookItemId !== null
                         ? //if there is not recipe book item...
                         <div>
