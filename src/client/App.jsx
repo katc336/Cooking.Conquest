@@ -15,6 +15,7 @@ import UserNavBar from "./NavigationBar/UserNavBar";
 import MyRecipes from "./MyRecipes/MyRecipes";
 import WorldLore from "./WorldLore/WorldLore";
 import JoinGuildPage from "./GuildPage/JoinGuildPage";
+import CookingConquestInfo from "./InformationPage/CookingConquestInfo";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -36,6 +37,7 @@ function App() {
           <Route path="/my_recipes" element={<MyRecipes />} />
           <Route path="/lore" element={<WorldLore/>} />
           <Route path="/join_guild" element={<JoinGuildPage/>} />
+          <Route path="/information" element={<CookingConquestInfo />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -42,12 +42,12 @@ const NavBar = () => {
                         <Stack direction="row">
                             <Link to="/lore">
                                 <Tooltip title="Read About the World's Lore" arrow>
-                                <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
-                                            <Typography sx={{ mr: 1 }}>
-                                                World Lore
-                                            </Typography>
-                                            <img src={WorldLoreIcon} width="50px" />
-                                        </Button>
+                                    <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
+                                        <Typography sx={{ mr: 1 }}>
+                                            World Lore
+                                        </Typography>
+                                        <img src={WorldLoreIcon} width="50px" />
+                                    </Button>
                                 </Tooltip>
                             </Link>
                             <Link to="/recipes">
