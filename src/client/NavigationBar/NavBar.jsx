@@ -40,15 +40,29 @@ const NavBar = () => {
                             Cooking Conquest
                         </Typography>
                         <Stack direction="row">
+                        <Link to="/information">
+                                <motion.div whileHover={{ scale: 1.2 }}>
+                                    <Tooltip title="Learn more about Cooking Conquest" arrow>
+                                        <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
+                                            <Typography sx={{ mr: 1 }}>
+                                                About Cooking Conquest
+                                            </Typography>
+                                            <img src="" width="50px" />
+                                        </Button>
+                                    </Tooltip>
+                                </motion.div>
+                            </Link>
                             <Link to="/lore">
-                                <Tooltip title="Read About the World's Lore" arrow>
-                                    <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
-                                        <Typography sx={{ mr: 1 }}>
-                                            World Lore
-                                        </Typography>
-                                        <img src={WorldLoreIcon} width="50px" />
-                                    </Button>
-                                </Tooltip>
+                                <motion.div whileHover={{ scale: 1.2 }}>
+                                    <Tooltip title="Read About the World's Lore" arrow>
+                                        <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
+                                            <Typography sx={{ mr: 1 }}>
+                                                World Lore
+                                            </Typography>
+                                            <img src={WorldLoreIcon} width="50px" />
+                                        </Button>
+                                    </Tooltip>
+                                </motion.div>
                             </Link>
                             <Link to="/recipes">
                                 <motion.div whileHover={{ scale: 1.2 }}>
@@ -66,6 +80,7 @@ const NavBar = () => {
                                 <motion.div whileHover={{ scale: 1.2 }}>
                                     <Button
                                         sx={{
+                                            mt: 2,
                                             mx: 5,
                                             color: "#C07F00",
                                             borderRadius: "10px",

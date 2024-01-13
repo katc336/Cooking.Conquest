@@ -1,10 +1,9 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material"
+import { Box, Card, Button, Grid, Stack, Typography } from "@mui/material"
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
 import characterImg from "./homePageCharacter.png"
-import NavBar from "../NavigationBar/NavBar";
 import Description from "./Description";
 const HomePage = () => {
 
@@ -15,8 +14,29 @@ const HomePage = () => {
         <div>
             {isMobile
                 ?
-                //TO DO
                 <div>
+                <Card sx={{ backgroundColor: "rgba(223, 233, 228, 1)", p: 2, m: 2}}>
+                    <Typography
+                        variant="h3"
+                        sx={{ textAlign: "center" }}>
+                        COMING SOON:
+                    </Typography>
+                    <Typography
+                        variant="h4"
+                        sx={{ textAlign: "center" }}>
+                        Sorry, this app is not mobile compatible yet.
+                    </Typography>
+                    <Typography
+                        variant="h4"
+                        sx={{ textAlign: "center" }}>
+                        Please use a computer or laptop to access
+                    </Typography>
+                    <Typography
+                        variant="h4"
+                        sx={{ textAlign: "center" }}>
+                         The mobile feature is coming in February 2024.
+                    </Typography>
+                </Card> 
                 </div>
                 :
                 <div>
@@ -30,7 +50,7 @@ const HomePage = () => {
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
-                            <Box sx={{ backgroundColor: "rgba(223, 233, 228, 1)", p: 3,  border: 2, borderColor:"#445D48", borderBottom: 5, borderRadius: "20px", mt: 40, ml: 15, mr: 5 }}>
+                            <Box sx={{ backgroundColor: "rgba(223, 233, 228, 1)", p: 3, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px", mt: 40, ml: 15, mr: 5 }}>
                                 <Typography
                                     variant="h4"
                                     sx={{ color: "#445D48", mb: 2 }}>
@@ -77,7 +97,7 @@ const HomePage = () => {
                             </Box>
                         </Grid>
                     </Grid>
-                   <Description/>
+                    <Description />
                 </div>}
         </div>
     )

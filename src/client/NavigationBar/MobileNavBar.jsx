@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const MobileNavBar = () => {
     return (
         <div>
-            <Accordion sx={{ backgroundColor: "transparent" }}>
+            {/* <Accordion sx={{ backgroundColor: "transparent" }}>
                 <AccordionSummary>
                     <MoreVertIcon />
                     <Stack direction="row">
@@ -55,7 +55,7 @@ const MobileNavBar = () => {
                 </Grid>
                 <Grid item xs={2}>
                 </Grid>
-            </Grid>
+            </Grid> */}
         </div>
     )
 }

@@ -53,6 +53,7 @@ apiRouter.get("/guilds", async (req, res, next) => {
 })
 //<-----------------GET SINGLE LEVELS----------------->
 //GET /api/level/:id
+//split
 apiRouter.get("/level/:id", async (req, res, next) => {
     try {
         const level = await prisma.level.findUnique({
