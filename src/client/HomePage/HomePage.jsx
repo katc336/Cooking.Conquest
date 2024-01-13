@@ -4,7 +4,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import characterImg from "./homePageCharacter.png"
-import Description from "./Description";
+import CookingConquestInfo from "../InformationPage/CookingConquestInfo";
 const HomePage = () => {
 
     const theme = useTheme();
@@ -97,7 +97,7 @@ const HomePage = () => {
                             </Box>
                         </Grid>
                     </Grid>
-                    <Description />
+                    <CookingConquestInfo />
                 </div>}
         </div>
     )

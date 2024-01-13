@@ -12,7 +12,7 @@ import WorldLoreIcon from "./images/WorldLoreIcon.png"
 const WorldLoreButton = () => {
     return (
         <>
-            <Link to="/information">
+            <Link to="/lore">
                 <motion.div whileHover={{ scale: 1.2 }}>
                     <Tooltip title="Learn more about Cooking Conquest" arrow>
                         <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>

@@ -12,7 +12,7 @@ import MyAccount from "./images/MyAccount.png"
 const MyAccountButton = () => {
     return (
         <>
-            <Link to="/information">
+            <Link to="/account">
                 <motion.div whileHover={{ scale: 1.2 }}>
                     <Tooltip title="Return to your user dashboard" arrow>
                         <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>

@@ -12,7 +12,7 @@ import MyRecipesIcon from "./images/MyRecipes.png"
 const MyRecipesButton = () => {
     return (
         <>
-            <Link to="/MyRecipes">
+            <Link to="/my_recipes">
                 <motion.div whileHover={{ scale: 1.2 }}>
                     <Tooltip title="Learn more about Cooking Conquest" arrow>
                         <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>

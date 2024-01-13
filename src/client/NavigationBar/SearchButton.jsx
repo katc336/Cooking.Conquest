@@ -12,7 +12,7 @@ import SearchIcon from "./images/SearchIcon.png"
 const SearchButton = () => {
     return (
         <>
-            <Link to="/information">
+            <Link to="/recipes">
                 <motion.div whileHover={{ scale: 1.2 }}>
                     <Tooltip title="See recipe quests and start cooking!" arrow>
                         <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
