@@ -10,6 +10,10 @@ import SearchIcon from "./images/SearchIcon.png"
 import MyRecipes from "./images/MyRecipes.png"
 import MyAccount from "./images/MyAccount.png"
 import WorldLoreIcon from "./images/WorldLoreIcon.png"
+import MyAccountButton from './MyAccountButton';
+import MyRecipesButton from './MyRecipesButton';
+import SearchButton from "./SearchButton"
+import WorldLoreButton from './WorldLoreButton';
 
 const UserNavBar = () => {
     return (
@@ -17,34 +21,10 @@ const UserNavBar = () => {
             <Box>
                 <AppBar dir="rtl" sx={{ backgroundColor: "#F4F9F4" }}>
                     <Stack direction="row">
-                        <Link to="/account">
-                            <Tooltip title="My Account" arrow>
-                                <Button sx={{ mr: 5 }}>
-                                    <img src={MyAccount} width="50px" />
-                                </Button>
-                            </Tooltip>
-                        </Link>
-                        <Link to="/my_recipes">
-                            <Tooltip title="My Recipes" arrow>
-                                <Button sx={{ mr: 5 }}>
-                                    <img src={MyRecipes} width="60px" />
-                                </Button>
-                            </Tooltip>
-                        </Link>
-                        <Link to="/recipes">
-                            <Tooltip title="Find new recipe quests" arrow>
-                                <Button sx={{ mr: 5 }}>
-                                    <img src={SearchIcon} width="60px" />
-                                </Button>
-                            </Tooltip>
-                        </Link>
-                        <Link to="/lore">
-                            <Tooltip title="Read About the Enchanted Gastronomy's History and Lore" arrow>
-                                <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
-                                    <img src={WorldLoreIcon} width="50px" />
-                                </Button>
-                            </Tooltip>
-                        </Link>
+                        <MyAccountButton />
+                        <MyRecipesButton />
+                        <SearchButton />
+                       <WorldLoreButton />
                     </Stack>
                 </AppBar>
             </Box>
