@@ -4,11 +4,11 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useGetUserQuery } from "../../../redux/api";
 
 import Scroll from "../images/Scroll.png"
-import ElvinChef from "../images/ElvinChef.png"
+import ElvinChef from "./images/ElvinChef.png"
 import SingleRecipeBorder from "../images/SingleRecipeBorder.png"
-import LevelOneRecipes from "./LevelOneRecipes";
-import LevelTwoRecipes from "./LevelTwoRecipes";
-import LevelThreeRecipes from "./LevelThreeRecipes";
+import LevelOneRecipes from "./Level1/LevelOneRecipes";
+import LevelTwoRecipes from "./Level2/LevelTwoRecipes";
+import LevelThreeRecipes from "./Level3/LevelThreeRecipes";
 
 const RecipesPage = () => {
     const { data, error, isLoading } = useGetUserQuery();

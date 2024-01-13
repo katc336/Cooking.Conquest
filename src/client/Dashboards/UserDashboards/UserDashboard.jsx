@@ -10,7 +10,7 @@ const UserDashboard = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-    if(isLoading){
+    if (isLoading) {
         console.log("Loading...")
         //TO DO
         return null
@@ -31,7 +31,7 @@ const UserDashboard = () => {
                 </div>
                 ://If not mobile...
                 <div>
-                <WebUserDashboard/>
+                    <WebUserDashboard />
                 </div>}
         </>
     )

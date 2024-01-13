@@ -111,7 +111,6 @@ const LoginForm = () => {
                                                         width: "100%",
                                                         p: 1,
                                                         fontSize: "20px",
-                                                        fontFamily: "Tahoma",
                                                         color: "white",
                                                         borderRadius: "10px",
                                                         backgroundColor: "#65B741",
@@ -149,7 +148,6 @@ const LoginForm = () => {
                                                     sx={{
                                                         p: 1,
                                                         fontSize: "20px",
-                                                        fontFamily: "Tahoma",
                                                         color: "white",
                                                         borderRadius: "10px",
                                                         backgroundColor: "#65B741",

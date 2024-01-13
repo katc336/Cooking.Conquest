@@ -16,7 +16,7 @@ const api = createApi({
             return headers
         },
     }),
-    tagTypes: ["Users", "Recipes", "RecipeBook"],
+    tagTypes: ["Users", "Recipes", "RecipeBook", "Guilds", "UserRecipe"],
 
     endpoints: (builder) => ({
         //<-----------AUTHORIZATION----------->
@@ -47,7 +47,32 @@ const api = createApi({
             }),
             providesTags: ["Users"]
         }),
-      //<------------RECIPES------------>
+        //GET User's recipe book item
+        getRecipeBookItem: builder.query({
+            query: () => ({
+                url: `/api/myRecipeBook`,
+                method: 'GET'
+            }),
+            providesTags: ["RecipeBook"]
+        }),
+        //PATCH User's recipe book item to complete
+        patchCompletedRecipe: builder.mutation({
+            query: ({ id, completed }) => ({
+                url: `api/myRecipeBook_complete/${id}`,
+                method: 'PATCH',
+                body: { completed },
+            }),
+            invalidatesTags: ["RecipeBook", "Users"]
+        }),
+        //GET USER'S GUILD
+        getUsersGuild: builder.query({
+            query: () => ({
+                url: `/api/myGuild`,
+                method: 'GET'
+            }),
+            invalidatesTags: ["Users"]
+        }),
+        //<------------RECIPES------------>
         //GET ALL RECIPES
         getAllRecipes: builder.query({
             query: () => ({
@@ -56,8 +81,8 @@ const api = createApi({
             }),
             providesTags: ["Recipes"]
         }),
-          //GET SINGLE RECIPE
-          getSingleRecipe: builder.query({
+        //GET SINGLE RECIPE
+        getSingleRecipe: builder.query({
             query: (id) => ({
                 url: `/api/recipe/${id}`,
                 method: 'GET',
@@ -97,7 +122,40 @@ const api = createApi({
             }),
             invalidatesTags: ["RecipeBook"]
         }),
-       
+        //POST USER'S RECIPE
+        postUserRecipe: builder.mutation({
+            query: (recipe) => ({
+                url: `/api/guildRecipe`,
+                method: 'POST',
+                body: recipe,
+            }),
+            invalidatesTags: ["UserRecipe"]
+        }),
+        //<------------GUILDS------------>
+        //GET ALL GUILDS
+        getAllGuilds: builder.query({
+            query: () => ({
+                url: `/api/guilds`,
+                method: 'GET',
+            }),
+            providesTags: ["Guilds"]
+        }),
+        //PATCH User's account to join a guild
+        patchJoinGuild: builder.mutation({
+            query: ({ id, guildId }) => ({
+                url: `api/myGuild/${id}`,
+                method: 'PATCH',
+                body: { guildId },
+            }),
+            invalidatesTags: ["RecipeBook", "Users"]
+        }),
+         //GET ALL GUILD POSTED RECIPES
+         getAllGuildRecipes: builder.mutation({
+            query: () => ({
+                url: `api/guildRecipe`,
+                method: 'GET'
+            })
+        }),
     }),
 })
 export default api;
@@ -106,13 +164,21 @@ export const {
     //AUTHORIZATION
     useRegisterMutation,
     useLoginMutation,
-    //GET USER'S INFO
+    //USER'S INFO
     useGetUserQuery,
-    //GET RECIPE INFO
+    useGetRecipeBookItemQuery,
+    usePatchCompletedRecipeMutation,
+    useGetUsersGuildQuery,
+    //RECIPE INFO
     useGetAllRecipesQuery,
     useGetSingleRecipeQuery,
     useGetLevelOneRecipesQuery,
     useGetLevelTwoRecipesQuery,
     useGetLevelThreeRecipesQuery,
     usePostRecipeToUserMutation,
+    usePostUserRecipeMutation,
+    //GUILD INFO
+    useGetAllGuildsQuery,
+    usePatchJoinGuildMutation,
+    useGetAllGuildRecipesMutation,
 } = api

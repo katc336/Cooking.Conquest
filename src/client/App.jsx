@@ -12,7 +12,10 @@ import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
 
 import { useSelector } from "react-redux";
 import UserNavBar from "./NavigationBar/UserNavBar";
-import MyRecipes from "./Dashboards/UserDashboards/MyRecipes";
+import MyRecipes from "./MyRecipes/MyRecipes";
+import WorldLore from "./WorldLore/WorldLore";
+import JoinGuildPage from "./GuildPage/JoinGuildPage";
+import CookingConquestInfo from "./InformationPage/CookingConquestInfo";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -32,6 +35,9 @@ function App() {
           <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/recipe/:id" element={<SingleRecipe />} />
           <Route path="/my_recipes" element={<MyRecipes />} />
+          <Route path="/lore" element={<WorldLore/>} />
+          <Route path="/join_guild" element={<JoinGuildPage/>} />
+          <Route path="/information" element={<CookingConquestInfo />} />
         </Routes>
       </BrowserRouter>
     </div>

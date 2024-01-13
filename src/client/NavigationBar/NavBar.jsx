@@ -13,6 +13,11 @@ import { motion } from 'framer-motion';
 import MobileNavBar from './MobileNavBar';
 
 import SearchIcon from "./images/SearchIcon.png"
+import WorldLoreIcon from "./images/WorldLoreIcon.png"
+import InformationIcon from "./images/InformationIcon.png"
+import InformationButton from "./InformationButton";
+import SearchButton from "./SearchButton"
+import WorldLoreButton from "./WorldLoreButton"
 
 const NavBar = () => {
 
@@ -39,22 +44,14 @@ const NavBar = () => {
                             Cooking Conquest
                         </Typography>
                         <Stack direction="row">
-                            <Link to="/recipes">
-                                <motion.div whileHover={{ scale: 1.2 }}>
-                                    <Tooltip title="Find new recipe quests" arrow>
-                                        <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
-                                            <Typography sx={{ mr: 1 }}>
-                                                Find Vegetarian Recipes
-                                            </Typography>
-                                            <img src={SearchIcon} width="30px" />
-                                        </Button>
-                                    </Tooltip>
-                                </motion.div>
-                            </Link>
+                         <InformationButton />
+                          <WorldLoreButton />
+                            <SearchButton/>
                             <Link to="/register">
                                 <motion.div whileHover={{ scale: 1.2 }}>
                                     <Button
                                         sx={{
+                                            mt: 2,
                                             mx: 5,
                                             color: "#C07F00",
                                             borderRadius: "10px",

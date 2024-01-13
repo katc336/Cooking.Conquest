@@ -11,6 +11,7 @@ hashedAdmin();
 const seed = async () => {
     console.log("Seeding the database.");
     await prisma.recipeBookItem.deleteMany();
+    await prisma.rating.deleteMany();
     await prisma.user.deleteMany();
     await prisma.recipe.deleteMany();
     await prisma.guild.deleteMany();
@@ -31,6 +32,11 @@ const seed = async () => {
         const level3 = await prisma.level.create({
             data: {
                 level: "three"
+            }
+        })
+        const maxLevel = await prisma.level.create({
+            data: {
+                level: "four"
             }
         })
          //<-------------------GUILDS------------------->
@@ -60,17 +66,17 @@ const seed = async () => {
         //LEVEL 1
         const recipe1 = await prisma.recipe.create({
             data: {
-                name: "Veggie Burger",
+                name: "Roasted Root Vegetables",
                 image: "",
-                description: "This hearty veggie burger is packed with protein and flavor, perfect for fueling up to conquer all the days challenges",
-                ingredients: "Black beans, Onion, Garlic, One chchopped bell pepper, Canned chipotles and adobo sauce, Balsamic vinegar and tamari, Panko bread crumbs, An egg  ",
+                description: "This hearty side dish packed full of nutrition and easy to make during a busy day. Pop it in the oven, and walk away!",
+                ingredients: "One large sweet potatoe, 2 Beets, 4 Carrots, 1 Turnip or Parsnip, 2 tablespoons of olive oil, 3 tablespoons of chopped fresh rosemary or 2 teaspoons of dried rosemary, 4oz of goat cheese, 1/4 cup of chopped walnuts",
                 instructions: "",
                 level: { connect: { id: level1.id } },
             }
         })
         const recipe2 = await prisma.recipe.create({
             data: {
-                name: "Tofu Stirfry",
+                name: "Tofu Stir-fry",
                 image: "",
                 description: "This quick and colorful stir-fry is a great way to showcase a variety of vibrant vegetables and savory flavors.",
                 ingredients: "1 container of firm tofu, 1 tablespoon of soy sauce, 2 tablespoons of cornstarch, 4 cloves of garlic (minced), 1/2 inch piece of ginger (minced), 2 tablespoons of sesame oil, 1 bell pepper (sliced), 1 small bunch of broccoli (chopped), Mushrooms (sliced)  ",
@@ -111,7 +117,7 @@ const seed = async () => {
         //LEVEL 2
         const recipe6 = await prisma.recipe.create({
             data: {
-                name: "Cauliflower Steak Saga",
+                name: "Cauliflower Steak",
                 image: "",
                 description: "Embark on a spicy and flavorful voyage with this innovative harissa-spiced cauliflower steak, introducing novice cooks to the art of vegetarian grilling.",
                 ingredients: "- 1 large head of cauliflower - 3 tbsp harissa paste - 2 tbsp olive oil - 1 tbsp lemon juice - Salt and pepper, to taste - Fresh mint leaves, for garnish",
@@ -121,7 +127,7 @@ const seed = async () => {
         })
         const recipe7 = await prisma.recipe.create({
             data: {
-                name: "Sorcerer's Shakshuka",
+                name: "Shakshuka",
                 image: "",
                 description: "Embark on a flavorfull quest filled with bold spices with this aromatic shakshuka. For intermediate chefs reading to poach the perfect egg.",
                 ingredients: "-Olive oil (about 1 tablespoon) - 1 onion (diced) -1 bell pepper(diced), -3 cloves of garlic (or to taste) -1 teaspoon of cumin - 2 teaspoons of paprika, 1 tablespoon of harissa -28oz of peeled tomatoes (fresh or canned) -6 large eggs -fresh cilantro (chopped), -Crumbled feta (optional) -Salt and pepper to taste ",
@@ -129,40 +135,37 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        
-        // const recipe8 = await prisma.recipe.create({
-        //     data: {
-        //         name: "",
-        //         image: "",
-        //         description: "",
-        //         ingredients: "",
-        //         instructions: "",
-        //         level: { connect: { id: level2.id } },
-        //         exp: 130
-        //     }
-        // })
-        // const recipe9 = await prisma.recipe.create({
-        //     data: {
-        //         name: "Sorcerer's Shakshuka",
-        //         image: "",
-        //         description: "",
-        //         ingredients: "",
-        //         instructions: "",
-        //         level: { connect: { id: level2.id } },
-        //         exp: 130
-        //     }
-        // })
-        // const recipe10 = await prisma.recipe.create({
-        //     data: {
-        //         name: "",
-        //         image: "",
-        //         description: "",
-        //         ingredients: "",
-        //         instructions: "",
-        //         level: { connect: { id: level2.id } },
-        //         exp: 130
-        //     }
-        // })
+        const recipe8 = await prisma.recipe.create({
+            data: {
+                name: "Veggie Burger",
+                image: "",
+                description: "This hearty veggie burger is packed with protein and flavor, perfect for fueling up to conquer all the days challenges",
+                ingredients: "Black beans, Onion, Garlic, One chchopped bell pepper, Canned chipotles and adobo sauce, Balsamic vinegar and tamari, Panko bread crumbs, An egg  ",
+                instructions: "",
+                level: { connect: { id: level1.id } },
+            }
+        })
+    
+        const recipe9 = await prisma.recipe.create({
+            data: {
+                name: "Coconut Curry",
+                image: "",
+                description: "This fragrant and creamy coconut curry is a balance of comforting flavors and bold spices, perfect for a magical feast.",
+                ingredients: "Canned coconut milk, sweet potatoes, eggplant, bell peppers, curry paste, ginger, garlic, cilantro, lime juice",
+                instructions: "",
+                level: { connect: { id: level2.id } },
+            }
+        })
+        const recipe10 = await prisma.recipe.create({
+            data: {
+                name: "African Peanut Stew",
+                image: "",
+                description: "This bold and hearty stew is filled with rich and creamy peanut flavors, aromatic spices, and a bounty of nourishing ingredients.",
+                ingredients: " Sweet potatoes, kale, peanut butter, canned tomatoes, vegetable broth, red pepper flakes, cilantro, lime juice",
+                instructions: "",
+                level: { connect: { id: level2.id } },
+            }
+        })
         //LEVEL 3
         const recipe11 = await prisma.recipe.create({
             data: {
@@ -184,39 +187,36 @@ const seed = async () => {
                 level: { connect: { id: level3.id } },
             }
         })
-        // const recipe13 = await prisma.recipe.create({
-        //     data: {
-        //         name: "",
-        //         image: "",
-        //         description: "",
-        //         ingredients: "",
-        //         instructions: "",
-        //         level: { connect: { id: level3.id } },
-        //         exp: 130
-        //     }
-        // })
-        // const recipe14 = await prisma.recipe.create({
-        //     data: {
-        //         name: "",
-        //         image: "",
-        //         description: "",
-        //         ingredients: "",
-        //         instructions: "",
-        //         level: { connect: { id: level3.id } },
-        //         exp: 130
-        //     }
-        // })
-        // const recipe15 = await prisma.recipe.create({
-        //     data: {
-        //         name: "Sorcerer's Shakshuka",
-        //         image: "",
-        //         description: "",
-        //         ingredients: "",
-        //         instructions: "",
-        //         level: { connect: { id: level3.id } },
-        //         exp: 130
-        //     }
-        // })
+        const recipe13 = await prisma.recipe.create({
+            data: {
+                name: "Butternut Squash Maccheroni and Cheese",
+                image: "",
+                description: "This unique spin on classic comfort food dish is perfect for those chilly fall days to warm the house and souls. ",
+                ingredients: "1 box of cellentani pasta, 3 cups of cubed butternut squash, 3 tablespoons of chopped fresh rosemary or 2 teaspoons of dried rosemary, 4 tablespoons of butter, 1/4 cup of grated parmesan, 1/2 cup of grated smoked gouda, 1 cup of mild cheddar (may need more), 3 tablesppons of flour, 2 cups of whole milk (may need more), salt and pepper to taste ",
+                instructions: "",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const recipe14 = await prisma.recipe.create({
+            data: {
+                name: "Avocado Toast",
+                image: "",
+                description: "",
+                ingredients: "",
+                instructions: "",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const recipe15 = await prisma.recipe.create({
+            data: {
+                name: "Veggie Bao (素割包)",
+                image: "",
+                description: "These soft and pillow-ly buns filled with flavorful vegetables are perfect for a satisfying and enchanting meal.",
+                ingredients: "",
+                instructions: "",
+                level: { connect: { id: level3.id } },
+            }
+        })
 
         //TO DO: ADD MORE RECIPES
 
