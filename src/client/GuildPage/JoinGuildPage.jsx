@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography"
 
 import { motion } from "framer-motion"
 
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 import { useGetAllGuildsQuery, usePatchJoinGuildMutation } from "../../redux/api"
 
@@ -13,6 +13,8 @@ const JoinGuildPage = () => {
     const { data, error, isLoading } = useGetAllGuildsQuery()
     const { id } = useParams();
     const [patchGuild] = usePatchJoinGuildMutation(id);
+    const navigate = useNavigate();
+    
     if (isLoading) {
         console.log("Loading...")
         return null
@@ -23,11 +25,11 @@ const JoinGuildPage = () => {
     if (error) {
         console.log(error)
     }
-
     const handlePatch = async (guild) => {
         try {
             const result = await patchGuild({ id, guildId: guild });
             console.log("Patch result:", result);
+            navigate("/account");
         } catch (error) {
             console.error(error);
         }

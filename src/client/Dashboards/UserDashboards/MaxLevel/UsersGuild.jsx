@@ -23,7 +23,7 @@ const UsersGuild = () => {
     return (
         <div>
             <Typography variant="h5"
-                sx={{ textAlign: "center", px: "10%", pt: "80%" }}>
+                sx={{ color: "rgba(223, 233, 228, 1)", textAlign: "center", px: "10%", pt: "100%" }}>
                 {data && data.name}
                 {data && data.name === "Order of the Gastrognomes" ? <div>GNOMES</div> : <div> </div>}
                 {data && data.name === "Leafsong Epicurean Fellowship" ? <div>LEAFSONG</div> : <div> </div>}

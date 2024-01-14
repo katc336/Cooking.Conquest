@@ -25,7 +25,7 @@ const JoinGuildButton = () => {
                 ?
                 <div>
                     <Typography
-                        variant="h6"
+                        variant="h4"
                         sx={{ mx: "20%", color: "rgba(223, 233, 228, 1)", pt: "100%", textAlign: "center" }}>
                         You've completed your training!
                     </Typography>

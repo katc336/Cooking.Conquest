@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography"
-import { Link } from "react-router-dom";
+
+import { motion } from "framer-motion";
 
 import { useMediaQuery, useTheme } from "@mui/material";
 
@@ -29,19 +28,22 @@ const MaxLevelUserDisplay = () => {
         return <>{error}</>
     }
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <div>
                 <Box sx={{ mt: 10, pb: 30 }}
                     style={{
                         backgroundImage: `url(${MaxLevelCard})`,
-                        backgroundSize: "contain",
+                        backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
                     }}>
                     <JoinGuildButton />
                     <UsersGuild />
                 </Box>
             </div>
-        </div>
+        </motion.div>
     )
 }
 export default MaxLevelUserDisplay
