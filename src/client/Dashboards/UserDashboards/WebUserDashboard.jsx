@@ -38,7 +38,7 @@ const WebUserDashboard = () => {
     return (
         <>
             <div>
-                <Grid container>
+                <Grid container sx={{ mt: 1}}>
                     <Grid item xs={3}>
                         {data.level === 1
                             ? //if level 1 return level 1 image...

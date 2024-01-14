@@ -37,7 +37,7 @@ const SingleRecipe = () => {
             transition={{ duration: 1, ease: "easeIn" }}>
             <Stack direction="row">
                 <Box
-                    sx={{ pt: 2, pb: 250 }}
+                    sx={{ pt: 2, pb: 250, mt: 5 }}
                     style={{
                         backgroundImage: `url(${SingleRecipeBorder})`,
                         backgroundSize: "cover",
