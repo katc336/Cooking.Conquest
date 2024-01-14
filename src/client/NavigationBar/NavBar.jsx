@@ -15,9 +15,9 @@ import MobileNavBar from './MobileNavBar';
 import SearchIcon from "./images/SearchIcon.png"
 import WorldLoreIcon from "./images/WorldLoreIcon.png"
 import InformationIcon from "./images/InformationIcon.png"
-import InformationButton from "./InformationButton";
-import SearchButton from "./SearchButton"
-import WorldLoreButton from "./WorldLoreButton"
+import InformationButton from "./Buttons/InformationButton";
+import SearchButton from "./Buttons/SearchButton"
+import WorldLoreButton from "./Buttons/WorldLoreButton"
 
 const NavBar = () => {
 
@@ -53,6 +53,7 @@ const NavBar = () => {
                                         sx={{
                                             mt: 2,
                                             mx: 5,
+                                            p: 2,
                                             color: "#C07F00",
                                             borderRadius: "10px",
                                             backgroundColor: "#FFF47D",

@@ -21,7 +21,7 @@ const MyRecipesButton = () => {
                                     <img src={MyRecipesIcon} width="50px" />
                                 </Typography>
                                 <Typography sx={{ mr: 1 }}>
-                                    About Cooking Conquest
+                                    My Recipe Spellbook
                                 </Typography>
                             </Stack>
                         </Button>

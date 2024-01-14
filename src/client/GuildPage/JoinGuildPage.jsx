@@ -3,6 +3,8 @@ import Button from "@mui/material/Button"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
+import { motion } from "framer-motion"
+
 import { useParams } from "react-router-dom"
 
 import { useGetAllGuildsQuery, usePatchJoinGuildMutation } from "../../redux/api"
@@ -31,7 +33,10 @@ const JoinGuildPage = () => {
         }
     };
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <Box sx={{ mt: "10%" }}>
                 <Stack direction="row">
                     {data && data.map((guild) => (
@@ -78,7 +83,7 @@ const JoinGuildPage = () => {
                     ))}
                 </Stack>
             </Box>
-        </div>
+        </motion.div>
     )
 }
 export default JoinGuildPage

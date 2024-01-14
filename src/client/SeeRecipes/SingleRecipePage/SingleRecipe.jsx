@@ -34,7 +34,7 @@ const SingleRecipe = () => {
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeIn" }}>
+            transition={{ duration: 1, ease: "easeIn" }}>
             <Stack direction="row">
                 <Box
                     sx={{ pt: 2, pb: 250 }}

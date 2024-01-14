@@ -31,7 +31,7 @@ const AddRecipeButton = () => {
             const result = await postRecipe({ recipeId: recipeData.id })
             console.log("Success!")
             console.log(result)
-            // navigate("/account");
+            navigate("/account");
         } catch (error) {
             console.error(error)
         }

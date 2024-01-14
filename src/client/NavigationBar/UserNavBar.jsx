@@ -10,10 +10,11 @@ import SearchIcon from "./images/SearchIcon.png"
 import MyRecipes from "./images/MyRecipes.png"
 import MyAccount from "./images/MyAccount.png"
 import WorldLoreIcon from "./images/WorldLoreIcon.png"
-import MyAccountButton from './MyAccountButton';
-import MyRecipesButton from './MyRecipesButton';
-import SearchButton from "./SearchButton"
-import WorldLoreButton from './WorldLoreButton';
+import MyAccountButton from './Buttons/MyAccountButton';
+import MyRecipesButton from './Buttons/MyRecipesButton';
+import SearchButton from "./Buttons/SearchButton"
+import WorldLoreButton from './Buttons/WorldLoreButton';
+import InformationButton from './Buttons/InformationButton';
 
 const UserNavBar = () => {
     return (
@@ -25,6 +26,7 @@ const UserNavBar = () => {
                         <MyRecipesButton />
                         <SearchButton />
                        <WorldLoreButton />
+                       <InformationButton />
                     </Stack>
                 </AppBar>
             </Box>

@@ -2,6 +2,7 @@ import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
 
+import { motion } from "framer-motion"
 import { useGetUserQuery } from "../../redux/api"
 
 import MyRecipesPage from "./MyRecipesPage.png"
@@ -25,7 +26,10 @@ const MyRecipes = () => {
         console.log(console.log("No user is logged in"))
     }
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <Grid container>
                 <Grid item xs={5}>
                     <Box sx={{ mt: 15, pt: "10%" }}>
@@ -50,7 +54,7 @@ const MyRecipes = () => {
                 </Grid>
             </Grid>
 
-        </div>
+        </motion.div>
     )
 }
 export default MyRecipes

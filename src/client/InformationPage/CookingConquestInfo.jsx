@@ -5,6 +5,8 @@ import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
 import Stack from "@mui/material/Stack"
 
+import { motion } from "framer-motion"
+
 import InformationScroll from "./images/InformationScroll.png"
 import AddRecipePageView from "./images/AddRecipePageView.png"
 import DashboardPageView from "./images/DashboardPageView.png"
@@ -14,7 +16,10 @@ import SingleRecipePageView from "./images/SingleRecipePageView.png"
 
 const CookingConquestInfo = () => {
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <Box
                 sx={{ mx: "5%", mt: "5%", pt: "15%", px: "17%" }}
                 style={{
@@ -126,7 +131,7 @@ const CookingConquestInfo = () => {
                     </Stack>
                 </Box>
             </Box>
-        </div>
+        </motion.div>
     )
 }
 export default CookingConquestInfo

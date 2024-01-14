@@ -14,7 +14,7 @@ const WorldLoreButton = () => {
         <>
             <Link to="/lore">
                 <motion.div whileHover={{ scale: 1.2 }}>
-                    <Tooltip title="Learn more about Cooking Conquest" arrow>
+                    <Tooltip title="Read about the Enchanted Gastronomy Realm" arrow>
                         <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
                             <Stack direction="column">
                                 <Typography sx={{ textAlign: "center" }}>

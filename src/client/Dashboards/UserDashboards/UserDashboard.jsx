@@ -1,6 +1,9 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 
+import { motion } from "framer-motion";
+
 import { useGetUserQuery } from "../../../redux/api";
+
 import MobileUserDashboard from "./MobileUserDashboard";
 import WebUserDashboard from "./WebUserDashboard";
 
@@ -23,7 +26,10 @@ const UserDashboard = () => {
     }
 
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeIn" }}>
             {isMobile
                 ?
                 <div>
@@ -33,7 +39,7 @@ const UserDashboard = () => {
                 <div>
                     <WebUserDashboard />
                 </div>}
-        </>
+        </motion.div>
     )
 }
 export default UserDashboard
