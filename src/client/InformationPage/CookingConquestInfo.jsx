@@ -35,7 +35,7 @@ const CookingConquestInfo = () => {
                 <Typography
                     variant="h6"
                     sx={{ color: "#362706", mb: 2 }}>
-                    Youare about to embark on an exciting journey to learn and conquer the world of vegetarian cooking.
+                    You are about to embark on an exciting journey to learn and conquer the world of vegetarian cooking.
                     This app is designed to make your cooking experience interactive and fun,
                     all while helping you develop new skills and knowledge.
                 </Typography>

@@ -2,14 +2,10 @@ import AppBar from '@mui/material/AppBar';
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack"
-import Tooltip from "@mui/material/Tooltip"
 
 import { Link } from "react-router-dom";
 
-import SearchIcon from "./images/SearchIcon.png"
-import MyRecipes from "./images/MyRecipes.png"
-import MyAccount from "./images/MyAccount.png"
-import WorldLoreIcon from "./images/WorldLoreIcon.png"
+import CookingConquestText from "./images/CookingConquestText.png"
 import MyAccountButton from './Buttons/MyAccountButton';
 import MyRecipesButton from './Buttons/MyRecipesButton';
 import SearchButton from "./Buttons/SearchButton"
@@ -25,8 +21,13 @@ const UserNavBar = () => {
                         <MyAccountButton />
                         <MyRecipesButton />
                         <SearchButton />
-                       <WorldLoreButton />
-                       <InformationButton />
+                        <WorldLoreButton />
+                        <InformationButton />
+                        <Box sx={{ mr: 25, mt: 1, flexGrow: 1 }}>
+                            <Link to="/">
+                                <img src={CookingConquestText} alt="Cooking Conquest Fantasy Font" width="200px" />
+                            </Link>
+                        </Box>
                     </Stack>
                 </AppBar>
             </Box>

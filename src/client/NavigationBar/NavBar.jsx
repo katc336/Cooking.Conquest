@@ -12,9 +12,7 @@ import { motion } from 'framer-motion';
 
 import MobileNavBar from './MobileNavBar';
 
-import SearchIcon from "./images/SearchIcon.png"
-import WorldLoreIcon from "./images/WorldLoreIcon.png"
-import InformationIcon from "./images/InformationIcon.png"
+import CookingConquestText from "./images/CookingConquestText.png"
 import InformationButton from "./Buttons/InformationButton";
 import SearchButton from "./Buttons/SearchButton"
 import WorldLoreButton from "./Buttons/WorldLoreButton"
@@ -33,20 +31,15 @@ const NavBar = () => {
                 ://if NOT mobile...
                 <AppBar sx={{ pt: 1, backgroundColor: "#F4F9F4" }}>
                     <Stack direction="row">
-                        <Box sx={{ mx: 2 }}>
+                        <Box sx={{ mx: 2, flexGrow: 1 }}>
                             <Link to="/">
-                                <Tooltip title="Retun to Homepage">
-                                    LOGO
-                                </Tooltip>
+                                <img src={CookingConquestText} alt="Cooking Conquest Fantasy Font" width="200px" />
                             </Link>
                         </Box>
-                        <Typography variant="h1" sx={{ fontSize: "30px", color: "#445D48", fontFamily: "Marker Felt, fantasy", flexGrow: 1 }}>
-                            Cooking Conquest
-                        </Typography>
                         <Stack direction="row">
-                         <InformationButton />
-                          <WorldLoreButton />
-                            <SearchButton/>
+                            <InformationButton />
+                            <WorldLoreButton />
+                            <SearchButton />
                             <Link to="/register">
                                 <motion.div whileHover={{ scale: 1.2 }}>
                                     <Button
