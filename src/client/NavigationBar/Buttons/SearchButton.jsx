@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import SearchIcon from "./images/SearchIcon.png"
+import SearchIcon from "../images/SearchIcon.png"
 
 const SearchButton = () => {
     return (

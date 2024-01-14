@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import WorldLoreIcon from "./images/WorldLoreIcon.png"
+import WorldLoreIcon from "../images/WorldLoreIcon.png"
 
 const WorldLoreButton = () => {
     return (

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import MyRecipesIcon from "./images/MyRecipes.png"
+import MyRecipesIcon from "../images/MyRecipes.png"
 
 const MyRecipesButton = () => {
     return (

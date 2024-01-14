@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import InformationIcon from "./images/InformationIcon.png"
+import InformationIcon from "../images/InformationIcon.png"
 
 const InformationButton = () => {
     return (
