@@ -1,7 +1,5 @@
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
 import Card from "@mui/material/Card"
-import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
 import Stack from "@mui/material/Stack"
 
@@ -66,8 +64,8 @@ const CookingConquestInfo = () => {
                     <Typography
                         variant="h6"
                         sx={{ color: "#362706" }}>
-                         Keep an eye out for the leaderboard to see how your guild and individual cooking skills rank!
-                        Once tou join a guild, you can compete with others by reviewing and rating each other's recipes, earning points,
+                         Keep an eye out for the Leadership Board to see how your guild and individual cooking skills rank!
+                        Once you join a guild, you can compete with others by reviewing and rating each other's recipes, earning points,
                         and contributing to your guild’s cumulative score.
                         This friendly competition and sense of camaraderie within the community will keep you motivated
                         and engaged in your vegetarian cooking conquest.
