@@ -3,7 +3,9 @@ import Button from "@mui/material/Button"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
-import { useParams } from "react-router-dom"
+import { motion } from "framer-motion"
+
+import { useParams, useNavigate } from "react-router-dom"
 
 import { useGetAllGuildsQuery, usePatchJoinGuildMutation } from "../../redux/api"
 
@@ -11,6 +13,8 @@ const JoinGuildPage = () => {
     const { data, error, isLoading } = useGetAllGuildsQuery()
     const { id } = useParams();
     const [patchGuild] = usePatchJoinGuildMutation(id);
+    const navigate = useNavigate();
+    
     if (isLoading) {
         console.log("Loading...")
         return null
@@ -21,17 +25,20 @@ const JoinGuildPage = () => {
     if (error) {
         console.log(error)
     }
-
     const handlePatch = async (guild) => {
         try {
             const result = await patchGuild({ id, guildId: guild });
             console.log("Patch result:", result);
+            navigate("/account");
         } catch (error) {
             console.error(error);
         }
     };
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <Box sx={{ mt: "10%" }}>
                 <Stack direction="row">
                     {data && data.map((guild) => (
@@ -78,7 +85,7 @@ const JoinGuildPage = () => {
                     ))}
                 </Stack>
             </Box>
-        </div>
+        </motion.div>
     )
 }
 export default JoinGuildPage

@@ -7,21 +7,21 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import SearchIcon from "./images/SearchIcon.png"
+import InformationIcon from "../images/InformationIcon.png"
 
-const SearchButton = () => {
+const InformationButton = () => {
     return (
         <>
-            <Link to="/recipes">
+            <Link to="/information">
                 <motion.div whileHover={{ scale: 1.2 }}>
-                    <Tooltip title="See recipe quests and start cooking!" arrow>
+                    <Tooltip title="Learn more about Cooking Conquest" arrow>
                         <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
                             <Stack direction="column">
                                 <Typography sx={{ textAlign: "center" }}>
-                                    <img src={SearchIcon} width="50px" />
+                                    <img src={InformationIcon} width="50px" />
                                 </Typography>
                                 <Typography sx={{ mr: 1 }}>
-                                    Find Vegetarian Recipes
+                                    About Cooking Conquest
                                 </Typography>
                             </Stack>
                         </Button>
@@ -32,4 +32,4 @@ const SearchButton = () => {
     )
 }
 
-export default SearchButton;
+export default InformationButton;

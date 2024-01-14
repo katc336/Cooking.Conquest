@@ -2,6 +2,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+
+import { Link } from "react-router-dom";
+
 import { useState } from "react";
 
 import { usePostUserRecipeMutation } from "../../../../redux/api"
@@ -34,6 +37,7 @@ const AddRecipeForm = () => {
                     You can now add recipes and help your guild!
                 </Typography>
                 <Typography sx={{ textAlign: "center" }}>
+                    <Link to="/leadership_board">
                     <Button
                         sx={{
                             color: "#362706",
@@ -45,6 +49,7 @@ const AddRecipeForm = () => {
                         }}>
                         Learn more about how your recipes can help in the Guild Competition
                     </Button>
+                    </Link>
                 </Typography>
                 <form onSubmit={handleSubmit}>
                     <Stack direction="column">

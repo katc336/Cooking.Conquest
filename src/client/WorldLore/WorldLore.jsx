@@ -2,6 +2,8 @@ import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 
+import { motion } from "framer-motion"
+
 import LoreScroll from "./LoreScroll.png"
 import SignUpButton from "./SignUpButton"
 import MainLoreText from "./MainLoreText"
@@ -9,7 +11,10 @@ import GuildInformation from "./GuildInformation"
 
 const WorldLore = () => {
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <Box
                 sx={{ mx: "5%", mt: "5%", pt: "15%", px: "17%" }}
                 style={{
@@ -22,7 +27,7 @@ const WorldLore = () => {
                 <SignUpButton />
                 <GuildInformation/>
             </Box>
-        </div>
+        </motion.div>
     )
 }
 export default WorldLore

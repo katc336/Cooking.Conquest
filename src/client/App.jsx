@@ -16,6 +16,7 @@ import MyRecipes from "./MyRecipes/MyRecipes";
 import WorldLore from "./WorldLore/WorldLore";
 import JoinGuildPage from "./GuildPage/JoinGuildPage";
 import CookingConquestInfo from "./InformationPage/CookingConquestInfo";
+import LeadershipBoard from "./GuildPage/LeadershipBoard";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/lore" element={<WorldLore/>} />
           <Route path="/join_guild" element={<JoinGuildPage/>} />
           <Route path="/information" element={<CookingConquestInfo />} />
+          <Route path="/leadership_board" element={<LeadershipBoard />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import MyAccount from "./images/MyAccount.png"
+import MyAccount from "../images/MyAccount.png"
 
 const MyAccountButton = () => {
     return (

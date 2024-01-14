@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
 import Card from "@mui/material/Card"
-import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
 import Stack from "@mui/material/Stack"
+
+import { motion } from "framer-motion"
 
 import InformationScroll from "./images/InformationScroll.png"
 import AddRecipePageView from "./images/AddRecipePageView.png"
@@ -14,7 +14,10 @@ import SingleRecipePageView from "./images/SingleRecipePageView.png"
 
 const CookingConquestInfo = () => {
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <Box
                 sx={{ mx: "5%", mt: "5%", pt: "15%", px: "17%" }}
                 style={{
@@ -32,7 +35,7 @@ const CookingConquestInfo = () => {
                 <Typography
                     variant="h6"
                     sx={{ color: "#362706", mb: 2 }}>
-                    Youare about to embark on an exciting journey to learn and conquer the world of vegetarian cooking.
+                    You are about to embark on an exciting journey to learn and conquer the world of vegetarian cooking.
                     This app is designed to make your cooking experience interactive and fun,
                     all while helping you develop new skills and knowledge.
                 </Typography>
@@ -61,8 +64,8 @@ const CookingConquestInfo = () => {
                     <Typography
                         variant="h6"
                         sx={{ color: "#362706" }}>
-                         Keep an eye out for the leaderboard to see how your guild and individual cooking skills rank!
-                        Once tou join a guild, you can compete with others by reviewing and rating each other's recipes, earning points,
+                         Keep an eye out for the Leadership Board to see how your guild and individual cooking skills rank!
+                        Once you join a guild, you can compete with others by reviewing and rating each other's recipes, earning points,
                         and contributing to your guild’s cumulative score.
                         This friendly competition and sense of camaraderie within the community will keep you motivated
                         and engaged in your vegetarian cooking conquest.
@@ -126,7 +129,7 @@ const CookingConquestInfo = () => {
                     </Stack>
                 </Box>
             </Box>
-        </div>
+        </motion.div>
     )
 }
 export default CookingConquestInfo

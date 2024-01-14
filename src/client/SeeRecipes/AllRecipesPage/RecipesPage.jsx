@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 
+import { motion } from "framer-motion";
+
 import { useGetUserQuery } from "../../../redux/api";
 
 import Scroll from "../images/Scroll.png"
@@ -22,10 +24,13 @@ const RecipesPage = () => {
         console.log(console.log("No user is logged in"))
     }
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeIn" }}>
             <Stack direction="row">
                 <Box
-                    sx={{ pt: 2, pb: 50 }}
+                    sx={{ pt: 2, pb: 50, mt: 5 }}
                     style={{
                         backgroundImage: `url(${SingleRecipeBorder})`,
                         backgroundSize: "cover",
@@ -79,7 +84,7 @@ const RecipesPage = () => {
                     </Box>
                 </Box>
             </Stack>
-        </div >
+        </motion.div >
     )
 }
 export default RecipesPage

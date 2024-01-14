@@ -7,21 +7,21 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import WorldLoreIcon from "./images/WorldLoreIcon.png"
+import MyRecipesIcon from "../images/MyRecipes.png"
 
-const WorldLoreButton = () => {
+const MyRecipesButton = () => {
     return (
         <>
-            <Link to="/lore">
+            <Link to="/my_recipes">
                 <motion.div whileHover={{ scale: 1.2 }}>
                     <Tooltip title="Learn more about Cooking Conquest" arrow>
                         <Button sx={{ textTransform: "none", color: "green", mx: 3 }}>
                             <Stack direction="column">
                                 <Typography sx={{ textAlign: "center" }}>
-                                    <img src={WorldLoreIcon} width="37px" />
+                                    <img src={MyRecipesIcon} width="50px" />
                                 </Typography>
                                 <Typography sx={{ mr: 1 }}>
-                                    Learn About Lore
+                                    My Recipe Spellbook
                                 </Typography>
                             </Stack>
                         </Button>
@@ -32,4 +32,4 @@ const WorldLoreButton = () => {
     )
 }
 
-export default WorldLoreButton;
+export default MyRecipesButton;
