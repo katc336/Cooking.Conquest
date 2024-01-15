@@ -1,4 +1,5 @@
-import { useGetUserQuery } from "../../../../redux/api"
+import { useGetUserQuery } from "../../../../../redux/api";
+import AddIngredientsForm from "./AddIngredientsForm";
 import AddRecipeForm from "./AddRecipeForm";
 const AddRecipe = () => {
     const { data, error, isLoading } = useGetUserQuery();

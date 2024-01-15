@@ -52,17 +52,33 @@ model Level {
 }
 
 model UserPostedRecipe {
-  id           Int      @id @default(autoincrement())
-  name         String
-  image        String   @default("")
-  description  String
-  ingredients  String
-  instructions String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId       Int
-  guild        Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
-  guildId      Int
-  rating       Rating[]
+  id               Int                @id @default(autoincrement())
+  name             String
+  image            String             @default("")
+  description      String
+  userIngredients  UserIngredients[]
+  UserInstructions UserInstructions[]
+  user             User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           Int
+  guild            Guild              @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  guildId          Int
+  rating           Rating[]
+}
+
+model UserIngredients {
+  id                 Int              @id @default(autoincrement())
+  quantity           String
+  name               String
+  userPostedRecipe   UserPostedRecipe @relation(fields: [userPostedRecipeId], references: [id])
+  userPostedRecipeId Int
+}
+
+model UserInstructions {
+  id                 Int              @id @default(autoincrement())
+  stepNumber         Int
+  description        String
+  userPostedRecipe   UserPostedRecipe @relation(fields: [userPostedRecipeId], references: [id])
+  userPostedRecipeId Int
 }
 
 model Guild {

@@ -122,12 +122,31 @@ const api = createApi({
             }),
             invalidatesTags: ["RecipeBook"]
         }),
+          //<------------USER'S RECIPES------------>
         //POST USER'S RECIPE
         postUserRecipe: builder.mutation({
             query: (recipe) => ({
                 url: `/api/guildRecipe`,
                 method: 'POST',
                 body: recipe,
+            }),
+            invalidatesTags: ["UserRecipe"]
+        }),
+          //POST USER'S INGREDIENTS
+          postUserRecipeIngredients: builder.mutation({
+            query: (ingredients) => ({
+                url: `/api/guildRecipe_ingredients`,
+                method: 'POST',
+                body: ingredients,
+            }),
+            invalidatesTags: ["UserRecipe"]
+        }),
+          //POST USER'S INSTRUCTIONS
+          postUserRecipeInstructions: builder.mutation({
+            query: (instructions) => ({
+                url: `/api/guildRecipe_instructions`,
+                method: 'POST',
+                body: rinstructions,
             }),
             invalidatesTags: ["UserRecipe"]
         }),
@@ -176,7 +195,10 @@ export const {
     useGetLevelTwoRecipesQuery,
     useGetLevelThreeRecipesQuery,
     usePostRecipeToUserMutation,
+        //RECIPE INFO
     usePostUserRecipeMutation,
+    usePostUserRecipeIngredientsMutation,
+    usePostUserRecipeInstructionsMutation,
     //GUILD INFO
     useGetAllGuildsQuery,
     usePatchJoinGuildMutation,
