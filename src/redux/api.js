@@ -146,7 +146,7 @@ const api = createApi({
             query: (instructions) => ({
                 url: `/api/guildRecipe_instructions`,
                 method: 'POST',
-                body: rinstructions,
+                body: instructions,
             }),
             invalidatesTags: ["UserRecipe"]
         }),

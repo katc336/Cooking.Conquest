@@ -14,7 +14,6 @@ const AddIngredientsForm = ({ id }) => {
 
     const [postIngredients] = usePostUserRecipeIngredientsMutation();
 
-    const userPostedRecipeId = id
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();

@@ -10,6 +10,7 @@ import { useState } from "react";
 
 import { usePostUserRecipeMutation } from "../../../../../redux/api";
 import AddIngredientsForm from "./AddIngredientsForm";
+import AddInstructionsForm from "./AddInstructionsForm";
 
 
 const AddRecipeForm = () => {
@@ -99,6 +100,8 @@ const AddRecipeForm = () => {
                     </Stack>
                 </form>
                 <AddIngredientsForm
+                    id={postedRecipeId} />
+                <AddInstructionsForm
                     id={postedRecipeId} />
             </Box>
         </div>
