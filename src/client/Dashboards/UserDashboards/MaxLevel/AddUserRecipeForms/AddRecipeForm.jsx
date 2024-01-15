@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import { usePostUserRecipeMutation } from "../../../../../redux/api";
+import AddIngredientsForm from "./AddIngredientsForm";
 
 
 const AddRecipeForm = () => {
@@ -17,7 +18,7 @@ const AddRecipeForm = () => {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
-    const  [postedRecipeId, setPostedRecipeId] = useState(null);
+    const [postedRecipeId, setPostedRecipeId] = useState(null);
 
     const handleSubmit = async (event) => {
         try {
@@ -40,17 +41,17 @@ const AddRecipeForm = () => {
                 </Typography>
                 <Typography sx={{ textAlign: "center" }}>
                     <Link to="/leadership_board">
-                    <Button
-                        sx={{
-                            color: "#362706",
-                            borderRadius: "10px",
-                            border: 2,
-                            borderBottom: 5,
-                            borderColor: "#445D48",
-                            textTransform: "none"
-                        }}>
-                        Learn more about how your recipes can help in the Guild Competition
-                    </Button>
+                        <Button
+                            sx={{
+                                color: "#362706",
+                                borderRadius: "10px",
+                                border: 2,
+                                borderBottom: 5,
+                                borderColor: "#445D48",
+                                textTransform: "none"
+                            }}>
+                            Learn more about how your recipes can help in the Guild Competition
+                        </Button>
                     </Link>
                 </Typography>
                 <form onSubmit={handleSubmit}>
@@ -97,6 +98,8 @@ const AddRecipeForm = () => {
                         </Button>
                     </Stack>
                 </form>
+                <AddIngredientsForm
+                    id={postedRecipeId} />
             </Box>
         </div>
     )

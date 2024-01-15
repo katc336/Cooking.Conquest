@@ -8,16 +8,17 @@ import { useState } from "react";
 
 import { usePostUserRecipeIngredientsMutation } from "../../../../../redux/api"
 
-const AddIngredientsForm = () => {
+const AddIngredientsForm = ({ id }) => {
     const [quantity, setQuantity] = useState("");
     const [name, setName] = useState("");
 
     const [postIngredients] = usePostUserRecipeIngredientsMutation();
 
+    const userPostedRecipeId = id
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postIngredients({ quantity, name, userPostedRecipeId })
+            const result = await postIngredients({ quantity, name, userPostedRecipeId: id })
             console.log(result)
         } catch (error) {
             console.log(error)
