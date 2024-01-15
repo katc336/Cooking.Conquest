@@ -308,15 +308,13 @@ apiRouter.get("/guildRecipe", async (req, res, next) => {
 //<-----------------POST USER RECIPE----------------->
 apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
     try {
-        const { name, image, description, ingredients, instructions, guildId } = req.body
+        const { name, image, description } = req.body
         const newRecipe = await prisma.userPostedRecipe.create({
             data: {
                 user: { connect: { id: req.user.id } },
                 name,
                 image,
                 description,
-                ingredients,
-                instructions,
                 guild: { connect: { id: req.user.guildId } },
             },
             include: {
@@ -329,6 +327,40 @@ apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
         next(error);
     }
 })
+//<-----------------POST USER RECIPE INGREDIENTS----------------->
+apiRouter.post("/guildRecipe_ingredients", requireUser, async (req, res, next) => {
+    try {
+        const { quantity, name, userPostedRecipeId } = req.body
+        const addIngredients = await prisma.userIngredients.create({
+            data: {
+                quantity,
+                name,
+                userPostedRecipe: { connect: { id: userPostedRecipeId } }
+            }
+        })
+        res.send(addIngredients)
+    }
+    catch (error) {
+        next(error);
+    }
+ })
+ //<-----------------POST USER RECIPE INSTRUCTIONS----------------->
+ apiRouter.post("/guildRecipe_instructions", requireUser, async (req, res, next) => {
+    try {
+        const { stepNumber, description, userPostedRecipeId } = req.body
+        const addInstructions = await prisma.userInstructions.create({
+            data: {
+                stepNumber,
+                description,
+                userPostedRecipe: { connect: { id: userPostedRecipeId } }
+            }
+        })
+        res.send(addInstructions);
+    } catch (error) {
+        next(error);
+    }
+ })
+ 
 //<-----------------GET ALL USER'S RECIPE----------------->
 apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
     try {

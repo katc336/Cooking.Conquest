@@ -2,13 +2,16 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
 
 import { useState } from "react";
 
-import { usePostUserRecipeMutation } from "../../../../redux/api"
-import { Typography } from "@mui/material";
+import { usePostUserRecipeMutation } from "../../../../../redux/api";
+import AddIngredientsForm from "./AddIngredientsForm";
+import AddInstructionsForm from "./AddInstructionsForm";
+
 
 const AddRecipeForm = () => {
     const [postRecipe] = usePostUserRecipeMutation();
@@ -16,40 +19,26 @@ const AddRecipeForm = () => {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
-    const [ingredients, setIngredients] = useState("");
-    const [instructions, setInstructions] = useState("");
+    const [postedRecipeId, setPostedRecipeId] = useState(null);
 
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postRecipe({ name, image, description, ingredients, instructions })
-            console.log(result)
+            const result = await postRecipe({ name, image, description })
+            console.log(result.data.newRecipe.name)
+            setPostedRecipeId(result.data.newRecipe.id)
+            console.log(postedRecipeId);
         } catch (error) {
             console.log(error)
         }
     }
     return (
         <div>
-            <Box sx={{ mx: "10%", backgroundColor: "#F1E4C3", px: 2, py: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+            <Box sx={{ mt: "12%", backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                 <Typography
-                    variant="h4"
+                    variant="h5"
                     sx={{ m: 1, textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
-                    You can now add recipes and help your guild!
-                </Typography>
-                <Typography sx={{ textAlign: "center" }}>
-                    <Link to="/leadership_board">
-                    <Button
-                        sx={{
-                            color: "#362706",
-                            borderRadius: "10px",
-                            border: 2,
-                            borderBottom: 5,
-                            borderColor: "#445D48",
-                            textTransform: "none"
-                        }}>
-                        Learn more about how your recipes can help in the Guild Competition
-                    </Button>
-                    </Link>
+                    Add Recipe Name and Description
                 </Typography>
                 <form onSubmit={handleSubmit}>
                     <Stack direction="column">
@@ -77,22 +66,6 @@ const AddRecipeForm = () => {
                             required={true}
                             sx={{ m: 1 }}>
                         </TextField>
-                        <TextField
-                            label="Recipe's Ingredients"
-                            size="small"
-                            value={ingredients}
-                            onChange={(event) => setIngredients(event.target.value)}
-                            required={true}
-                            sx={{ m: 1 }}>
-                        </TextField>
-                        <TextField
-                            label="Recipe's Instructions"
-                            size="small"
-                            value={instructions}
-                            onChange={(event) => setInstructions(event.target.value)}
-                            required={true}
-                            sx={{ m: 1 }}>
-                        </TextField>
                         <Button
                             type="submit"
                             variant="contained"
@@ -107,10 +80,14 @@ const AddRecipeForm = () => {
                                 borderColor: "#445D48",
                                 textTransform: "none"
                             }}>
-                            Submit Recipe
+                            Add Recipe Name and Description
                         </Button>
                     </Stack>
                 </form>
+                <AddIngredientsForm
+                    id={postedRecipeId} />
+                <AddInstructionsForm
+                    id={postedRecipeId} />
             </Box>
         </div>
     )

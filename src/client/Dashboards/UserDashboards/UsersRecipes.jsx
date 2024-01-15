@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../../redux/api";
-import AddRecipe from "./MaxLevel/AddRecipes";
 
 const UsersRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();
@@ -116,7 +115,6 @@ const UsersRecipes = () => {
                     </Typography>
                 </Box>
             }
-            <AddRecipe />
         </div>
     );
 };

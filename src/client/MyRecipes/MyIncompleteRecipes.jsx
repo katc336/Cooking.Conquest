@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../redux/api";
-import AddRecipe from "../Dashboards/UserDashboards/MaxLevel/AddRecipes";
+import AddRecipe from "../Dashboards/UserDashboards/MaxLevel/AddUserRecipeForms/AddRecipes";
 
 const MyIncompleteRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();

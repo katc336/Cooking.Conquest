@@ -1,6 +1,8 @@
-import { useGetUserQuery } from "../../../../redux/api"
-import AddRecipeForm from "./AddRecipeForm";
-const AddRecipe = () => {
+import { useGetUserQuery } from "../../redux/api";
+import CookingConquestInfoPage from "./CookingConquestInfoPage";
+import GuildInfoPage from "./GuildInfoPage";
+
+const UserInformationDisplay = () => {
     const { data, error, isLoading } = useGetUserQuery();
 
     if (isLoading) {
@@ -16,14 +18,16 @@ const AddRecipe = () => {
     return (
         <div>
             {data && data.level !== 4
-                ?//if not level 4, return an empty <div>
-                <div/>
+                ?
+                <div>
+                <CookingConquestInfoPage />
+                </div>
                 :
                 <div>
-                    <AddRecipeForm />
+                    <GuildInfoPage />
                 </div>}
 
         </div>
     )
 }
-export default AddRecipe
+export default UserInformationDisplay
