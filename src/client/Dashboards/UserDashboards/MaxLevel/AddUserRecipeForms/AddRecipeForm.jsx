@@ -36,24 +36,9 @@ const AddRecipeForm = () => {
         <div>
             <Box sx={{ mx: "10%", backgroundColor: "#F1E4C3", px: 2, py: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                 <Typography
-                    variant="h4"
+                    variant="h5"
                     sx={{ m: 1, textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
-                    You can now add recipes and help your guild!
-                </Typography>
-                <Typography sx={{ textAlign: "center" }}>
-                    <Link to="/leadership_board">
-                        <Button
-                            sx={{
-                                color: "#362706",
-                                borderRadius: "10px",
-                                border: 2,
-                                borderBottom: 5,
-                                borderColor: "#445D48",
-                                textTransform: "none"
-                            }}>
-                            Learn more about how your recipes can help in the Guild Competition
-                        </Button>
-                    </Link>
+                    Add Recipe Name and Description
                 </Typography>
                 <form onSubmit={handleSubmit}>
                     <Stack direction="column">
