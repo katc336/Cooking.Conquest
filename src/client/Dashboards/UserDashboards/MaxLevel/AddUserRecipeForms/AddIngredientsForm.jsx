@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
@@ -25,6 +24,7 @@ const AddIngredientsForm = ({ id }) => {
     }
     return (
         <div>
+            <Box sx={{ p: 3, m: 3, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
                 <Typography
                     variant="h5"
                     sx={{ m: 1, textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
@@ -64,6 +64,7 @@ const AddIngredientsForm = ({ id }) => {
                         Add Ingredient
                     </Button>
                 </form>
+            </Box>
         </div>
     )
 }
