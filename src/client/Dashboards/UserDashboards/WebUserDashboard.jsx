@@ -17,6 +17,7 @@ import LevelThreeUserDisplay from "./Level3/LevelThreeUserDisplay";
 import MaxLevelUserDisplay from "./MaxLevel/MaxLevelUserDisplay";
 import AskForHelpWizard from "./AskForHelp/AskForHelpWizard";
 import GuildHelpWizard from "./AskForHelp/GuildHelpWizard";
+import AddRecipe from "./MaxLevel/AddUserRecipeForms/AddRecipes";
 
 const WebUserDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -72,29 +73,36 @@ const WebUserDashboard = () => {
                     </Grid>
                     <Grid item xs={9}>
                         {data.level === 4
-                            ? //if max level return max level image...
+                            ? //if max level return...
                             <div>
+                                <Typography
+                                    variant="h3"
+                                    style={{ position: "absolute", zIndex: -1 }}
+                                    sx={{ pt: "18%", pl: "10%", color: "#445D48" }}>
+                                    Hello {data.name}
+                                </Typography>
                                 <GuildHelpWizard />
+                                <AddRecipe />
                             </div>
-                            : //if not level 4, return empty <div>
+                            : //if not level 4...
                             <div>
                                 <AskForHelpWizard />
+                                <Box
+                                    sx={{ pb: 70, mb: 20 }}
+                                    style={{
+                                        backgroundImage: `url(${RecipeSpellBook})`,
+                                        backgroundSize: "contain",
+                                        backgroundRepeat: "no-repeat",
+                                    }}>
+                                    <Typography
+                                        variant="h3"
+                                        sx={{ pt: 5, pl: "25%", color: "#445D48" }}>
+                                        Hello {data.name}
+                                    </Typography>
+                                    <UsersRecipes />
+                                </Box>
                             </div>}
 
-                        <Box
-                            sx={{ pb: 70, mb: 20 }}
-                            style={{
-                                backgroundImage: `url(${RecipeSpellBook})`,
-                                backgroundSize: "contain",
-                                backgroundRepeat: "no-repeat",
-                            }}>
-                            <Typography
-                                variant="h3"
-                                sx={{ pt: 5, pl: "25%", color: "#445D48" }}>
-                                Hello {data.name}
-                            </Typography>
-                            <UsersRecipes />
-                        </Box>
                     </Grid>
                 </Grid>
             </div>

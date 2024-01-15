@@ -15,8 +15,10 @@ import UserNavBar from "./NavigationBar/UserNavBar";
 import MyRecipes from "./MyRecipes/MyRecipes";
 import WorldLore from "./WorldLore/WorldLore";
 import JoinGuildPage from "./GuildPage/JoinGuildPage";
-import CookingConquestInfo from "./InformationPage/CookingConquestInfo";
+import CookingConquestInfo from "./InformationPage/CookingConquestInfoPage";
 import LeadershipBoard from "./GuildPage/LeadershipBoard";
+import GuildInformation from "./InformationPage/GuildInfoPage";
+import UserInformationDisplay from "./InformationPage/UserInformationDisplay";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -38,7 +40,8 @@ function App() {
           <Route path="/my_recipes" element={<MyRecipes />} />
           <Route path="/lore" element={<WorldLore/>} />
           <Route path="/join_guild" element={<JoinGuildPage/>} />
-          <Route path="/information" element={<CookingConquestInfo />} />
+          <Route path="/information" element={<UserInformationDisplay />} />
+          <Route path="/guild_information" element={<GuildInformation />} />
           <Route path="/leadership_board" element={<LeadershipBoard />} />
         </Routes>
       </BrowserRouter>

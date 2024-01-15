@@ -12,7 +12,7 @@ import LockedLevelPageView from "./images/LockedLevelPageView.png"
 import SingleRecipePageView from "./images/SingleRecipePageView.png"
 
 
-const CookingConquestInfo = () => {
+const CookingConquestInfoPage = () => {
     return (
         <motion.div
         initial={{ opacity: 0 }}
@@ -132,4 +132,4 @@ const CookingConquestInfo = () => {
         </motion.div>
     )
 }
-export default CookingConquestInfo
+export default CookingConquestInfoPage

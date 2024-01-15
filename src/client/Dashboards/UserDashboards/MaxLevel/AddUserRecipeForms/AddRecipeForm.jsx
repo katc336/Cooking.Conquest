@@ -34,7 +34,7 @@ const AddRecipeForm = () => {
     }
     return (
         <div>
-            <Box sx={{ mx: "10%", backgroundColor: "#F1E4C3", px: 2, py: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+            <Box sx={{ mt: "12%", backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                 <Typography
                     variant="h5"
                     sx={{ m: 1, textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>

@@ -4,7 +4,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import characterImg from "./homePageCharacter.png"
-import CookingConquestInfo from "../InformationPage/CookingConquestInfo";
+import CookingConquestInfo from "../InformationPage/CookingConquestInfoPage";
 const HomePage = () => {
 
     const theme = useTheme();
