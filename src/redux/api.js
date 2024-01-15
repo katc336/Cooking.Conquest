@@ -151,7 +151,7 @@ const api = createApi({
             invalidatesTags: ["UserRecipe"]
         }),
         //GET SINGLE USER'S RECIPE
-        getSingleUsersRecipe: build.query({
+        getSingleUsersRecipe: builder.query({
             query: (id) => ({
                 url: `/api/myGuildRecipe/${id}`,
                 method: 'GET',
