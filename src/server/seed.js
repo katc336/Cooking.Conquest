@@ -198,9 +198,9 @@ const seed = async () => {
         })
         const pizza  = await prisma.recipe.create({
             data: {
-                name: "Homemade Vegetarian Pizza",
+                name: "Margherita Pizza",
                 image: "",
-                description: "A homemade pizza crust topped with fresh mozzerella chese and fresh basil.",
+                description: "A homemade pizza crust topped with fresh mozzarella cheese and fresh basil.",
                 level: { connect: { id: level2.id } },
             }
         })
@@ -214,9 +214,17 @@ const seed = async () => {
         })
         const 割包  = await prisma.recipe.create({
             data: {
-                name: "Taiwanese Veggie Burger  (割包)",
+                name: "Taiwanese Veggie Burger (割包)",
                 image: "",
                 description: "A vegetarian spin on a traditional Taiwanese street food delight, featuring a colorful blend of pickled vegetables with marinated tofu; all wrapped in a fluffy bun.",
+                level: { connect: { id: level2.id } },
+            }
+        })
+        const africanPeanutStew  = await prisma.recipe.create({
+            data: {
+                name: "African Peanut Stew",
+                image: "",
+                description: "A hearty and comforting stew made with sweet potatoes, chickpeas, and leafy greens, simmered in a rich and creamy peanut sauce, and seasoned with African spices.",
                 level: { connect: { id: level2.id } },
             }
         })
@@ -959,14 +967,542 @@ const seed = async () => {
             }
         })
         //Thai Green Curry
+        const thaiCurryIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon green curry paste",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 tablespoon of coconut oil",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 can coconut milk",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup vegetable broth",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 block firm tofu, cubed",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup green beans, trimmed",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1 red bell pepper, sliced",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1 zucchini, sliced",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon soy sauce",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon brown sugar",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "Fresh basil leaves for garnish",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
         //Misir Wot (Ethiopian Spicy Lentil Stew)
+        const misirWotIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup red lentils, rinsed and drained",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons olive oil",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 onion, finely chopped",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "3 garlic cloves, minced",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon grated ginger",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons berbere spice (Ethiopian spice blend)",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "3 cups vegetable broth",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "Injera bread for serving",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
         //Spinach and Ricotta Stuffed Pasta Shells
+        const stuffedShellsIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 box jumbo pasta shells",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "10 oz frozen chopped spinach, thawed and drained",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "16 oz of ricotta cheese",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of shredded mozzarella cheese",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of grated Parmesan cheese",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1 egg",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of garlic powder",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of marinara sauce",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
         //Vegetable Pad Thai
+        const padThaiIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "8 oz rice noodles",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of sesame oil",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 bell pepper, thinly sliced",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 carrot, julienned",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of bean sprouts",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of chopped scallions",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of chopped peanuts",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of tamarind paste",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "3 tablespoons of soy sauce",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of brown sugar",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of rice vinega",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient12 = await prisma.ingredient.create({
+            data: {
+                name: " 1 teaspoon of red pepper flakes (optional)",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiIngredient13 = await prisma.ingredient.create({
+            data: {
+                name: "Lime wedges for serving",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
         //Asparagus and Swiss Frittata
+        const frittataIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "8 eggs",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 whole cup milk",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of olive oil",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 small onion, diced",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 bunch of asparagus, trimmed and cut into 1-inch pieces",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of shredded Swiss cheese",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of pecorino romano",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
         //Homemade Veggie Pizza
+        const pizzaIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 pound of pizza dough",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of olive oil",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 tablespoon of italian seasoning ",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of marinara sauce",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "12 oz of fresh mozzarella cheese",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "A handful of fresh basil leaves",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
         //Spinach and Feta Spanakopita
+        const spanakopitaIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: " pound of phyllo pastry",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1 pound of  frozen chopped spinach, thawed and drained",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of crumbled feta cheese",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of chopped onions",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped fresh dill",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped fresh parsley",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of olive oil",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
         //Taiwanese Veggie Burger (割包)
+        const 割包Ingredient1 = await prisma.ingredient.create({
+            data: {
+                name: "Lotus leaf buns",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of rice vinegar",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of sugar",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of salt",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 teaspoon of sesame oil",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1 cucumber, julienned",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1 medium carrot, julienned",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient8 = await prisma.ingredient.create({
+            data: {
+                name: "16 oz block of firm tofu",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient9 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of soy sauce",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient10 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of hoisin sauce",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient11 = await prisma.ingredient.create({
+            data: {
+                name: "3 tablespoons of mirin",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient12 = await prisma.ingredient.create({
+            data: {
+                name: "2 cloves garlic, minced",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient13 = await prisma.ingredient.create({
+            data: {
+                name: "2 teaspoons of minced ginger",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient14 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped scallions",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient15 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped cilantro",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Ingredient16 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of crushed peanuts",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
         //African Peanut Stew
+        const africanPeanutStewIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of olive oil",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1 onion, diced",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "3 cloves garlic, minced",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of grated ginger",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "2 teaspoons of cumin",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "2 sweet potatoes, peeled and diced",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1 red bell pepper, diced",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of chopped tomatoes",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "4 cups of vegetable broth",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of smooth peanut butter",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of chopped collard greens",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewIngredient12 = await prisma.ingredient.create({
+            data: {
+                name: "Cooked rice for serving",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
         //Eggplant Parmesan
         //Tofu Katsu
         //Baked Falafel with Tzatziki Sauce
@@ -1369,14 +1905,441 @@ const seed = async () => {
             }
         })
         //Thai Green Curry
+        const thaiCurryInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a large skillet or pot, heat the coconut oil and seer the tofu on browning both sides.",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Remove the tofu, and add the green curry paste over medium heat for a minute.",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Pour in the coconut milk and vegetable broth, and bring to a gentle simmer.",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Add the green beans, bell pepper, and zucchini to the pot. Cook for 10-15 minutes, until the vegetables are tender.",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Stir in the soy sauce and brown sugar, and cook for an additional 5 minutes.",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Add the tofu back in to heat through.",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
+        const thaiCurryInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Garnish with fresh basil leaves and serve with cooked rice.",
+                recipe: { connect: { id: thaiCurry.id } }
+            }
+        })
         //Misir Wot (Ethiopian Spicy Lentil Stew)
+        const misirWotInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a pot, heat the olive oil over medium heat. Add the onion, garlic, and ginger, and cook until softened.",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Stir in the berbere spice and cook for a minute.",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Add the red lentils and vegetable broth to the pot, and bring to a boil.",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Reduce the heat and simmer for 20-25 minutes, until the lentils are soft and the sauce has thickened.",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
+        const misirWotInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Season with salt to taste. Serve with injera bread.",
+                recipe: { connect: { id: misirWot.id } }
+            }
+        })
         //Spinach and Ricotta Stuffed Pasta Shells
+        const stuffedShellsInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Cook the pasta shells according to package instructions, then drain and set aside to cool.",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "In a mixing bowl, combine the spinach, ricotta cheese, mozzarella cheese, Parmesan cheese, egg, garlic powder, salt, and pepper.",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Fill each pasta shell with the spinach and ricotta mixture and place them in a baking dish.",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Pour the marinara sauce over the stuffed shells and sprinkle with additional mozzarella cheese.",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
+        const stuffedShellsInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Bake in a preheated oven at 375°F for 25-30 minutes or until the cheese is melted and bubbly.",
+                recipe: { connect: { id: stuffedShells.id } }
+            }
+        })
         //Vegetable Pad Thai
+        const padThaiInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a large skillet, heat the sesame oil over medium-high heat.",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Add the bell pepper, carrot, and bean sprouts to the skillet and stir-fry for 3-4 minutes.",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Cook the rice noodles according to package instructions, then drain and set aside.",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "As the noodles are cooking, In a small bowl, whisk together the tamarind paste, soy sauce, brown sugar, rice vinegar, and red pepper flakes.",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Add the cooked noodles and tamarind sauce to the skillet and toss to combine.",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
+        const padThaiInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Serve the Pad Thai garnished with chopped scallions, chopped peanuts, and lime wedges.",
+                recipe: { connect: { id: padThai.id } }
+            }
+        })
         //Asparagus and Swiss Frittata
+        const frittataInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a bowl, whisk together the eggs, swiss cheese, milk, and salt and pepper to taste.",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "In a 10-inch oven-safe skillet, heat the olive oil over medium heat.",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Add the diced onion and asparagus to the skillet and sauté for 5-7 minutes.",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Preheat the broiler in the oven.",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Pour the egg and cheese mixture over the asparagus and onions in the skillet and cook for 3-4 minutes, lifting the edges of the frittata with a rubber spatula to let the uncooked egg flow underneath, but do not scramble or touch the middle.",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Sprinkle the shredded  Pecorino Romano over the frittata and transfer the skillet to the preheated broiler.",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
+        const frittataInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Broil for 2-3 minutes or until the frittata is set and golden brown on top.",
+                recipe: { connect: { id: frittata.id } }
+            }
+        })
         //Homemade Veggie Pizza
+        const pizzaInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Preheat the oven to 450°F.",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Roll out the pizza dough into a 12-inch circle and transfer it to a lightly greased pizza pan or baking sheet.",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Take the olive oil, italian seasoning, and salt and pepper to taste, and mix them together, and then spread it all over the pizza dough.",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Spread the marinara sauce evenly over the pizza dough, leaving a small border around the edges.",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Layer the mozzarella cheese over the sauce, then arrange the fresh basil on top.",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Bake the pizza in the preheated oven for 15-25 minutes or until the crust is golden brown and the cheese is bubbly.",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
+        const pizzaInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Remove the pizza from the oven and enjoy!",
+                recipe: { connect: { id: pizza.id } }
+            }
+        })
         //Spinach and Feta Spanakopita
+        const spanakopitaInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Preheat the oven to 375°F.",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "In a bowl, combine the spinach, feta cheese, chopped onions, dill, parsley, olive oil, and salt and pepper to taste.",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Lay a sheet of phyllo pastry on a clean work surface and brush it lightly with olive oil.",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Place another sheet of phyllo on top and brush it with oil as well.",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Spoon some of the spinach and feta mixture along one edge of the phyllo sheets, then fold the edge over the filling to form a triangle.",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Continue folding the phyllo and the filling into a triangle shape, brushing each layer with olive oil as you go.",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
+        const spanakopitaInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Place the assembled spanakopita on a baking sheet, brush the top with oil, and bake in the preheated oven for 25-30 minutes or until golden brown and crisp.",
+                recipe: { connect: { id: spanakopita.id } }
+            }
+        })
         //Taiwanese Veggie Burger (割包)
+        const 割包Instruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "The night before, take the soy sauce, 1 tablespoon of hoisin sauce, the mirin, garlic, and minced ginger and mix them together.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Take the tofu, and cut them into large 1 inch slices. Add the tofu to the mixture and marinate it overnight or for 6 hours.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Take the rice vinegar, sugar, salt, and sesame oil and mix them together in a separate bowl.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Thinly slice the carrot and cucumber. Add them to the rice vinegar and sugar mixture, making sure they are fully submerged. Also let sit overnight or for 6 hours.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Preheat the oven to 400°F.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Place the sliced tofu on a baking sheet lined with parchment paper and bake for 20-25 minutes or until golden and crispy on the outside.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Steam the frozen bao buns according to package instructions.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Spread a spoonful of the leftover hoisin sauce inside each bao bun, then fill it with a piece of crispy tofu, chopped scallions, cilantro, crushed peanuts, and the shredded pickled vegetables.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
+        const 割包Instruction9 = await prisma.instruction.create({
+            data: {
+                stepNumber: 9,
+                description: "Serve the gua bao immediately while still warm.",
+                recipe: { connect: { id: 割包.id } }
+            }
+        })
         //African Peanut Stew
+        const africanPeanutStewInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a large pot, heat the vegetable oil over medium heat.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Add the diced onion, minced garlic, and grated ginger to the pot and sauté for 3-4 minutes.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Stir in the diced sweet potatoes and red bell pepper, then cook for an additional 5 minutes to brown them.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Add the chopped tomatoes and vegetable broth to the pot and bring the stew to a simmer.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "In a small bowl, whisk the peanut butter with a ladleful of the hot broth until smooth, then stir the mixture back into the pot.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Simmer the stew for 15-20 minutes or until the sweet potatoes are tender.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Stir in the chopped collard greens and cook for an additional 5 minutes.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
+        const africanPeanutStewInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Season the stew with salt and pepper to taste and serve over cooked rice.",
+                recipe: { connect: { id: africanPeanutStew.id } }
+            }
+        })
         //Eggplant Parmesan
         //Tofu Katsu
         //Baked Falafel with Tzatziki Sauce
