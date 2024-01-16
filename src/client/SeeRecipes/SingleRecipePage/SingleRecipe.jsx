@@ -70,10 +70,10 @@ const SingleRecipe = () => {
                     </Box>
                     <Grid container>
                         <Grid item xs={5}>
-                            <RecipeIngredients />
+                            {/* <RecipeIngredients /> */}
                         </Grid>
                         <Grid item xs={7}>
-                            <RecipeInstructions />
+                            {/* <RecipeInstructions /> */}
                         </Grid>
                     </Grid>
                 </Box>

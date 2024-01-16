@@ -38,11 +38,27 @@ model Recipe {
   name           String
   image          String           @default("")
   description    String
-  ingredients    String
-  instructions   String
+  ingredients    Ingredient[]
+  instructions   Instruction[]
   level          Level            @relation(fields: [levelId], references: [id])
   levelId        Int              @default(1)
   recipeBookItem RecipeBookItem[]
+}
+
+model Ingredient {
+  id       Int    @id @default(autoincrement())
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+  quantity String
+  name     String
+  recipeId Int    @default(0)
+}
+
+model Instruction {
+  id          Int    @id @default(autoincrement())
+  recipe      Recipe @relation(fields: [recipeId], references: [id])
+  stepNumber  Int
+  description String
+  recipeId    Int    @default(0)
 }
 
 model Level {
