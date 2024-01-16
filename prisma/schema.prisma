@@ -48,7 +48,6 @@ model Recipe {
 model Ingredient {
   id       Int    @id @default(autoincrement())
   recipe   Recipe @relation(fields: [recipeId], references: [id])
-  quantity String
   name     String
   recipeId Int    @default(0)
 }
