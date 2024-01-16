@@ -148,6 +148,7 @@ const seed = async () => {
                 level: { connect: { id: level1.id } },
             }
         })
+        //Level Two Recipes
         const tagine = await prisma.recipe.create({
             data: {
                 name: "Moroccan Vegetable Tagine",
@@ -164,7 +165,7 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const misirWot  = await prisma.recipe.create({
+        const misirWot = await prisma.recipe.create({
             data: {
                 name: "Misir Wot (Ethiopian Spicy Lentil Stew)",
                 image: "",
@@ -172,7 +173,7 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const stuffedShells  = await prisma.recipe.create({
+        const stuffedShells = await prisma.recipe.create({
             data: {
                 name: "Spinach and Ricotta Stuffed Pasta Shells",
                 image: "",
@@ -180,7 +181,7 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const padThai  = await prisma.recipe.create({
+        const padThai = await prisma.recipe.create({
             data: {
                 name: "Vegetable Pad Thai",
                 image: "",
@@ -188,7 +189,7 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const frittata  = await prisma.recipe.create({
+        const frittata = await prisma.recipe.create({
             data: {
                 name: "Asparagus and Swiss Frittata",
                 image: "",
@@ -196,7 +197,7 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const pizza  = await prisma.recipe.create({
+        const pizza = await prisma.recipe.create({
             data: {
                 name: "Margherita Pizza",
                 image: "",
@@ -204,7 +205,7 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const spanakopita  = await prisma.recipe.create({
+        const spanakopita = await prisma.recipe.create({
             data: {
                 name: "Spinach and Feta Spanakopita",
                 image: "",
@@ -212,7 +213,7 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const 割包  = await prisma.recipe.create({
+        const 割包 = await prisma.recipe.create({
             data: {
                 name: "Taiwanese Veggie Burger (割包)",
                 image: "",
@@ -220,12 +221,93 @@ const seed = async () => {
                 level: { connect: { id: level2.id } },
             }
         })
-        const africanPeanutStew  = await prisma.recipe.create({
+        const africanPeanutStew = await prisma.recipe.create({
             data: {
                 name: "African Peanut Stew",
                 image: "",
                 description: "A hearty and comforting stew made with sweet potatoes, chickpeas, and leafy greens, simmered in a rich and creamy peanut sauce, and seasoned with African spices.",
                 level: { connect: { id: level2.id } },
+            }
+        })
+        //Level 3 Recipes
+        const eggplantParm = await prisma.recipe.create({
+            data: {
+                name: "Eggplant Parmesan",
+                image: "",
+                description: "A classic Italian dish with layers of crispy eggplant, baked in a cheesy marinara sauce, and topped with parmesan cheese.",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const tofuKatsu = await prisma.recipe.create({
+            data: {
+                name: "Tofu Katsu with Ginger Miso Glaze",
+                image: "",
+                description: "A Japanese-inspired dish featuring crispy breaded tofu served with a zesty ginger miso glaze. This recipe offers a meat-free twist on a beloved comfort food that's packed with flavor and textural contrasts.",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const falafel = await prisma.recipe.create({
+            data: {
+                name: "Baked Falafel with Tzatziki Sauce",
+                image: "",
+                description: "These deliciously spiced chickpea patties are baked to perfection and served with a refreshing tzatziki sauce.",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const veggiePie = await prisma.recipe.create({
+            data: {
+                name: "Australian “Veggie” Pie ",
+                image: "",
+                description: "This is a vegetarian spin on the Australian classic meat pie. This comforting and hearty veggie pie is filled with a medley of colorful veggies and a savory gravy; all wrapped in a flaky golden pastry.",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const moussaka = await prisma.recipe.create({
+            data: {
+                name: "Vegetarian Moussaka",
+                image: "",
+                description: " A Mediterranean-inspired dish with layers of roasted eggplant, zucchini, and a rich tomato and lentil sauce, topped with creamy béchamel. ",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const dumplings = await prisma.recipe.create({
+            data: {
+                name: "Vegetarian Dumplings",
+                image: "",
+                description: "Delicious, savory dumplings filled with a flavorful assortment of vegetables. These little pockets of joy are versatile enough for a quick snack, appetizer, or a main course.",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const rainbowRoll = await prisma.recipe.create({
+            data: {
+                name: "Veggie Rainbow Avocado Roll",
+                image: "",
+                description: "A creative and healthy sushi roll featuring creamy avocado and vegetables, wrapped in nori and sushi rice, and topped in a spicy mayo sauce. ",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const risotto = await prisma.recipe.create({
+            data: {
+                name: "Mushroom Risotto",
+                image: "",
+                description: "A creamy and comforting Italian dish made with creamy Arborio rice and a flavorful mix of sautéed mushrooms, garlic, and aromatic herbs. This dish is a must-try for all mushroom and risotto aficionados.",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const biryani = await prisma.recipe.create({
+            data: {
+                name: "Vegetarian Biryani",
+                image: "",
+                description: "A fragrant and aromatic rice dish packed with vegetables and a delicious blend of spices, this Indian classic is a feast for the senses that's both hearty and flavorful.",
+                level: { connect: { id: level3.id } },
+            }
+        })
+        const macAndCheese = await prisma.recipe.create({
+            data: {
+                name: "Butternut Squash Mac and Cheese",
+                image: "",
+                description: "A decadent and creamy macaroni and cheese recipe featuring rich roasted butternut squash, topped with a crispy breadcrumb crust. ",
+                level: { connect: { id: level3.id } },
             }
         })
         //<-------------------INGREDIENTS------------------->
@@ -1504,15 +1586,765 @@ const seed = async () => {
             }
         })
         //Eggplant Parmesan
+        const eggplantParmIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "2 medium eggplants, sliced",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of marinara sauce",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of mozzarella cheese, shredded",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of parmesan cheese, grated",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of all-purpose flour",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "2 eggs, beaten",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of breadcrumbs",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of olive oil",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "Fresh basil for garnish",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
         //Tofu Katsu
+        const tofuKatsuIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 block of extra firm tofu, sliced into 1 inch slices",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of all-purpose flour",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "2 eggs, beaten",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of panko breadcrumbs",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of vegetable oil for frying",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "For the glaze:",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of white miso paste",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of soy sauce",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of rice vinegar",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of grated ginger",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of mirin",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
         //Baked Falafel with Tzatziki Sauce
+        const falafelIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "2 cans of chickpeas, drained and rinsed",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1 small onion, chopped",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "3 garlic cloves, minced",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped parsley",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of ground cumin",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of ground coriander",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 teaspoon of cayenne pepper",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of all-purpose flour",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of baking powder",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "Olive oil for greasing",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "For the tzatziki sauce:",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient12 = await prisma.ingredient.create({
+            data: {
+                name: "1 English cucumber, seeded and grated",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient13 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of greek yogurt",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient14 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of fresh dill, chopped",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelIngredient15 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of lemon juice",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
         //Aussie “Veggie” Pie
+        const veggiePieIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 sheet of store-bought puff pastry",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of olive oil",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of mixed vegetables (such as carrots, peas, corn, and green beans)",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 onion, chopped",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "2 cloves garlic, minced",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of vegetable broth",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "2 of tablespoons all-purpose flour",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of heavy cream",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "Fresh parsley for garnish",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
         //Vegetarian Moussaka
+        const moussakaIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "2 eggplants, sliced",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "2 zucchinis, sliced",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 onion, chopped",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "3 garlic cloves, minced",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 can of lentils, drained and rinsed",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cups of tomato paste",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of ground cinnamon",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of dried oregano",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of grated Parmesan cheese",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of olive oil",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "For the Bechamel Sauce:",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient12 = await prisma.ingredient.create({
+            data: {
+                name: "3 tablespoons of butter",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient13 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of all-purpose flour",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient14 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of milk",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaIngredient15 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 teaspoon of ground nutmeg",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
         //Vegetarian Dumplings
-        //Sweet Potato Avocado Roll
+        const dumplingsIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 package of dumpling wrappers",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of finely chopped napa cabbage",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of shredded carrot",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of chopped mushrooms",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "2 cloves of garlic, minced",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "2 teaspoons of grated ginger",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of soy sauce",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of sesame oil",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "2 green onions, thinly sliced",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of olive oil for pan frying",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "For the Dipping Sauce:",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient12 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of soy sauce",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient13 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of rice vinegar",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient14 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of sesame oil",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsIngredient15 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of honey",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        //Veggie Rainbow Avocado Roll
+        const rainbowRollIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of sushi rice",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of rice vinegar",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of sugar",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of salt",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of shredded purple cabbage",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "2 carrots, julienned",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "2 small cucumbers, julienned",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1 ripe avocado, pitted and sliced",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "4 nori sheets",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "Pickled ginger and wasabi, for serving",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "For the sauce:",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient12 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of mayo",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient13 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of sriracha",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollIngredient14 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 lime, juice of splash of soy sauce",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
         //Mushroom Risotto
+        const risottoIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of arborio rice",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "6 cups of vegetable broth",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 onion, finely chopped",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "3 cloves of garlic, minced",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1 pound of mixed mushrooms (such as cremini, shiitake, and oyster), sliced",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of dry white wine",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of grated parmesan cheese",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: " 2 tablespoons of butter",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of olive oil",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped fresh parsley",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
         //Vegetarian Biryani
+        const biryaniIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of basmati rice, rinsed and soaked for 30 minutes",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: " onion, thinly sliced",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 cup of mixed vegetables (such as carrots, peas, and bell peppers)",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of plain yogurt",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped fresh cilantro",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "1/4 cup of chopped fresh mint",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "2 cloves of garlic, minced",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of grated ginger",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of ground cumin",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of ground coriander",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient11 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of turmeric",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient12 = await prisma.ingredient.create({
+            data: {
+                name: "1 teaspoon of garam masala",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient13 = await prisma.ingredient.create({
+            data: {
+                name: "1 cinnamon stick",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient14 = await prisma.ingredient.create({
+            data: {
+                name: "4 whole cloves",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient15 = await prisma.ingredient.create({
+            data: {
+                name: "4 cardamom pods",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient16 = await prisma.ingredient.create({
+            data: {
+                name: "2 bay leaves",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniIngredient17 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of vegetable oil",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
         // Butternut Squash Mac and Cheese
+        const macAndCheeseIngredient1 = await prisma.ingredient.create({
+            data: {
+                name: "1 pound of cavatappi pasta",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient2 = await prisma.ingredient.create({
+            data: {
+                name: "1 butternut squash, peeled and diced",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient3 = await prisma.ingredient.create({
+            data: {
+                name: "1 tablespoon of chopped fresh rosemary",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient4 = await prisma.ingredient.create({
+            data: {
+                name: "2 teaspoons of olive oil",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient5 = await prisma.ingredient.create({
+            data: {
+                name: "2 cups of milk",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient6 = await prisma.ingredient.create({
+            data: {
+                name: "2 tablespoons of butter",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient7 = await prisma.ingredient.create({
+            data: {
+                name: "3 tablespoons of all-purpose flour",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient8 = await prisma.ingredient.create({
+            data: {
+                name: "1 1/2 cups of shredded cheddar cheese",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient9 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of smoked gouda cheese",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseIngredient10 = await prisma.ingredient.create({
+            data: {
+                name: "1/2 cup of grated parmesan cheese",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
         //<-------------------INSTRUCTIONS------------------->
         // Asian Chopped Salad
         const asianChoppedSaladInstruction1 = await prisma.instruction.create({
@@ -1675,42 +2507,42 @@ const seed = async () => {
             }
         })
         //Paneer Tikka Masala
-        const paneerTikkaMasalaInstruction1= await prisma.instruction.create({
+        const paneerTikkaMasalaInstruction1 = await prisma.instruction.create({
             data: {
                 stepNumber: 1,
                 description: "In a saucepan, sauté diced onion, minced garlic, and grated ginger until softened in a tablespoon of butter.",
                 recipe: { connect: { id: paneerTikkaMasala.id } }
             }
         })
-        const paneerTikkaMasalaInstruction2= await prisma.instruction.create({
+        const paneerTikkaMasalaInstruction2 = await prisma.instruction.create({
             data: {
                 stepNumber: 2,
                 description: "Add diced tomatoes, garam masala, ground turmeric, ground cumin, and ground coriander. Cook until the tomatoes break down (about 30 minutes). Make sure to check liquid levels and add water when needed.",
                 recipe: { connect: { id: paneerTikkaMasala.id } }
             }
         })
-        const paneerTikkaMasalaInstruction3= await prisma.instruction.create({
+        const paneerTikkaMasalaInstruction3 = await prisma.instruction.create({
             data: {
                 stepNumber: 3,
                 description: "Using an immersion blender (or remove the mixture and add to a normal blender), blend the mixture together.",
                 recipe: { connect: { id: paneerTikkaMasala.id } }
             }
         })
-        const paneerTikkaMasalaInstruction4= await prisma.instruction.create({
+        const paneerTikkaMasalaInstruction4 = await prisma.instruction.create({
             data: {
                 stepNumber: 4,
                 description: " Set the sauce to the side. In the same saucepan add a tablespoon of butter. Add the cubed paneer and brown all the sides (cooking for 1 minute on each side). ",
                 recipe: { connect: { id: paneerTikkaMasala.id } }
             }
         })
-        const paneerTikkaMasalaInstruction5= await prisma.instruction.create({
+        const paneerTikkaMasalaInstruction5 = await prisma.instruction.create({
             data: {
                 stepNumber: 5,
                 description: "Add the sauce and heavy cream back in the saucepan, and simmer for a few minutes until heated through.",
                 recipe: { connect: { id: paneerTikkaMasala.id } }
             }
         })
-        const paneerTikkaMasalaInstruction6= await prisma.instruction.create({
+        const paneerTikkaMasalaInstruction6 = await prisma.instruction.create({
             data: {
                 stepNumber: 6,
                 description: "Garnish with fresh cilantro before serving.",
@@ -1718,56 +2550,56 @@ const seed = async () => {
             }
         })
         //Italian Quinoa Stuffed Bell Peppers
-        const stuffedPeppersInstruction1= await prisma.instruction.create({
+        const stuffedPeppersInstruction1 = await prisma.instruction.create({
             data: {
                 stepNumber: 1,
                 description: "Preheat the oven to 375°F",
                 recipe: { connect: { id: stuffedPeppers.id } }
             }
         })
-        const stuffedPeppersInstruction2= await prisma.instruction.create({
+        const stuffedPeppersInstruction2 = await prisma.instruction.create({
             data: {
                 stepNumber: 2,
                 description: "Cook the quinoa according to package instructions.",
                 recipe: { connect: { id: stuffedPeppers.id } }
             }
         })
-        const stuffedPeppersInstruction3= await prisma.instruction.create({
+        const stuffedPeppersInstruction3 = await prisma.instruction.create({
             data: {
                 stepNumber: 3,
                 description: "In a skillet, sauté onions, herbs de provence, garlic, and zucchini until soft.",
                 recipe: { connect: { id: stuffedPeppers.id } }
             }
         })
-        const stuffedPeppersInstruction4= await prisma.instruction.create({
+        const stuffedPeppersInstruction4 = await prisma.instruction.create({
             data: {
                 stepNumber: 4,
                 description: "Add in the marinara sauce and heat through.",
                 recipe: { connect: { id: stuffedPeppers.id } }
             }
         })
-        const stuffedPeppersInstruction5= await prisma.instruction.create({
+        const stuffedPeppersInstruction5 = await prisma.instruction.create({
             data: {
                 stepNumber: 5,
                 description: "Add in the quinoa and mix together and set to the side",
                 recipe: { connect: { id: stuffedPeppers.id } }
             }
         })
-        const stuffedPeppersInstruction6= await prisma.instruction.create({
+        const stuffedPeppersInstruction6 = await prisma.instruction.create({
             data: {
                 stepNumber: 6,
                 description: "Take the bell peppers and cut them in half; removing the stems and seeds",
                 recipe: { connect: { id: stuffedPeppers.id } }
             }
         })
-        const stuffedPeppersInstruction7= await prisma.instruction.create({
+        const stuffedPeppersInstruction7 = await prisma.instruction.create({
             data: {
                 stepNumber: 7,
                 description: "Spoon the quinoa and vegetable mixture into halved and seeded bell peppers",
                 recipe: { connect: { id: stuffedPeppers.id } }
             }
         })
-        const stuffedPeppersInstruction8= await prisma.instruction.create({
+        const stuffedPeppersInstruction8 = await prisma.instruction.create({
             data: {
                 stepNumber: 8,
                 description: "Sprinkle with the cheeses and bake in the preheated for 25-30 minutes, or until the peppers are tender.",
@@ -1775,28 +2607,28 @@ const seed = async () => {
             }
         })
         //Ratatouille
-        const ratatouilleIstruction1= await prisma.instruction.create({
+        const ratatouilleIstruction1 = await prisma.instruction.create({
             data: {
                 stepNumber: 1,
                 description: "In a large skillet, sauté diced eggplant, zucchini, red bell pepper, and onion until softened.",
                 recipe: { connect: { id: ratatouille.id } }
             }
         })
-        const ratatouilleIstruction2= await prisma.instruction.create({
+        const ratatouilleIstruction2 = await prisma.instruction.create({
             data: {
                 stepNumber: 2,
                 description: "Add minced garlic, diced tomatoes, tomato paste, dried thyme, and dried oregano. ",
                 recipe: { connect: { id: ratatouille.id } }
             }
         })
-        const ratatouilleIstruction3= await prisma.instruction.create({
+        const ratatouilleIstruction3 = await prisma.instruction.create({
             data: {
                 stepNumber: 3,
                 description: "Add in the vegetable broth and cook until the vegetables are tender.",
                 recipe: { connect: { id: ratatouille.id } }
             }
         })
-        const ratatouilleIstruction4= await prisma.instruction.create({
+        const ratatouilleIstruction4 = await prisma.instruction.create({
             data: {
                 stepNumber: 4,
                 description: "Garnish with fresh basil before serving.",
@@ -1804,35 +2636,35 @@ const seed = async () => {
             }
         })
         //Black Bean Chili
-        const blackBeanChiliIstruction1= await prisma.instruction.create({
+        const blackBeanChiliIstruction1 = await prisma.instruction.create({
             data: {
                 stepNumber: 1,
                 description: "In a large pot, sauté the diced onions, bell pepper, and minced garlic until softened.",
                 recipe: { connect: { id: blackBeanChili.id } }
             }
         })
-        const blackBeanChiliIstruction2= await prisma.instruction.create({
+        const blackBeanChiliIstruction2 = await prisma.instruction.create({
             data: {
                 stepNumber: 2,
                 description: "Add the chili powder, cumin, and smoked paprika. Cook for another 2 minutes.",
                 recipe: { connect: { id: blackBeanChili.id } }
             }
         })
-        const blackBeanChiliIstruction3= await prisma.instruction.create({
+        const blackBeanChiliIstruction3 = await prisma.instruction.create({
             data: {
                 stepNumber: 3,
                 description: "Add the black beans, diced tomatoes, vegetable broth, and adobo sauce.",
                 recipe: { connect: { id: blackBeanChili.id } }
             }
         })
-        const blackBeanChiliIstruction4= await prisma.instruction.create({
+        const blackBeanChiliIstruction4 = await prisma.instruction.create({
             data: {
                 stepNumber: 4,
                 description: "Simmer for 20-30 minutes to allow the flavors to meld.",
                 recipe: { connect: { id: blackBeanChili.id } }
             }
         })
-        const blackBeanChiliIstruction5= await prisma.instruction.create({
+        const blackBeanChiliIstruction5 = await prisma.instruction.create({
             data: {
                 stepNumber: 5,
                 description: "Ladle into bowls and serve with toppings.",
@@ -1840,28 +2672,28 @@ const seed = async () => {
             }
         })
         //Garden Pasta
-        const gardenPastaIstruction1= await prisma.instruction.create({
+        const gardenPastaIstruction1 = await prisma.instruction.create({
             data: {
                 stepNumber: 1,
                 description: "Cook the pasta according to package instructions.",
                 recipe: { connect: { id: gardenPasta.id } }
             }
         })
-        const gardenPastaIstruction2= await prisma.instruction.create({
+        const gardenPastaIstruction2 = await prisma.instruction.create({
             data: {
                 stepNumber: 2,
                 description: " As the pasta cooks, In a large skillet, heat the olive oil and sauté the diced zucchini, yellow squash, bell pepper, cherry tomatoes, and minced garlic until tender. (about 10 minutes).",
                 recipe: { connect: { id: gardenPasta.id } }
             }
         })
-        const gardenPastaIstruction3= await prisma.instruction.create({
+        const gardenPastaIstruction3 = await prisma.instruction.create({
             data: {
                 stepNumber: 3,
                 description: "Drain the pasta (do not rinse it!) and toss the cooked pasta with the sautéed vegetables, grated parmesan cheese, and salt and pepper to taste.",
                 recipe: { connect: { id: gardenPasta.id } }
             }
         })
-        const gardenPastaIstruction4= await prisma.instruction.create({
+        const gardenPastaIstruction4 = await prisma.instruction.create({
             data: {
                 stepNumber: 4,
                 description: "Top with the fresh basil and extra cheese on top.",
@@ -2341,15 +3173,603 @@ const seed = async () => {
             }
         })
         //Eggplant Parmesan
+        const eggplantParmInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Preheat the oven to 375°F and grease a baking dish.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Season the eggplant slices with salt and let them sit for 15 minutes to draw out excess moisture. Pat them dry with a paper towel.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Set up three shallow dishes: one with flour, one with beaten eggs, and one with breadcrumbs.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Dredge each eggplant slice in the flour, then dip it in the eggs, and coat it with breadcrumbs.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Heat some olive oil in a large skillet over medium-high heat. Fry the breaded eggplant slices until golden brown, then drain on a paper towel.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Place a layer of marinara sauce in the bottom of the prepared baking dish, then layer with fried eggplant slices, topping each layer with mozzarella cheese and Parmesan cheese. Repeat the layers, finishing with more cheese on top.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Bake for 30-35 minutes, or until the eggplant is cooked through and the cheese is melted and bubbly.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
+        const eggplantParmInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Let it cool for a few minutes, then sprinkle with fresh basil before serving.",
+                recipe: { connect: { id: eggplantParm.id } }
+            }
+        })
         //Tofu Katsu
+        const tofuKatsuInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Press the sliced tofu between paper towels to remove excess moisture.",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Set up three shallow dishes: one with flour, one with beaten eggs, and one with panko breadcrumbs.",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Dredge each tofu slice in the flour, then dip it in the eggs, and coat it with panko breadcrumbs, pressing gently to adhere.",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Heat vegetable oil in a large skillet over medium-high heat, and fry the breaded tofu slices until golden brown and crispy. Place on a paper towel afterwards to drain excess oil.",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "In a small saucepan, combine the miso paste, soy sauce, rice vinegar, grated ginger, and mirin. Heat over medium heat until the sugar dissolves and the glaze is smooth.",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
+        const tofuKatsuInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Serve the tofu katsu drizzled with the ginger miso glaze.",
+                recipe: { connect: { id: tofuKatsu.id } }
+            }
+        })
         //Baked Falafel with Tzatziki Sauce
+        const falafelInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a food processor, combine the chickpeas, onion, garlic, parsley, cumin, coriander, cayenne, salt, and black pepper. Pulse until the mixture is coarsely ground but not pureed.",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Transfer the mixture to a bowl and stir in the flour and baking powder until everything is well combined. If the mixture seems too wet, add a little more flour.",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Preheat the oven to 375°F  and lightly grease a baking sheet with olive oil.",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Form the chickpea mixture into golf ball-sized balls and place them on the prepared baking sheet. Drizzle with olive oil",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Bake for 25-30 minutes, or until the falafel is golden and crisp",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Meanwhile, prepare the tzatziki sauce by combining the grated cucumber, Greek yogurt, dill, lemon juice, salt, and pepper. Mix until well combined.",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
+        const falafelInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Serve the baked falafel with the tzatziki sauce for dipping or inside pita bread.",
+                recipe: { connect: { id: falafel.id } }
+            }
+        })
         //Aussie “Veggie” Pie
+        const veggiePieInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: " Preheat the oven to 375°F",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Heat olive oil in a large skillet over medium heat. Add the chopped onion and garlic and cook until softened",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Add the mixed vegetables to the skillet and cook until they start to soften.",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Sprinkle the flour over the vegetables and stir to combine. Cook for a minute to cook out the raw flour taste.",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Gradually add the vegetable broth (a few tablespoons at a time) while stirring to create a thick, creamy sauce. Add the heavy cream and simmer until the sauce thickens.",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Season the vegetable mixture with salt and pepper to taste.",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Transfer the veggie mixture to a pie dish and cover it with the puff pastry.",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Bake in the preheated oven for 20-25 minutes, or until the pastry is golden and puffed.",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
+        const veggiePieInstruction9 = await prisma.instruction.create({
+            data: {
+                stepNumber: 9,
+                description: "Garnish with fresh parsley before serving.",
+                recipe: { connect: { id: veggiePie.id } }
+            }
+        })
         //Vegetarian Moussaka
+        const moussakaInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Preheat the oven to 375°F",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Lay the sliced eggplant and zucchini on a baking sheet, drizzle with olive oil, and season with salt and pepper. Roast in the preheated oven for 20 minutes, or until they are tender and golden.",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "In a saucepan, heat 2 tablespoons of olive oil over medium heat. Add the chopped onion and minced garlic and cook until softened.",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Stir in the lentils, tomato paste, cinnamon, and oregano. Simmer for 10 minutes, then season with salt and pepper to taste.",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "In a separate saucepan, melt the butter over medium heat. Stir in the flour and cook for 2 minutes to make a roux.",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Gradually whisk in the milk (adding a few tablespoons at a time), stirring constantly until the sauce thickens. Stir in the nutmeg and season with salt and pepper.",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "To assemble the moussaka, layer the roasted eggplant and zucchini in a baking dish, then top with the lentil mixture, repeating. Pour the bechamel sauce over the very top and sprinkle with grated Parmesan cheese.",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
+        const moussakaInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Bake for 30-35 minutes, or until the top is golden and bubbly.",
+                recipe: { connect: { id: moussaka.id } }
+            }
+        })
         //Vegetarian Dumplings
-        //Sweet Potato Avocado Roll
+        const dumplingsInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Heat 1/2  a tablespoon of sesame oil to a skillet. ",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Add the chopped cabbage, carrots, mushrooms, garlic, and ginger. Cook for 5-10 minutes, or until softened and slightly browned.",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Remove the vegetables from the heat. In a large bowl, add the vegetables and combine them with the soy sauce, remaining sesame oil, green onions, salt, and pepper. Mix together thoroughly.",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Place a spoonful of the vegetable mixture in the center of a dumpling wrapper. Moisten the edges of the wrapper with water and fold it in half, pressing firmly to seal.",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Heat olive oil in a large skillet over medium heat. Add the dumplings in a single layer and cook until the bottoms are golden brown.",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Pour 1/4 cup of water into the skillet, cover with a lid, and steam the dumplings for 5-7 minutes, or until the wrappers are translucent and the filling is cooked through.",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "In a small bowl, mix the soy sauce, rice vinegar, sesame oil, and honey to make the dipping sauce.",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        const dumplingsInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Serve the dumplings with the dipping sauce.",
+                recipe: { connect: { id: dumplings.id } }
+            }
+        })
+        //Veggie Rainbow Avocado Roll
+        const rainbowRollInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Rinse the sushi rice in a colander under cold water until the water runs clear. Cook the rice according to package instructions.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "In a small saucepan, combine the rice vinegar, sugar, and salt. Heat over low heat, stirring until the sugar has dissolved.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "When the sushi rice is cooked, transfer it to a large bowl and gently fold in the rice vinegar mixture. Let the rice cool to room temperature.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Lay a bamboo sushi mat on a clean work surface and place a nori sheet, shiny side down, on the mat.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Wet your hands and spread a thin layer of sushi rice evenly over the nori sheet, leaving a 1-inch border at the top.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Arrange the vegetables and avocado slices in a line across the center of the rice.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Using the bamboo mat, roll the nori sheet and rice over the filling, using gentle pressure to shape the roll.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Wet a sharp knife and slice the roll into 8 pieces.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction9 = await prisma.instruction.create({
+            data: {
+                stepNumber: 9,
+                description: "In a bowl, mix together the sauce ingredients. Drizzle the sauce on top of the sushi rolls.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
+        const rainbowRollInstruction10 = await prisma.instruction.create({
+            data: {
+                stepNumber: 10,
+                description: "Serve the rolls with soy sauce, pickled ginger, and wasabi.",
+                recipe: { connect: { id: rainbowRoll.id } }
+            }
+        })
         //Mushroom Risotto
+        const risottoInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a pot, bring the vegetable broth to a simmer and keep it warm on low heat.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "In a large skillet, heat the olive oil over medium heat. Add the chopped onion and minced garlic and cook until softened.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Add the sliced mushrooms to the skillet and cook until they release their liquid and become golden brown.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Stir in the Arborio rice and cook for a minute, allowing the rice to toast slightly.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Pour in the white wine and cook until it has been absorbed by the rice.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "Add a ladleful of warm vegetable broth to the skillet and stir constantly until the liquid has been absorbed by the rice. Continue adding broth in this manner, stirring constantly, until the rice is creamy and tender, but still slightly firm to the bite.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Stir in the grated Parmesan cheese and butter until melted and fully incorporated.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
+        const risottoInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Season the mushroom risotto with salt and pepper to taste and stir in the chopped parsley before serving.",
+                recipe: { connect: { id: risotto.id } }
+            }
+        })
         //Vegetarian Biryani
-        // Butternut Squash Mac and Cheese
+        const biryaniInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "In a large pot, heat a few tablespoons of vegetable oil over medium heat. Add the sliced onion and sauté until golden brown and crispy. ",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: " In the same pot, add the mixed vegetables and cook until they start to soften.",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Stir in the minced garlic, grated ginger, cumin, coriander, turmeric, and garam masala, cooking until fragrant.",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: " Drain the soaked rice and add it to the pot, stirring to coat the grains with the vegetable and spice mixture.",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "Pour in 3 1/2 cups of water and bring to a boil. Reduce the heat, cover, and simmer for 15-20 minutes, or until the rice is tender and the liquid is absorbed.",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "In a small bowl, whisk the plain yogurt with the chopped cilantro and mint. Gently fold the yogurt mixture into the cooked rice.",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Heat a little more vegetable oil in a small skillet and add the cinnamon stick, cloves, cardamom pods, and bay leaves. Fry the spices until fragrant, then pour them over the rice, gently mixing to distribute the flavor.",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        const biryaniInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Remove the rice from the heat, and enjoy!",
+                recipe: { connect: { id: biryani.id } }
+            }
+        })
+        //Butternut Squash Mac and Cheese
+        const macAndCheeseInstruction1 = await prisma.instruction.create({
+            data: {
+                stepNumber: 1,
+                description: "Preheat the oven to 375°F and grease a baking dish.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction2 = await prisma.instruction.create({
+            data: {
+                stepNumber: 2,
+                description: "Chop the butternut squash into 1/2 inch cubes.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction3 = await prisma.instruction.create({
+            data: {
+                stepNumber: 3,
+                description: "Toss the squash with the olive oil, the chopped rosemary, and salt and pepper to taste.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction4 = await prisma.instruction.create({
+            data: {
+                stepNumber: 4,
+                description: "Roast the squash in the oven until tender (30-40 minutes).",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction5 = await prisma.instruction.create({
+            data: {
+                stepNumber: 5,
+                description: "While the squash is cooking, grate all the cheese.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction6 = await prisma.instruction.create({
+            data: {
+                stepNumber: 6,
+                description: "In a separate pot, melt the butter over medium heat. Slowly add the flour (start with 1 tablespoon at a time) while whisk to create a roux.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction7 = await prisma.instruction.create({
+            data: {
+                stepNumber: 7,
+                description: "Then slowly (slowly is key! Less is more! Start with a 1/4 cup at a time) pour in the milk, stirring constantly until the mixture thickens.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction8 = await prisma.instruction.create({
+            data: {
+                stepNumber: 8,
+                description: "Add the cheese to the pot (if the sauce is too thick afterwards, add more milk)",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction9 = await prisma.instruction.create({
+            data: {
+                stepNumber: 9,
+                description: "Set the sauce aside and cook the cavatappi pasta according to package instructions, then drain (do not rinse!) and set aside.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction10 = await prisma.instruction.create({
+            data: {
+                stepNumber: 10,
+                description: "Add the cooked cavatappi pasta and roasted squash to the cheese sauce, stirring to coat the pasta evenly.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction11 = await prisma.instruction.create({
+            data: {
+                stepNumber: 11,
+                description: "Transfer the macaroni and cheese to the prepared baking dish.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
+        const macAndCheeseInstruction12 = await prisma.instruction.create({
+            data: {
+                stepNumber: 12,
+                description: "Bake for 20-25 minutes, or until the top is golden and bubbly. Serve hot.",
+                recipe: { connect: { id: macAndCheese.id } }
+            }
+        })
         //<-------------------USER WITH RECIPEBOOK------------------->
         const user1 = await prisma.recipeBookItem.create({
             data: {
