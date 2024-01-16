@@ -55,7 +55,7 @@ const RecipesPage = () => {
                                 style={{
                                     width: "100%",
                                     backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "contain",
+                                    backgroundSize: "cover",
                                     backgroundRepeat: "no-repeat",
                                 }}>
                                 <LevelOneRecipes />
@@ -65,7 +65,7 @@ const RecipesPage = () => {
                                 style={{
                                     width: "100%",
                                     backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "contain",
+                                    backgroundSize: "cover",
                                     backgroundRepeat: "no-repeat",
                                 }}>
                                 <LevelTwoRecipes />
@@ -75,7 +75,7 @@ const RecipesPage = () => {
                                 style={{
                                     width: "100%",
                                     backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "contain",
+                                    backgroundSize: "cover",
                                     backgroundRepeat: "no-repeat",
                                 }}>
                                 <LevelThreeRecipes />

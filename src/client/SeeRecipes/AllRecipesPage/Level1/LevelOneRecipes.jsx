@@ -26,19 +26,22 @@ const LevelOneRecipes = () => {
                     {data && data.map((recipes) => (
                         <div key={recipes.id}>
                             <Tooltip title="Click to see recipe details">
-                                <Link 
-                                style={{ textDecoration: "none" }} 
-                                to={`/recipe/${recipes.id}`}>
+                                <Link
+                                    style={{ textDecoration: "none" }}
+                                    to={`/recipe/${recipes.id}`}>
                                     <Box
-                                        sx={{ m: 1, p: 3, pb: 30 }}
+                                        sx={{ m: 1, p: 3, pb: 5 }}
                                         style={{
                                             backgroundImage: `url(${RecipeBorder})`,
-                                            width: "100px",
+                                            width: "150px",
+                                            height: "150px",
                                             backgroundSize: "contain",
                                             backgroundRepeat: "no-repeat",
                                         }}>
                                         <Stack direction="column">
-                                            <Typography sx={{fontWeight: "bold", textAlign: "center", color: "#362706" }}>
+                                            <Typography
+                                                variant="h5"
+                                                sx={{ fontWeight: "bold", textAlign: "center", color: "#362706", p: 1 }}>
                                                 {recipes.name}
                                             </Typography>
                                             <Typography sx={{ textAlign: "center" }}>
