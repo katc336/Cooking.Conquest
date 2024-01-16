@@ -54,7 +54,7 @@ const seed = async () => {
         const leafsong = await prisma.guild.create({
             data: {
                 name: "Leafsong Epicurean Fellowship",
-                description: "The Leafsong Epicurean Fellowship is the oldest guild known for its expertise in technical cooking skills. They are known for their traditional approach to cooking, with a focus on classic culinary techniques and refined flavors. Chefs in this guild are meticulous and disciplined, mastering the art of precise measurements and execution.",
+                description: "The Leafsong Epicurean Fellowship is known for its mastery of warm and comforting dishes. They specialize in vegetarian takes of classic comfort food, using time-honored techniques and rich, satisfying flavors. Chefs in this guild take great care in preparing dishes, paying close attention to detail and precision in their cooking to make vegetables shine in a new light.",
                 score: 0,
             }
         })
