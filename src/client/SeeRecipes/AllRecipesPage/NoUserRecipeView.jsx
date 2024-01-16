@@ -7,14 +7,15 @@ import LockedRecipeIcon from "./images/LockedRecipeIcon.png"
 const NoUserRecipeView = () => {
     return (
         <div>
+            <Box sx={{ mb: 20}}>
             <Stack direction="column">
                 <Typography
-                    variant="h5"
-                    sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                    variant="h4"
+                    sx={{ mt: "10%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                     Level locked!
                 </Typography>
                 <Typography
-                    variant="h6"
+                    variant="h5"
                     sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                     Sign up or level up to unlock more recipes!
                 </Typography>
@@ -26,6 +27,7 @@ const NoUserRecipeView = () => {
                         width="250px" />
                 </Box>
             </Typography>
+            </Box>
         </div>
     )
 }

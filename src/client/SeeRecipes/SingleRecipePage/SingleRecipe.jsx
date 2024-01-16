@@ -46,26 +46,23 @@ const SingleRecipe = () => {
                     }}>
                     <Box sx={{ pt: "5%", px: "25%" }}>
                         <Stack direction="column">
-                            <Box
-                                sx={{ mx: "15%", mt: 5, textAlign: "center", color: "#445D48", fontWeight: "bold" }}
-                                style={{
-                                    width: "100%",
-                                    backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "contain",
-                                    backgroundRepeat: "no-repeat",
-                                }}>
+                            <img 
+                            src={Scroll}
+                            alt="Scroll background image"
+                            width="750px"
+                            style={{ position: "absolute", zIndex: -1 }}
+                            />
                                 <Typography
-                                    variant="h2"
-                                    sx={{ pt: 5, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                    variant="h4"
+                                    sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                                     {data && data.name}
                                 </Typography>
                                 <Typography
-                                    variant="h5"
-                                    sx={{ pt: 1, pb: 5, px: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                    sx={{ mx: 10, color: "#362706" }}>
                                     {data && data.description}
                                 </Typography>
-                                <AddRecipeButton />
-                            </Box>
+                            
+                            <AddRecipeButton />
                         </Stack>
                     </Box>
                     <Grid container>

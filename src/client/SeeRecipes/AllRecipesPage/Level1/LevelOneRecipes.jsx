@@ -18,7 +18,7 @@ const LevelOneRecipes = () => {
         <div>
             <Box sx={{ px: "7%", backgroundColor: "transparent" }}>
                 <Typography
-                    variant="h5"
+                    variant="h4"
                     sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                     Level One:
                 </Typography>
