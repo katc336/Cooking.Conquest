@@ -25,9 +25,9 @@ const RecipesPage = () => {
     }
     return (
         <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeIn" }}>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeIn" }}>
             <Stack direction="row">
                 <Box
                     sx={{ pt: 2, pb: 50, mt: 5 }}
@@ -37,7 +37,7 @@ const RecipesPage = () => {
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    <Box sx={{ ml: "43%", mt: 7,}}>
+                    <Box sx={{ ml: "43%", mt: 7, }}>
                         <img
                             src={ElvinChef}
                             style={{ position: "absolute", zIndex: -1 }}
@@ -48,36 +48,33 @@ const RecipesPage = () => {
                         sx={{ mt: 13, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                         Recipe Quests:
                     </Typography>
-                    <Box sx={{ pt: "12%", px: 15 }}>
+                    <Box sx={{ pt: "10%", px: 15 }}>
                         <Stack direction="column">
-                            <Box
-                                sx={{ pb: 5 }}
-                                style={{
-                                    width: "100%",
-                                    backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "contain",
-                                    backgroundRepeat: "no-repeat",
-                                }}>
+                            <Box sx={{ my: 4 }}>
+                                <img
+                                    src={Scroll}
+                                    alt="Scroll background image"
+                                    width="1800px"
+                                    style={{ position: "absolute", zIndex: -1 }}
+                                />
                                 <LevelOneRecipes />
                             </Box>
-                            <Box
-                                sx={{ pb: 5 }}
-                                style={{
-                                    width: "100%",
-                                    backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "contain",
-                                    backgroundRepeat: "no-repeat",
-                                }}>
+                            <Box sx={{ my: 3 }}>
+                                <img
+                                    src={Scroll}
+                                    alt="Scroll background image"
+                                    width="1800px"
+                                    style={{ position: "absolute", zIndex: -1 }}
+                                />
                                 <LevelTwoRecipes />
                             </Box>
-                            <Box
-                                sx={{ pb: 5 }}
-                                style={{
-                                    width: "100%",
-                                    backgroundImage: `url(${Scroll})`,
-                                    backgroundSize: "contain",
-                                    backgroundRepeat: "no-repeat",
-                                }}>
+                            <Box sx={{ my: 3 }}>
+                                <img
+                                    src={Scroll}
+                                    alt="Scroll background image"
+                                    width="1800px"
+                                    style={{ position: "absolute", zIndex: -1 }}
+                                />
                                 <LevelThreeRecipes />
                             </Box>
                         </Stack>

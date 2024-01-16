@@ -24,6 +24,10 @@ apiRouter.get("/recipe/:id", async (req, res, next) => {
         const recipe = await prisma.recipe.findUnique({
             where: {
                 id: Number(req.params.id)
+            },
+            include: {
+                ingredients: true,
+                instructions: true
             }
         });
         res.send(recipe);
@@ -31,6 +35,7 @@ apiRouter.get("/recipe/:id", async (req, res, next) => {
         next(error);
     }
 })
+
 //<-----------------GET ALL LEVELS----------------->
 //GET /api/levels
 apiRouter.get("/levels", async (req, res, next) => {
@@ -59,6 +64,10 @@ apiRouter.get("/level/:id", async (req, res, next) => {
         const level = await prisma.level.findUnique({
             where: {
                 id: Number(req.params.id)
+            },
+            include: {
+                userIngredients: true,
+                userInstructions: true
             }
         });
         res.send(level);
@@ -343,9 +352,9 @@ apiRouter.post("/guildRecipe_ingredients", requireUser, async (req, res, next) =
     catch (error) {
         next(error);
     }
- })
- //<-----------------POST USER RECIPE INSTRUCTIONS----------------->
- apiRouter.post("/guildRecipe_instructions", requireUser, async (req, res, next) => {
+})
+//<-----------------POST USER RECIPE INSTRUCTIONS----------------->
+apiRouter.post("/guildRecipe_instructions", requireUser, async (req, res, next) => {
     try {
         const { stepNumber, description, userPostedRecipeId } = req.body
         const addInstructions = await prisma.userInstructions.create({
@@ -359,8 +368,8 @@ apiRouter.post("/guildRecipe_ingredients", requireUser, async (req, res, next) =
     } catch (error) {
         next(error);
     }
- })
- 
+})
+
 //<-----------------GET ALL USER'S RECIPE----------------->
 apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
     try {
@@ -374,20 +383,20 @@ apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
     }
 });
 //<-----------------GET A SINGLE USER'S RECIPE----------------->
-apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) =>{
+apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) => {
     try {
         const recipe = await prisma.userPostedRecipe.findUnique({
             where: {
                 id: Number(req.params.id)
             },
         });
-       res.send(recipe)
-    } catch(error){
+        res.send(recipe)
+    } catch (error) {
         next(error)
     }
 });
 
-  
+
 //<-----------------RATE USER'S RECIPE----------------->
 //POST /api/comment
 apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {

@@ -44,9 +44,11 @@ const AddRecipeButton = () => {
                     <Typography sx={{ textAlign: "center" }}>
                         <Button
                             onClick={() => handlePost(event)}
+                            variant="contained"
+                            color="success"
                             sx={{
-                                m: 1,
-                                fontSize: "20px",
+                                mx: 1,
+                                mt: 1,
                                 color: "white",
                                 borderRadius: "10px",
                                 backgroundColor: "#65B741",
