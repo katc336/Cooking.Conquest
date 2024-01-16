@@ -44,7 +44,7 @@ const SingleRecipe = () => {
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    <Box sx={{ pt: "5%", px: "25%" }}>
+                    <Box sx={{ pt: "10%", px: "25%" }}>
                         <Stack direction="column">
                             <img 
                             src={Scroll}
@@ -67,10 +67,10 @@ const SingleRecipe = () => {
                     </Box>
                     <Grid container>
                         <Grid item xs={5}>
-                            {/* <RecipeIngredients /> */}
+                            <RecipeIngredients />
                         </Grid>
                         <Grid item xs={7}>
-                            {/* <RecipeInstructions /> */}
+                            <RecipeInstructions />
                         </Grid>
                     </Grid>
                 </Box>

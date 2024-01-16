@@ -1,13 +1,15 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 
 import { useParams } from 'react-router';
 
 import { useGetSingleRecipeQuery } from "../../../redux/api";
 
-import InstructionsCard from "../images/InstructionsCard.png"
+import IngredientCard from "../images/IngredientCard.png"
+import jewelBullet from "../images/jewelBullet.png"
 
-const RecipeInstructions = () => {
+const RecipeIngredients = () => {
     const { id } = useParams();
     const { data, error, isLoading } = useGetSingleRecipeQuery(id);
 
@@ -23,24 +25,33 @@ const RecipeInstructions = () => {
     }
     return (
         <div>
-            <Box
-                sx={{ mr: "5%", mt: 5, p: 5, textAlign: "center", fontWeight: "bold" }}
-                style={{
-                    height: "100%",
-                    backgroundImage: `url(${InstructionsCard})`,
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                }}>
+            <Box sx={{ ml: 15, mr: 5, mt: 25, p: 3, backgroundColor: "#F1E4C3", border: 3, borderColor: "#503C3C", borderBottom: 7, borderRadius: "20px" }}>
                 <Typography
                     variant="h5"
-                    sx={{ px: 3, color: "#362706", fontWeight: "bold" }}>
-                    Intructions
+                    sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                   Instructions:
                 </Typography>
-                <Typography sx={{ pt: 1 }}>
-                    {data.insructions}
-                </Typography>
+                {data && data.instructions.map((ingredient) => (
+                    <div key={ingredient.id}>
+                        <Stack direction="row" sx={{ ml: "10%" }}>
+                            <Box sx={{ mt: 1, mr: 1}}>
+                                <img
+                                    src={jewelBullet}
+                                    alt="Jewel bullet point image"
+                                    width="15px"
+                                    height="15px"
+                                />
+                            </Box>
+                            <Typography
+                                variant="h6"
+                                sx={{}}>
+                                {`${ingredient.stepNumber}: ${ingredient.description}`}
+                            </Typography>
+                        </Stack>
+                    </div>
+                ))}
             </Box>
         </div>
     )
 }
-export default RecipeInstructions
+export default RecipeIngredients
