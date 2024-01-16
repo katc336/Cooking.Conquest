@@ -158,6 +158,22 @@ const api = createApi({
             }),
             providesTags: ["UserRecipe"]
         }),
+          //GET SINGLE USER'S RECIPE INGREDIENTS
+          getSingleUsersIngredients: builder.query({
+            query: (id) => ({
+                url: `/api/myGuildRecipe_ingredient/${id}`,
+                method: 'GET',
+            }),
+            invalidatesTags: ["UserRecipe"]
+        }),
+          //GET SINGLE USER'S INSTRUCTIONS
+          getSingleUserInstructions: builder.query({
+            query: (id) => ({
+                url: `/api/myGuildRecipe_instructions/${id}`,
+                method: 'GET',
+            }),
+            invalidatesTags: ["UserRecipe"]
+        }),
         //<------------GUILDS------------>
         //GET ALL GUILDS
         getAllGuilds: builder.query({
@@ -207,6 +223,9 @@ export const {
     usePostUserRecipeMutation,
     usePostUserRecipeIngredientsMutation,
     usePostUserRecipeInstructionsMutation,
+    useGetSingleUsersRecipeQuery,
+    useGetSingleUsersIngredientsQuery,
+    useGetSingleUserInstructionsQuery,
     //GUILD INFO
     useGetAllGuildsQuery,
     usePatchJoinGuildMutation,

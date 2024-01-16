@@ -6,9 +6,12 @@ import Typography from "@mui/material/Typography";
 
 import { useState } from "react";
 
+import { motion } from "framer-motion";
+
 import { usePostUserRecipeMutation } from "../../../../../redux/api";
 import AddIngredientsForm from "./AddIngredientsForm";
 import AddInstructionsForm from "./AddInstructionsForm";
+import DisplayAddedRecipe from "./DisplayAddedRecipe";
 
 
 const AddRecipeForm = () => {
@@ -18,6 +21,7 @@ const AddRecipeForm = () => {
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
     const [postedRecipeId, setPostedRecipeId] = useState(null);
+    const [showAdded, setShowAdded] = useState(false)
     const [showDescription, setShowDescription] = useState(true);
     const [showIngredientsAndInstructions, setShowIngredientsAndInstructions] = useState(false);
 
@@ -25,11 +29,12 @@ const AddRecipeForm = () => {
         try {
             event.preventDefault();
             const result = await postRecipe({ name, image, description })
-            console.log(result.data.newRecipe.name)
             setPostedRecipeId(result.data.newRecipe.id)
+            console.log(result.data.newRecipe.name)
             console.log(postedRecipeId);
-            setShowDescription(false)
-            setShowIngredientsAndInstructions(true)
+            setShowDescription(false);
+            setShowAdded(true);
+            setShowIngredientsAndInstructions(true);
         } catch (error) {
             console.log(error)
         }
@@ -37,6 +42,11 @@ const AddRecipeForm = () => {
     return (
         <div>
             <Box sx={{ mt: "12%", backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+            {showAdded &&
+                    <div>
+                        <DisplayAddedRecipe id={postedRecipeId} />
+                    </div>
+                }
                 {showDescription &&
                     <Box sx={{ p: 3, m: 3, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
                         <Typography
@@ -92,10 +102,13 @@ const AddRecipeForm = () => {
                     </Box>}
 
                 {showIngredientsAndInstructions &&
-                    <div>
+                   <motion.div
+                   initial={{ opacity: 0 }}
+                   animate={{ opacity: 1 }}
+                   transition={{ duration: 1, ease: "easeIn" }}>
                         <AddIngredientsForm id={postedRecipeId} />
                         <AddInstructionsForm id={postedRecipeId} />
-                    </div>
+                    </motion.div>
                 }
             </Box>
         </div>

@@ -379,13 +379,15 @@ apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) =>{
         const recipe = await prisma.userPostedRecipe.findUnique({
             where: {
                 id: Number(req.params.id)
-            }
+            },
         });
        res.send(recipe)
     } catch(error){
         next(error)
     }
-})
+});
+
+  
 //<-----------------RATE USER'S RECIPE----------------->
 //POST /api/comment
 apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {
