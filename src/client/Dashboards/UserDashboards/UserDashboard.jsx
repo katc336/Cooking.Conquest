@@ -22,7 +22,7 @@ const UserDashboard = () => {
         console.log(data);
     }
     if (error) {
-        return <>{error}</>
+        return <>{error.message}</>
     }
 
     return (

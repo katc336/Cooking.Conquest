@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { PORT = 3000 } = process.env
 const express = require("express");
 const morgan = require("morgan");
 
@@ -38,6 +39,6 @@ app.use((error, req, res, next) => {
   });
 })
 
-ViteExpress.listen(app, 3000, () =>
-  console.log("Server is listening on port 3000...")
+ViteExpress.listen(app, PORT, () =>
+  console.log(`Server is listening on port ${PORT}...`)
 );

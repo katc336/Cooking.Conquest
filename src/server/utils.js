@@ -44,7 +44,7 @@ const requireUser = (req, res, next) => {
   if (!req.user) {
     res.status(401).send("You need an account to do that action")
   }
-  next();
+  else next();
 };
 // requireAdmin error
 const requireAdmin = (req, res, next) => {
