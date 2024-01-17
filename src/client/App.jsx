@@ -1,6 +1,7 @@
-import { Typography } from "@mui/material";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { useSelector } from "react-redux";
 
 import HomePage from "./HomePage/HomePage";
 import NavBar from "./NavigationBar/NavBar";
@@ -9,16 +10,14 @@ import RegisterForm from "./AuthForms/RegisterForm";
 import RecipesPage from "./SeeRecipes/AllRecipesPage/RecipesPage";
 import SingleRecipe from "./SeeRecipes/SingleRecipePage/SingleRecipe";
 import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
-
-import { useSelector } from "react-redux";
 import UserNavBar from "./NavigationBar/UserNavBar";
 import MyRecipes from "./MyRecipes/MyRecipes";
 import WorldLore from "./WorldLore/WorldLore";
 import JoinGuildPage from "./GuildPage/JoinGuildPage";
-import CookingConquestInfo from "./InformationPage/CookingConquestInfoPage";
 import LeadershipBoard from "./GuildPage/LeadershipBoard";
 import GuildInformation from "./InformationPage/GuildInfoPage";
 import UserInformationDisplay from "./InformationPage/UserInformationDisplay";
+import UsersPostedRecipes from "./SeeRecipes/UsersPostedRecipesPage/UsersPostedRecipes";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -43,6 +42,7 @@ function App() {
           <Route path="/information" element={<UserInformationDisplay />} />
           <Route path="/guild_information" element={<GuildInformation />} />
           <Route path="/leadership_board" element={<LeadershipBoard />} />
+          <Route path="/users_recipes" element={<UsersPostedRecipes/>} />
         </Routes>
       </BrowserRouter>
     </div>

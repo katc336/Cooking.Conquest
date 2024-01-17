@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useGetLevelOneRecipesQuery } from "../../../../redux/api"
 
 import RecipeBorder from "../images/RecipeBorder.png"
+import ElfPointing from "../images/ElfPointing.png"
 
 const LevelOneRecipes = () => {
     const { data, error, isLoading } = useGetLevelOneRecipesQuery();
@@ -16,7 +17,9 @@ const LevelOneRecipes = () => {
     }
     return (
         <div>
-            <Box sx={{ px: "7%", backgroundColor: "transparent" }}>
+            <Box 
+            sx={{ px: "7%", backgroundColor: "transparent" }}
+            style={{ postion: "absolte",  zIndex: -1 }}>
                 <Typography
                     variant="h4"
                     sx={{ mt: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
@@ -53,6 +56,12 @@ const LevelOneRecipes = () => {
                         </div>
                     ))
                     }
+                     {/* <Box sx={{ }}>
+                        <img
+                            src={ElfPointing}
+                            style={{ position: "absolute", zIndex: 2 }}
+                            width="600px" />
+                    </Box> */}
                 </Stack>
             </Box>
         </div >

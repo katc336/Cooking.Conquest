@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { useGetUserQuery } from "../../../redux/api";
 
 import Scroll from "../images/Scroll.png"
-import ElvinChef from "./images/ElvinChef.png"
+import ElfChef from "./images/ElfChef.png"
 import SingleRecipeBorder from "../images/SingleRecipeBorder.png"
 import LevelOneRecipes from "./Level1/LevelOneRecipes";
 import LevelTwoRecipes from "./Level2/LevelTwoRecipes";
 import LevelThreeRecipes from "./Level3/LevelThreeRecipes";
+import SeeUserRecipeButton from "./SeeUserRecipeButton";
 
 const RecipesPage = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -37,18 +39,27 @@ const RecipesPage = () => {
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    <Box sx={{ ml: "43%", mt: 7, }}>
+                    <Box
+                        style={{ position: "absolute", zIndex: -1 }}
+                        sx={{ ml: "13%", mt: 12, }}>
                         <img
-                            src={ElvinChef}
-                            style={{ position: "absolute", zIndex: -1 }}
-                            width="600px" />
+                            src={ElfChef}
+                            width="700px" />
                     </Box>
+                    <SeeUserRecipeButton />
                     <Typography
                         variant="h2"
-                        sx={{ mt: 13, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                        sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                         Recipe Quests:
                     </Typography>
-                    <Box sx={{ pt: "10%", px: 15 }}>
+                    <Box 
+                    sx={{ maxWidth: 250, mt: 13, ml: "35%", color: "#362706", fontWeight: "bold" }}>
+                        <Typography
+                            variant="h4">
+                            Click on a recipe to view it
+                        </Typography>
+                    </Box>
+                    <Box sx={{ px: 15 }}>
                         <Stack direction="column">
                             <Box sx={{ my: 4 }}>
                                 <img

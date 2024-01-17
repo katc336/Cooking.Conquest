@@ -303,8 +303,6 @@ apiRouter.get("/myGuild", requireUser, async (req, res, next) => {
         next(error);
     }
 });
-
-
 //<-----------------GET ALL GUILD RECIPES----------------->
 apiRouter.get("/guildRecipe", async (req, res, next) => {
     try {

@@ -3771,7 +3771,7 @@ const seed = async () => {
             }
         })
         //<-------------------USER WITH RECIPEBOOK------------------->
-        const user1 = await prisma.recipeBookItem.create({
+        const adminUser1 = await prisma.recipeBookItem.create({
             data: {
                 user: {
                     create: {
@@ -3779,13 +3779,540 @@ const seed = async () => {
                         username: "katc336",
                         email: "email@email.com",
                         password: "cookingQueen456",
-                        level: 3,
+                        level: 4,
                         isAdmin: true,
                         guildId: null
                     }
                 },
                 recipe: { connect: { id: asianChoppedSalad.id } },
             },
+        })
+        const user2 = await prisma.user.create({
+            data: {
+                name: "Holga",
+                username: "holga451",
+                email: "potatoes@email.com",
+                password: "potatoesAreAwesome",
+                level: 4,
+                isAdmin: false,
+                guild: { connect: { id: gastrognomes.id } },
+                userPostedRecipes: {
+                    create: {
+                        name: "Smashed Potatoes with Herb Sauce",
+                        image: "",
+                        description: "These crispy smashed potatoes are topped with a flavorful herb sauce, making them a delicious and satisfying vegetarian dish.",
+                        guild: { connect: { id: gastrognomes.id } },
+                        userIngredients: {
+                            create: {
+                                quantity: "1.5 lbs",
+                                name: "small red potatoes"
+                            },
+                            create: {
+                                quantity: "3 tbsp",
+                                name: "olive oil"
+                            },
+                            create: {
+                                quantity: "3 cloves",
+                                name: "garlic"
+                            },
+                            create: {
+                                quantity: "1/2 cup",
+                                name: "fresh parsley, chopped"
+                            },
+                            create: {
+                                quantity: "1/4 cup",
+                                name: "fresh dill, chopped"
+                            },
+                            create: {
+                                quantity: "1/4 cup",
+                                name: "fresh chives, chopped"
+                            },
+                            create: {
+                                quantity: "1/4 cup",
+                                name: "sour creme"
+                            },
+                            create: {
+                                quantity: "2 tbsp",
+                                name: "lemon juice"
+                            },
+                        },
+                        UserInstructions: {
+                            create: {
+                                stepNumber: 1,
+                                description: "Preheat the oven to 425°F"
+                            },
+                            create: {
+                                stepNumber: 2,
+                                description: "Place the potatoes in a large pot and cover with water. Bring to a boil and cook for 15-20 minutes, or until the potatoes are fork-tender."
+                            },
+                            create: {
+                                stepNumber: 3,
+                                description: "Drain the potatoes and let them cool for a few minutes."
+                            },
+                            create: {
+                                stepNumber: 4,
+                                description: "Place the potatoes on a baking sheet and lightly smash each one with a fork or potato masher."
+                            },
+                            create: {
+                                stepNumber: 5,
+                                description: "Drizzle the smashed potatoes with olive oil and season with salt and pepper."
+                            },
+                            create: {
+                                stepNumber: 6,
+                                description: "Bake in the preheated oven for 20-25 minutes, or until the potatoes are crispy and golden brown."
+                            },
+                            create: {
+                                stepNumber: 7,
+                                description: "While the potatoes are baking, prepare the herb sauce. In a small bowl, combine the minced garlic, chopped parsley, dill, chives, sour cream, and lemon juice. Season with salt and pepper to taste."
+                            },
+                            create: {
+                                stepNumber: 8,
+                                description: "Remove the smashed potatoes from the oven and drizzle the herb sauce over the top."
+                            },
+                            create: {
+                                stepNumber: 9,
+                                description: "Serve the smashed potatoes with herb sauce as a delicious vegetarian side dish or appetizer. Enjoy!"
+                            },
+                        }
+                    }
+                }
+            }
+        })
+        const user3 = await prisma.user.create({
+            data: {
+                name: "Lucas",
+                username: "veggie4life",
+                email: "veggies4ever@email.com",
+                password: "iloveveggies",
+                level: 4,
+                isAdmin: false,
+                guild: { connect: { id: leafsong.id } },
+                userPostedRecipes: {
+                    create: {
+                        name: "Quinoa Stuffed Bell Peppers",
+                        image: "",
+                        description: "Colorful and nutritious bell peppers stuffed with quinoa, black beans, and veggies.",
+                        guild: { connect: { id: leafsong.id } },
+                        userIngredients: {
+                            create: {
+                                quantity: "1 cup",
+                                name: "quinoa"
+                            },
+                            create: {
+                                quantity: "4",
+                                name: "bell peppers"
+                            },
+                            create: {
+                                quantity: "1 can",
+                                name: "black beans, drained and rinsed"
+                            },
+                            create: {
+                                quantity: "1 cup",
+                                name: "corn kernels"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "red onion, diced"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "tomato, diced"
+                            },
+                            create: {
+                                quantity: "2 cloves",
+                                name: "garlic, minced"
+                            },
+                            create: {
+                                quantity: "2 tsp",
+                                name: "cumin"
+                            },
+                        },
+
+                        UserInstructions: {
+                            create: {
+                                stepNumber: 1,
+                                description: "Preheat the oven to 375°F."
+                            },
+                            create: {
+                                stepNumber: 2,
+                                description: "Cut the tops off the bell peppers and remove the seeds and membranes. Place the peppers in a baking dish."
+                            },
+                            create: {
+                                stepNumber: 3,
+                                description: "In a bowl, combine the quinoa, black beans, corn, onion, tomato, garlic, and cumin."
+                            },
+                            create: {
+                                stepNumber: 4,
+                                description: "Spoon the quinoa mixture into the bell peppers."
+                            },
+                            create: {
+                                stepNumber: 5,
+                                description: "Cover the dish with foil and bake for 25-30 minutes, or until the peppers are tender."
+                            },
+                            create: {
+                                stepNumber: 6,
+                                description: "Remove the foil and bake for an additional 5 minutes to lightly brown the tops."
+                            },
+                            create: {
+                                stepNumber: 7,
+                                description: "Serve the quinoa stuffed bell peppers hot as a delicious and satisfying vegetarian meal."
+                            },
+                        }
+                    }
+                }
+            }
+        })
+        const user4 = await prisma.user.create({
+            data: {
+                name: "Patty",
+                username: "comfortfoodie",
+                email: "comfortcravings@email.com",
+                password: "veggiecomfort",
+                level: 4,
+                isAdmin: false,
+                guild: { connect: { id: leafsong.id } },
+                userPostedRecipes: {
+                    create: {
+                        name: "Vegetarian Shepherd's Pie",
+                        image: "",
+                        description: "A hearty and comforting meatless version of the classic shepherd's pie, filled with vegetables and topped with creamy mashed potatoes.",
+                        guild: { connect: { id: leafsong.id } },
+                        userIngredients: {
+                            create: {
+                                quantity: "3 cups",
+                                name: "mixed vegetables (carrots, peas, corn, green beans)"
+                            },
+                            create: {
+                                quantity: "1 can",
+                                name: "lentils, drained and rinsed"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "onion, diced"
+                            },
+                            create: {
+                                quantity: "2 cloves",
+                                name: "garlic, minced"
+                            },
+                            create: {
+                                quantity: "1 cup",
+                                name: "vegetable broth"
+                            },
+                            create: {
+                                quantity: "2 tbsp",
+                                name: "tomato paste"
+                            },
+                            create: {
+                                quantity: "4 cups",
+                                name: "mashed potatoes"
+                            },
+                            create: {
+                                quantity: "2 tbsp",
+                                name: "butter"
+                            },
+                        },
+                        UserInstructions: {
+                            create: {
+                                stepNumber: 1,
+                                description: "Preheat the oven to 375°F."
+                            },
+                            create: {
+                                stepNumber: 2,
+                                description: "In a large skillet, sauté the onion and garlic until softened."
+                            },
+                            create: {
+                                stepNumber: 3,
+                                description: "Add the mixed vegetables and cook until slightly tender."
+                            },
+                            create: {
+                                stepNumber: 4,
+                                description: "Stir in the lentils, vegetable broth, and tomato paste. Simmer for 5-7 minutes."
+                            },
+                            create: {
+                                stepNumber: 5,
+                                description: "Transfer the vegetable and lentil mixture to a baking dish."
+                            },
+                            create: {
+                                stepNumber: 6,
+                                description: "Spread the mashed potatoes over the top of the vegetable mixture."
+                            },
+                            create: {
+                                stepNumber: 7,
+                                description: "Dot the mashed potatoes with butter."
+                            },
+                            create: {
+                                stepNumber: 8,
+                                description: "Bake for 25-30 minutes, or until the mashed potatoes are golden brown."
+                            },
+                            create: {
+                                stepNumber: 9,
+                                description: "Serve the vegetarian shepherd's pie hot as a comforting and satisfying meal."
+                            },
+                        }
+                    }
+                }
+            }
+        })
+        const user5 = await prisma.user.create({
+            data: {
+                name: "Renée",
+                username: "ingredientartist",
+                email: "uniqueingredient@email.com",
+                password: "foodinnovator",
+                level: 4,
+                isAdmin: false,
+                guild: { connect: { id: gastrognomes.id } },
+                userPostedRecipes: {
+                    create: {
+                        name: "Pomegranate Glazed Tofu",
+                        image: "",
+                        description: "A unique and flavorful dish featuring a sweet and tangy pomegranate glaze on crispy tofu.",
+                        guild: { connect: { id: gastrognomes.id } },
+                        userIngredients: {
+                            create: {
+                                quantity: "1 block",
+                                name: "extra-firm tofu, pressed and drained"
+                            },
+                            create: {
+                                quantity: "1 cup",
+                                name: "pomegranate juice"
+                            },
+                            create: {
+                                quantity: "2 tbsp",
+                                name: "soy sauce"
+                            },
+                            create: {
+                                quantity: "2 tbsp",
+                                name: "rice vinegar"
+                            },
+                            create: {
+                                quantity: "2 tbsp",
+                                name: "maple syrup"
+                            },
+                            create: {
+                                quantity: "1 tsp",
+                                name: "cornstarch"
+                            },
+                            create: {
+                                quantity: "1 tbsp",
+                                name: "sesame seeds, for garnish"
+                            },
+                        },
+                        UserInstructions: {
+                            create: {
+                                stepNumber: 1,
+                                description: "Preheat the oven to 400°F and line a baking sheet with parchment paper."
+                            },
+                            create: {
+                                stepNumber: 2,
+                                description: "Cut the tofu into cubes and place them on the prepared baking sheet."
+                            },
+                            create: {
+                                stepNumber: 3,
+                                description: "Bake the tofu for 25-30 minutes, or until golden and crispy."
+                            },
+                            create: {
+                                stepNumber: 4,
+                                description: "In a small saucepan, combine the pomegranate juice, soy sauce, rice vinegar, and maple syrup. Bring to a simmer."
+                            },
+                            create: {
+                                stepNumber: 5,
+                                description: "In a small bowl, mix the cornstarch with 1 tablespoon of water to create a slurry. Stir the slurry into the pomegranate glaze and cook until thickened."
+                            },
+                            create: {
+                                stepNumber: 6,
+                                description: "Pour the pomegranate glaze over the crispy tofu cubes and toss to coat."
+                            },
+                            create: {
+                                stepNumber: 7,
+                                description: "Garnish with sesame seeds and serve the pomegranate glazed tofu as a unique and delicious dish."
+                            },
+                        }
+                    }
+                }
+            }
+        })
+        const user6 = await prisma.user.create({
+            data: {
+                name: "Phil",
+                username: "healthyhealer",
+                email: "healingrecipes@email.com",
+                password: "wellness123",
+                level: 4,
+                isAdmin: false,
+                guild: { connect: { id: greensage.id } },
+                userPostedRecipes: {
+                    create: {
+                        name: "Golden Turmeric Soup",
+                        image: "",
+                        description: "A nourishing and healing soup featuring the anti-inflammatory properties of turmeric and other wholesome ingredients.",
+                        guild: { connect: { id: greensage.id } },
+                        userIngredients: {
+                            create: {
+                                quantity: "1 tbsp",
+                                name: "coconut oil"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "onion, chopped"
+                            },
+                            create: {
+                                quantity: "2",
+                                name: "carrots, chopped"
+                            },
+                            create: {
+                                quantity: "2",
+                                name: "celery stalks, chopped"
+                            },
+                            create: {
+                                quantity: "3 cloves",
+                                name: "garlic, minced"
+                            },
+                            create: {
+                                quantity: "1 tbsp",
+                                name: "fresh ginger, grated"
+                            },
+                            create: {
+                                quantity: "1 tsp",
+                                name: "ground turmeric"
+                            },
+                            create: {
+                                quantity: "6 cups",
+                                name: "vegetable broth"
+                            },
+                            create: {
+                                quantity: "1 cup",
+                                name: "coconut milk"
+                            },
+                            create: {
+                                quantity: "1 cup",
+                                name: "red lentils"
+                            },
+                            create: {
+                                quantity: "2 cups",
+                                name: "kale, chopped"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "lemon, juiced"
+                            },
+                            create: {
+                                quantity: "to taste",
+                                name: "salt and pepper"
+                            },
+                        },
+                        UserInstructions: {
+                            create: {
+                                stepNumber: 1,
+                                description: "In a large pot, heat the coconut oil over medium heat. Add the onion, carrots, and celery, and cook until softened."
+                            },
+                            create: {
+                                stepNumber: 2,
+                                description: "Add the garlic, ginger, and turmeric, and cook for another 2 minutes."
+                            },
+                            create: {
+                                stepNumber: 3,
+                                description: "Pour in the vegetable broth and bring the mixture to a boil. Add the red lentils, reduce the heat, and simmer for 20 minutes."
+                            },
+                            create: {
+                                stepNumber: 4,
+                                description: "Stir in the coconut milk and kale, and cook for another 5 minutes."
+                            },
+                            create: {
+                                stepNumber: 5,
+                                description: "Season the soup with lemon juice, salt, and pepper. Serve the golden turmeric soup as a healing and comforting meal."
+                            },
+                        }
+                    }
+                }
+            }
+        })
+        const user8 = await prisma.user.create({
+            data: {
+                name: "Lucy",
+                username: "healthyeats",
+                email: "healthylivingrecipes@gmail.com",
+                password: "nutritious123",
+                level: 2,
+                isAdmin: false,
+                guild: { connect: { id: greensage.id } },
+                userPostedRecipes: {
+                    create: {
+                        name: "Fried Egg Buddha Breakfast Bowl",
+                        image: "",
+                        description: "A nourishing and balanced breakfast bowl with a crispy fried egg as the star of the show.",
+                        guild: { connect: { id: greensage.id } },
+                        userIngredients: {
+                            create: {
+                                quantity: "2 cups",
+                                name: "cooked quinoa or brown rice"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "avocado, sliced"
+                            },
+                            create: {
+                                quantity: "1 cup",
+                                name: "mixed greens"
+                            },
+                            create: {
+                                quantity: "1/2 cup",
+                                name: "cherry tomatoes, halved"
+                            },
+                            create: {
+                                quantity: "1/4 cup",
+                                name: "sliced cucumber"
+                            },
+                            create: {
+                                quantity: "1/4 cup",
+                                name: "sliced radishes"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "fried egg"
+                            },
+                            create: {
+                                quantity: "to taste",
+                                name: "salt and pepper"
+                            },
+                            create: {
+                                quantity: "1 tbsp",
+                                name: "olive oil"
+                            },
+                            create: {
+                                quantity: "1",
+                                name: "lemon, cut into wedges"
+                            },
+                            create: {
+                                quantity: "1/4 cup",
+                                name: "hummus"
+                            },
+                        },
+                        UserInstructions: {
+                            create: {
+                                stepNumber: 1,
+                                description: "In a large bowl, arrange the cooked quinoa or brown rice as the base."
+                            },
+                            create: {
+                                stepNumber: 2,
+                                description: "Top with sliced avocado, mixed greens, cherry tomatoes, cucumber, and radishes."
+                            },
+                            create: {
+                                stepNumber: 3,
+                                description: "In a non-stick skillet, heat the olive oil over medium heat. Crack the egg into the skillet and cook until the edges are crispy and the yolk is still runny."
+                            },
+                            create: {
+                                stepNumber: 4,
+                                description: "Carefully place the fried egg on top of the Buddha bowl. Season with salt and pepper to taste."
+                            },
+                            create: {
+                                stepNumber: 5,
+                                description: "Serve the fried egg Buddha breakfast bowl with a side of lemon wedges and a dollop of hummus for extra flavor. Enjoy this balanced and satisfying breakfast!"
+                            },
+                        }
+                    }
+                }
+            }
         })
 
 

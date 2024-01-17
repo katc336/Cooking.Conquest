@@ -193,7 +193,7 @@ const api = createApi({
             invalidatesTags: ["RecipeBook", "Users"]
         }),
         //GET ALL GUILD POSTED RECIPES
-        getAllGuildRecipes: builder.mutation({
+        getAllGuildRecipes: builder.query({
             query: () => ({
                 url: `api/guildRecipe`,
                 method: 'GET'
@@ -229,5 +229,5 @@ export const {
     //GUILD INFO
     useGetAllGuildsQuery,
     usePatchJoinGuildMutation,
-    useGetAllGuildRecipesMutation,
+    useGetAllGuildRecipesQuery,
 } = api
