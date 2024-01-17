@@ -6,10 +6,9 @@ import { useParams } from 'react-router';
 
 import { useGetSingleRecipeQuery } from "../../../redux/api";
 
-import IngredientCard from "../images/IngredientCard.png"
 import jewelBullet from "../images/jewelBullet.png"
 
-const RecipeIngredients = () => {
+const Recipeinstructionss = () => {
     const { id } = useParams();
     const { data, error, isLoading } = useGetSingleRecipeQuery(id);
 
@@ -31,8 +30,8 @@ const RecipeIngredients = () => {
                     sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                    Instructions:
                 </Typography>
-                {data && data.instructions.map((ingredient) => (
-                    <div key={ingredient.id}>
+                {data && data.instructions.map((instructions) => (
+                    <div key={instructions.id}>
                         <Stack direction="row" sx={{ ml: "10%" }}>
                             <Box sx={{ mt: 1, mr: 1}}>
                                 <img
@@ -45,7 +44,7 @@ const RecipeIngredients = () => {
                             <Typography
                                 variant="h6"
                                 sx={{}}>
-                                {`${ingredient.stepNumber}: ${ingredient.description}`}
+                                {`${instructions.stepNumber}: ${instructions.description}`}
                             </Typography>
                         </Stack>
                     </div>
@@ -54,4 +53,4 @@ const RecipeIngredients = () => {
         </div>
     )
 }
-export default RecipeIngredients
+export default Recipeinstructionss

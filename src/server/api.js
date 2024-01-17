@@ -370,7 +370,7 @@ apiRouter.post("/guildRecipe_instructions", requireUser, async (req, res, next) 
     }
 })
 
-//<-----------------GET ALL USER'S RECIPE----------------->
+//<-----------------GET ALL USER'S RECIPEs----------------->
 apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.userPostedRecipe.findMany({
@@ -386,8 +386,10 @@ apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
 apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) => {
     try {
         const recipe = await prisma.userPostedRecipe.findUnique({
-            where: {
-                id: Number(req.params.id)
+            where: { id: Number(req.params.id) },
+            include: {
+                userIngredients: true,
+                UserInstructions: true
             },
         });
         res.send(recipe)

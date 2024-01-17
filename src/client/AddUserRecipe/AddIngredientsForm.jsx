@@ -45,7 +45,7 @@ const AddIngredientsForm = ({ id }) => {
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                         required={true}
-                        sx={{ m: 1, minWidth: "500px" }}>
+                        sx={{ m: 1, minWidth: "400px" }}>
                     </TextField>
                     <Button
                         type="submit"
