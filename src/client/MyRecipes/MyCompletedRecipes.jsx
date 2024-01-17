@@ -27,51 +27,53 @@ const MyCompletedRecipes = () => {
     return (
         <div>
             <div>
-                <Stack direction="column">
-                    <Box sx={{ mt: "18%", mx: "20%" }}>
-                        <Typography
-                            variant="h5"
-                            sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
-                            Recipes I Conquered!
-                        </Typography>
-                        {data.map((recipeBookItem) => (
-                            <div key={recipeBookItem.id}>
-                                {recipeBookItem.completed === true
-                                    ? //If the recipe is complete...
-                                    <div>
-                                        <Box sx={{ backgroundColor: "#F1E4C3", p: 1, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
-                                            <Stack direction="column">
-                                                <Typography
-                                                    sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
-                                                    {recipeBookItem.recipe.name}
-                                                </Typography>
-                                                <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
-                                                    <Typography sx={{ textAlign: "center" }}>
-                                                    <Button sx={{
-                                                        m: 1,
-                                                        color: "#445D48",
-                                                        borderRadius: "10px",
-                                                        border: 2,
-                                                        borderBottom: 5,
-                                                        borderColor: "#445D48",
-                                                        textTransform: "none"
-                                                    }}>
-                                                        View Recipe
-                                                    </Button>
+                <Box>
+                    <Stack direction="column">
+                        <Box sx={{ mt: 5, mx: "10%", backgroundColor: "#F1E4C3", py: 3, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                            <Typography
+                                variant="h4"
+                                sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
+                                Recipes I Conquered!
+                            </Typography>
+                            {data.map((recipeBookItem) => (
+                                <div key={recipeBookItem.id}>
+                                    {recipeBookItem.completed === true
+                                        ? //If the recipe is complete...
+                                        <div>
+                                            <Box sx={{ backgroundColor: "#F8FAE5", p: 1, my: 1, mx: 5, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                                                <Stack direction="column">
+                                                    <Typography
+                                                        variant="h6"
+                                                        sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
+                                                        {recipeBookItem.recipe.name}
                                                     </Typography>
-                                                </Link>
-                                            </Stack>
-                                        </Box>
-                                    </div>
-                                    : //If the recipe is incompleted return an empty div
-                                    <div />
-                                }
-                            </div>
-                        ))}
-                    </Box>
-                </Stack>
+                                                    <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
+                                                        <Typography sx={{ textAlign: "center" }}>
+                                                            <Button sx={{
+                                                                m: 1,
+                                                                color: "#445D48",
+                                                                borderRadius: "10px",
+                                                                border: 2,
+                                                                borderBottom: 5,
+                                                                borderColor: "#445D48",
+                                                                textTransform: "none"
+                                                            }}>
+                                                                View Recipe
+                                                            </Button>
+                                                        </Typography>
+                                                    </Link>
+                                                </Stack>
+                                            </Box>
+                                        </div>
+                                        : //If the recipe is incompleted return an empty div
+                                        <div />
+                                    }
+                                </div>
+                            ))}
+                        </Box>
+                    </Stack>
+                </Box>
             </div>
-            <AddRecipe />
         </div>
     );
 };
