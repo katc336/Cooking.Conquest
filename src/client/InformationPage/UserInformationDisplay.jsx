@@ -17,7 +17,7 @@ const UserInformationDisplay = () => {
     }
     return (
         <div>
-            {data && data.level !== 4
+            {data && data.level !== 4 || !data
                 ?
                 <div>
                 <CookingConquestInfoPage />
