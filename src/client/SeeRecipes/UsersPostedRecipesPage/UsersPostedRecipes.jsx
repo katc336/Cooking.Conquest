@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -38,39 +39,58 @@ const UsersPostedRecipes = () => {
                     sx={{ pt: 2, pb: 250, mt: 5 }}
                     style={{
                         backgroundImage: `url(${SingleRecipeBorder})`,
-                        backgroundSize: "cover",
+                        backgroundSize: "contain",
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
                     <Typography
                         variant="h2"
-                        sx={{ mt: 13, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                        sx={{ mt: 10, ml: 10, textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                         Recipes Made By Users:
                     </Typography>
-                    <Box sx={{ mt: 5, px: 40 }}>
-                        <Stack direction="row" >
-                            {data && data.map((recipe) => (
-                                <div key={recipe.id}>
-                                    <Box
-                                        sx={{
-                                            p: 3,
-                                            mx: 1,
-                                            backgroundColor: "#F1E4C3",
-                                            border: 2,
-                                            borderColor: "#445D48",
-                                            borderBottom: 5,
-                                            borderRadius: "20px"
-                                        }}>
-                                        <Typography>
-                                            {recipe.name}
-                                        </Typography>
-                                        <Typography>
-                                            {recipe.description}
-                                        </Typography>
-                                    </Box>
-                                </div>
-                            ))}
-                        </Stack>
+                    <Box sx={{ mt: 5, ml: 40, mr: 20 }}>
+                        {data && data.map((recipe) => (
+                            <div key={recipe.id}>
+                                <Box sx={{ p: 3, mx: 1, my: 1, backgroundColor: "#F1E4C3", border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                                    <Grid container>
+                                        <Grid item xs={4}>
+                                            <Box sx={{ p: 3, backgroundColor: "#FFF8E3", borderRadius: "20px", mr: 2 }}>
+                                                <Typography
+                                                    variant="h5">
+                                                    {recipe.name}
+                                                </Typography>
+                                                <Button
+                                                    variant="contained"
+                                                    color="success"
+                                                    sx={{
+                                                        mt: 3,
+                                                        width: "100%",
+                                                        p: 1,
+                                                        fontSize: "20px",
+                                                        color: "white",
+                                                        borderRadius: "10px",
+                                                        backgroundColor: "#65B741",
+                                                        border: 2,
+                                                        borderBottom: 5,
+                                                        borderColor: "#445D48",
+                                                        textTransform: "none"
+                                                    }}>
+                                                    See Recipe
+                                                </Button>
+                                            </Box>
+                                        </Grid>
+                                        <Grid item xs={8}>
+                                            <Box sx={{ p: 3, backgroundColor: "#FFF8E3", borderRadius: "20px", }}>
+                                                <Typography
+                                                    variant="h6">
+                                                    {recipe.description}
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                                </Box>
+                            </div>
+                        ))}
                     </Box>
                 </Box>
             </Stack>
