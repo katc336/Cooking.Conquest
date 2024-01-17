@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 
 import { useState } from "react";
 
-import { usePostUserRecipeInstructionsMutation } from "../../../../../redux/api";
+import { usePostUserRecipeInstructionsMutation } from "../../redux/api";
 
 const AddInstructionsForm = ({ id }) => {
     const [stepNumber, setStepNumber] = useState(1);

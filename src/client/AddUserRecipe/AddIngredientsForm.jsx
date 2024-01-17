@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 
 import { useState } from "react";
 
-import { usePostUserRecipeIngredientsMutation } from "../../../../../redux/api"
+import { usePostUserRecipeIngredientsMutation } from "../../redux/api"
 
 const AddIngredientsForm = ({ id }) => {
     const [quantity, setQuantity] = useState("");

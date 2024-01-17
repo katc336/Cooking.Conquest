@@ -17,7 +17,7 @@ import LevelThreeUserDisplay from "./Level3/LevelThreeUserDisplay";
 import MaxLevelUserDisplay from "./MaxLevel/MaxLevelUserDisplay";
 import AskForHelpWizard from "./AskForHelp/AskForHelpWizard";
 import GuildHelpWizard from "./AskForHelp/GuildHelpWizard";
-import AddRecipe from "./MaxLevel/AddUserRecipeForms/AddRecipes";
+import AddRecipe from "../../AddUserRecipe/AddRecipes";
 
 const WebUserDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();

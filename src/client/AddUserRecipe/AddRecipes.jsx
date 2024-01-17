@@ -1,5 +1,5 @@
 import { Box, Typography, Stack } from "@mui/material";
-import { useGetUserQuery } from "../../../../../redux/api";
+import { useGetUserQuery } from "../../redux/api";
 import AddIngredientsForm from "./AddIngredientsForm";
 import AddRecipeForm from "./AddRecipeForm";
 

@@ -8,7 +8,7 @@ import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 
 import { useGetRecipeBookItemQuery } from "../../redux/api";
-import AddRecipe from "../Dashboards/UserDashboards/MaxLevel/AddUserRecipeForms/AddRecipes";
+import AddRecipe from "../AddUserRecipe/AddRecipes";
 
 const MyCompletedRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();

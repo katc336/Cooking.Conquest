@@ -8,7 +8,7 @@ import { useState } from "react";
 
 import { motion } from "framer-motion";
 
-import { usePostUserRecipeMutation } from "../../../../../redux/api";
+import { usePostUserRecipeMutation } from "../../redux/api";
 import AddIngredientsForm from "./AddIngredientsForm";
 import AddInstructionsForm from "./AddInstructionsForm";
 import DisplayAddedRecipe from "./DisplayAddedRecipe";
@@ -41,7 +41,7 @@ const AddRecipeForm = () => {
     }
     return (
         <div>
-            <Box sx={{ mt: "12%", backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+            <Box sx={{ mt: "10%", mx: 15,  backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
             {showAdded &&
                     <div>
                         <DisplayAddedRecipe id={postedRecipeId} />

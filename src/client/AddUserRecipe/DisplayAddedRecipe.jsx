@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 import { motion } from 'framer-motion';
 
-import { useGetSingleUsersRecipeQuery, useGetSingleUsersIngredientsQuery, useGetSingleUserInstructionsQuery } from '../../../../../redux/api';
+import { useGetSingleUsersRecipeQuery, useGetSingleUsersIngredientsQuery, useGetSingleUserInstructionsQuery } from '../../redux/api';
 
 const DisplayAddedRecipe = ({ id }) => {
     const { data, error, isLoading } = useGetSingleUsersRecipeQuery(id);
