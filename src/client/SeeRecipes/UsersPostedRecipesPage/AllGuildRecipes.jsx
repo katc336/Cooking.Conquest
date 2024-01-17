@@ -4,17 +4,17 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
+import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
+
 import { useParams } from 'react-router';
 
 import { useGetAllGuildRecipesQuery } from "../../../redux/api";
 
 import SingleRecipeBorder from "../images/SingleRecipeBorder.png"
-import IngredientCard from "../images/IngredientCard.png"
-import Scroll from "../images/Scroll.png"
 
 const UsersPostedRecipes = () => {
-    const { id } = useParams();
     const { data, error, isLoading } = useGetAllGuildRecipesQuery()
 
     if (isLoading) {
@@ -59,24 +59,26 @@ const UsersPostedRecipes = () => {
                                                     variant="h5">
                                                     {recipe.name}
                                                 </Typography>
-                                                <Button
-                                                    variant="contained"
-                                                    color="success"
-                                                    sx={{
-                                                        mt: 3,
-                                                        width: "100%",
-                                                        p: 1,
-                                                        fontSize: "20px",
-                                                        color: "white",
-                                                        borderRadius: "10px",
-                                                        backgroundColor: "#65B741",
-                                                        border: 2,
-                                                        borderBottom: 5,
-                                                        borderColor: "#445D48",
-                                                        textTransform: "none"
-                                                    }}>
-                                                    See Recipe
-                                                </Button>
+                                                <Link to={`/users_recipes/${recipe.id}`}>
+                                                    <Button
+                                                        variant="contained"
+                                                        color="success"
+                                                        sx={{
+                                                            mt: 3,
+                                                            width: "100%",
+                                                            p: 1,
+                                                            fontSize: "20px",
+                                                            color: "white",
+                                                            borderRadius: "10px",
+                                                            backgroundColor: "#65B741",
+                                                            border: 2,
+                                                            borderBottom: 5,
+                                                            borderColor: "#445D48",
+                                                            textTransform: "none"
+                                                        }}>
+                                                        See Recipe
+                                                    </Button>
+                                                </Link>
                                             </Box>
                                         </Grid>
                                         <Grid item xs={8}>

@@ -199,6 +199,13 @@ const api = createApi({
                 method: 'GET'
             })
         }),
+        //GET SINGLE GUILD POSTED RECIPES
+        getSingleGuildRecipes: builder.query({
+            query: (id) => ({
+                url: `api/guildRecipe/${id}`,
+                method: 'GET'
+            })
+        }),
     }),
 })
 export default api;
@@ -230,4 +237,5 @@ export const {
     useGetAllGuildsQuery,
     usePatchJoinGuildMutation,
     useGetAllGuildRecipesQuery,
+    useGetSingleGuildRecipesQuery,
 } = api

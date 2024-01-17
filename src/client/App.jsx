@@ -17,7 +17,8 @@ import JoinGuildPage from "./GuildPage/JoinGuildPage";
 import LeadershipBoard from "./GuildPage/LeadershipBoard";
 import GuildInformation from "./InformationPage/GuildInfoPage";
 import UserInformationDisplay from "./InformationPage/UserInformationDisplay";
-import UsersPostedRecipes from "./SeeRecipes/UsersPostedRecipesPage/UsersPostedRecipes";
+import AllGuildRecipes from "./SeeRecipes/UsersPostedRecipesPage/AllGuildRecipes";
+import SingleGuildRecipe from "./SeeRecipes/UsersPostedRecipesPage/SingleGuildRecipe";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -42,7 +43,8 @@ function App() {
           <Route path="/information" element={<UserInformationDisplay />} />
           <Route path="/guild_information" element={<GuildInformation />} />
           <Route path="/leadership_board" element={<LeadershipBoard />} />
-          <Route path="/users_recipes" element={<UsersPostedRecipes/>} />
+          <Route path="/users_recipes" element={<AllGuildRecipes/>} />
+          <Route path="/users_recipes/:id" element={<SingleGuildRecipe/>} />
         </Routes>
       </BrowserRouter>
     </div>

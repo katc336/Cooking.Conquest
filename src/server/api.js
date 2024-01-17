@@ -312,6 +312,21 @@ apiRouter.get("/guildRecipe", async (req, res, next) => {
         next(error);
     }
 })
+//<-----------------GET A SINGLE GUILD RECIPE----------------->
+apiRouter.get("/guildRecipe/:id", async (req, res, next) => {
+    try {
+        const recipe = await prisma.userPostedRecipe.findUnique({
+            where: { id: Number(req.params.id) },
+            include: {
+                userIngredients: true,
+                UserInstructions: true
+            },
+        });
+        res.send(recipe)
+    } catch (error) {
+        next(error)
+    }
+});
 //<-----------------POST USER RECIPE----------------->
 apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
     try {
@@ -384,7 +399,10 @@ apiRouter.get("/myGuildRecipe", requireUser, async (req, res, next) => {
 apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) => {
     try {
         const recipe = await prisma.userPostedRecipe.findUnique({
-            where: { id: Number(req.params.id) },
+            where: {
+                userId: req.user.id,
+                id: Number(req.params.id)
+            },
             include: {
                 userIngredients: true,
                 UserInstructions: true
