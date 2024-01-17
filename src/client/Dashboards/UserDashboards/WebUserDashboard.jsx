@@ -75,12 +75,6 @@ const WebUserDashboard = () => {
                         {data.level === 4
                             ? //if max level return...
                             <div>
-                                <Typography
-                                    variant="h3"
-                                    style={{ position: "absolute", zIndex: -1 }}
-                                    sx={{ pt: "18%", pl: "10%", color: "#445D48" }}>
-                                    Hello {data.name}
-                                </Typography>
                                 <GuildHelpWizard />
                                 <AddRecipe />
                             </div>

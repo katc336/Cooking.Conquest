@@ -33,10 +33,10 @@ const MaxLevelUserDisplay = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeIn" }}>
             <div>
-                <Box sx={{ mt: 10, pb: 30 }}
+                <Box sx={{ mx: 1, mt: 10, pb: 50 }}
                     style={{
                         backgroundImage: `url(${MaxLevelCard})`,
-                        backgroundSize: "cover",
+                        backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                     }}>
                     <JoinGuildButton />
