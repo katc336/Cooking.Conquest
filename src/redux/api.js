@@ -64,6 +64,14 @@ const api = createApi({
             }),
             invalidatesTags: ["RecipeBook", "Users"]
         }),
+         //DELETE RECIPE FROM USER
+         deleteRecipeFromUser: builder.mutation({
+            query: (id) => ({
+                url: `/api/myRecipeBook_delete/${id}`,
+                method: 'DELETE'
+            }),
+            invalidatesTags: ["RecipeBook"]
+        }),
         //GET USER'S GUILD
         getUsersGuild: builder.query({
             query: () => ({
@@ -234,6 +242,7 @@ export const {
     useGetUserQuery,
     useGetRecipeBookItemQuery,
     usePatchCompletedRecipeMutation,
+    useDeleteRecipeFromUserMutation,
     useGetUsersGuildQuery,
     //RECIPE INFO
     useGetAllRecipesQuery,

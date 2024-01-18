@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../../redux/api";
+import DeleteRecipeQuestButton from "./DeleteRecipeQuestButton";
 
 const UsersRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();
@@ -38,7 +39,7 @@ const UsersRecipes = () => {
                 ? // If there are recipe book items...
                 <div>
                     <Stack direction="column">
-                        <Box sx={{ mt: "10%", mx: "20%" }}>
+                        <Box sx={{ mt: "10%", mx: "6%" }}>
                             {data.map((recipeBookItem) => (
                                 <div key={recipeBookItem.id}>
                                     {recipeBookItem.completed === false
@@ -52,7 +53,8 @@ const UsersRecipes = () => {
                                                         {recipeBookItem.recipe.name}
                                                     </Typography>
                                                     <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
-                                                        <Button sx={{
+                                                        <Button 
+                                                        sx={{
                                                             m: 1,
                                                             color: "#445D48",
                                                             borderRadius: "10px",
@@ -66,8 +68,10 @@ const UsersRecipes = () => {
                                                     </Link>
                                                     <Button
                                                         onClick={() => handlePatch(recipeBookItem.id)}
+                                                        variant="contained"
+                                                        color="success"
                                                         sx={{
-                                                            m: 1,
+                                                            m: 2,
                                                             color: "white",
                                                             borderRadius: "10px",
                                                             backgroundColor: "#65B741",
@@ -78,6 +82,8 @@ const UsersRecipes = () => {
                                                         }}>
                                                         Mark as Completed
                                                     </Button>
+                                                    <DeleteRecipeQuestButton
+                                                        id={recipeBookItem.id} />
                                                 </Stack>
                                             </Box>
                                         </div>

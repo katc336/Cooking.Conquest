@@ -252,9 +252,20 @@ apiRouter.patch("/myRecipeBook_complete/:id", requireUser, async (req, res, next
         next(error);
     }
 })
-
 //<-----------------DELETE USER'S RECIPESBOOK ITEM----------------->
-
+apiRouter.delete("/myRecipeBook_delete/:id", requireUser, async (req, res, next) => {
+    try {
+        const deletedRecipe = await prisma.recipeBookItem.delete({
+            where: { id: +req.params.id },
+        });
+        if (deletedRecipe.userId !== req.user.id || !deletedRecipe) {
+            return res.status(404).send("Recipe not found.");
+        }
+        res.send(deletedRecipe);
+    } catch (error) {
+        next(error);
+    }
+})
 //<-----------------GET ALL RATINGS FOR A RECIPE----------------->
 apiRouter.get("/recipeRatings/:userPostedRecipeId", async (req, res, next) => {
     try {
@@ -396,7 +407,6 @@ apiRouter.delete("/guildRecipe/:id", requireUser, async (req, res, next) => {
         next(error);
     }
 })
-
 //<-----------------GET ALL USER'S RECIPEs----------------->
 apiRouter.get("/myGuildRecipes", requireUser, async (req, res, next) => {
     try {
