@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography"
 
 import { Link } from "react-router-dom";
+
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import { useGetUserQuery } from "../../../redux/api";
@@ -17,7 +18,6 @@ import LevelThreeUserDisplay from "./Level3/LevelThreeUserDisplay";
 import MaxLevelUserDisplay from "./MaxLevel/MaxLevelUserDisplay";
 import AskForHelpWizard from "./AskForHelp/AskForHelpWizard";
 import GuildHelpWizard from "./AskForHelp/GuildHelpWizard";
-import AddRecipe from "../../AddUserRecipe/AddRecipes";
 
 const WebUserDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -76,7 +76,35 @@ const WebUserDashboard = () => {
                             ? //if max level return...
                             <div>
                                 <GuildHelpWizard />
-                                <AddRecipe />
+                                <Box
+                                    sx={{ pb: 70, mb: 20 }}
+                                    style={{
+                                        backgroundImage: `url(${RecipeSpellBook})`,
+                                        backgroundSize: "contain",
+                                        backgroundRepeat: "no-repeat",
+                                    }}>
+                                    <Typography sx={{ textAlign: "center" }}>
+                                        <Link to="/my_recipes">
+                                            <Button
+                                                variant="contained"
+                                                color="success"
+                                                sx={{
+                                                    mt: 30,
+                                                    p: 1,
+                                                    fontSize: "30px",
+                                                    color: "white",
+                                                    borderRadius: "10px",
+                                                    backgroundColor: "#65B741",
+                                                    border: 2,
+                                                    borderBottom: 5,
+                                                    borderColor: "#445D48",
+                                                    textTransform: "none"
+                                                }}>
+                                                Go to your Recipe Spell Book to add recipes
+                                            </Button>
+                                        </Link>
+                                    </Typography>
+                                </Box>
                             </div>
                             : //if not level 4...
                             <div>
@@ -96,7 +124,6 @@ const WebUserDashboard = () => {
                                     <UsersRecipes />
                                 </Box>
                             </div>}
-
                     </Grid>
                 </Grid>
             </div>

@@ -123,6 +123,14 @@ const api = createApi({
             invalidatesTags: ["RecipeBook"]
         }),
         //<------------USER'S RECIPES------------>
+         //GET ALL USER'S RECIPES
+         getMyUsersRecipe: builder.query({
+            query: () => ({
+                url: `/api/myGuildRecipes`,
+                method: 'GET',
+            }),
+            providesTags: ["UserRecipe"]
+        }),
         //POST USER'S RECIPE
         postUserRecipe: builder.mutation({
             query: (recipe) => ({
@@ -227,6 +235,7 @@ export const {
     useGetLevelThreeRecipesQuery,
     usePostRecipeToUserMutation,
     //USER'S RECIPE INFO
+    useGetMyUsersRecipeQuery,
     usePostUserRecipeMutation,
     usePostUserRecipeIngredientsMutation,
     usePostUserRecipeInstructionsMutation,

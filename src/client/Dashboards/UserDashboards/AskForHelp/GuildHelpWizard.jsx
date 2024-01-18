@@ -12,9 +12,9 @@ const GuildHelpWizard = () => {
             <Box sx={{ ml: "40%", mr: "8%", mt: 10, }}>
                 <img
                     src={WizardGastronomer}
-                    style={{ position: "absolute", zIndex: -1 }}
-                    width="500px" />
-                <Box sx={{ pt: "15%", pr: "50%", pl: "5%" }}>
+                    style={{ position: "absolute", zIndex: -2 }}
+                    width="610px" />
+                <Box sx={{ pt: "18%", pr: "45%", pl: "10%" }}>
                     <Typography
                         variant="h6"
                         sx={{ color: "#445D48", textAlign: "center" }}>

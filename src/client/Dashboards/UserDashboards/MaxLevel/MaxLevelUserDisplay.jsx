@@ -7,9 +7,6 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useGetUserQuery } from "../../../../redux/api";
 
 import MaxLevelCard from "./images/MaxLevelCard.png"
-import GastrognomeShield from "./images/GastrognomeShield.png"
-import LeafSongShield from "./images/LeafSongShield.png"
-import GreenSageShield from "./images/GreenSageShield.png"
 
 import JoinGuildButton from "./JoinGuildButton";
 import UsersGuild from "./UsersGuild";

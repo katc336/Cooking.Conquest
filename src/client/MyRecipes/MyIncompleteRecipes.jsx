@@ -91,7 +91,7 @@ const MyIncompleteRecipes = () => {
                     </Stack>
                 </div>
                 : //If there are no recipe book items..
-                <Box sx={{ mt: "20%", mx: "10%", p: 3, backgroundColor: "rgba(223, 233, 228, 1)", border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                <Box sx={{ mt: "65%", mx: "15%", p: 3, backgroundColor: "rgba(223, 233, 228, 1)", border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                     <Typography variant="h4" sx={{ fontWeight: "bold", textAlign: "center", color: "#362706" }}>
                         Want to find recipes to start a cooking quest?
                     </Typography>
