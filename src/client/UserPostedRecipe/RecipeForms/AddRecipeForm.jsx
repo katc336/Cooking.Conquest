@@ -9,14 +9,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { usePostUserRecipeMutation } from "../../../redux/api";
+
 import AddIngredientsForm from "./AddIngredientsForm";
 import AddInstructionsForm from "./AddInstructionsForm";
-import DisplayAddedRecipe from "./DisplayAddedRecipe";
+import DisplayAddedRecipe from "../DisplayAddedRecipe";
 
+import GuildArt from "./GuildArt";
 
 const AddRecipeForm = () => {
-    const [postRecipe] = usePostUserRecipeMutation();
-
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
@@ -24,6 +24,8 @@ const AddRecipeForm = () => {
     const [showAdded, setShowAdded] = useState(false)
     const [showDescription, setShowDescription] = useState(true);
     const [showIngredientsAndInstructions, setShowIngredientsAndInstructions] = useState(false);
+
+    const [postRecipe] = usePostUserRecipeMutation();
 
     const handleSubmit = async (event) => {
         try {
@@ -41,14 +43,15 @@ const AddRecipeForm = () => {
     }
     return (
         <div>
-            <Box sx={{ mt: "45%", mx: 15,  backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
-            {showAdded &&
+            <Box sx={{ mt: "10%", mx: 15, backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                {showAdded &&
                     <div>
                         <DisplayAddedRecipe id={postedRecipeId} />
                     </div>
                 }
                 {showDescription &&
                     <Box sx={{ p: 3, m: 3, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
+                        <GuildArt />
                         <Typography
                             variant="h5"
                             sx={{ m: 1, textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
@@ -102,10 +105,10 @@ const AddRecipeForm = () => {
                     </Box>}
 
                 {showIngredientsAndInstructions &&
-                   <motion.div
-                   initial={{ opacity: 0 }}
-                   animate={{ opacity: 1 }}
-                   transition={{ duration: 1, ease: "easeIn" }}>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, ease: "easeIn" }}>
                         <AddIngredientsForm id={postedRecipeId} />
                         <AddInstructionsForm id={postedRecipeId} />
                     </motion.div>

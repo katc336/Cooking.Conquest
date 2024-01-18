@@ -29,7 +29,6 @@ const CompleteRecipeQuestButton = ({ recipeId }) => {
                         variant="contained"
                         color="success"
                         sx={{
-                            textTransform: "none",
                                 m: 1,
                                 borderRadius: "10px",
                                 backgroundColor: "#65B741",
@@ -78,7 +77,6 @@ const CompleteRecipeQuestButton = ({ recipeId }) => {
                         border: 2,
                         borderBottom: 5,
                         borderColor: "#445D48",
-                        textTransform: "none"
                     }}>
                     Complete Recipe Quest
                 </Button>

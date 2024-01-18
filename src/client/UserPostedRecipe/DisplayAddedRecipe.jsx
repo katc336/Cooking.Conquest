@@ -3,10 +3,13 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from "@mui/material/Stack"
 
+import { Link } from 'react-router-dom';
+
 import { motion } from 'framer-motion';
 
-import { useGetSingleUsersRecipeQuery, useGetSingleUsersIngredientsQuery, useGetSingleUserInstructionsQuery } from '../../../redux/api';
-import DeleteRecipeButton from './DeleteRecipeButton';
+import { useGetSingleUsersRecipeQuery, useGetSingleUsersIngredientsQuery, useGetSingleUserInstructionsQuery } from '../../redux/api';
+import DeleteRecipeButton from './Buttons/DeleteRecipeButton';
+import EditRecipeDescriptionButton from './Buttons/EditRecipeDescriptionButton';
 
 const DisplayAddedRecipe = ({ id }) => {
     const { data, error, isLoading } = useGetSingleUsersRecipeQuery(id);
@@ -80,8 +83,26 @@ const DisplayAddedRecipe = ({ id }) => {
                                 </Stack>
                             </Box>
                         </Stack>
-                        <DeleteRecipeButton
-                            id={data.id} />
+                        <Typography sx={{ textAlign: "center" }}>
+                            <Link to="/my_recipes">
+                                <Button                  
+                                    color="success"
+                                    variant="contained"
+                                    sx={{
+                                        textTransform: "none",
+                                        m: 1,
+                                        borderRadius: "10px",
+                                        backgroundColor: "#65B741",
+                                        border: 2,
+                                        borderBottom: 5,
+                                        borderColor: "#445D48",
+                                    }}>
+                                    Save Recipe
+                                </Button>
+                            </Link>
+                            <DeleteRecipeButton
+                                id={data.id} />
+                        </Typography>
                     </Box>
                 </div>
             )}

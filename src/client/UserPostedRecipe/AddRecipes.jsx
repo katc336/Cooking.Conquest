@@ -1,10 +1,10 @@
 import { Box, Typography, Stack } from "@mui/material";
 
-import { useGetUserQuery } from "../../../redux/api";
+import { useGetUserQuery } from "../../redux/api";
 
-import AddRecipeForm from "./AddRecipeForm";
+import AddRecipeForm from "./RecipeForms/AddRecipeForm";
 
-import Arrow from "./Arrow.png"
+import Arrow from "./images/Arrow.png"
 const AddRecipe = () => {
     const { data, error, isLoading } = useGetUserQuery();
 
@@ -28,7 +28,7 @@ const AddRecipe = () => {
                     {data && data.guildId === null
                         ?
                         <div>
-                            <Box sx={{ mt: "12%", backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                            <Box sx={{ mt: "5%", backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                                <Stack direction="row">
                                <img src={Arrow} alt="Arrow pointing left to show where you can join a guild" width="200px" />
                                 <Typography

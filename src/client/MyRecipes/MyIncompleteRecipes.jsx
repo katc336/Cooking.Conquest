@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../redux/api";
-import AddRecipes from "./UserPostedRecipe/AddRecipes";
 
 const MyIncompleteRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();
@@ -39,7 +38,7 @@ const MyIncompleteRecipes = () => {
                 ? // If there are recipe book items...
                 <div>
                     <Stack direction="column">
-                        <Box sx={{ mt: "20%", mx: "20%" }}>
+                        <Box sx={{ mt: "65%", mx: "20%" }}>
                             {data.map((recipeBookItem) => (
                                 <div key={recipeBookItem.id}>
                                     {recipeBookItem.completed === false
@@ -108,15 +107,13 @@ const MyIncompleteRecipes = () => {
                                     borderBottom: 5,
                                     borderColor: "#445D48",
                                     textTransform: "none"
-                                }}
-                            >
+                                }}>
                                 Click here to explore new recipes!
                             </Button>
                         </Link>
                     </Typography>
                 </Box>
             }
-            <AddRecipes />
         </div>
     );
 };

@@ -63,7 +63,6 @@ const DeleteRecipeQuestButton = ({ id }) => {
                                 border: 2,
                                 borderBottom: 5,
                                 borderColor: "#445D48",
-                                textTransform: "none"
                             }}>
                             No, keep this quest.
                         </Button>

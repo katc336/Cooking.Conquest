@@ -30,7 +30,7 @@ const DeleteRecipeButton = ({ id }) => {
 
     return (
         <motion.div>
-            <Typography sx={{ textAlign: "center", mt: 3 }}>
+            <Typography sx={{ textAlign: "center", mt: 1 }}>
                 {alert && <Alert severity="warning">
                     <Stack direction="column">
                         Are you sure you want to delete this recipe? Once you do, it's gone forever.
@@ -64,7 +64,6 @@ const DeleteRecipeButton = ({ id }) => {
                                 border: 2,
                                 borderBottom: 5,
                                 borderColor: "#445D48",
-                                textTransform: "none"
                             }}>
                             No, keep this recipe.
                         </Button>
@@ -81,7 +80,6 @@ const DeleteRecipeButton = ({ id }) => {
                         color="error"
                         sx={{
                             textTransform: "none",
-                            m: 1,
                             backgroundColor: "#D24545",
                             border: 1,
                             borderBottom: 3,
