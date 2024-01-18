@@ -4,8 +4,9 @@ import Typography from "@mui/material/Typography"
 
 import { motion } from "framer-motion"
 
-import { useGetMyUsersRecipeQuery } from "../../../redux/api"
-import DeleteRecipeButton from "./DeleteRecipeButton"
+import { useGetMyUsersRecipeQuery } from "../../redux/api"
+import DeleteRecipeButton from "./Buttons/DeleteRecipeButton"
+import EditRecipeDescriptionButton from "./Buttons/EditRecipeDescriptionButton"
 
 const MyPostedRecpipes = () => {
     const { data, error, isLoading } = useGetMyUsersRecipeQuery();
@@ -45,6 +46,10 @@ const MyPostedRecpipes = () => {
                                         variant="h6">
                                         {recipe.description}
                                     </Typography>
+                                    <Typography sx={{ textAlign: "center" }}>
+                                    <EditRecipeDescriptionButton
+                                        id={recipe.id} />
+                                        </Typography>
                                 </Box>
                             </Grid>
                         </Grid>

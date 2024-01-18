@@ -7,9 +7,9 @@ import { useGetUserQuery } from "../../redux/api"
 
 import MyRecipesPage from "./MyRecipesPage.png"
 import MyCompletedRecipes from "./MyCompletedRecipes"
-import UsersRecipes from "../Dashboards/UserDashboards/UsersRecipes"
 import MyIncompleteRecipes from "./MyIncompleteRecipes"
-import MyPostedRecpipes from "./UserPostedRecipe/MyPostedRecipes"
+import AddRecipeNavButton from "./AddRecipeNavButton"
+import MyPostedRecpipes from "../UserPostedRecipe/MyPostedRecipes"
 
 const MyRecipes = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -31,35 +31,59 @@ const MyRecipes = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeIn" }}>
-            <Grid container>
-                <Grid item xs={5}>
-                    <Box sx={{ mt: 15, pt: "10%" }}>
-                        <Typography
-                            variant="h3"
-                            sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                            {data && data.name}'s Recipe Spell Book
-                        </Typography>
-                        {data & data.level !== 4
-                            ?
-                            <div>
+
+            {data && data.level !== 4
+                ? //if not level 4...
+                <div>
+                    <Grid container>
+                        <Grid item xs={5}>
+                            <Box sx={{ mt: 15, pt: "10%" }}>
+                                <Typography
+                                    variant="h3"
+                                    sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                    {data && data.name}'s Recipe Spell Book
+                                </Typography>
                                 <MyCompletedRecipes />
-                            </div>
-                            : <div>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={7}>
+                            <img
+                                src={MyRecipesPage}
+                                alt="Image of a border, with a magical mystical spell book at the top"
+                                style={{ marginTop: "100px", position: "absolute", zIndex: -1 }}
+                                width="900" />
+                            <MyIncompleteRecipes />
+                        </Grid>
+                    </Grid>
+                </div>
+                : //if level 4...
+                <div>
+
+                    <Grid container>
+                        <Grid item xs={5}>
+                            <Box sx={{ mt: 15, pt: "10%" }}>
+                                <Typography
+                                    variant="h3"
+                                    sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                    {data && data.name}'s Recipe Spell Book
+                                </Typography>
                                 <MyPostedRecpipes />
-                            </div>}
-                    </Box>
-                </Grid>
-                <Grid item xs={7}>
-                    <img
-                        src={MyRecipesPage}
-                        alt="Image of a border, with a magical mystical spell book at the top"
-                        style={{ marginTop: "100px", position: "absolute", zIndex: -1 }} 
-                        width="900"/>
-                    <MyIncompleteRecipes />
+                            </Box>
+                        </Grid>
+                        <Grid item xs={7}>
+                            <img
+                                src={MyRecipesPage}
+                                alt="Image of a border, with a magical mystical spell book at the top"
+                                style={{ marginTop: "100px", position: "absolute", zIndex: -1 }}
+                                width="900" />
+                                <Box sx={{ mt: 70, px: 15 }}>
+                            <AddRecipeNavButton />
+                            </Box>
+                        </Grid>
+                    </Grid>
 
-                </Grid>
-            </Grid>
-
+                </div>
+            }
         </motion.div>
     )
 }

@@ -21,7 +21,7 @@ const DeleteRecipeButton = ({ id }) => {
             const result = await deleteRecipe(id);
             console.log("Success!")
             console.log(result)
-            navigate("/account")
+            window.location.reload()
         } catch (error) {
             console.log(error)
         }
@@ -30,12 +30,12 @@ const DeleteRecipeButton = ({ id }) => {
 
     return (
         <motion.div>
-            <Typography sx={{ textAlign: "center", mt: 3 }}>
+            <Typography sx={{ textAlign: "center", mt: 1 }}>
                 {alert && <Alert severity="warning">
                     <Stack direction="column">
                         Are you sure you want to delete this recipe? Once you do, it's gone forever.
                         <Button
-                            onClick={() => handleDelete(id)}
+                            onClick={() => handleDelete() }
                             variant="contained"
                             color="error"
                             sx={{
@@ -55,8 +55,7 @@ const DeleteRecipeButton = ({ id }) => {
                             onClick={() => {
                                 setAlert(false),
                                     setDeleteButton(true)
-                            }
-                            }
+                            }}
                             sx={{
                                 textTransform: "none",
                                 m: 1,
@@ -65,7 +64,6 @@ const DeleteRecipeButton = ({ id }) => {
                                 border: 2,
                                 borderBottom: 5,
                                 borderColor: "#445D48",
-                                textTransform: "none"
                             }}>
                             No, keep this recipe.
                         </Button>
@@ -77,13 +75,11 @@ const DeleteRecipeButton = ({ id }) => {
                         onClick={() => {
                             setAlert(true),
                                 setDeleteButton(false)
-                        }
-                        }
+                        }}
                         variant="contained"
                         color="error"
                         sx={{
                             textTransform: "none",
-                            m: 1,
                             backgroundColor: "#D24545",
                             border: 1,
                             borderBottom: 3,
