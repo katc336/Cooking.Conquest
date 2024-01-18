@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import { useGetUserQuery } from "../../../../redux/api";
-import MaxLevelCard from "./MaxLevelCard.png"
+
+import MaxLevelCard from "./images/MaxLevelCard.png"
+import GastrognomeShield from "./images/GastrognomeShield.png"
+import LeafSongShield from "./images/LeafSongShield.png"
+import GreenSageShield from "./images/GreenSageShield.png"
+
 import JoinGuildButton from "./JoinGuildButton";
 import UsersGuild from "./UsersGuild";
 
@@ -29,9 +34,9 @@ const MaxLevelUserDisplay = () => {
     }
     return (
         <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeIn" }}>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeIn" }}>
             <div>
                 <Box sx={{ mx: 1, mt: 10, pb: 50 }}
                     style={{
