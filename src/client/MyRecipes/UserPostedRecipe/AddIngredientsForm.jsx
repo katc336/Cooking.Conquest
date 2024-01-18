@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 
 import { useState } from "react";
 
@@ -31,38 +32,46 @@ const AddIngredientsForm = ({ id }) => {
                     What Ingredients Need to be Gathered?
                 </Typography>
                 <form onSubmit={handleSubmit}>
-                    <TextField
-                        label="Amount"
-                        size="small"
-                        value={quantity}
-                        onChange={(event) => setQuantity(event.target.value)}
-                        required={true}
-                        sx={{ m: 1 }}>
-                    </TextField>
-                    <TextField
-                        label="Ingredient Name"
-                        size="small"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
-                        required={true}
-                        sx={{ m: 1, minWidth: "400px" }}>
-                    </TextField>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="success"
-                        sx={{
-                            p: 1,
-                            color: "white",
-                            borderRadius: "10px",
-                            backgroundColor: "#65B741",
-                            border: 2,
-                            borderBottom: 5,
-                            borderColor: "#445D48",
-                            textTransform: "none"
-                        }}>
-                        Add Ingredient
-                    </Button>
+                    <Grid container>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="Amount"
+                                size="small"
+                                value={quantity}
+                                onChange={(event) => setQuantity(event.target.value)}
+                                required={true}
+                                sx={{ m: 1 }}>
+                            </TextField>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                label="Ingredient Name"
+                                size="small"
+                                value={name}
+                                onChange={(event) => setName(event.target.value)}
+                                required={true}
+                                sx={{ m: 1 }}>
+                            </TextField>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                color="success"
+                                sx={{
+                                    p: 1,
+                                    color: "white",
+                                    borderRadius: "10px",
+                                    backgroundColor: "#65B741",
+                                    border: 2,
+                                    borderBottom: 5,
+                                    borderColor: "#445D48",
+                                    textTransform: "none"
+                                }}>
+                                Add Ingredient
+                            </Button>
+                        </Grid>
+                    </Grid>
                 </form>
             </Box>
         </div>
