@@ -7,7 +7,7 @@ import { useState } from "react"
 
 import { motion } from "framer-motion"
 
-import { useDeleteRecipeFromUserMutation } from "../../../redux/api"
+import { useDeleteRecipeFromUserMutation } from "../../../../redux/api"
 
 const DeleteRecipeQuestButton = ({ id }) => {
     const [alert, setAlert] = useState(false)
@@ -54,8 +54,7 @@ const DeleteRecipeQuestButton = ({ id }) => {
                             onClick={() => {
                                 setAlert(false),
                                     setDeleteButton(true)
-                            }
-                            }
+                            }}
                             sx={{
                                 textTransform: "none",
                                 m: 1,
@@ -82,10 +81,10 @@ const DeleteRecipeQuestButton = ({ id }) => {
                         color="error"
                         sx={{
                             textTransform: "none",
-                            m: 1,
+                            mb: 2.5,
                             backgroundColor: "#D24545",
-                            border: 1,
-                            borderBottom: 3,
+                            border: 2,
+                            borderBottom: 5,
                             borderColor: "#862B0D",
                             borderRadius: "10px"
                         }}>

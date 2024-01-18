@@ -2,17 +2,17 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
 
 import { Link } from "react-router-dom";
 
-import { useParams } from "react-router-dom";
 import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../../redux/api";
-import DeleteRecipeQuestButton from "./DeleteRecipeQuestButton";
+
+import DeleteRecipeQuestButton from "./RecipeQuestButtons/DeleteRecipeQuestButton";
+import CompleteRecipeQuestButton from "./RecipeQuestButtons/CompleteRecipeButton";
 
 const UsersRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();
-    const { id } = useParams();
-    const [patchRecipe] = usePatchCompletedRecipeMutation(id);
     if (isLoading) {
         console.log("Loading...")
         //TO DO
@@ -24,14 +24,6 @@ const UsersRecipes = () => {
     if (error) {
         return <>{error}</>
     }
-    const handlePatch = async (recipeId) => {
-        try {
-            const result = await patchRecipe({ id: recipeId, completed: true });
-            console.log("Patch result:", result);
-        } catch (error) {
-            console.error(error);
-        }
-    };
 
     return (
         <div>
@@ -45,46 +37,40 @@ const UsersRecipes = () => {
                                     {recipeBookItem.completed === false
                                         ? //If the recipe is incomplete...
                                         <div>
-                                            <Box sx={{ backgroundColor: "#F1E4C3", px: 2, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
-                                                <Stack direction="row">
-                                                    <Typography
-                                                        variant="h6"
-                                                        sx={{ color: "#362706", pt: 2, mx: 2 }}>
-                                                        {recipeBookItem.recipe.name}
-                                                    </Typography>
-                                                    <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
-                                                        <Button 
-                                                        sx={{
-                                                            m: 1,
-                                                            color: "#445D48",
-                                                            borderRadius: "10px",
-                                                            border: 2,
-                                                            borderBottom: 5,
-                                                            borderColor: "#445D48",
-                                                            textTransform: "none"
-                                                        }}>
-                                                            View Recipe
-                                                        </Button>
-                                                    </Link>
-                                                    <Button
-                                                        onClick={() => handlePatch(recipeBookItem.id)}
-                                                        variant="contained"
-                                                        color="success"
-                                                        sx={{
-                                                            m: 2,
-                                                            color: "white",
-                                                            borderRadius: "10px",
-                                                            backgroundColor: "#65B741",
-                                                            border: 2,
-                                                            borderBottom: 5,
-                                                            borderColor: "#445D48",
-                                                            textTransform: "none"
-                                                        }}>
-                                                        Mark as Completed
-                                                    </Button>
-                                                    <DeleteRecipeQuestButton
-                                                        id={recipeBookItem.id} />
-                                                </Stack>
+                                            <Box sx={{ backgroundColor: "#F1E4C3", my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                                                <Grid container>
+                                                        <Grid item xs={4}>
+                                                            <Typography
+                                                                variant="h6"
+                                                                sx={{ color: "#362706", pt: 1, mx: 2 }}>
+                                                                {recipeBookItem.recipe.name}
+                                                            </Typography>
+                                                        </Grid>
+                                                        <Grid item xs={2}>
+                                                            <Link to={`/recipe/${recipeBookItem.recipe.id}`}>
+                                                                <Button
+                                                                    sx={{
+                                                                        mt: 2.5,
+                                                                        color: "#445D48",
+                                                                        borderRadius: "10px",
+                                                                        border: 2,
+                                                                        borderBottom: 5,
+                                                                        borderColor: "#445D48",
+                                                                        textTransform: "none"
+                                                                    }}>
+                                                                    View Recipe
+                                                                </Button>
+                                                            </Link>
+                                                        </Grid>
+                                                        <Grid item xs={3}>
+                                                            <CompleteRecipeQuestButton
+                                                                recipeId={recipeBookItem.id} />
+                                                        </Grid>
+                                                        <Grid item xs={3}>
+                                                            <DeleteRecipeQuestButton
+                                                                id={recipeBookItem.id} />
+                                                        </Grid>
+                                                </Grid>
                                             </Box>
                                         </div>
                                         : //If the recipe is completed return an empty div
