@@ -84,7 +84,7 @@ model UserIngredients {
   id                 Int              @id @default(autoincrement())
   quantity           String
   name               String
-  userPostedRecipe   UserPostedRecipe @relation(fields: [userPostedRecipeId], references: [id])
+  userPostedRecipe   UserPostedRecipe @relation(fields: [userPostedRecipeId], references: [id], onDelete: Cascade)
   userPostedRecipeId Int
 }
 
@@ -92,7 +92,7 @@ model UserInstructions {
   id                 Int              @id @default(autoincrement())
   stepNumber         Int
   description        String
-  userPostedRecipe   UserPostedRecipe @relation(fields: [userPostedRecipeId], references: [id])
+  userPostedRecipe   UserPostedRecipe @relation(fields: [userPostedRecipeId], references: [id], onDelete: Cascade)
   userPostedRecipeId Int
 }
 

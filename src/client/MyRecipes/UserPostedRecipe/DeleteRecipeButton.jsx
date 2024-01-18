@@ -21,7 +21,7 @@ const DeleteRecipeButton = ({ id }) => {
             const result = await deleteRecipe(id);
             console.log("Success!")
             console.log(result)
-            navigate("/account")
+            window.location.reload()
         } catch (error) {
             console.log(error)
         }
@@ -35,7 +35,7 @@ const DeleteRecipeButton = ({ id }) => {
                     <Stack direction="column">
                         Are you sure you want to delete this recipe? Once you do, it's gone forever.
                         <Button
-                            onClick={() => handleDelete(id)}
+                            onClick={() => handleDelete() }
                             variant="contained"
                             color="error"
                             sx={{
@@ -55,8 +55,7 @@ const DeleteRecipeButton = ({ id }) => {
                             onClick={() => {
                                 setAlert(false),
                                     setDeleteButton(true)
-                            }
-                            }
+                            }}
                             sx={{
                                 textTransform: "none",
                                 m: 1,
@@ -77,8 +76,7 @@ const DeleteRecipeButton = ({ id }) => {
                         onClick={() => {
                             setAlert(true),
                                 setDeleteButton(false)
-                        }
-                        }
+                        }}
                         variant="contained"
                         color="error"
                         sx={{
