@@ -9,7 +9,7 @@ import MyRecipesPage from "./MyRecipesPage.png"
 import MyCompletedRecipes from "./MyCompletedRecipes"
 import UsersRecipes from "../Dashboards/UserDashboards/UsersRecipes"
 import MyIncompleteRecipes from "./MyIncompleteRecipes"
-import MyPostedRecpipes from "./MyPostedRecipes"
+import MyPostedRecpipes from "./UserPostedRecipe/MyPostedRecipes"
 
 const MyRecipes = () => {
     const { data, error, isLoading } = useGetUserQuery();

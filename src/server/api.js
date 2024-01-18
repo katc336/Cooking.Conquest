@@ -382,6 +382,20 @@ apiRouter.post("/guildRecipe_instructions", requireUser, async (req, res, next) 
         next(error);
     }
 })
+//<-----------------DELETE USER POSTED RECIPE----------------->
+apiRouter.delete("/guildRecipe/:id", requireUser, async (req, res, next) => {
+    try {
+        const deletedRecipe = await prisma.userPostedRecipe.delete({
+            where: { id: +req.params.id },
+        });
+        if (deletedRecipe.userId !== req.user.id || !deletedRecipe) {
+            return res.status(404).send("Recipe not found.");
+        }
+        res.send(deletedRecipe);
+    } catch (error) {
+        next(error);
+    }
+})
 
 //<-----------------GET ALL USER'S RECIPEs----------------->
 apiRouter.get("/myGuildRecipes", requireUser, async (req, res, next) => {

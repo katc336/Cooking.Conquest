@@ -2,50 +2,56 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 
 import { useState } from "react";
 
-import { usePostUserRecipeIngredientsMutation } from "../../redux/api"
+import { usePostUserRecipeInstructionsMutation } from "../../../redux/api";
 
-const AddIngredientsForm = ({ id }) => {
-    const [quantity, setQuantity] = useState("");
-    const [name, setName] = useState("");
+const AddInstructionsForm = ({ id }) => {
+    const [stepNumber, setStepNumber] = useState(1);
+    const [description, setDescription] = useState("");
 
-    const [postIngredients] = usePostUserRecipeIngredientsMutation();
+    const [postInstructions] = usePostUserRecipeInstructionsMutation();
 
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postIngredients({ quantity, name, userPostedRecipeId: id })
-            console.log(result)
+            const result = await postInstructions({ stepNumber, description, userPostedRecipeId: id });
+            console.log(result);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
     return (
         <div>
             <Box sx={{ p: 3, m: 3, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
-                <Typography
-                    variant="h5"
-                    sx={{ m: 1, textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
-                    What Ingredients Need to be Gathered?
+            <Typography
+                variant="h5"
+                sx={{ m: 1, textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
+                What Are the Instructions?
+            </Typography>
+            <Stack direction="row">
+                <Typography sx={{ mt: 2}}>
+                    Step Number:
                 </Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
-                        label="Amount"
                         size="small"
-                        value={quantity}
-                        onChange={(event) => setQuantity(event.target.value)}
+                        type="number"
+                        value={stepNumber}
+                        onChange={(event) => setStepNumber(event.target.value)}
                         required={true}
-                        sx={{ m: 1 }}>
+                        sx={{ width: "9%", m: 1 }}>
                     </TextField>
                     <TextField
-                        label="Ingredient Name"
+                        label="Description"
                         size="small"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
+                        multiline
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
                         required={true}
-                        sx={{ m: 1, minWidth: "400px" }}>
+                        sx={{ width: "60%", m: 1 }}>
                     </TextField>
                     <Button
                         type="submit"
@@ -61,11 +67,12 @@ const AddIngredientsForm = ({ id }) => {
                             borderColor: "#445D48",
                             textTransform: "none"
                         }}>
-                        Add Ingredient
+                        Add Instruction
                     </Button>
                 </form>
+            </Stack>
             </Box>
         </div>
     )
 }
-export default AddIngredientsForm
+export default AddInstructionsForm

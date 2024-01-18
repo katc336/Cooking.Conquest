@@ -1,10 +1,11 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Stack from "@mui/material/Stack"
 
 import { motion } from 'framer-motion';
 
-import { useGetSingleUsersRecipeQuery, useGetSingleUsersIngredientsQuery, useGetSingleUserInstructionsQuery } from '../../redux/api';
+import { useGetSingleUsersRecipeQuery, useGetSingleUsersIngredientsQuery, useGetSingleUserInstructionsQuery } from '../../../redux/api';
 
 const DisplayAddedRecipe = ({ id }) => {
     const { data, error, isLoading } = useGetSingleUsersRecipeQuery(id);
@@ -77,6 +78,9 @@ const DisplayAddedRecipe = ({ id }) => {
                                     </Typography>
                                 </Stack>
                             </Box>
+                            <Button>
+                                DELETE
+                            </Button>
                         </Stack>
                     </Box>
                 </div>

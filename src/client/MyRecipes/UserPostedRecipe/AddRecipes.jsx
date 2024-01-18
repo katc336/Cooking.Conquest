@@ -1,6 +1,7 @@
 import { Box, Typography, Stack } from "@mui/material";
-import { useGetUserQuery } from "../../redux/api";
-import AddIngredientsForm from "./AddIngredientsForm";
+
+import { useGetUserQuery } from "../../../redux/api";
+
 import AddRecipeForm from "./AddRecipeForm";
 
 import Arrow from "./Arrow.png"

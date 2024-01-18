@@ -182,6 +182,14 @@ const api = createApi({
             }),
             invalidatesTags: ["UserRecipe"]
         }),
+        //DELETE USER'S RECIPE
+        deleteUsersRecipe: builder.mutation({
+            query: (id) =>({
+                url: `/api/guildRecipe/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ["UsersRecipe"]
+        }),
         //<------------GUILDS------------>
         //GET ALL GUILDS
         getAllGuilds: builder.query({
@@ -242,6 +250,7 @@ export const {
     useGetSingleUsersRecipeQuery,
     useGetSingleUsersIngredientsQuery,
     useGetSingleUserInstructionsQuery,
+    useDeleteUsersRecipeMutation,
     //GUILD INFO
     useGetAllGuildsQuery,
     usePatchJoinGuildMutation,

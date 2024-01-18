@@ -4,7 +4,8 @@ import Typography from "@mui/material/Typography"
 
 import { motion } from "framer-motion"
 
-import { useGetMyUsersRecipeQuery } from "../../redux/api"
+import { useGetMyUsersRecipeQuery } from "../../../redux/api"
+import DeleteRecipeButton from "./DeleteRecipeButton"
 
 const MyPostedRecpipes = () => {
     const { data, error, isLoading } = useGetMyUsersRecipeQuery();
@@ -47,6 +48,8 @@ const MyPostedRecpipes = () => {
                                 </Box>
                             </Grid>
                         </Grid>
+                        <DeleteRecipeButton
+                            id={recipe.id} />
                     </Box>
                 </div>
             ))}
