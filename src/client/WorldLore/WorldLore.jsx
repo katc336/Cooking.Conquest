@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography"
 
 import { motion } from "framer-motion"
 
-import LoreScroll from "./LoreScroll.png"
+import LoreScroll from "./images/LoreScroll.png"
 import SignUpButton from "./SignUpButton"
 import MainLoreText from "./MainLoreText"
 import GuildInformation from "./GuildInformation"

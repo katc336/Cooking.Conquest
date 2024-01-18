@@ -33,7 +33,7 @@ const SignUpButton = () => {
                                 borderColor: "#445D48",
                                 textTransform: "none"
                             }}>
-                            Sign up and become a Gourmet Apprentice, Your culinary journey awaits!
+                            Sign up and become a Gourmet Apprentice. Your culinary journey awaits!
                         </Button>
                     </Typography>
                 </div>
