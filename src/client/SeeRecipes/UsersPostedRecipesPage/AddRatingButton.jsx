@@ -4,6 +4,8 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/Star';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 import { motion } from "framer-motion";
 
@@ -18,6 +20,8 @@ const AddRatingButton = ({ id }) => {
     const [addRating, setAddRating] = useState(false);
     const [writtenReview, setWrittenReview] = useState("");
     const [rating, setRating] = useState(0);
+    const [snackBar, setSuccessSnackbar] = useState(false);
+    const [failSnackBar, setFailSnackbar] = useState(false);
     const { data, error, isLoading } = useGetUserQuery();
     const [postRating] = usePostRatingMutation(id)
     console.log(rating)
@@ -36,14 +40,52 @@ const AddRatingButton = ({ id }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const result = await postRating({ id, rating: Number(rating), writtenReview });
-            console.log(result);
+            if( rating === 0 || writtenReview === "") {
+                setFailSnackbar(true);
+            }
+            else{
+                const result = await postRating({ id, rating: Number(rating), writtenReview });
+                console.log(result);
+                if (result) {
+                    setSuccessSnackbar(true);
+                }
+            }
         } catch (error) {
             console.log(error)
         }
     }
+    const handleClose = (event, reason) => {
+        setSuccessSnackbar(false);
+    };
+    const handleFailClose = (event, reason) => {
+        setFailSnackbar(false);
+    };
+
     return (
         <div>
+            {snackBar &&
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert
+                        onClose={handleClose}
+                        severity="success"
+                        variant="filled"
+                        sx={{ width: '100%' }}>
+                       Your review was submitted!
+                    </Alert>
+                </Snackbar>
+            }
+             {failSnackBar &&
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert
+                        onClose={handleFailClose}
+                        severity="error"
+                        variant="filled"
+                        sx={{ width: '100%' }}
+                    >
+                       Please make sure you enter all fields 
+                    </Alert>
+                </Snackbar>
+            }
             {!data
                 ? <div />
                 : <div>
