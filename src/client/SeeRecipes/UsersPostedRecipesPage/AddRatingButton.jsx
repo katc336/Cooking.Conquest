@@ -24,9 +24,7 @@ const AddRatingButton = ({ id }) => {
     const [failSnackBar, setFailSnackbar] = useState(false);
     const { data, error, isLoading } = useGetUserQuery();
     const [postRating] = usePostRatingMutation(id)
-    console.log(rating)
-    console.log(writtenReview)
-    console.log(id)
+   
     if (isLoading) {
         return null
     }
@@ -40,10 +38,10 @@ const AddRatingButton = ({ id }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            if( rating === 0 || writtenReview === "") {
+            if (rating === 0 || writtenReview === "") {
                 setFailSnackbar(true);
             }
-            else{
+            else {
                 const result = await postRating({ id, rating: Number(rating), writtenReview });
                 console.log(result);
                 if (result) {
@@ -64,25 +62,33 @@ const AddRatingButton = ({ id }) => {
     return (
         <div>
             {snackBar &&
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Snackbar
+                    open={open}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+                    anchorOrigin={{ vertical: 'center', horizontal: 'center' }}>
                     <Alert
                         onClose={handleClose}
                         severity="success"
                         variant="filled"
                         sx={{ width: '100%' }}>
-                       Your review was submitted!
+                        Your review was submitted!
                     </Alert>
                 </Snackbar>
             }
-             {failSnackBar &&
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            {failSnackBar &&
+                <Snackbar
+                    open={open}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+                    anchorOrigin={{ vertical: 'center', horizontal: 'center' }}>
                     <Alert
                         onClose={handleFailClose}
                         severity="error"
                         variant="filled"
                         sx={{ width: '100%' }}
                     >
-                       Please make sure you enter all fields 
+                        Please make sure you enter all fields
                     </Alert>
                 </Snackbar>
             }

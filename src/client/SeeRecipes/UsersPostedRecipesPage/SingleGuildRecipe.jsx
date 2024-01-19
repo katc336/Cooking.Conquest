@@ -14,6 +14,7 @@ import Scroll from "../images/Scroll.png"
 import GuildRecipeIngredients from "./GuildRecipeIngredients";
 import GuildRecipeInstructions from "./GuildRecipeInstructions";
 import AddRatingButton from "./AddRatingButton";
+import MapAllRatings from "./MapRatings/MapAllRatings";
 
 const SingleUsersPostedRecipe = () => {
     const { id } = useParams();
@@ -37,7 +38,7 @@ const SingleUsersPostedRecipe = () => {
             transition={{ duration: 1, ease: "easeIn" }}>
             <Stack direction="row">
                 <Box
-                    sx={{ pt: 2, pb: 250, mt: 5 }}
+                    sx={{ pt: 2, pb: 100, mt: 5 }}
                     style={{
                         backgroundImage: `url(${SingleRecipeBorder})`,
                         backgroundSize: "cover",
@@ -99,6 +100,8 @@ const SingleUsersPostedRecipe = () => {
                     </Grid>
                 </Box>
             </Stack>
+            <MapAllRatings
+                id={data.recipe.id} />
         </motion.div>
     )
 }
