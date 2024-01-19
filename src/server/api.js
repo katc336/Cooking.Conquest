@@ -336,7 +336,9 @@ apiRouter.get("/myGuild", requireUser, async (req, res, next) => {
 //<-----------------GET ALL GUILD RECIPES----------------->
 apiRouter.get("/guildRecipe", async (req, res, next) => {
     try {
-        const recipes = await prisma.userPostedRecipe.findMany();
+        const recipes = await prisma.userPostedRecipe.findMany({
+            include: { rating: true }
+        });
         res.send(recipes);
     } catch (error) {
         next(error);
