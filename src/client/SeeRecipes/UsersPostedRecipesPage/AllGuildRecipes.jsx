@@ -8,14 +8,24 @@ import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
-import { useParams } from 'react-router';
-
 import { useGetAllGuildRecipesQuery } from "../../../redux/api";
+
+import { useMemo } from "react";
 
 import SingleRecipeBorder from "../images/SingleRecipeBorder.png"
 
 const UsersPostedRecipes = () => {
+
     const { data, error, isLoading } = useGetAllGuildRecipesQuery()
+
+    // const averageRating = useMemo(() => {
+    //     let sum = 0;
+    //     for ( let i = 0; i < data.rating.length; i++) {
+    //         sum = sum + data.review[i];
+    //     };
+    //     return sum / (data.review.length)
+    // }, (data.length));
+    // console.log("test" + averageRating )
 
     if (isLoading) {
         console.log("Loading...")

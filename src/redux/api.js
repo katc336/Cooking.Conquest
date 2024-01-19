@@ -206,6 +206,14 @@ const api = createApi({
             }),
             invalidatesTags: ["UsersRecipe"]
         }),
+        postRating: builder.mutation({
+            query: ({ id, rating, writtenReview }) => ({
+                url: `/api/recipeRating/${id}`,
+                method: 'POST',
+                body: { id, rating, writtenReview }
+            }),
+            invalidatesTags: ["UserRecipe"]
+        }),
         //<------------GUILDS------------>
         //GET ALL GUILDS
         getAllGuilds: builder.query({
@@ -269,6 +277,7 @@ export const {
     useGetSingleUserInstructionsQuery,
     useDeleteUsersRecipeMutation,
     useUpdateUsersRecipeMutation,
+    usePostRatingMutation,
     //GUILD INFO
     useGetAllGuildsQuery,
     usePatchJoinGuildMutation,

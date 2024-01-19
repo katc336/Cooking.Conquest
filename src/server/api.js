@@ -267,17 +267,36 @@ apiRouter.delete("/myRecipeBook_delete/:id", requireUser, async (req, res, next)
     }
 })
 //<-----------------GET ALL RATINGS FOR A RECIPE----------------->
-apiRouter.get("/recipeRatings/:userPostedRecipeId", async (req, res, next) => {
+apiRouter.get("/recipeRatings", async (req, res, next) => {
     try {
-        const ratings = await prisma.rating.findMany({
-            where: { userPostedRecipeId: Number(req.params.userPostedRecipeId) },
-            include: { userPostedRecipe: true }
-        });
+        const ratings = await prisma.rating.findMany();
         res.send(ratings);
     } catch (error) {
         next(error);
     }
 });
+
+//<-----------------MAKE A RATING FOR A RECIPE----------------->
+apiRouter.post('/recipeRating/:id', requireUser, async (req, res, next) => {
+    try {
+        const { id: userPostedRecipeId } = req.params;
+        const { rating, writtenReview } = req.body;
+
+        const newRating = await prisma.rating.create({
+            data: {
+                user: { connect: { id: req.user.id } },
+                rating: rating,
+                writtenReview: writtenReview,
+                userPostedRecipe: { connect: { id: Number(userPostedRecipeId) } }
+            }
+        });
+        res.send(newRating);
+
+    } catch (error) {
+        next(error)
+    }
+});
+
 //<---------------------------------AFTER LEVEL 3-------------------------------------->
 
 //<-----------------ADD GUILD TO USER ACCOUNT----------------->
@@ -317,23 +336,39 @@ apiRouter.get("/myGuild", requireUser, async (req, res, next) => {
 //<-----------------GET ALL GUILD RECIPES----------------->
 apiRouter.get("/guildRecipe", async (req, res, next) => {
     try {
-        const recipes = await prisma.userPostedRecipe.findMany();
+        const recipes = await prisma.userPostedRecipe.findMany({
+            include: { rating: true }
+        });
         res.send(recipes);
     } catch (error) {
         next(error);
     }
 })
-//<-----------------GET A SINGLE GUILD RECIPE----------------->
+
+//<-----------------GET A SINGLE GUILD RECIPE WITH AVERAGE RATING----------------->
 apiRouter.get("/guildRecipe/:id", async (req, res, next) => {
     try {
         const recipe = await prisma.userPostedRecipe.findUnique({
             where: { id: Number(req.params.id) },
-            include: {
+            include: { 
                 userIngredients: true,
-                UserInstructions: true
-            },
+                UserInstructions: true,
+                rating: true }
         });
-        res.send(recipe)
+        let totalRating = 0;
+        //Get length of the ratings arrau
+        let totalRatingsCount = recipe.rating.length;
+        //Iterate through the rating array
+        for (let i = 0; i < recipe.rating.length; i++) {
+            //Calculate the total of all the ratings
+            totalRating += recipe.rating[i].rating;
+        }
+        //If there is a total rating (length greater than 0...), 
+        //calculate the total ratings divided by the total amount(length of the array).
+        const averageRating = totalRatingsCount > 0 ? totalRating / totalRatingsCount : null;
+        //Round the average to the first decimal
+        roundedAverage = Math.round(averageRating * 10) / 10
+        res.send({ recipe, roundedAverage });
     } catch (error) {
         next(error)
     }
@@ -412,11 +447,6 @@ apiRouter.delete("/guildRecipe/:id", requireUser, async (req, res, next) => {
 //<-----------------UPDATE USER POSTED RECIPE----------------->
 apiRouter.patch("/guildRecipe/:id", requireUser, async (req, res, next) => {
     try {
-        const findRecipe = await prisma.userPostedRecipe.findFirst({
-            where: {
-                id: Number(req.params.id)
-            },
-        });
         const { name, image, description } = req.body;
         const updatedRecipe = await prisma.userPostedRecipe.update({
             where: {
@@ -424,7 +454,7 @@ apiRouter.patch("/guildRecipe/:id", requireUser, async (req, res, next) => {
             },
             data: {
                 name: name || undefined,
-                image: image || undefined,
+                // image: image || undefined,
                 description: description || undefined,
             },
         })
@@ -433,15 +463,16 @@ apiRouter.patch("/guildRecipe/:id", requireUser, async (req, res, next) => {
         next(error);
     }
 });
-//<-----------------GET ALL USER'S RECIPEs----------------->
+//<-----------------GET ALL USER'S RECIPES----------------->
 apiRouter.get("/myGuildRecipes", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.userPostedRecipe.findMany({
             where: { userId: req.user.id },
-            include: { 
+            include: {
                 user: true,
                 userIngredients: true,
-                UserInstructions: true }
+                UserInstructions: true
+            }
         });
         res.send(recipes);
     } catch (error) {
@@ -466,30 +497,6 @@ apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) => {
         next(error)
     }
 });
-
-
-//<-----------------RATE USER'S RECIPE----------------->
-//POST /api/comment
-apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {
-    try {
-        const { rating, writtenReview, userPostedRecipeId } = req.body
-        const addRating = await prisma.rating.create({
-            data: {
-                user: { connect: { id: req.user.id } },
-                rating,
-                writtenReview,
-                userPostedRecipe: { connect: { id: userPostedRecipeId } },
-            },
-            include: {
-                user: true,
-                userPostedRecipe: true
-            }
-        });
-        res.status(201).send({ addRating, message: "Rating added!" });
-    } catch (error) {
-        next(error);
-    }
-})
 
 //<-----------------PATCH RECIPES----------------->
 //NOTE: ADMIN ONLY

@@ -15,7 +15,7 @@ const AddRecipeNavButton = () => {
         console.log(data)
     }
     if (error) {
-        console(error)
+        console.log(error)
     }
     return (
         <div>

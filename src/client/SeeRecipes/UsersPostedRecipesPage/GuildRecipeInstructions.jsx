@@ -30,7 +30,7 @@ const GuildRecipeInstructions = () => {
                     sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                    Instructions:
                 </Typography>
-                {data && data.UserInstructions.map((instructions) => (
+                {data && data.recipe.UserInstructions.map((instructions) => (
                     <div key={instructions.id}>
                         <Stack direction="row" sx={{ ml: "10%" }}>
                             <Box sx={{ mt: 1, mr: 1}}>

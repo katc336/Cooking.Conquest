@@ -66,7 +66,7 @@ const RegisterForm = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeIn" }}>
             {alert &&
-                <Card sx={{ mt: 20, border: 5, borderColor: "#862B0D", backgroundColor: "#FFF9C9", mx: 40, p: 3 }}>
+                <Card sx={{ mt: 20, border: 5, borderColor: "#862B0D", borderRadius: "20px", backgroundColor: "#FFF9C9", mx: 40, p: 3 }}>
                     <Typography 
                     sx={{ color: "#362706", textAlign: "center" }}
                         variant="h4">
@@ -76,7 +76,7 @@ const RegisterForm = () => {
                     sx={{ color: "#362706", textAlign: "center" }}
                     variant="h6">
                         Before you sign up, we wanted to inform you that as of now, Cooking Conquest is just a demo,
-                        and account data will be erased every 90 days.
+                        and account data will be erased during updates.
                     </Typography>
                     <Link to="https://github.com/katc336/Cooking.Conquest">
                         <Typography sx={{ color: "#362706", textAlign: "center" }}>

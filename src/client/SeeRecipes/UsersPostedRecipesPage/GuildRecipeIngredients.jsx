@@ -36,7 +36,7 @@ const GuildRecipeIngredients = () => {
                     sx={{ pt: "40%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                     Gather Ingredients:
                 </Typography>
-                {data && data.userIngredients.map((ingredient) => (
+                {data && data.recipe.userIngredients.map((ingredient) => (
                     <div key={ingredient.id}>
                         <Stack direction="row" sx={{ ml: "10%" }}>
                             <Box sx={{ mt: 1, mr: 1}}>
