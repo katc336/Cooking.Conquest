@@ -30,7 +30,7 @@ const AddRecipeForm = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postRecipe({ name, image, description })
+            const result = await postRecipe({ name, description })
             setPostedRecipeId(result.data.newRecipe.id)
             console.log(result.data.newRecipe.name)
             console.log(postedRecipeId);
@@ -67,14 +67,14 @@ const AddRecipeForm = () => {
                                     required={true}
                                     sx={{ m: 1 }}>
                                 </TextField>
-                                <TextField
+                                {/* <TextField
                                     label="Image URL"
                                     size="small"
                                     value={image}
                                     onChange={(event) => setImage(event.target.value)}
                                     required={true}
                                     sx={{ m: 1 }}>
-                                </TextField>
+                                </TextField> */}
                                 <TextField
                                     label="Recipe's Description"
                                     size="small"

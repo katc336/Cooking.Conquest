@@ -11,6 +11,8 @@ import { useGetSingleGuildRecipesQuery } from "../../../redux/api";
 import SingleRecipeBorder from "../images/SingleRecipeBorder.png"
 import IngredientCard from "../images/IngredientCard.png"
 import Scroll from "../images/Scroll.png"
+import GuildRecipeIngredients from "./GuildRecipeIngredients";
+import GuildRecipeInstructions from "./GuildRecipeInstructions";
 
 const SingleUsersPostedRecipe = () => {
     const { id } = useParams();
@@ -41,7 +43,7 @@ const SingleUsersPostedRecipe = () => {
                         width: "100%",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    <Box sx={{ pt: "10%", px: "25%" }}>
+                    <Box sx={{ pt: "10%", px: "25%", mb: 10 }}>
                         <Stack direction="column">
                             <img 
                             src={Scroll}
@@ -60,6 +62,14 @@ const SingleUsersPostedRecipe = () => {
                                 </Typography>
                         </Stack>
                     </Box>
+                    <Grid container>
+                        <Grid item xs={5}>
+                            <GuildRecipeIngredients/>
+                        </Grid>
+                        <Grid item xs={7}>
+                            <GuildRecipeInstructions />
+                        </Grid>
+                    </Grid>
                 </Box>
             </Stack>
         </motion.div>

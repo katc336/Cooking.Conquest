@@ -21,7 +21,7 @@ const DeleteRecipeButton = ({ id }) => {
             const result = await deleteRecipe(id);
             console.log("Success!")
             console.log(result)
-            window.location.reload()
+            // window.location.reload()
         } catch (error) {
             console.log(error)
         }
@@ -81,8 +81,8 @@ const DeleteRecipeButton = ({ id }) => {
                         sx={{
                             textTransform: "none",
                             backgroundColor: "#D24545",
-                            border: 1,
-                            borderBottom: 3,
+                            border: 2,
+                            borderBottom: 5,
                             borderColor: "#862B0D",
                             borderRadius: "10px"
                         }}>

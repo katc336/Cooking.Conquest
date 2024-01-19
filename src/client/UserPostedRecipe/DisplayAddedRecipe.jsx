@@ -7,9 +7,8 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import { useGetSingleUsersRecipeQuery, useGetSingleUsersIngredientsQuery, useGetSingleUserInstructionsQuery } from '../../redux/api';
+import { useGetSingleUsersRecipeQuery } from '../../redux/api';
 import DeleteRecipeButton from './Buttons/DeleteRecipeButton';
-import EditRecipeDescriptionButton from './Buttons/EditRecipeDescriptionButton';
 
 const DisplayAddedRecipe = ({ id }) => {
     const { data, error, isLoading } = useGetSingleUsersRecipeQuery(id);
