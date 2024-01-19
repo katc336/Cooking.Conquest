@@ -45,31 +45,46 @@ const SingleUsersPostedRecipe = () => {
                     }}>
                     <Box sx={{ pt: "10%", px: "25%", mb: 10 }}>
                         <Stack direction="column">
-                            <img 
-                            src={Scroll}
-                            alt="Scroll background image"
-                            width="750px"
-                            style={{ position: "absolute", zIndex: -1 }}
+                            <img
+                                src={Scroll}
+                                alt="Scroll background image"
+                                width="750px"
+                                style={{ position: "absolute", zIndex: -1 }}
                             />
-                                <Typography
-                                    variant="h4"
-                                    sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                                    {data && data.recipe.name}
-                                </Typography>
-                                <Typography
-                                    variant="h4"
-                                    sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                                    {data && data.roundedAverage}
-                                </Typography>
-                                <Typography
-                                    sx={{ mx: 10, color: "#362706" }}>
-                                    {data && data.recipe.description}
-                                </Typography>
+                            <Typography
+                                variant="h4"
+                                sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                {data && data.recipe.name}
+                            </Typography>
+                            {data.roundedAverage > 0
+                                ?
+                                <div>
+                                    <Typography
+                                        variant="h6"
+                                        sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                        Average Rating: {data && data.roundedAverage}
+                                    </Typography>
+                                </div>
+                                :
+                                <div>
+                                    <Box sx={{ mx: 20, border: 3, borderColor: "#862B0D", borderRadius: "20px" }}>
+                                        <Typography
+                                            variant="h6"
+                                            sx={{ textAlign: "center" }}>
+                                            This recipe has not been rated yet.
+                                        </Typography>
+                                    </Box>
+                                </div>}
+
+                            <Typography
+                                sx={{ mx: 10, color: "#362706" }}>
+                                {data && data.recipe.description}
+                            </Typography>
                         </Stack>
                     </Box>
                     <Grid container>
                         <Grid item xs={5}>
-                            <GuildRecipeIngredients/>
+                            <GuildRecipeIngredients />
                         </Grid>
                         <Grid item xs={7}>
                             <GuildRecipeInstructions />
