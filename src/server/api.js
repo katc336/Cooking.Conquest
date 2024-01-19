@@ -277,10 +277,10 @@ apiRouter.get("/recipeRatings", async (req, res, next) => {
 });
 
 //<-----------------MAKE A RATING FOR A RECIPE----------------->
-apiRouter.post('/recipeRating/:userPostedRecipeId', requireUser, async (req, res, next) => {
+apiRouter.post('/recipeRating/:id', requireUser, async (req, res, next) => {
     try {
-        const { userPostedRecipeId } = req.params;
-        const { rating, writtenReview, userId } = req.body;
+        const { id: userPostedRecipeId } = req.params;
+        const { rating, writtenReview } = req.body;
 
         const newRating = await prisma.rating.create({
             data: {
@@ -463,7 +463,7 @@ apiRouter.patch("/guildRecipe/:id", requireUser, async (req, res, next) => {
         next(error);
     }
 });
-//<-----------------GET ALL USER'S RECIPEs----------------->
+//<-----------------GET ALL USER'S RECIPES----------------->
 apiRouter.get("/myGuildRecipes", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.userPostedRecipe.findMany({
@@ -497,30 +497,6 @@ apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) => {
         next(error)
     }
 });
-
-
-//<-----------------RATE USER'S RECIPE----------------->
-//POST /api/comment
-apiRouter.post("/rateRecipe", requireUser, async (req, res, next) => {
-    try {
-        const { rating, writtenReview, userPostedRecipeId } = req.body
-        const addRating = await prisma.rating.create({
-            data: {
-                user: { connect: { id: req.user.id } },
-                rating,
-                writtenReview,
-                userPostedRecipe: { connect: { id: userPostedRecipeId } },
-            },
-            include: {
-                user: true,
-                userPostedRecipe: true
-            }
-        });
-        res.status(201).send({ addRating, message: "Rating added!" });
-    } catch (error) {
-        next(error);
-    }
-})
 
 //<-----------------PATCH RECIPES----------------->
 //NOTE: ADMIN ONLY

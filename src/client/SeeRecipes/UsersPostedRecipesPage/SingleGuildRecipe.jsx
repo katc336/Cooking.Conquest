@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Rating from '@mui/material/Rating';
 
 import { motion } from "framer-motion";
 import { useParams } from 'react-router';
@@ -9,10 +10,10 @@ import { useParams } from 'react-router';
 import { useGetSingleGuildRecipesQuery } from "../../../redux/api";
 
 import SingleRecipeBorder from "../images/SingleRecipeBorder.png"
-import IngredientCard from "../images/IngredientCard.png"
 import Scroll from "../images/Scroll.png"
 import GuildRecipeIngredients from "./GuildRecipeIngredients";
 import GuildRecipeInstructions from "./GuildRecipeInstructions";
+import AddRatingButton from "./AddRatingButton";
 
 const SingleUsersPostedRecipe = () => {
     const { id } = useParams();
@@ -61,9 +62,14 @@ const SingleUsersPostedRecipe = () => {
                                 <div>
                                     <Typography
                                         variant="h6"
-                                        sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                                        Average Rating: {data && data.roundedAverage}
+                                        sx={{ mt: 1, mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                        Average Rating:
                                     </Typography>
+                                    <Rating
+                                        name="read-only"
+                                        value={data.roundedAverage}
+                                        readOnly
+                                        sx={{ mx: "42%" }} />
                                 </div>
                                 :
                                 <div>
@@ -75,11 +81,12 @@ const SingleUsersPostedRecipe = () => {
                                         </Typography>
                                     </Box>
                                 </div>}
-
                             <Typography
                                 sx={{ mx: 10, color: "#362706" }}>
                                 {data && data.recipe.description}
                             </Typography>
+                            <AddRatingButton
+                                id={data.recipe.id} />
                         </Stack>
                     </Box>
                     <Grid container>
