@@ -58,7 +58,6 @@ const MyRecipes = () => {
                 </div>
                 : //if level 4...
                 <div>
-
                     <Grid container>
                         <Grid item xs={5}>
                             <Box sx={{ mt: 15, pt: "10%" }}>

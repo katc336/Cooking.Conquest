@@ -54,11 +54,16 @@ const SingleUsersPostedRecipe = () => {
                                 <Typography
                                     variant="h4"
                                     sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                                    {data && data.name}
+                                    {data && data.recipe.name}
+                                </Typography>
+                                <Typography
+                                    variant="h4"
+                                    sx={{ mt: "5%", mx: "5%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                                    {data && data.roundedAverage}
                                 </Typography>
                                 <Typography
                                     sx={{ mx: 10, color: "#362706" }}>
-                                    {data && data.description}
+                                    {data && data.recipe.description}
                                 </Typography>
                         </Stack>
                     </Box>

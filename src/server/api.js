@@ -277,7 +277,7 @@ apiRouter.get("/recipeRatings", async (req, res, next) => {
 });
 
 //<-----------------MAKE A RATING FOR A RECIPE----------------->
-apiRouter.post('/recipeRatings/:userPostedRecipeId', requireUser, async (req, res, next) => {
+apiRouter.post('/recipeRating/:userPostedRecipeId', requireUser, async (req, res, next) => {
     try {
         const { userPostedRecipeId } = req.params;
         const { rating, writtenReview, userId } = req.body;
@@ -344,18 +344,31 @@ apiRouter.get("/guildRecipe", async (req, res, next) => {
         next(error);
     }
 })
-//<-----------------GET A SINGLE GUILD RECIPE----------------->
+
+//<-----------------GET A SINGLE GUILD RECIPE WITH AVERAGE RATING----------------->
 apiRouter.get("/guildRecipe/:id", async (req, res, next) => {
     try {
         const recipe = await prisma.userPostedRecipe.findUnique({
             where: { id: Number(req.params.id) },
-            include: {
+            include: { 
                 userIngredients: true,
                 UserInstructions: true,
-                rating: true,
-            },
+                rating: true }
         });
-        res.send(recipe)
+        let totalRating = 0;
+        //Get length of the ratings arrau
+        let totalRatingsCount = recipe.rating.length;
+        //Iterate through the rating array
+        for (let i = 0; i < recipe.rating.length; i++) {
+            //Calculate the total of all the ratings
+            totalRating += recipe.rating[i].rating;
+        }
+        //If there is a total rating (length greater than 0...), 
+        //calculate the total ratings divided by the total amount(length of the array).
+        const averageRating = totalRatingsCount > 0 ? totalRating / totalRatingsCount : null;
+        //Round the average to the first decimal
+        roundedAverage = Math.round(averageRating * 10) / 10
+        res.send({ recipe, roundedAverage });
     } catch (error) {
         next(error)
     }
