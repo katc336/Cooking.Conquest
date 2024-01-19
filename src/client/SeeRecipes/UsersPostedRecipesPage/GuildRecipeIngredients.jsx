@@ -4,13 +4,14 @@ import Stack from "@mui/material/Stack";
 
 import { useParams } from 'react-router';
 
-import { useGetSingleRecipeQuery } from "../../../redux/api";
+import { useGetSingleGuildRecipesQuery } from "../../../redux/api";
 
+import IngredientCard from "../images/IngredientCard.png"
 import jewelBullet from "../images/jewelBullet.png"
 
-const Recipeinstructions = () => {
+const GuildRecipeIngredients = () => {
     const { id } = useParams();
-    const { data, error, isLoading } = useGetSingleRecipeQuery(id);
+    const { data, error, isLoading } = useGetSingleGuildRecipesQuery(id);
 
     if (isLoading) {
         console.log("Loading...")
@@ -24,14 +25,19 @@ const Recipeinstructions = () => {
     }
     return (
         <div>
-            <Box sx={{ ml: 15, mr: 5, mt: 25, p: 3, backgroundColor: "#F1E4C3", border: 3, borderColor: "#503C3C", borderBottom: 7, borderRadius: "20px" }}>
+            <Box sx={{ fontWeight: "bold", ml: "20%", mt: "15%" }}>
+                <img
+                    src={IngredientCard}
+                    alt="Recipe card background art"
+                    width="600"
+                    style={{ position: "absolute", zIndex: -1 }} />
                 <Typography
                     variant="h5"
-                    sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
-                   Instructions:
+                    sx={{ pt: "40%", textAlign: "center", color: "#362706", fontWeight: "bold" }}>
+                    Gather Ingredients:
                 </Typography>
-                {data && data.instructions.map((instructions) => (
-                    <div key={instructions.id}>
+                {data && data.userIngredients.map((ingredient) => (
+                    <div key={ingredient.id}>
                         <Stack direction="row" sx={{ ml: "10%" }}>
                             <Box sx={{ mt: 1, mr: 1}}>
                                 <img
@@ -44,7 +50,7 @@ const Recipeinstructions = () => {
                             <Typography
                                 variant="h6"
                                 sx={{}}>
-                                {`${instructions.stepNumber}: ${instructions.description}`}
+                                {ingredient.name}
                             </Typography>
                         </Stack>
                     </div>
@@ -53,4 +59,4 @@ const Recipeinstructions = () => {
         </div>
     )
 }
-export default Recipeinstructions
+export default GuildRecipeIngredients

@@ -1,12 +1,13 @@
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
+import Stack from "@mui/material/Stack"
 
 import { motion } from "framer-motion"
 
 import { useGetMyUsersRecipeQuery } from "../../redux/api"
 import DeleteRecipeButton from "./Buttons/DeleteRecipeButton"
-import EditRecipeDescriptionButton from "./Buttons/EditRecipeDescriptionButton"
+import EditRecipeButton from "./Buttons/EditRecipeButton"
 
 const MyPostedRecpipes = () => {
     const { data, error, isLoading } = useGetMyUsersRecipeQuery();
@@ -47,18 +48,51 @@ const MyPostedRecpipes = () => {
                                         {recipe.description}
                                     </Typography>
                                     <Typography sx={{ textAlign: "center" }}>
-                                    <EditRecipeDescriptionButton
-                                        id={recipe.id} />
-                                        </Typography>
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Box sx={{ mt: 3, mx: 1, p: 3, backgroundColor: "#FFF8E3", borderRadius: "20px", }}>
+                                    {recipe.userIngredients.map((ingredients) => (
+                                        <div key={ingredients.id}>
+                                            <Stack direction="row">
+                                                <Typography sx={{ mr: 1 }}>
+                                                    {ingredients.quantity}
+                                                </Typography>
+                                                <Typography>
+                                                    {ingredients.name}
+                                                </Typography>
+                                            </Stack>
+                                        </div>
+                                    ))}
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Box sx={{ mt: 3, mx: 1, p: 3, backgroundColor: "#FFF8E3", borderRadius: "20px", }}>
+                                    {recipe.UserInstructions.map((instructions) => (
+                                        <div key={instructions.id}>
+                                            <Stack direction="row">
+                                                <Typography sx={{ mr: 1 }}>
+                                                    {instructions.stepNumber}
+                                                </Typography>
+                                                <Typography>
+                                                    {instructions.description}
+                                                </Typography>
+                                            </Stack>
+                                        </div>
+                                    ))}
                                 </Box>
                             </Grid>
                         </Grid>
+                        {/* <EditRecipeButton
+                            id={recipe.id} /> */}
                         <DeleteRecipeButton
                             id={recipe.id} />
                     </Box>
                 </div>
-            ))}
-        </motion.div>
+            ))
+            }
+        </motion.div >
     )
 }
 export default MyPostedRecpipes

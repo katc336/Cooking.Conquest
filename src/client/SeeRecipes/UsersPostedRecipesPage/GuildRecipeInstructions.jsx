@@ -4,13 +4,13 @@ import Stack from "@mui/material/Stack";
 
 import { useParams } from 'react-router';
 
-import { useGetSingleRecipeQuery } from "../../../redux/api";
+import { useGetSingleGuildRecipesQuery } from "../../../redux/api";
 
 import jewelBullet from "../images/jewelBullet.png"
 
-const Recipeinstructions = () => {
+const GuildRecipeInstructions = () => {
     const { id } = useParams();
-    const { data, error, isLoading } = useGetSingleRecipeQuery(id);
+    const { data, error, isLoading } = useGetSingleGuildRecipesQuery(id);
 
     if (isLoading) {
         console.log("Loading...")
@@ -30,7 +30,7 @@ const Recipeinstructions = () => {
                     sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                    Instructions:
                 </Typography>
-                {data && data.instructions.map((instructions) => (
+                {data && data.UserInstructions.map((instructions) => (
                     <div key={instructions.id}>
                         <Stack direction="row" sx={{ ml: "10%" }}>
                             <Box sx={{ mt: 1, mr: 1}}>
@@ -53,4 +53,4 @@ const Recipeinstructions = () => {
         </div>
     )
 }
-export default Recipeinstructions
+export default GuildRecipeInstructions

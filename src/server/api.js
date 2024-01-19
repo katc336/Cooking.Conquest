@@ -355,6 +355,7 @@ apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
                 guild: true
             }
         });
+        delete newRecipe.user.password
         res.status(201).send({ newRecipe, message: "Recipe added!" });
     } catch (error) {
         next(error);
@@ -411,6 +412,11 @@ apiRouter.delete("/guildRecipe/:id", requireUser, async (req, res, next) => {
 //<-----------------UPDATE USER POSTED RECIPE----------------->
 apiRouter.patch("/guildRecipe/:id", requireUser, async (req, res, next) => {
     try {
+        const findRecipe = await prisma.userPostedRecipe.findFirst({
+            where: {
+                id: Number(req.params.id)
+            },
+        });
         const { name, image, description } = req.body;
         const updatedRecipe = await prisma.userPostedRecipe.update({
             where: {
@@ -432,7 +438,10 @@ apiRouter.get("/myGuildRecipes", requireUser, async (req, res, next) => {
     try {
         const recipes = await prisma.userPostedRecipe.findMany({
             where: { userId: req.user.id },
-            include: { user: true }
+            include: { 
+                user: true,
+                userIngredients: true,
+                UserInstructions: true }
         });
         res.send(recipes);
     } catch (error) {
