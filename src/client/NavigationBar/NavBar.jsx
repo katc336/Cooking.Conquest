@@ -16,6 +16,7 @@ import CookingConquestText from "./images/CookingConquestText.png"
 import InformationButton from "./Buttons/InformationButton";
 import SearchButton from "./Buttons/SearchButton"
 import WorldLoreButton from "./Buttons/WorldLoreButton"
+import GuildBoardButton from "./Buttons/GuildBoardButton";
 
 const NavBar = () => {
 
@@ -39,6 +40,7 @@ const NavBar = () => {
                         <Stack direction="row">
                             <InformationButton />
                             <WorldLoreButton />
+                            <GuildBoardButton />
                             <SearchButton />
                             <Link to="/register">
                                 <motion.div whileHover={{ scale: 1.2 }}>

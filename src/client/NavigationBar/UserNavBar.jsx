@@ -11,6 +11,7 @@ import MyRecipesButton from './Buttons/MyRecipesButton';
 import SearchButton from "./Buttons/SearchButton"
 import WorldLoreButton from './Buttons/WorldLoreButton';
 import InformationButton from './Buttons/InformationButton';
+import GuildBoardButton from './Buttons/GuildBoardButton';
 
 const UserNavBar = () => {
     return (
@@ -21,9 +22,10 @@ const UserNavBar = () => {
                         <MyAccountButton />
                         <MyRecipesButton />
                         <SearchButton />
+                        <GuildBoardButton />
                         <WorldLoreButton />
                         <InformationButton />
-                        <Box sx={{ mr: 25, mt: 1, flexGrow: 1 }}>
+                        <Box sx={{ mr: 1, mt: 1, flexGrow: 1 }}>
                             <Link to="/">
                                 <img src={CookingConquestText} alt="Cooking Conquest Fantasy Font" width="200px" />
                             </Link>

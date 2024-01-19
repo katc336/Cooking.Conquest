@@ -72,7 +72,7 @@ const SingleUsersPostedRecipe = () => {
                                         readOnly
                                         sx={{ mx: "42%" }} />
                                 </div>
-                                :
+                                : //if there are no ratings...
                                 <div>
                                     <Box sx={{ mx: 20, border: 3, borderColor: "#862B0D", borderRadius: "20px" }}>
                                         <Typography
@@ -86,8 +86,10 @@ const SingleUsersPostedRecipe = () => {
                                 sx={{ mx: 10, color: "#362706" }}>
                                 {data && data.recipe.description}
                             </Typography>
-                            <AddRatingButton
-                                id={data.recipe.id} />
+                            <Box sx={{ mt: 5 }}>
+                                <AddRatingButton
+                                    id={data.recipe.id} />
+                            </Box>
                         </Stack>
                     </Box>
                     <Grid container>
