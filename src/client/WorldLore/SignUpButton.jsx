@@ -17,11 +17,13 @@ const SignUpButton = () => {
     }
     return (
         <div>
-            {!data 
+            {!data
                 ? //If there is no user...
                 <div>
                     <Typography sx={{ textAlign: "center" }}>
                         <Button
+                            variant="contained"
+                            color="success"
                             sx={{
                                 m: 1,
                                 fontSize: "20px",
