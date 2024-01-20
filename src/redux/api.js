@@ -211,7 +211,7 @@ const api = createApi({
                 method: 'POST',
                 body: { id, rating, writtenReview }
             }),
-            invalidatesTags: ["UserRecipe"]
+            invalidatesTags: ["Guilds"]
         }),
         //<------------GUILDS------------>
         //GET ALL GUILDS
