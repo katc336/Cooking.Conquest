@@ -16,7 +16,7 @@ const api = createApi({
             return headers
         },
     }),
-    tagTypes: ["Users", "Recipes", "RecipeBook", "Guilds", "UserRecipe"],
+    tagTypes: ["Users", "Recipes", "RecipeBook", "Guilds", "UserRecipe" ],
 
     endpoints: (builder) => ({
         //<-----------AUTHORIZATION----------->
@@ -78,6 +78,7 @@ const api = createApi({
                 url: `/api/myGuild`,
                 method: 'GET'
             }),
+            providesTags: ["Guild"]
         }),
         //<------------RECIPES------------>
         //GET ALL RECIPES
@@ -220,7 +221,7 @@ const api = createApi({
                 url: `/api/guilds`,
                 method: 'GET',
             }),
-            providesTags: ["Guilds"]
+            invalidatesTags: ["Guilds"]
         }),
         //PATCH User's account to join a guild
         patchJoinGuild: builder.mutation({
@@ -229,7 +230,7 @@ const api = createApi({
                 method: 'PATCH',
                 body: { guildId },
             }),
-            invalidatesTags: ["RecipeBook", "Users"]
+            invalidatesTags: ["Guilds"]
         }),
         //GET ALL GUILD POSTED RECIPES
         getAllGuildRecipes: builder.query({
