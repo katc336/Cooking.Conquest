@@ -15,9 +15,9 @@ import SingleRecipePageView from "./images/SingleRecipePageView.png"
 const CookingConquestInfoPage = () => {
     return (
         <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeIn" }}>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeIn" }}>
             <Box
                 sx={{ mx: "5%", mt: "5%", pt: "15%", px: "17%" }}
                 style={{
@@ -27,11 +27,11 @@ const CookingConquestInfoPage = () => {
                     backgroundRepeat: "no-repeat",
                 }}>
                 {/* <-------------------Row 1-------------------> */}
-               <Typography
-               variant="h3"
-               sx={{ color: "#362706", textAlign: "center", mb: 2 }}>
-               Welcome to Cooking Conquest!
-               </Typography>
+                <Typography
+                    variant="h3"
+                    sx={{ color: "#362706", textAlign: "center", mb: 2 }}>
+                    Welcome to Cooking Conquest!
+                </Typography>
                 <Typography
                     variant="h6"
                     sx={{ color: "#362706", mb: 2 }}>
@@ -52,25 +52,15 @@ const CookingConquestInfoPage = () => {
                     sx={{ color: "#362706", mb: 2 }}>
                     Once you reach level 3, you can join a "guild" within the app community.
                     Guilds are groups of users who collaborate to create and share new vegetarian recipes.
-                    {/* Joining a guild allows you to compete with others by reviewing and rating each other's recipes, earning points,
-                    and contributing to your guild’s cumulative score. */}
+                    Joining a guild allows you to compete with others by reviewing and rating each other's recipes, earning points,
+                    and contributing to your guild’s cumulative score on the Leader Board. 
                 </Typography>
-                <Card sx={{ border: 5, borderColor: "#862B0D", backgroundColor: "#FFF9C9", m: 3, p: 2 }}>
                 <Typography
-                        variant="h5"
-                        sx={{ color: "#362706", textAlign: "center" }}>
-                        COMING SOON: 
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{ color: "#362706" }}>
-                         Keep an eye out for the Leadership Board to see how your guild and individual cooking skills rank!
-                        Once you join a guild, you can compete with others by reviewing and rating each other's recipes, earning points,
-                        and contributing to your guild’s cumulative score.
-                        This friendly competition and sense of camaraderie within the community will keep you motivated
-                        and engaged in your vegetarian cooking conquest.
-                    </Typography>
-                </Card>
+                    variant="h6"
+                    sx={{ color: "#362706", mb: 5 }}>
+                    This friendly competition and sense of camaraderie within the community will keep you motivated
+                    and engaged in your vegetarian cooking conquest.
+                </Typography>
                 <Box sx={{ mx: "5%" }}>
                     <Stack direction="row">
                         <img
