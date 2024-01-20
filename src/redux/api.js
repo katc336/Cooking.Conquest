@@ -196,7 +196,7 @@ const api = createApi({
                 url: `/api/guildRecipe/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ["UsersRecipe"]
+            invalidatesTags: ["UserRecipe"]
         }),
         //UPDATE USER'S RECIPE
         updateUsersRecipe: builder.mutation({
