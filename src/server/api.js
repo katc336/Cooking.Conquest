@@ -58,16 +58,11 @@ apiRouter.get("/guilds", async (req, res, next) => {
 })
 //<-----------------GET SINGLE LEVELS----------------->
 //GET /api/level/:id
-//split
 apiRouter.get("/level/:id", async (req, res, next) => {
     try {
         const level = await prisma.level.findUnique({
             where: {
                 id: Number(req.params.id)
-            },
-            include: {
-                userIngredients: true,
-                userInstructions: true
             }
         });
         res.send(level);
@@ -261,7 +256,7 @@ apiRouter.delete("/myRecipeBook_delete/:id", requireUser, async (req, res, next)
         if (deletedRecipe.userId !== req.user.id || !deletedRecipe) {
             return res.status(404).send("Recipe not found.");
         }
-        res.send(deletedRecipe);
+        res.send({ message: "Recipe deleted!"});
     } catch (error) {
         next(error);
     }
@@ -406,7 +401,10 @@ apiRouter.post("/guildRecipe", requireUser, async (req, res, next) => {
                 guild: true
             }
         });
+        
         delete newRecipe.user.password
+        delete newRecipe.user.email
+
         res.status(201).send({ newRecipe, message: "Recipe added!" });
     } catch (error) {
         next(error);
@@ -454,7 +452,7 @@ apiRouter.delete("/guildRecipe/:id", requireUser, async (req, res, next) => {
         if (deletedRecipe.userId !== req.user.id || !deletedRecipe) {
             return res.status(404).send("Recipe not found.");
         }
-        res.send(deletedRecipe);
+        res.send({ message: "Recipe deleted!" });
     } catch (error) {
         next(error);
     }
@@ -485,11 +483,11 @@ apiRouter.get("/myGuildRecipes", requireUser, async (req, res, next) => {
         const recipes = await prisma.userPostedRecipe.findMany({
             where: { userId: req.user.id },
             include: {
-                user: true,
                 userIngredients: true,
                 UserInstructions: true
             }
         });
+
         res.send(recipes);
     } catch (error) {
         next(error);
