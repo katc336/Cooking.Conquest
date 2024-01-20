@@ -3,7 +3,9 @@ import { useMediaQuery, useTheme } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
-import characterImg from "./homePageCharacter.png"
+import characterImg from "./images/homePageCharacter.png"
+import Logo from "./images/Logo.png"
+import HomeScroll from "./images/HomeScroll.png"
 import CookingConquestInfo from "../InformationPage/CookingConquestInfoPage";
 const HomePage = () => {
 
@@ -15,45 +17,58 @@ const HomePage = () => {
             {isMobile
                 ?
                 <div>
-                <Card sx={{ backgroundColor: "rgba(223, 233, 228, 1)", p: 2, m: 2}}>
-                    <Typography
-                        variant="h3"
-                        sx={{ textAlign: "center" }}>
-                        COMING SOON:
-                    </Typography>
-                    <Typography
-                        variant="h4"
-                        sx={{ textAlign: "center" }}>
-                        Sorry, this app is not mobile compatible yet.
-                    </Typography>
-                    <Typography
-                        variant="h4"
-                        sx={{ textAlign: "center" }}>
-                        Please use a computer or laptop to access
-                    </Typography>
-                    <Typography
-                        variant="h4"
-                        sx={{ textAlign: "center" }}>
-                         The mobile feature is coming in February 2024.
-                    </Typography>
-                </Card> 
+                    <Card sx={{ backgroundColor: "rgba(223, 233, 228, 1)", p: 2, m: 2 }}>
+                        <Typography
+                            variant="h3"
+                            sx={{ textAlign: "center" }}>
+                            COMING SOON:
+                        </Typography>
+                        <Typography
+                            variant="h4"
+                            sx={{ textAlign: "center" }}>
+                            Sorry, this app is not mobile compatible yet.
+                        </Typography>
+                        <Typography
+                            variant="h4"
+                            sx={{ textAlign: "center" }}>
+                            Please use a computer or laptop to access
+                        </Typography>
+                        <Typography
+                            variant="h4"
+                            sx={{ textAlign: "center" }}>
+                            The mobile feature is coming in February 2024.
+                        </Typography>
+                    </Card>
                 </div>
                 :
                 <div>
                     <Grid container sx={{ mt: 10 }}>
-                        <Grid item xs={6}>
-                            <Box sx={{ mt: 5 }}>
+                        <Grid item xs={5}>
+                            <Box sx={{ ml: 3 }}>
+                                <Box sx={{ mt: 5, ml: 25 }}>
+                                    <img
+                                        src={HomeScroll}
+                                        alt="Cooking Conquest Chef"
+                                        width="1200px"
+                                        style={{ position: "absolute", zIndex: -1 }} />
+                                </Box>
                                 <img
-                                    src={characterImg}
-                                    alt="Cooking Conquest Chef"
-                                    width="850px" />
+                                    src={Logo}
+                                    alt="Cooking Conquest Chefs"
+                                    width="620px" />
+
                             </Box>
                         </Grid>
-                        <Grid item xs={6}>
-                            <Box sx={{ backgroundColor: "rgba(223, 233, 228, 1)", p: 3, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px", mt: 40, ml: 15, mr: 5 }}>
+                        <Grid item xs={7}>
+                            <Box sx={{ p: 3, mt: 20, mr: 18, ml: 1 }}>
+                                <Typography
+                                    variant="h3"
+                                    sx={{ color: "#445D48", mb: 2 }}>
+                                    Welcome to Cooking Conquest!
+                                </Typography>
                                 <Typography
                                     variant="h4"
-                                    sx={{ color: "#445D48", mb: 2 }}>
+                                    sx={{ color: "#445D48", mb: 2 }}> 
                                     The free, fun way to level up and conquer your vegetarian kitchen!
                                 </Typography>
                                 <Stack direction="column">
