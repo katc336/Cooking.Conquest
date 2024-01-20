@@ -1,5 +1,6 @@
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Snackbar from '@mui/material/Snackbar';
 
 import { useParams } from 'react-router';
 import { useNavigate } from "react-router-dom";
@@ -9,46 +10,39 @@ const AddRecipeButton = () => {
     const { data, error, isLoading } = useGetUserQuery();
     const { id } = useParams();
     const { data: recipeData, error: recipeError, isLoading: recipeIsLoading } = useGetSingleRecipeQuery(id);
-    const [postRecipe, { data: mutationData, isError: isMutationError, isLoading: isMutationLoading, }] = usePostRecipeToUserMutation();
+    const [postRecipe] = usePostRecipeToUserMutation();
     const navigate = useNavigate();
 
     if (isLoading) {
-        console.log("Loading...")
-        return null
-    }
-    if (data) {
-        console.log(data);
-    }
-    if (recipeData) {
-        console.log(recipeData);
+        console.log("Loading...");
+        return null;
     }
     if (recipeError) {
-        return <>{error}</>
+        return <>{error}</>;
     }
+
+    const checkIfAdded = data && data.recipeBookItems.some((item) => item.recipeId === recipeData.id);
+
     const handlePost = async (event) => {
         try {
             event.preventDefault();
-            const result = await postRecipe({ recipeId: recipeData.id })
-            console.log("Success!")
-            console.log(result)
+            const result = await postRecipe({ recipeId: recipeData.id });
+            console.log("Success!");
+            console.log(result);
             navigate("/account");
         } catch (error) {
-            console.error(error)
+            return error.message;
         }
-    }
+    };
+
     return (
         <div>
-            {data 
-                ? //if there's a user...
-                <div>
-                    {data.level === 4 
-                    ? 
-                    <div/> 
-                    : 
-                    <div> 
-                         <Typography sx={{ textAlign: "center" }}>
+            {data
+                ? //If the user is not level 4 and does not already have the recipe added, return the button
+                (data.level !== 4 && !checkIfAdded
+                    && <Typography sx={{ textAlign: "center" }}>
                         <Button
-                            onClick={() => handlePost(event)}
+                            onClick={(event) => handlePost(event)}
                             variant="contained"
                             color="success"
                             sx={{
@@ -60,18 +54,17 @@ const AddRecipeButton = () => {
                                 border: 2,
                                 borderBottom: 5,
                                 borderColor: "#445D48",
-                                textTransform: "none"
-                            }}>
+                                textTransform: "none",
+                            }} >
                             Add Recipe to My Recipe Book
                         </Button>
                     </Typography>
-                        </div>}
-                </div>
-                : //if not a user, return an empty div
-                <div>
-                </div>
-                }
+                )
+                : (
+                    // if not a user, return an empty div
+                    <div />
+                )}
         </div>
-    )
-}
-export default AddRecipeButton
+    );
+};
+export default AddRecipeButton;

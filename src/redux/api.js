@@ -204,7 +204,7 @@ const api = createApi({
                 url: `/api/guildRecipe/${id}`,
                 method: 'PATCH',
             }),
-            invalidatesTags: ["UsersRecipe"]
+            invalidatesTags: ["UserRecipe"]
         }),
         postRating: builder.mutation({
             query: ({ id, rating, writtenReview }) => ({
@@ -212,7 +212,7 @@ const api = createApi({
                 method: 'POST',
                 body: { id, rating, writtenReview }
             }),
-            invalidatesTags: ["Guilds"]
+            invalidatesTags: ["Guilds, UserRecipe"]
         }),
         //<------------GUILDS------------>
         //GET ALL GUILDS
