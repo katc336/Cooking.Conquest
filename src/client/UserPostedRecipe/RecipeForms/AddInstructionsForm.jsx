@@ -18,7 +18,7 @@ const AddInstructionsForm = ({ id }) => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postInstructions({ stepNumber, description, userPostedRecipeId: id });
+            const result = await postInstructions({ stepNumber: Number(stepNumber), description, userPostedRecipeId: id });
             console.log(result);
         } catch (error) {
             console.log(error);

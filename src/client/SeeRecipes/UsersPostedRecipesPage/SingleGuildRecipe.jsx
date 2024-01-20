@@ -14,6 +14,7 @@ import Scroll from "../images/Scroll.png"
 import GuildRecipeIngredients from "./GuildRecipeIngredients";
 import GuildRecipeInstructions from "./GuildRecipeInstructions";
 import AddRatingButton from "./AddRatingButton";
+import MapAllRatings from "./MapRatings/MapAllRatings";
 
 const SingleUsersPostedRecipe = () => {
     const { id } = useParams();
@@ -37,7 +38,7 @@ const SingleUsersPostedRecipe = () => {
             transition={{ duration: 1, ease: "easeIn" }}>
             <Stack direction="row">
                 <Box
-                    sx={{ pt: 2, pb: 250, mt: 5 }}
+                    sx={{ pt: 2, pb: 100, mt: 5 }}
                     style={{
                         backgroundImage: `url(${SingleRecipeBorder})`,
                         backgroundSize: "cover",
@@ -71,7 +72,7 @@ const SingleUsersPostedRecipe = () => {
                                         readOnly
                                         sx={{ mx: "42%" }} />
                                 </div>
-                                :
+                                : //if there are no ratings...
                                 <div>
                                     <Box sx={{ mx: 20, border: 3, borderColor: "#862B0D", borderRadius: "20px" }}>
                                         <Typography
@@ -85,8 +86,10 @@ const SingleUsersPostedRecipe = () => {
                                 sx={{ mx: 10, color: "#362706" }}>
                                 {data && data.recipe.description}
                             </Typography>
-                            <AddRatingButton
-                                id={data.recipe.id} />
+                            <Box sx={{ mt: 5 }}>
+                                <AddRatingButton
+                                    id={data.recipe.id} />
+                            </Box>
                         </Stack>
                     </Box>
                     <Grid container>
@@ -99,6 +102,8 @@ const SingleUsersPostedRecipe = () => {
                     </Grid>
                 </Box>
             </Stack>
+            <MapAllRatings
+                id={data.recipe.id} />
         </motion.div>
     )
 }

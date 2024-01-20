@@ -290,8 +290,24 @@ apiRouter.post('/recipeRating/:id', requireUser, async (req, res, next) => {
                 userPostedRecipe: { connect: { id: Number(userPostedRecipeId) } }
             }
         });
-        res.send(newRating);
-
+        //<----------------Updated the recipe's guild score---------------->
+        //Find the recipe being reviewed...
+        const userPostedRecipe = await prisma.userPostedRecipe.findUnique({
+            where : { id: Number(userPostedRecipeId) },
+            include: { guild: true }
+        });
+        //Declare the guild attatched to that recipe...
+        const guild = userPostedRecipe.guild;
+        //Declare the current score...
+        const currentScore = guild.score;
+        //Add the rating to the current score.
+        const updatedScore = currentScore + rating;
+ 
+        const updatedGuildScore = await prisma.guild.update({
+            where: { id: guild.id },
+            data: { score: updatedScore }
+        });
+        res.send({ newRating, updatedGuildScore });
     } catch (error) {
         next(error)
     }

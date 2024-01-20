@@ -38,10 +38,15 @@ const AddRecipeButton = () => {
     }
     return (
         <div>
-            {data
+            {data 
                 ? //if there's a user...
                 <div>
-                    <Typography sx={{ textAlign: "center" }}>
+                    {data.level === 4 
+                    ? 
+                    <div/> 
+                    : 
+                    <div> 
+                         <Typography sx={{ textAlign: "center" }}>
                         <Button
                             onClick={() => handlePost(event)}
                             variant="contained"
@@ -60,6 +65,7 @@ const AddRecipeButton = () => {
                             Add Recipe to My Recipe Book
                         </Button>
                     </Typography>
+                        </div>}
                 </div>
                 : //if not a user, return an empty div
                 <div>

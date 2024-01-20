@@ -24,7 +24,7 @@ const GuildRecipeInstructions = () => {
     }
     return (
         <div>
-            <Box sx={{ ml: 15, mr: 5, mt: 25, p: 3, backgroundColor: "#F1E4C3", border: 3, borderColor: "#503C3C", borderBottom: 7, borderRadius: "20px" }}>
+            <Box sx={{ ml: 15, mr: 5, mt: 10, p: 3, backgroundColor: "#F1E4C3", border: 3, borderColor: "#503C3C", borderBottom: 7, borderRadius: "20px" }}>
                 <Typography
                     variant="h5"
                     sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>

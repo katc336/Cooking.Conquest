@@ -42,7 +42,10 @@ const AddRecipeForm = () => {
         }
     }
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeIn" }}>
             <Box sx={{ mt: "10%", mx: 15, backgroundColor: "#F1E4C3", px: 2, py: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                 {showAdded &&
                     <div>
@@ -114,7 +117,7 @@ const AddRecipeForm = () => {
                     </motion.div>
                 }
             </Box>
-        </div>
+        </motion.div>
     )
 }
 export default AddRecipeForm

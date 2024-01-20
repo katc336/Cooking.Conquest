@@ -78,7 +78,6 @@ const api = createApi({
                 url: `/api/myGuild`,
                 method: 'GET'
             }),
-            invalidatesTags: ["Users"]
         }),
         //<------------RECIPES------------>
         //GET ALL RECIPES
@@ -196,7 +195,7 @@ const api = createApi({
                 url: `/api/guildRecipe/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ["UsersRecipe"]
+            invalidatesTags: ["UserRecipe"]
         }),
         //UPDATE USER'S RECIPE
         updateUsersRecipe: builder.mutation({
@@ -212,7 +211,7 @@ const api = createApi({
                 method: 'POST',
                 body: { id, rating, writtenReview }
             }),
-            invalidatesTags: ["UserRecipe"]
+            invalidatesTags: ["Guilds"]
         }),
         //<------------GUILDS------------>
         //GET ALL GUILDS

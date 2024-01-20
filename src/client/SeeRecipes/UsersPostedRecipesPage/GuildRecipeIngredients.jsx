@@ -25,7 +25,7 @@ const GuildRecipeIngredients = () => {
     }
     return (
         <div>
-            <Box sx={{ fontWeight: "bold", ml: "20%", mt: "15%" }}>
+            <Box sx={{ fontWeight: "bold", ml: "20%" }}>
                 <img
                     src={IngredientCard}
                     alt="Recipe card background art"

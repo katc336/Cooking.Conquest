@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
-import Card from "@mui/material/Card"
 import Typography from "@mui/material/Typography"
-import Stack from "@mui/material/Stack"
+
+import { Link } from "react-router-dom"
 
 import { useState } from "react"
 
@@ -58,44 +58,51 @@ const GuildInfoPage = () => {
                         earning points, and contributing to a guild’s cumulative score.
                     </Typography>
                     <Typography
-                        variant="h5"
+                        variant="h6"
                         sx={{ color: "#362706", mb: 2 }}>
                         Join a guild today and start your journey
                         towards becoming a top-ranking cook earning points for your guild!
                     </Typography>
-                    <Card sx={{ border: 5, borderColor: "#862B0D", backgroundColor: "#FFF9C9", m: 3, p: 2 }}>
-                        <Typography
-                            variant="h5"
-                            sx={{ color: "#362706", textAlign: "center" }}>
-                            COMING SOON:
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            sx={{ color: "#362706" }}>
-                            Keep an eye out for the Leadership Board to see how your guild and individual cooking skills rank!
-                            Once you join a guild, you can compete with others by reviewing and rating each other's recipes, earning points,
-                            and contributing to your guild’s cumulative score.
-                            This friendly competition and sense of camaraderie within the community will keep you motivated
-                            and engaged in your vegetarian cooking conquest.
-                        </Typography>
-                    </Card>
-                </Box>
-                <Typography sx={{ textAlign: "center" }}>
-                <Button
-                        onClick={() => setSeeOldInfo(true)}
-                        sx={{
-                            color: "white",
-                            borderRadius: "10px",
-                            backgroundColor: "#65B741",
-                            border: 2,
-                            borderBottom: 5,
-                            borderColor: "#445D48",
-                            textTransform: "none"
-                        }}>
-                        Click here to read information about levels 1 through 3
-                    </Button>
+                    <Typography sx={{ textAlign: "center" }}>
+                        <Link to="/leadership_board">
+                            <Button
+                                onClick={() => setSeeOldInfo(true)}
+                                variant="contained"
+                                color="success"
+                                sx={{
+                                    mb: 10,
+                                    color: "white",
+                                    borderRadius: "10px",
+                                    backgroundColor: "#65B741",
+                                    border: 2,
+                                    borderBottom: 5,
+                                    borderColor: "#445D48",
+                                    textTransform: "none"
+                                }}>
+                                Click here to see the guild's scores!
+                            </Button>
+                        </Link>
+                    </Typography>
+                    <Typography sx={{ textAlign: "center" }}>
+                        <Button
+                            onClick={() => setSeeOldInfo(true)}
+                            variant="contained"
+                            color="success"
+                            sx={{
+                                color: "white",
+                                borderRadius: "10px",
+                                backgroundColor: "#65B741",
+                                border: 2,
+                                borderBottom: 5,
+                                borderColor: "#445D48",
+                                textTransform: "none"
+                            }}>
+                            Click here to read information about levels 1 through 3
+                        </Button>
                     </Typography>
                     {seeOldInfo && <CookingConquestInfoPage />}
+                </Box>
+
             </motion.div>
 
         </div>
