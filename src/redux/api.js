@@ -78,7 +78,6 @@ const api = createApi({
                 url: `/api/myGuild`,
                 method: 'GET'
             }),
-            invalidatesTags: ["Users"]
         }),
         //<------------RECIPES------------>
         //GET ALL RECIPES
