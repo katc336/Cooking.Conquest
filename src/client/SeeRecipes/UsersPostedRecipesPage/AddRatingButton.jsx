@@ -24,7 +24,7 @@ const AddRatingButton = ({ id }) => {
     const [failSnackBar, setFailSnackbar] = useState(false);
     const { data, error, isLoading } = useGetUserQuery();
     const [postRating] = usePostRatingMutation(id)
-   
+
     if (isLoading) {
         return null
     }
@@ -100,6 +100,16 @@ const AddRatingButton = ({ id }) => {
                             <Button
                                 variant="contained"
                                 color="success"
+                                sx={{
+                                    my: 5,
+                                    p: 1,
+                                    borderRadius: "10px",
+                                    backgroundColor: "#65B741",
+                                    border: 2,
+                                    borderBottom: 5,
+                                    borderColor: "#445D48",
+                                    textTransform: "none"
+                                }}
                                 onClick={() => {
                                     setAddRating(true);
                                     setReviewButton(false);
@@ -113,27 +123,30 @@ const AddRatingButton = ({ id }) => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.5, ease: "easeIn" }}>
-                            <Box sx={{ mx: 20, mt: 10, p: 3, backgroundColor: "#F1E4C3", border: 3, borderColor: "#503C3C", borderBottom: 7, borderRadius: "20px" }}>
-                                <Stack direction="column">
-                                    <form onSubmit={handleSubmit}>
-                                        <Typography
-                                            variant="h6"
-                                            sx={{ color: "#362706", fontWeight: "bold", textAlign: "center", mb: 1 }}>
-                                            Add Your Rating Review:
-                                        </Typography>
-                                        <Box sx={{ p: 2, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
-                                            <Typography sx={{ color: "#362706" }}>
+                            <Box sx={{ mx: 1, mt: 10, backgroundColor: "#F1E4C3", border: 3, borderColor: "#503C3C", borderBottom: 7, borderRadius: "20px" }}>
+
+                                <form onSubmit={handleSubmit}>
+                                    <Typography
+                                        variant="h6"
+                                        sx={{ color: "#362706", fontWeight: "bold", textAlign: "center", mb: 1 }}>
+                                        Add Your Rating Review:
+                                    </Typography>
+                                    <Stack direction="row">
+                                        <Box sx={{ p: 1, m: 1, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
+                                            <Typography sx={{ width: "200px", color: "#362706", mb: 1, textAlign: "center" }}>
                                                 Add Rating from 1-5:
                                             </Typography>
-                                            <Rating
-                                                name="Rating out of 5"
-                                                value={Number(rating)}
-                                                precision={1}
-                                                onChange={(event) => setRating(event.target.value)}
-                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                            />
+                                            <Typography sx={{ textAlign: "center" }}>
+                                                <Rating
+                                                    name="Rating out of 5"
+                                                    value={Number(rating)}
+                                                    precision={1}
+                                                    onChange={(event) => setRating(event.target.value)}
+                                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                                />
+                                            </Typography>
                                         </Box>
-                                        <Box sx={{ p: 2, mt: 2, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
+                                        <Box sx={{ width: "450px", p: 1, m: 1, backgroundColor: "#FFF8E3", borderRadius: "20px" }}>
                                             <TextField
                                                 label="Written Comment"
                                                 multiline
@@ -142,26 +155,44 @@ const AddRatingButton = ({ id }) => {
                                                 sx={{ m: 1, width: "97%" }}
                                             />
                                         </Box>
-                                        <Typography sx={{ textAlign: "center" }}>
-                                            <Button
-                                                type="submit"
-                                                variant="contained"
-                                                color="success"
-                                                sx={{
-                                                    mt: 2,
-                                                    p: 1,
-                                                    borderRadius: "10px",
-                                                    backgroundColor: "#65B741",
-                                                    border: 2,
-                                                    borderBottom: 5,
-                                                    borderColor: "#445D48",
-                                                    textTransform: "none"
-                                                }}>
-                                                Submit
-                                            </Button>
-                                        </Typography>
-                                    </form>
-                                </Stack>
+                                    </Stack>
+                                    <Typography sx={{ textAlign: "center" }}>
+                                        <Button
+                                            type="submit"
+                                            variant="contained"
+                                            color="success"
+                                            sx={{
+                                                width: "140px",
+                                                my: 2,
+                                                p: 1,
+                                                borderRadius: "10px",
+                                                backgroundColor: "#65B741",
+                                                border: 2,
+                                                borderBottom: 5,
+                                                borderColor: "#445D48",
+                                                textTransform: "none"
+                                            }}>
+                                            Submit
+                                        </Button>
+                                    </Typography>
+                                </form>
+                                <Typography sx={{ textAlign: "center" }}>
+                                    <Button
+                                        onClick={() => setAddRating(false)}
+                                        variant="contained"
+                                        color="error"
+                                        sx={{
+                                            textTransform: "none",
+                                            m: 1,
+                                            backgroundColor: "#D24545",
+                                            border: 2,
+                                            borderBottom: 5,
+                                            borderColor: "#862B0D",
+                                            borderRadius: "10px"
+                                        }}>
+                                        Discrad Review
+                                    </Button>
+                                </Typography>
                             </Box>
                         </motion.div>
                     }
