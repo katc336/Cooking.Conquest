@@ -28,19 +28,18 @@ const MyCompletedRecipes = () => {
             <div>
                 <Box>
                     <Stack direction="column">
-                        <Box sx={{ mt: 5, mx: "10%", backgroundColor: "#F1E4C3", py: 3, my: 1, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
                             <Typography
                                 variant="h4"
-                                sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
-                                Recipes I Conquered!
+                                sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2, mt: 67}}>
+                                Recipes I Conquered:
                             </Typography>
                             {data.map((recipeBookItem) => (
                                 <div key={recipeBookItem.id}>
                                     {recipeBookItem.completed === true
                                         ? //If the recipe is complete...
                                         <div>
-                                            <Box sx={{ backgroundColor: "#F8FAE5", p: 1, my: 1, mx: 5, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
-                                                <Stack direction="column">
+                                            <Box sx={{ backgroundColor: "#F8FAE5", my: 1, mx: 20, border: 2, borderColor: "#445D48", borderBottom: 5, borderRadius: "20px" }}>
+                                                <Stack direction="row">
                                                     <Typography
                                                         variant="h6"
                                                         sx={{ textAlign: "center", color: "#362706", pt: 2, mx: 2 }}>
@@ -69,7 +68,6 @@ const MyCompletedRecipes = () => {
                                     }
                                 </div>
                             ))}
-                        </Box>
                     </Stack>
                 </Box>
             </div>

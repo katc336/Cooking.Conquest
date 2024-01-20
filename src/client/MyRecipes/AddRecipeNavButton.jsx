@@ -26,7 +26,7 @@ const AddRecipeNavButton = () => {
                 <div>
                     <Typography
                         variant="h4"
-                        sx={{ textAlign: "center", mb: 1 }}>
+                        sx={{ textAlign: "center", mb: 1, mt: 10 }}>
                         Congragulations! 
                     </Typography>
                     <Typography
