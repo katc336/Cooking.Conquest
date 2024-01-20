@@ -38,8 +38,10 @@ const AddRatingButton = ({ id }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            setAddRating(false);
             if (rating === 0 || writtenReview === "") {
                 setFailSnackbar(true);
+                setReviewButton(true);
             }
             else {
                 const result = await postRating({ id, rating: Number(rating), writtenReview });
@@ -86,8 +88,7 @@ const AddRatingButton = ({ id }) => {
                         onClose={handleFailClose}
                         severity="error"
                         variant="filled"
-                        sx={{ width: '100%' }}
-                    >
+                        sx={{ width: '100%' }}>
                         Please make sure you enter all fields
                     </Alert>
                 </Snackbar>
@@ -178,7 +179,7 @@ const AddRatingButton = ({ id }) => {
                                 </form>
                                 <Typography sx={{ textAlign: "center" }}>
                                     <Button
-                                        onClick={() => setAddRating(false)}
+                                        onClick={() => { setAddRating(false), setReviewButton }}
                                         variant="contained"
                                         color="error"
                                         sx={{
