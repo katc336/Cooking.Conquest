@@ -34,6 +34,7 @@ const JoinGuildPage = () => {
             const result = await patchGuild({ id, guildId: guild });
             console.log("Patch result:", result);
             navigate("/account");
+            window.location.reload();
         } catch (error) {
             console.error(error);
         }

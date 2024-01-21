@@ -1,13 +1,14 @@
 import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
 import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
 
+import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { useGetUserQuery } from "../../redux/api"
 
 import MyRecipesPage from "./MyRecipesPage.png"
 import MyCompletedRecipes from "./MyCompletedRecipes"
-import MyIncompleteRecipes from "./MyIncompleteRecipes"
 import AddRecipeNavButton from "./AddRecipeNavButton"
 import MyPostedRecpipes from "../UserPostedRecipe/MyPostedRecipes"
 
@@ -43,7 +44,25 @@ const MyRecipes = () => {
                                     sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                                     {data && data.name}'s Recipe Spell Book
                                 </Typography>
-                                <MyCompletedRecipes />
+                                <Typography sx={{ mt: 5, textAlign: "center" }}>
+                                    <Link to="/recipes">
+                                        <Button
+                                            sx={{
+                                                m: 1,
+                                                fontSize: "20px",
+                                                color: "white",
+                                                borderRadius: "10px",
+                                                backgroundColor: "#65B741",
+                                                border: 2,
+                                                borderBottom: 5,
+                                                borderColor: "#445D48",
+                                                textTransform: "none"
+                                            }}
+                                        >
+                                            Click here to start a new recipe quest!
+                                        </Button>
+                                    </Link>
+                                </Typography>
                             </Box>
                         </Grid>
                         <Grid item xs={7}>
@@ -52,7 +71,7 @@ const MyRecipes = () => {
                                 alt="Image of a border, with a magical mystical spell book at the top"
                                 style={{ marginTop: "100px", position: "absolute", zIndex: -1 }}
                                 width="900" />
-                            <MyIncompleteRecipes />
+                            <MyCompletedRecipes />
                         </Grid>
                     </Grid>
                 </div>
@@ -66,7 +85,7 @@ const MyRecipes = () => {
                                     sx={{ textAlign: "center", color: "#362706", fontWeight: "bold" }}>
                                     {data && data.name}'s Recipe Spell Book
                                 </Typography>
-                                <MyPostedRecpipes />
+                                <AddRecipeNavButton />
                             </Box>
                         </Grid>
                         <Grid item xs={7}>
@@ -75,8 +94,8 @@ const MyRecipes = () => {
                                 alt="Image of a border, with a magical mystical spell book at the top"
                                 style={{ marginTop: "100px", position: "absolute", zIndex: -1 }}
                                 width="900" />
-                                <Box sx={{ mt: 70, px: 15 }}>
-                            <AddRecipeNavButton />
+                            <Box sx={{ mt: 70, px: 15 }}>
+                               <MyPostedRecpipes />
                             </Box>
                         </Grid>
                     </Grid>

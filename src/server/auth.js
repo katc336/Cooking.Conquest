@@ -71,7 +71,8 @@ authRouter.post("/login", async (req, res, next) => {
 authRouter.get("/account", requireUser, async (req, res, next) => {
     try{
         const user = await prisma.user.findUnique({
-            where: { id: req.user.id }
+            where: { id: req.user.id },
+            include: { recipeBookItems: true }
         });
         delete user.password
         res.send(user);
