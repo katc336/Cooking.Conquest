@@ -128,7 +128,7 @@ const api = createApi({
                 method: 'POST',
                 body: recipeId,
             }),
-            invalidatesTags: ["RecipeBook"]
+            invalidatesTags: ["RecipeBook","Users"]
         }),
         //<------------USER'S RECIPES------------>
          //GET ALL USER'S RECIPES
