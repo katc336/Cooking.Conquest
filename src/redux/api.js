@@ -70,7 +70,7 @@ const api = createApi({
                 url: `/api/myRecipeBook_delete/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ["RecipeBook"]
+            invalidatesTags: ["RecipeBook","Users"]
         }),
         //GET USER'S GUILD
         getUsersGuild: builder.query({
