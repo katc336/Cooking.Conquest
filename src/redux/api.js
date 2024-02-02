@@ -16,7 +16,7 @@ const api = createApi({
             return headers
         },
     }),
-    tagTypes: ["Users", "Recipes", "RecipeBook", "Guilds", "UserRecipe" ],
+    tagTypes: ["Users", "Recipes", "RecipeBook", "Guilds", "UserRecipe"],
 
     endpoints: (builder) => ({
         //<-----------AUTHORIZATION----------->
@@ -64,13 +64,13 @@ const api = createApi({
             }),
             invalidatesTags: ["RecipeBook", "Users"]
         }),
-         //DELETE RECIPE FROM USER
-         deleteRecipeFromUser: builder.mutation({
+        //DELETE RECIPE FROM USER
+        deleteRecipeFromUser: builder.mutation({
             query: (id) => ({
                 url: `/api/myRecipeBook_delete/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ["RecipeBook","Users"]
+            invalidatesTags: ["RecipeBook", "Users"]
         }),
         //GET USER'S GUILD
         getUsersGuild: builder.query({
@@ -128,11 +128,11 @@ const api = createApi({
                 method: 'POST',
                 body: recipeId,
             }),
-            invalidatesTags: ["RecipeBook","Users"]
+            invalidatesTags: ["RecipeBook", "Users"]
         }),
         //<------------USER'S RECIPES------------>
-         //GET ALL USER'S RECIPES
-         getMyUsersRecipe: builder.query({
+        //GET ALL USER'S RECIPES
+        getMyUsersRecipe: builder.query({
             query: () => ({
                 url: `/api/myGuildRecipes`,
                 method: 'GET',
@@ -174,16 +174,16 @@ const api = createApi({
             }),
             providesTags: ["UserRecipe"]
         }),
-          //GET SINGLE USER'S RECIPE INGREDIENTS
-          getSingleUsersIngredients: builder.query({
+        //GET SINGLE USER'S RECIPE INGREDIENTS
+        getSingleUsersIngredients: builder.query({
             query: (id) => ({
                 url: `/api/myGuildRecipe_ingredient/${id}`,
                 method: 'GET',
             }),
             invalidatesTags: ["UserRecipe"]
         }),
-          //GET SINGLE USER'S INSTRUCTIONS
-          getSingleUserInstructions: builder.query({
+        //GET SINGLE USER'S INSTRUCTIONS
+        getSingleUserInstructions: builder.query({
             query: (id) => ({
                 url: `/api/myGuildRecipe_instructions/${id}`,
                 method: 'GET',
@@ -192,7 +192,7 @@ const api = createApi({
         }),
         //DELETE USER'S RECIPE
         deleteUsersRecipe: builder.mutation({
-            query: (id) =>({
+            query: (id) => ({
                 url: `/api/guildRecipe/${id}`,
                 method: 'DELETE',
             }),
@@ -200,7 +200,7 @@ const api = createApi({
         }),
         //UPDATE USER'S RECIPE
         updateUsersRecipe: builder.mutation({
-            query: (id) =>({
+            query: (id) => ({
                 url: `/api/guildRecipe/${id}`,
                 method: 'PATCH',
             }),
@@ -246,6 +246,31 @@ const api = createApi({
                 method: 'GET'
             })
         }),
+        //<------------ADMIN------------>
+        //GET ALL USERS
+        adminGetAllUsers: builder.query({
+            query: () => ({
+                url: `admin/all_users`,
+                method: 'GET'
+            }),
+            providesTags: ["Users"]
+        }),
+         //DELETE USER
+         adminDeleteUser: builder.mutation({
+            query: (id) => ({
+                url: `admin/user/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ["Users"]
+        }),
+        //DELETE USER'S RECIPE
+        adminDeleteRecipe: builder.mutation({
+            query: (id) => ({
+                url: `admin/user_recipe/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ["Users"]
+        }),
     }),
 })
 export default api;
@@ -283,4 +308,8 @@ export const {
     usePatchJoinGuildMutation,
     useGetAllGuildRecipesQuery,
     useGetSingleGuildRecipesQuery,
+    //ADMIN
+    useAdminGetAllUsersQuery,
+    useAdminDeleteUserMutation,
+    useAdminDeleteRecipeMutation,
 } = api

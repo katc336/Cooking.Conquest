@@ -25,6 +25,7 @@ app.get("/test", (req, res) => {
 //Backend Routes
 app.use("/auth", require("./auth"));
 app.use("/api", require("./api"));
+app.use("/admin", require("./admin"));
 
 app.use((error, req, res, next) => {
   console.error('SERVER ERROR: ', error);

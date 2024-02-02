@@ -2,13 +2,17 @@ const prisma = require("./client");
 const bcrypt = require("bcrypt");
 const SALT_COUNT = 10;
 
-async function hashedAdmin() {
-    adminPass = bcrypt.hashSync("De$ignCentra1", SALT_COUNT);
-    return (adminPass);
+// let adminPass = "";
+
+const passwordHash = async () => {
+    adminPass = await bcrypt.hashSync("De$ignCentra1", SALT_COUNT);
+    return adminPass;
 }
-hashedAdmin();
+
+passwordHash();
 
 const seed = async () => {
+
     console.log("Seeding the database.");
     await prisma.recipeBookItem.deleteMany();
     await prisma.instruction.deleteMany();
@@ -22,6 +26,7 @@ const seed = async () => {
     await prisma.level.deleteMany();
 
     try {
+
         //<-------------------LEVELS------------------->
         const level1 = await prisma.level.create({
             data: {
@@ -3770,23 +3775,20 @@ const seed = async () => {
                 recipe: { connect: { id: macAndCheese.id } }
             }
         })
-        //<-------------------USER WITH RECIPEBOOK------------------->
-        const adminUser1 = await prisma.recipeBookItem.create({
+
+
+        //<-------------------ADMIN------------------->
+        const kat = await prisma.user.create({
             data: {
-                user: {
-                    create: {
-                        name: "Kat",
-                        username: "katc336",
-                        email: "email@email.com",
-                        password: "cookingQueen456",
-                        level: 4,
-                        isAdmin: true,
-                        guildId: null
-                    }
-                },
-                recipe: { connect: { id: asianChoppedSalad.id } },
+                name: "Kat",
+                username: 'katc336',
+                email: 'email3@email.com',
+                password: adminPass.toString(),
+                isAdmin: true,
             },
+
         })
+        //<-------------------USER WITH RECIPEBOOK------------------->
         const user2 = await prisma.user.create({
             data: {
                 name: "Holga",

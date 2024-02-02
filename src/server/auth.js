@@ -81,18 +81,4 @@ authRouter.get("/account", requireUser, async (req, res, next) => {
     }
 });
 
-//<--------------------------------GET ALL USERS-------------------------------->
-//NOTE: ADMIN ONLY
-//GET /auth/all_users
-authRouter.get("/all_users", [requireUser, requireAdmin], async (req, res, next) => {
-    try{
-        const user = prisma.user;
-        const users = await user.findMany();
-
-        delete users.password;
-        res.send(users);
-    } catch (error) {
-        next (error)
-    }
-})
 module.exports = authRouter;
