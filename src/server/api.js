@@ -512,9 +512,4 @@ apiRouter.get("/myGuildRecipe/:id", requireUser, async (req, res, next) => {
     }
 });
 
-//<-----------------PATCH RECIPES----------------->
-//NOTE: ADMIN ONLY
-
-//<-----------------DELETE RECIPES----------------->
-//NOTE: ADMIN ONLY
 module.exports = apiRouter;
