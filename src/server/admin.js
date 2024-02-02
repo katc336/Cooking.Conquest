@@ -12,7 +12,6 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 //<--------------------------------GET ALL USERS-------------------------------->
-//NOTE: ADMIN ONLY
 //GET /admin/all_users
 adminRouter.get("/all_users", [requireUser, requireAdmin], async (req, res, next) => {
     try{
@@ -26,6 +25,38 @@ adminRouter.get("/all_users", [requireUser, requireAdmin], async (req, res, next
     } catch (error){
         next(error)
     }
-})
+});
+//<--------------------------------GET USERS RECIPES-------------------------------->
+adminRouter.get("/all_users_recipes", [requireUser, requireAdmin], async (req, res, next) => {
+    try{
+        const user = await prisma.userPostedRecipe.findMany();
+    
+        res.send(user);
+    } catch (error){
+        next(error)
+    }
+});
+//<--------------------------------DELETE A USER-------------------------------->
+adminRouter.delete("/user/:id", [requireUser, requireAdmin], async (req, res, next) => {
+    try {
+        const deletedUser = await prisma.user.delete({
+            where: { id: +req.params.id },
+        });
+        res.send({ deletedUser, message: "User deleted!"});
+    } catch (error) {
+        next(error);
+    }
+});
+//<--------------------------------DELETE A USER'S RECIPE-------------------------------->
+adminRouter.delete("/user_recipe/:id", [requireUser, requireAdmin], async (req, res, next) => {
+    try {
+        const deletedRecipe = await prisma.userPostedRecipe.delete({
+            where: { id: +req.params.id },
+        });
+        res.send({ deletedRecipe, message: "User deleted!"});
+    } catch (error) {
+        next(error);
+    }
+});
 
 module.exports = adminRouter;
