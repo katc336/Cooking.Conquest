@@ -252,7 +252,8 @@ const api = createApi({
             query: () => ({
                 url: `admin/all_users`,
                 method: 'GET'
-            })
+            }),
+            providesTags: ["Users"]
         }),
          //DELETE USER
          adminDeleteUser: builder.mutation({
@@ -260,7 +261,7 @@ const api = createApi({
                 url: `admin/user/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ["UserRecipe"]
+            invalidatesTags: ["Users"]
         }),
         //DELETE USER'S RECIPE
         adminDeleteRecipe: builder.mutation({

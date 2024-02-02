@@ -40,16 +40,6 @@ const WebUserDashboard = () => {
     return (
         <>
             <div>
-                {data.isAdmin === true
-                    ?
-                    <div>
-                        <Button sx={{ ml: 100}}>
-
-                        </Button>
-                    </div>
-                    :
-                    <div>
-                    </div>}
                 <Grid container sx={{ mt: 1 }}>
                     <Grid item xs={3}>
                         {data.level === 1
