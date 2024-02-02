@@ -16,14 +16,15 @@ const prisma = new PrismaClient();
 //GET /admin/all_users
 adminRouter.get("/all_users", [requireUser, requireAdmin], async (req, res, next) => {
     try{
-        const user = prisma.user;
-        const users = await user.findMany();
-        
-        delete users.password;
-
-        res.send(users);
-    } catch (error) {
-        next (error)
+        const user = await prisma.user.findMany();
+    //Removes password from each user object
+        let removedPassword = user.map( user => {
+            delete user.password
+            return user
+        })
+        res.send(removedPassword);
+    } catch (error){
+        next(error)
     }
 })
 
