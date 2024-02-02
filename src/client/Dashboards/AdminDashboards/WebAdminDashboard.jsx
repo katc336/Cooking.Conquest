@@ -18,6 +18,8 @@ const WebAdminDashboard = () => {
                 <Grid item xs={2}>
                     <Link to="/account">
                         <Button
+                           variant="contained"
+                           color="success"
                             sx={{
                                 ml: 3,
                                 mt: 3,
@@ -35,10 +37,11 @@ const WebAdminDashboard = () => {
                     </Link>
                 </Grid>
                 <Grid item xs={10}>
-                    <Card sx={{ 
+                    <Card sx={{
                         borderRadius: "50px",
                         mx: 3,
-                        backgroundImage: "radial-gradient(circle, #0f6700, #0f6700, #0f6700, #0f6700, #0f6700, #196f05, #21780a, #298010, #3b931c, #4ca727, #5dbb32, #6fd03d)" }}>
+                        backgroundImage: "radial-gradient(circle, #0f6700, #0f6700, #0f6700, #0f6700, #0f6700, #196f05, #21780a, #298010, #3b931c, #4ca727, #5dbb32, #6fd03d)"
+                    }}>
                         <MapAllUsers />
                     </Card>
                 </Grid>

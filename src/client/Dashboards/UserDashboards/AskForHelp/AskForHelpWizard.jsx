@@ -42,6 +42,8 @@ const AskForHelpWizard = () => {
                             <Typography sx={{ mt: 1, textAlign: "center" }}>
                                 <Link to="/admin">
                                     <Button
+                                        variant="contained"
+                                        color="success"
                                         sx={{ color: "white", borderRadius: "10px", backgroundColor: "#65B741", border: 2, borderBottom: 5, borderColor: "#445D48", textTransform: "none" }}>
                                         Admin Dashboard
                                     </Button>
@@ -66,6 +68,8 @@ const AskForHelpWizard = () => {
                             <Typography sx={{ mt: 1, textAlign: "center" }}>
                                 <Link to="/information">
                                     <Button
+                                        variant="contained"
+                                        color="success"
                                         sx={{ color: "white", borderRadius: "10px", backgroundColor: "#65B741", border: 2, borderBottom: 5, borderColor: "#445D48", textTransform: "none" }}>
                                         Ask for Help
                                     </Button>

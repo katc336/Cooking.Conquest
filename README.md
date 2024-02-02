@@ -8,15 +8,15 @@ While using the app, users select level appropriate recipes, and as they complet
 After level three, users have the ability to join a guild and post their own vegetarian creations. The guild feature provides an opportunity to interact, share, and compete with each other in the app community by reviewing and rating eachother's recipes. The app will also feature a leaderboard that showcases the top guild’s ranking and top ranking individual cooks based on review scores, providing a sense of friendly competition and camaraderie within the app community. 
 
 ## Technology Used
-![Postgres badge](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)  
-![Prisma badge](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)  
-![Redux badge](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)  
-![React badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)  
-![React Router badge](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)  
-![Vite badge](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)  
-![NPM badge](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)  
-![Node badge](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-MUI Library
+PostgreSQL,
+Prisma,
+Redux Toolkit, 
+React.js,
+Express.js,
+Node.js, 
+React Router DOM, 
+Vite,
+MUI Library,
 Framer Motion
 
 ## Artwork
@@ -42,9 +42,7 @@ used
 10. Open the app on your localhost at the port you specified!
 
 ## Known Issues 
-- Incomplete seed file 
 - Error handling for post requests that are unsuccessful
 - Unable to patch posted recipes
 - No mobile feature  
-- Incomplete admin features
 - Needs improved user accessibility across entire application
