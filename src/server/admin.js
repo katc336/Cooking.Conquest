@@ -26,16 +26,6 @@ adminRouter.get("/all_users", [requireUser, requireAdmin], async (req, res, next
         next(error)
     }
 });
-//<--------------------------------GET USERS RECIPES-------------------------------->
-adminRouter.get("/all_users_recipes", [requireUser, requireAdmin], async (req, res, next) => {
-    try{
-        const user = await prisma.userPostedRecipe.findMany();
-    
-        res.send(user);
-    } catch (error){
-        next(error)
-    }
-});
 //<--------------------------------DELETE A USER-------------------------------->
 adminRouter.delete("/user/:id", [requireUser, requireAdmin], async (req, res, next) => {
     try {

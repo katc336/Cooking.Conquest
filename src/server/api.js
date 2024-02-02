@@ -461,14 +461,13 @@ apiRouter.delete("/guildRecipe/:id", requireUser, async (req, res, next) => {
 //<-----------------UPDATE USER POSTED RECIPE----------------->
 apiRouter.patch("/guildRecipe/:id", requireUser, async (req, res, next) => {
     try {
-        const { name, image, description } = req.body;
+        const { name, description } = req.body;
         const updatedRecipe = await prisma.userPostedRecipe.update({
             where: {
                 id: Number(req.params.id)
             },
             data: {
                 name: name || undefined,
-                // image: image || undefined,
                 description: description || undefined,
             },
         })
