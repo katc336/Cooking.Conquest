@@ -4,11 +4,12 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Card from "@mui/material/Card"
-import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography"
 
 import { useAdminDeleteRecipeMutation, useAdminGetAllUsersQuery } from "../../../redux/api"
 import DeleteUserButton from './DeleteUserButton';
+import DeleteRecipeButton from './DeleteRecipeButton';
 
 const MapAllUsers = () => {
     const { data, isLoading, error } = useAdminGetAllUsersQuery();
@@ -80,9 +81,21 @@ const MapAllUsers = () => {
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         {user.userPostedRecipes.map((recipe) => (
-                                            <Typography>
-                                                {recipe.name}
-                                            </Typography>
+                                            <div>
+                                                <Card
+                                                    key={recipe.id}
+                                                    elevation={10}
+                                                    sx={{ mx: 3, my: 1, backgroundColor: "#F5F7E6", p: 3, borderRadius: "5px" }}>
+                                                    <Stack direction="row">
+                                                        <Typography
+                                                            variant="h6"
+                                                            sx={{ mr: 5, mt: 1 }}>
+                                                            {recipe.name}
+                                                        </Typography>
+                                                        <DeleteRecipeButton id={recipe.id} />
+                                                    </Stack>
+                                                </Card>
+                                            </div>
                                         ))}
                                     </AccordionDetails>
                                 </Accordion>

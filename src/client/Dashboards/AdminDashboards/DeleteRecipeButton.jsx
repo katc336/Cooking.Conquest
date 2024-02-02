@@ -7,12 +7,12 @@ import { useState } from "react"
 
 import { motion } from "framer-motion"
 
-import { useAdminDeleteUserMutation } from "../../../redux/api"
+import { useAdminDeleteRecipeMutation } from "../../../redux/api"
 
-const DeleteUserButton = ({ id }) => {
+const DeleteRecipeButton = ({ id }) => {
     const [alert, setAlert] = useState(false);
     const [deleteButton, setDeleteButton] = useState(true);
-    const [deleteUser] = useAdminDeleteUserMutation(id);
+    const [deleteUser] = useAdminDeleteRecipeMutation(id);
     const handleDelete = async () => {
         try {
             const result = await deleteUser(id);
@@ -24,10 +24,9 @@ const DeleteUserButton = ({ id }) => {
     };
     return (
         <motion.div>
-            <Typography sx={{ textAlign: "center", mt: 3 }}>
                 {alert && <Alert severity="warning">
                     <Stack direction="column">
-                        Are you sure you want to delete this user?
+                        Are you sure you want to delete this recipe?
                         <Button
                             onClick={() => handleDelete(id)}
                             variant="contained"
@@ -41,7 +40,7 @@ const DeleteUserButton = ({ id }) => {
                                 borderColor: "#862B0D",
                                 borderRadius: "10px"
                             }}>
-                            Yes, delete this user.
+                            Yes, delete this recipe.
                         </Button>
                         <Button
                             variant="contained"
@@ -74,18 +73,16 @@ const DeleteUserButton = ({ id }) => {
                         color="error"
                         sx={{
                             textTransform: "none",
-                            mb: 2.5,
                             backgroundColor: "#D24545",
                             border: 2,
                             borderBottom: 5,
                             borderColor: "#862B0D",
                             borderRadius: "10px"
                         }}>
-                        Delete User
+                        Delete Recipe
                     </Button>
                 }
-            </Typography>
         </motion.div>
     )
 }
-export default DeleteUserButton
+export default DeleteRecipeButton

@@ -269,7 +269,7 @@ const api = createApi({
                 url: `admin/user_recipe/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ["UserRecipe"]
+            invalidatesTags: ["Users"]
         }),
     }),
 })
