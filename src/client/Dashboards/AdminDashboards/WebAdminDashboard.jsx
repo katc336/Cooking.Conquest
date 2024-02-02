@@ -19,7 +19,7 @@ import MaxLevelUserDisplay from "./MaxLevel/MaxLevelUserDisplay";
 import AskForHelpWizard from "./AskForHelp/AskForHelpWizard";
 import GuildHelpWizard from "./AskForHelp/GuildHelpWizard";
 
-const WebUserDashboard = () => {
+const WebAdminDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();
 
     const theme = useTheme();
@@ -40,16 +40,6 @@ const WebUserDashboard = () => {
     return (
         <>
             <div>
-                {data.isAdmin === true
-                    ?
-                    <div>
-                        <Button sx={{ ml: 100}}>
-
-                        </Button>
-                    </div>
-                    :
-                    <div>
-                    </div>}
                 <Grid container sx={{ mt: 1 }}>
                     <Grid item xs={3}>
                         {data.level === 1
@@ -140,4 +130,4 @@ const WebUserDashboard = () => {
         </>
     )
 }
-export default WebUserDashboard
+export default WebAdminDashboard

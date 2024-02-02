@@ -20,6 +20,7 @@ import UserInformationDisplay from "./InformationPage/UserInformationDisplay";
 import AllGuildRecipes from "./SeeRecipes/UsersPostedRecipesPage/AllGuildRecipes";
 import SingleGuildRecipe from "./SeeRecipes/UsersPostedRecipesPage/SingleGuildRecipe";
 import AddRecipe from "./UserPostedRecipe/AddRecipes";
+import AdminDashboard from "./Dashboards/AdminDashboards/AdminDashboard";
 
 function App() {
   const token = useSelector((state) => state.auth.token);
@@ -47,6 +48,7 @@ function App() {
           <Route path="/users_recipes" element={<AllGuildRecipes/>} />
           <Route path="/users_recipes/:id" element={<SingleGuildRecipe/>} />
           <Route path="/add_recipes" element={<AddRecipe />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </BrowserRouter>
     </div>
