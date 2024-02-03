@@ -14,9 +14,9 @@ import Stack from "@mui/material/Stack";
 import LoginIcon from '@mui/icons-material/Login';
 import { useMediaQuery, useTheme } from '@mui/material';
 
-import { useLoginMutation } from "../../redux/api";
+import { useLoginMutation } from "../../../redux/api";
 
-import Scroll from "./AuthScroll.png"
+import Scroll from "../AuthScroll.png"
 
 const LoginForm = () => {
 

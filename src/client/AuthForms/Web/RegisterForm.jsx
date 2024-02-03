@@ -15,9 +15,9 @@ import { useMediaQuery, useTheme } from '@mui/material';
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { useRegisterMutation } from "../../redux/api";
+import { useRegisterMutation } from "../../../redux/api";
 
-import Scroll from "./AuthScroll.png"
+import Scroll from "../AuthScroll.png"
 
 const RegisterForm = () => {
     const [alert, setAlert] = useState(true);

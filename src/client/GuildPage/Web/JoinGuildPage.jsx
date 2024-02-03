@@ -7,11 +7,11 @@ import { motion } from "framer-motion"
 
 import { useParams, useNavigate } from "react-router-dom"
 
-import { useGetAllGuildsQuery, usePatchJoinGuildMutation } from "../../redux/api"
+import { useGetAllGuildsQuery, usePatchJoinGuildMutation } from "../../../redux/api"
 
-import GreenSageIcon from "./images/GreenSageIcon.png"
-import LeafSongIcon from "./images/LeafSongIcon.png"
-import GastrognomeIcon from "./images/GastrognomeIcon.png"
+import GreenSageIcon from "../images/GreenSageIcon.png"
+import LeafSongIcon from "../images/LeafSongIcon.png"
+import GastrognomeIcon from "../images/GastrognomeIcon.png"
 
 const JoinGuildPage = () => {
     const { data, error, isLoading } = useGetAllGuildsQuery()

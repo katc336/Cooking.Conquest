@@ -1,4 +1,4 @@
-import { useGetUserQuery } from "../../redux/api";
+import { useGetUserQuery } from "../../../redux/api";
 import CookingConquestInfoPage from "./CookingConquestInfoPage";
 import GuildInfoPage from "./GuildInfoPage";
 

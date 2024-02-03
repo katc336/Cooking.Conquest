@@ -6,12 +6,12 @@ import Typography from "@mui/material/Typography"
 
 import { motion } from "framer-motion"
 
-import { useGetAllGuildsQuery } from "../../redux/api"
+import { useGetAllGuildsQuery } from "../../../redux/api"
 
-import GreenSageIcon from "./images/GreenSageIcon.png"
-import LeafSongIcon from "./images/LeafSongIcon.png"
-import GastrognomeIcon from "./images/GastrognomeIcon.png"
-import GuildScroll from "./images/GuildScroll.png"
+import GreenSageIcon from "../images/GreenSageIcon.png"
+import LeafSongIcon from "../images/LeafSongIcon.png"
+import GastrognomeIcon from "../images/GastrognomeIcon.png"
+import GuildScroll from "../images/GuildScroll.png"
 
 const LeadershipBoard = () => {
     const { data, error, isLoading } = useGetAllGuildsQuery()

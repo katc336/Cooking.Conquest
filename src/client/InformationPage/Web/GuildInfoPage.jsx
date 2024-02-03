@@ -8,7 +8,7 @@ import { useState } from "react"
 
 import { motion } from "framer-motion"
 
-import InformationScroll from "./images/InformationScroll.png"
+import InformationScroll from "../images/InformationScroll.png"
 import CookingConquestInfoPage from "./CookingConquestInfoPage"
 
 const GuildInfoPage = () => {

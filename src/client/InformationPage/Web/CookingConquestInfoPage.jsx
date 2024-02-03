@@ -5,11 +5,11 @@ import Stack from "@mui/material/Stack"
 
 import { motion } from "framer-motion"
 
-import InformationScroll from "./images/InformationScroll.png"
-import AddRecipePageView from "./images/AddRecipePageView.png"
-import DashboardPageView from "./images/DashboardPageView.png"
-import LockedLevelPageView from "./images/LockedLevelPageView.png"
-import SingleRecipePageView from "./images/SingleRecipePageView.png"
+import InformationScroll from "../images/InformationScroll.png"
+import AddRecipePageView from "../images/AddRecipePageView.png"
+import DashboardPageView from "../images/DashboardPageView.png"
+import LockedLevelPageView from "../images/LockedLevelPageView.png"
+import SingleRecipePageView from "../images/SingleRecipePageView.png"
 
 
 const CookingConquestInfoPage = () => {

@@ -1,35 +1,22 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
-import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import Tooltip from '@mui/material/Tooltip';
-import { useMediaQuery, useTheme } from '@mui/material';
 
 import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import MobileNavBar from './MobileNavBar';
+import CookingConquestText from "../images/CookingConquestText.png"
+import InformationButton from "../Buttons/InformationButton";
+import SearchButton from "../Buttons/SearchButton"
+import WorldLoreButton from "../Buttons/WorldLoreButton"
+import GuildBoardButton from "../Buttons/GuildBoardButton";
 
-import CookingConquestText from "./images/CookingConquestText.png"
-import InformationButton from "./Buttons/InformationButton";
-import SearchButton from "./Buttons/SearchButton"
-import WorldLoreButton from "./Buttons/WorldLoreButton"
-import GuildBoardButton from "./Buttons/GuildBoardButton";
-
-const NavBar = () => {
-
-
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+const NonUserNavBar = () => {
 
     return (
         <>
-            {isMobile
-                ? //if mobile...
-                <MobileNavBar />
-                ://if NOT mobile...
                 <AppBar sx={{ pt: 1, backgroundColor: "#F4F9F4" }}>
                     <Stack direction="row">
                         <Box sx={{ mx: 2, flexGrow: 1 }}>
@@ -64,9 +51,8 @@ const NavBar = () => {
                         </Stack>
                     </Stack>
                 </AppBar>
-            }
         </>
     )
 }
 
-export default NavBar;
+export default NonUserNavBar;
