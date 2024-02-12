@@ -1,5 +1,6 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import RegisterForm from './Web/RegisterForm';
+import MobileRegisterForm from './Mobile/MobileRegisterForm';
 
 const RegisterResponsive = () => {
     const theme = useTheme();
@@ -9,7 +10,7 @@ const RegisterResponsive = () => {
             {isMobile
                 ? //if mobile...
                 <div>
-
+                    <MobileRegisterForm />
                 </div>
                 : //if not mobile...
                 <div>

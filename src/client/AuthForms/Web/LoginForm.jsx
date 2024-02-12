@@ -12,7 +12,6 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import LoginIcon from '@mui/icons-material/Login';
-import { useMediaQuery, useTheme } from '@mui/material';
 
 import { useLoginMutation } from "../../../redux/api";
 
@@ -26,9 +25,6 @@ const LoginForm = () => {
     }
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     const navigate = useNavigate();
 
@@ -98,82 +94,40 @@ const LoginForm = () => {
                                                 ? <Alert severity="error"> Your password needs to be at least 8 characters long </Alert>
                                                 : password.length > 16 ? <Alert severity="error"> Your password cannot be more than 16 characters long </Alert>
                                                     : null
-                                        }
-                                    />
-                                    {isMobile ?
-                                        <div>
-                                            <Typography sx={{ color: "#445D48", textAlign: "center" }}>
-                                                <Button
-                                                    type="submit"
-                                                    variant="contained"
-                                                    color="success"
-                                                    sx={{
-                                                        width: "100%",
-                                                        p: 1,
-                                                        fontSize: "20px",
-                                                        color: "white",
-                                                        borderRadius: "10px",
-                                                        backgroundColor: "#65B741",
-                                                        border: 2,
-                                                        borderBottom: 5,
-                                                        borderColor: "#445D48",
-                                                        textTransform: "none"
-                                                    }}>
-                                                    Login
-                                                </Button>
-                                                <Typography sx={{ mt: 2, color: "#445D48", textAlign: "center" }}>
-                                                    Don't have an account?
-                                                </Typography>
-                                                <Link to="/register">
-                                                    <Button
-                                                        sx={{
-                                                            my: 1,
-                                                            width: "100%",
-                                                            color: "#445D48",
-                                                            textTransform: "none"
-                                                        }}>
-                                                        Sign up!
-                                                        <LoginIcon sx={{ ml: 2 }} />
-                                                    </Button>
-                                                </Link>
-                                            </Typography>
-                                        </div>
-                                        ://is NOT mobile... 
-                                        <div>
-                                            <Typography sx={{ textAlign: "center" }}>
-                                                <Button
-                                                    type="submit"
-                                                    variant="contained"
-                                                    color="success"
-                                                    sx={{
-                                                        p: 1,
-                                                        fontSize: "20px",
-                                                        color: "white",
-                                                        borderRadius: "10px",
-                                                        backgroundColor: "#65B741",
-                                                        border: 2,
-                                                        borderBottom: 5,
-                                                        borderColor: "#445D48",
-                                                        textTransform: "none"
-                                                    }}>
-                                                    Login
-                                                </Button>
-                                                <Typography sx={{ mt: 2 }}>
-                                                    Don't have an account?
-                                                </Typography>
-                                                <Link to="/register">
-                                                    <Button
-                                                        sx={{
-                                                            my: 1,
-                                                            textTransform: "none",
-                                                            color: "#445D48"
-                                                        }}>
-                                                        Sign up!
-                                                        <LoginIcon sx={{ color: "#205375" }} />
-                                                    </Button>
-                                                </Link>
-                                            </Typography>
-                                        </div>}
+                                        }/>
+                                    <Typography sx={{ textAlign: "center" }}>
+                                        <Button
+                                            type="submit"
+                                            variant="contained"
+                                            color="success"
+                                            sx={{
+                                                p: 1,
+                                                fontSize: "20px",
+                                                color: "white",
+                                                borderRadius: "10px",
+                                                backgroundColor: "#65B741",
+                                                border: 2,
+                                                borderBottom: 5,
+                                                borderColor: "#445D48",
+                                                textTransform: "none"
+                                            }}>
+                                            Login
+                                        </Button>
+                                        <Typography sx={{ mt: 2 }}>
+                                            Don't have an account?
+                                        </Typography>
+                                        <Link to="/register">
+                                            <Button
+                                                sx={{
+                                                    my: 1,
+                                                    textTransform: "none",
+                                                    color: "#445D48"
+                                                }}>
+                                                Sign up!
+                                                <LoginIcon sx={{ color: "#205375" }} />
+                                            </Button>
+                                        </Link>
+                                    </Typography>
                                 </Stack>
                             </form>
                         </Box>

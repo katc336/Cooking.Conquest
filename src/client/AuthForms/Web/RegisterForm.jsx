@@ -11,7 +11,6 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import LoginIcon from '@mui/icons-material/Login';
-import { useMediaQuery, useTheme } from '@mui/material';
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -27,12 +26,9 @@ const RegisterForm = () => {
     const [secondPassword, setSecondPassword] = useState("");
     const [email, setEmail] = useState("");
 
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
     const navigate = useNavigate();
 
-    const [register, { data, error, isLoading }] = useRegisterMutation();
+    const [register, { error }] = useRegisterMutation();
 
     if (error) {
         return <div>{error}</div>
@@ -67,14 +63,14 @@ const RegisterForm = () => {
             transition={{ duration: 0.5, ease: "easeIn" }}>
             {alert &&
                 <Card sx={{ mt: 20, border: 5, borderColor: "#862B0D", borderRadius: "20px", backgroundColor: "#FFF9C9", mx: 40, p: 3 }}>
-                    <Typography 
-                    sx={{ color: "#362706", textAlign: "center" }}
+                    <Typography
+                        sx={{ color: "#362706", textAlign: "center" }}
                         variant="h4">
                         Thanks for Signing Up!
                     </Typography>
-                    <Typography 
-                    sx={{ color: "#362706", textAlign: "center" }}
-                    variant="h6">
+                    <Typography
+                        sx={{ color: "#362706", textAlign: "center" }}
+                        variant="h6">
                         Before you sign up, we wanted to inform you that as of now, Cooking Conquest is just a demo,
                         and account data will be erased during updates.
                     </Typography>
@@ -180,83 +176,35 @@ const RegisterForm = () => {
                                                         <Alert severity="error"> Passwords do not match </Alert> : null
                                                 }
                                             />
-                                            {isMobile ?
-                                                <div>
-                                                    <Typography sx={{ color: "#445D48", textAlign: "center" }}>
-                                                        <Button
-                                                            type="submit"
-                                                            variant="contained"
-                                                            color="success"
-                                                            sx={{
-                                                                p: 1,
-                                                                my: 1,
-                                                                fontSize: "20px",
-                                                                color: "white",
-                                                                borderRadius: "10px",
-                                                                backgroundColor: "#65B741",
-                                                                border: 2,
-                                                                borderBottom: 5,
-                                                                borderColor: "#445D48",
-                                                                textTransform: "none"
-                                                            }}>
-                                                            Sign Up
-                                                        </Button>
-                                                        <Typography sx={{ mt: 2, color: "#445D48", textAlign: "center" }}>
-                                                            Already have an account?
-                                                        </Typography>
-                                                        <Link to="/login">
-                                                            <Button
-                                                                variant="outlined"
-                                                                sx={{
-                                                                    my: 1,
-                                                                    width: "100%",
-                                                                    fontSize: "20px",
-                                                                    color: "white",
-                                                                    borderRadius: "10px",
-                                                                    backgroundColor: "#65B741",
-                                                                    border: 2,
-                                                                    borderBottom: 5,
-                                                                    borderColor: "#445D48",
-                                                                    textTransform: "none"
-                                                                }}>
-                                                                Login to your account
-                                                                <LoginIcon sx={{ color: "#205375" }} />
-                                                            </Button>
-                                                        </Link>
-                                                    </Typography>
-                                                </div>
-                                                ://is NOT mobile... 
-                                                <div>
-                                                    <Typography sx={{ color: "#445D48", textAlign: "center" }}>
-                                                        <Button
-                                                            type="submit"
-                                                            variant="contained"
-                                                            color="success"
-                                                            sx={{
-                                                                p: 1,
-                                                                my: 1,
-                                                                fontSize: "20px",
-                                                                color: "white",
-                                                                borderRadius: "10px",
-                                                                backgroundColor: "#65B741",
-                                                                border: 2,
-                                                                borderBottom: 5,
-                                                                borderColor: "#445D48",
-                                                                textTransform: "none"
-                                                            }}>
-                                                            Start Your Cooking Journey
-                                                        </Button>
-                                                        <Typography sx={{ mt: 2, color: "#445D48", textAlign: "center" }}>
-                                                            Already have an account?
-                                                        </Typography>
-                                                        <Link to="/login">
-                                                            <Button sx={{ color: "#445D48", textTransform: "none", my: 1 }}>
-                                                                Login to your account
-                                                                <LoginIcon sx={{ ml: 2, color: "#445D48" }} />
-                                                            </Button>
-                                                        </Link>
-                                                    </Typography>
-                                                </div>}
+                                            <Typography sx={{ color: "#445D48", textAlign: "center" }}>
+                                                <Button
+                                                    type="submit"
+                                                    variant="contained"
+                                                    color="success"
+                                                    sx={{
+                                                        p: 1,
+                                                        my: 1,
+                                                        fontSize: "20px",
+                                                        color: "white",
+                                                        borderRadius: "10px",
+                                                        backgroundColor: "#65B741",
+                                                        border: 2,
+                                                        borderBottom: 5,
+                                                        borderColor: "#445D48",
+                                                        textTransform: "none"
+                                                    }}>
+                                                    Start Your Cooking Journey
+                                                </Button>
+                                                <Typography sx={{ mt: 2, color: "#445D48", textAlign: "center" }}>
+                                                    Already have an account?
+                                                </Typography>
+                                                <Link to="/login">
+                                                    <Button sx={{ color: "#445D48", textTransform: "none", my: 1 }}>
+                                                        Login to your account
+                                                        <LoginIcon sx={{ ml: 2, color: "#445D48" }} />
+                                                    </Button>
+                                                </Link>
+                                            </Typography>
                                         </Stack>
                                     </form>
                                 </Box>

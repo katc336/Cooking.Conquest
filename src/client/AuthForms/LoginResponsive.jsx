@@ -1,5 +1,6 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import LoginForm from './Web/LoginForm';
+import MobileLoginForm from './Mobile/MobileLogin';
 
 const LoginResponsive = () => {
     const theme = useTheme();
@@ -9,7 +10,7 @@ const LoginResponsive = () => {
             {isMobile
                 ? //if mobile...
                 <div>
-
+                    <MobileLoginForm />
                 </div>
                 : //if not mobile...
                 <div>
