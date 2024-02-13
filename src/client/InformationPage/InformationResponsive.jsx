@@ -1,5 +1,6 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import UserInformationDisplay from './Web/UserInformationDisplay';
+import MobileUserInformationDisplay from './Mobile/MobileUserInformationDisplay';
 
 const InformationResponsive = () => {
     const theme = useTheme();
@@ -9,7 +10,7 @@ const InformationResponsive = () => {
             {isMobile
                 ? //if mobile...
                 <div>
-
+                    <MobileUserInformationDisplay />
                 </div>
                 : //if not mobile...
                 <div>

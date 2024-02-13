@@ -27,7 +27,6 @@ const GuildInfoPage = () => {
                         width: "60%",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    {/* <-------------------Row 1-------------------> */}
                     <Typography
                         variant="h3"
                         sx={{ color: "#362706", textAlign: "center", mb: 2 }}>
