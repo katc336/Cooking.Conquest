@@ -1,6 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import HomePage from "./HomePage";
+import WebHomePage from "./WebHomePage";
 import MobileHomePage from "./MobileHomePage";
 const ResponsiveHomePage = () => {
 
@@ -16,7 +16,7 @@ const ResponsiveHomePage = () => {
                 </div>
                 :
                 <div>
-                  <HomePage />
+                  <WebHomePage />
                 </div>}
         </div>
     )

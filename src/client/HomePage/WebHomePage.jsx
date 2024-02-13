@@ -1,11 +1,15 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material"
+import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
+import Grid  from "@mui/material/Grid"
+import Stack from "@mui/material/Stack"
+import Typography  from "@mui/material/Typography"
 
 import { Link } from "react-router-dom";
 
 import Logo from "./images/Logo.png"
 import HomeScroll from "./images/HomeScroll.png"
 import CookingConquestInfo from "../InformationPage/Web/CookingConquestInfoPage";
-const HomePage = () => {
+const WebHomePage = () => {
 
     return (
         <div>
@@ -83,4 +87,4 @@ const HomePage = () => {
         </div>
     )
 }
-export default HomePage
+export default WebHomePage
