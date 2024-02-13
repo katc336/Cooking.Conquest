@@ -1,6 +1,7 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import LeadershipBoard from "./Web/LeadershipBoard";
+import MobileLeadershipBoard from "./Mobile/MobileLeadershipBoard";
 
 const GuildPageResponsive = () => {
     const theme = useTheme();
@@ -10,7 +11,7 @@ const GuildPageResponsive = () => {
             {isMobile
                 ?
                 <div>
-
+                    <MobileLeadershipBoard />
                 </div>
                 :
                 <div>
