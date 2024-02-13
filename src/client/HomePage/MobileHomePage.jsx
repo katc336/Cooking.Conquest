@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 import Logo from "./images/Logo.png"
 import HomeScroll from "./images/HomeScroll.png"
-import CookingConquestInfo from "../InformationPage/Web/CookingConquestInfoPage";
 const MobileHomePage = () => {
 
     return (

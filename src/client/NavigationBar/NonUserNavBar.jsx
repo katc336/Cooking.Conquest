@@ -11,7 +11,7 @@ const NonUserNavBar = () => {
             {isMobile
                 ? //if mobile...
                 <div>
-                    <MobileNonUserNavBar />
+                    {/* <MobileNonUserNavBar /> */}
                 </div>
                 : //if not mobile...
                 <div>
