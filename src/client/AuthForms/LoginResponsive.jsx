@@ -1,8 +1,8 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import WebUserNavBar from './Web/WebUserNavBar';
-import MobileUserNavBar from './Mobile/MobileUserNavBar';
+import LoginForm from './Web/LoginForm';
+import MobileLoginForm from './Mobile/MobileLogin';
 
-const UserNavBar = () => {
+const LoginResponsive = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     return (
@@ -10,13 +10,13 @@ const UserNavBar = () => {
             {isMobile
                 ? //if mobile...
                 <div>
-                    {/* <MobileUserNavBar /> */}
+                    <MobileLoginForm />
                 </div>
                 : //if not mobile...
                 <div>
-                    <WebUserNavBar />
+                    <LoginForm />
                 </div>}
         </div>
     )
 }
-export default UserNavBar
+export default LoginResponsive

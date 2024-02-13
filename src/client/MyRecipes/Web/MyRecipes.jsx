@@ -5,12 +5,12 @@ import Typography from "@mui/material/Typography"
 
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-import { useGetUserQuery } from "../../redux/api"
+import { useGetUserQuery } from "../../../redux/api"
 
-import MyRecipesPage from "./MyRecipesPage.png"
+import MyRecipesPage from "../MyRecipesPage.png"
 import MyCompletedRecipes from "./MyCompletedRecipes"
 import AddRecipeNavButton from "./AddRecipeNavButton"
-import MyPostedRecpipes from "../UserPostedRecipe/MyPostedRecipes"
+import MyPostedRecpipes from "../../UserPostedRecipe/MyPostedRecipes"
 
 const MyRecipes = () => {
     const { data, error, isLoading } = useGetUserQuery();

@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
-import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../redux/api";
+import { useGetRecipeBookItemQuery, usePatchCompletedRecipeMutation } from "../../../redux/api";
 
 const MyIncompleteRecipes = () => {
     const { data, error, isLoading } = useGetRecipeBookItemQuery();

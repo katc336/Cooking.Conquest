@@ -5,8 +5,6 @@ import Typography from "@mui/material/Typography"
 
 import { Link } from "react-router-dom";
 
-import { useMediaQuery, useTheme } from "@mui/material";
-
 import { useGetUserQuery } from "../../../redux/api";
 
 import RecipeSpellBook from "./images/RecipeSpellBook.png"
@@ -21,9 +19,6 @@ import GuildHelpWizard from "./AskForHelp/GuildHelpWizard";
 
 const WebUserDashboard = () => {
     const { data, error, isLoading } = useGetUserQuery();
-
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     if (isLoading) {
         console.log("Loading...")

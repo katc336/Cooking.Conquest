@@ -2,6 +2,7 @@ import Button from "@mui/material/Button"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 import { useState } from 'react';
 
@@ -9,13 +10,15 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
-import { useGetUserQuery } from '../../redux/api';
+import { useGetUserQuery } from '../../../redux/api';
 import MenuChefIcon from "./images/MyAccount.png"
 
 const MenuIcon = () => {
-
-    const { data, error, isLoading } = useGetUserQuery();
     const [anchorEl, setAnchorEl] = useState(null);
+    const { data, error, isLoading } = useGetUserQuery();
+
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {

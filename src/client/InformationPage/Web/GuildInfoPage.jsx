@@ -8,7 +8,7 @@ import { useState } from "react"
 
 import { motion } from "framer-motion"
 
-import InformationScroll from "./images/InformationScroll.png"
+import InformationScroll from "../images/InformationScroll.png"
 import CookingConquestInfoPage from "./CookingConquestInfoPage"
 
 const GuildInfoPage = () => {
@@ -27,7 +27,6 @@ const GuildInfoPage = () => {
                         width: "60%",
                         backgroundRepeat: "no-repeat",
                     }}>
-                    {/* <-------------------Row 1-------------------> */}
                     <Typography
                         variant="h3"
                         sx={{ color: "#362706", textAlign: "center", mb: 2 }}>

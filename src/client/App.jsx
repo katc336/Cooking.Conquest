@@ -3,20 +3,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
-import HomePage from "./HomePage/HomePage";
-import NavBar from "./NavigationBar/NavBar";
-import LoginForm from "./AuthForms/LoginForm";
-import RegisterForm from "./AuthForms/RegisterForm";
+import ResponsiveHomePage from "./HomePage/ResponsiveHomePage";
+import LoginResponsive from "./AuthForms/LoginResponsive";
+import RegisterResponsive from "./AuthForms/RegisterResponsive";
 import RecipesPage from "./SeeRecipes/AllRecipesPage/RecipesPage";
 import SingleRecipe from "./SeeRecipes/SingleRecipePage/SingleRecipe";
 import UserDashboard from "./Dashboards/UserDashboards/UserDashboard";
+import NonUserNavBar from "./NavigationBar/NonUserNavBar";
 import UserNavBar from "./NavigationBar/UserNavBar";
-import MyRecipes from "./MyRecipes/MyRecipes";
+import MyRecipesResponsive from "./MyRecipes/MyRecipesResponsive";
 import WorldLore from "./WorldLore/WorldLore";
-import JoinGuildPage from "./GuildPage/JoinGuildPage";
-import LeadershipBoard from "./GuildPage/LeadershipBoard";
-import GuildInformation from "./InformationPage/GuildInfoPage";
-import UserInformationDisplay from "./InformationPage/UserInformationDisplay";
+import JoinGuildPage from "./GuildPage/Web/JoinGuildPage";
+import GuildPageResponsive from "./GuildPage/GuildPageResponsive";
+import GuildInformation from "./InformationPage/Web/GuildInfoPage";
+import InformationResponsive from "./InformationPage/InformationResponsive";
 import AllGuildRecipes from "./SeeRecipes/UsersPostedRecipesPage/AllGuildRecipes";
 import SingleGuildRecipe from "./SeeRecipes/UsersPostedRecipesPage/SingleGuildRecipe";
 import AddRecipe from "./UserPostedRecipe/AddRecipes";
@@ -31,20 +31,20 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {!token ? <NavBar /> : <UserNavBar/>}
+        {!token ? <NonUserNavBar/> : <UserNavBar/>}
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/" element={<ResponsiveHomePage />} />
+          <Route path="/login" element={<LoginResponsive />} />
+          <Route path="/register" element={<RegisterResponsive />} />
           <Route path="/account" element={<UserDashboard />} />
           <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/recipe/:id" element={<SingleRecipe />} />
-          <Route path="/my_recipes" element={<MyRecipes />} />
+          <Route path="/my_recipes" element={<MyRecipesResponsive />} />
           <Route path="/lore" element={<WorldLore/>} />
           <Route path="/join_guild" element={<JoinGuildPage/>} />
-          <Route path="/information" element={<UserInformationDisplay />} />
+          <Route path="/information" element={<InformationResponsive />} />
           <Route path="/guild_information" element={<GuildInformation />} />
-          <Route path="/leadership_board" element={<LeadershipBoard />} />
+          <Route path="/leadership_board" element={<GuildPageResponsive />} />
           <Route path="/users_recipes" element={<AllGuildRecipes/>} />
           <Route path="/users_recipes/:id" element={<SingleGuildRecipe/>} />
           <Route path="/add_recipes" element={<AddRecipe />} />

@@ -1,8 +1,8 @@
-import { useGetUserQuery } from "../../redux/api";
-import CookingConquestInfoPage from "./CookingConquestInfoPage";
-import GuildInfoPage from "./GuildInfoPage";
+import { useGetUserQuery } from "../../../redux/api";
+import MobileCookingConquestInfoPage from "./MobileCookingConquestInfoPage";
+import MobileGuildInfoPage from "./MobileGuildInfoPage";
 
-const UserInformationDisplay = () => {
+const MobileUserInformationDisplay = () => {
     const { data, error, isLoading } = useGetUserQuery();
 
     if (isLoading) {
@@ -20,14 +20,14 @@ const UserInformationDisplay = () => {
             {data && data.level !== 4 || !data
                 ?
                 <div>
-                <CookingConquestInfoPage />
+                 <MobileCookingConquestInfoPage />
                 </div>
                 :
                 <div>
-                    <GuildInfoPage />
+                   <MobileGuildInfoPage />
                 </div>}
 
         </div>
     )
 }
-export default UserInformationDisplay
+export default MobileUserInformationDisplay

@@ -1,10 +1,9 @@
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 import { Link } from "react-router-dom";
 
-import { useGetUserQuery } from "../../redux/api";
+import { useGetUserQuery } from "../../../redux/api";
 
 const AddRecipeNavButton = () => {
     const { data, error, isLoading } = useGetUserQuery()

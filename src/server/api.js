@@ -1,7 +1,7 @@
 const express = require('express');
 const apiRouter = express.Router();
 
-const { requireAdmin, requireUser } = require("./utils")
+const { requireUser } = require("./utils")
 
 const { PrismaClient } = require("@prisma/client");
 const { recipeBookItem, recipeBook, level, userPostedRecipe } = require('./client');
