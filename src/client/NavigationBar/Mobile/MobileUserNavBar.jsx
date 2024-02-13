@@ -2,22 +2,30 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack"
+import Box from "@mui/material/Box"
 import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-
 import { Link } from "react-router-dom";
 
-const MobileNavBar = () => {
+import CookingConquestText from "./../images/CookingConquestText.png"
+import MyAccountButton from '../Buttons/MyAccountButton';
+import MyRecipesButton from '../Buttons/MyRecipesButton';
+import SearchButton from "../Buttons/SearchButton"
+import WorldLoreButton from '../Buttons/WorldLoreButton';
+import InformationButton from '../Buttons/InformationButton';
+import GuildBoardButton from '../Buttons/GuildBoardButton';
+
+const MobileUserNavBar = () => {
     return (
         <div>
-            <Accordion sx={{ backgroundColor: "transparent" }}>
+            <Accordion sx={{ backgroundColor: "#F4F9F4" }}>
                 <AccordionSummary>
                     <MoreVertIcon />
-                    <Stack direction="row">
-                        LOGO
-                    </Stack>
+                    <Box sx={{ ml: 1, flexGrow: 1 }}>
+                        <Link to="/">
+                            <img src={CookingConquestText} alt="Cooking Conquest Fantasy Font" width="80px" />
+                        </Link>
+                    </Box>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Link to="/">
@@ -35,28 +43,15 @@ const MobileNavBar = () => {
                     </Link>
                 </AccordionDetails>
                 <AccordionDetails>
-                    <Link to="/recipes">
-                        <Button
-                            sx={{
-                                mx: 1,
-                                color: "#205375",
-                                fontFamily: "Tahoma",
-                                textTransform: "none"
-                            }}>
-                            <Typography variant="h6">
-                                See Recipes
-                            </Typography>
-                        </Button>
-                    </Link>
+                    <MyAccountButton />
+                    <MyRecipesButton />
+                    <SearchButton />
+                    <GuildBoardButton />
+                    <WorldLoreButton />
+                    <InformationButton />
                 </AccordionDetails>
             </Accordion>
-            <Grid container>
-                <Grid item xs={10}>
-                </Grid>
-                <Grid item xs={2}>
-                </Grid>
-            </Grid>
         </div>
     )
 }
-export default MobileNavBar
+export default MobileUserNavBar

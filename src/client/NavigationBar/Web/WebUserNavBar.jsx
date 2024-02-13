@@ -1,11 +1,10 @@
 import AppBar from '@mui/material/AppBar';
 import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack"
 
 import { Link } from "react-router-dom";
 
-import CookingConquestText from "../images/CookingConquestText.png"
+import CookingConquestText from "./../images/CookingConquestText.png"
 import MyAccountButton from '../Buttons/MyAccountButton';
 import MyRecipesButton from '../Buttons/MyRecipesButton';
 import SearchButton from "../Buttons/SearchButton"
@@ -13,7 +12,7 @@ import WorldLoreButton from '../Buttons/WorldLoreButton';
 import InformationButton from '../Buttons/InformationButton';
 import GuildBoardButton from '../Buttons/GuildBoardButton';
 
-const UserNavBar = () => {
+const WebUserNavBar = () => {
     return (
         <div>
             <Box>
@@ -36,4 +35,4 @@ const UserNavBar = () => {
         </div>
     )
 }
-export default UserNavBar
+export default WebUserNavBar
